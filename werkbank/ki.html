@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KI und Ihre Daten · Carlton-Europe Interlaken</title>
+<meta name="description" content="Ein Entwurf für die neue Website des Carlton-Europe Vintage Adults Hotel, mit Unterlagen und Ideen für Papier. Alles auf einen Blick.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06142b">
+<meta property="og:title" content="Alles auf einen Blick · Carlton-Europe">
+<meta property="og:description" content="Ein Entwurf für die neue Website des Carlton-Europe Vintage Adults Hotel, mit sieben Werkzeugen, Unterlagen und Ideen für Papier.">
+<meta property="og:image" content="https://carlton.tastystudios.ch/werkbank/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="../assets/logo/favicon.ico">
+<link rel="preload" href="../assets/fonts/libre-baskerville-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/img/tapete-navy.webp?v=ba8679c1" as="image">
+<link rel="stylesheet" href="werkbank.css?v=1792440061">
+<style>
+/* ---------- «KI und Ihre Daten» (ki_seite.py, 17.10.2026): Rahmen, Köpfe, Bewegung und Fenster aus der Werkbank; hier nur, was die Seite eigens hat ---------- */
+.ki-auftakt .kopfzeile{margin-bottom:clamp(30px,3.4vw,54px)}
+.ki-paar{display:flex;align-items:center;justify-content:center;gap:18px;margin:0 0 clamp(18px,2vw,28px);color:var(--gold)}
+.ki-paar .ki-ce{width:clamp(54px,5vw,76px);height:auto;fill:url(#cegold)}
+.ki-paar span{font:300 1.6rem/1 var(--serif);color:rgba(251,246,234,.6)}
+.ki-claude{width:clamp(34px,3.2vw,48px);height:auto;color:#d97757}
+.ki-gross{margin:0;border-radius:clamp(20px,2.2vw,30px);overflow:hidden;aspect-ratio:2.1;box-shadow:0 0 0 1px rgba(220,198,143,.3),0 60px 80px -50px rgba(0,0,0,.9)}
+.ki-gross img{display:block;width:100%;height:100%;object-fit:cover;background-size:cover;color:transparent}
+.ki-zahlen{list-style:none;margin:clamp(40px,5vw,80px) 0 0;padding:0;display:grid;gap:clamp(22px,3vw,48px)}
+@media(min-width:760px){.ki-zahlen{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ki-zahlen li{border-top:1px solid rgba(220,198,143,.35);padding-top:18px}
+.ki-zahlen b{display:block;font:400 clamp(3.4rem,6vw,5.6rem)/.95 var(--serif);color:var(--gold)}
+.ki-zahlen li>span{display:block;margin-top:10px;font-family:var(--serif);font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:rgba(251,246,234,.82)}
+.ki-konto{max-width:70ch;margin:clamp(34px,4vw,60px) auto 0;text-align:center;font:italic 400 clamp(1.08rem,1.3vw,1.3rem)/1.6 var(--serif);color:rgba(251,246,234,.86)}
+.ki-stelle{display:grid;gap:clamp(26px,4vw,72px);align-items:center;margin-top:clamp(48px,6vw,100px)}
+@media(min-width:960px){.ki-stelle{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}.ki-stelle--um{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}.ki-stelle--um .ki-bild{order:2}}
+.ki-bild{margin:0;display:flex;justify-content:center}
+.ki-dev{position:relative;width:100%}
+.ki-dev__s{position:absolute;z-index:1;overflow:hidden;background:#0c0e16;border-radius:4px}
+.ki-dev__s video{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.ki-dev__g{position:absolute;inset:0;z-index:2;width:100%;height:100%;display:block;pointer-events:none}
+.ki-tel{width:min(300px,70vw);aspect-ratio:360/778;padding:9px;border-radius:42px;background:linear-gradient(160deg,#2a3346,#0c111c);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),0 50px 70px -40px rgba(6,20,43,.8)}
+.ki-tel__s{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#0b1f40}
+.ki-tel__s video{display:block;width:100%;height:100%;object-fit:cover}
+.ki-karte{position:relative;padding:clamp(28px,3.4vw,52px);border-radius:26px;background:#fbf6ea;color:var(--tinte);box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(150,125,64,.5),0 50px 70px -50px rgba(6,20,43,.55)}
+.ki-karte::before{content:"";position:absolute;inset:12px;border:1px solid rgba(150,125,64,.35);border-radius:18px;pointer-events:none}
+.ki-nr{margin:0 0 6px;font:400 12px/1 var(--serif);letter-spacing:.3em;color:#967d40}
+/* Robert 18.10.2026 13:56: «Bei diesen KI-Bereichen bitte überall noch schatten einbauen bei den fenstern man kann den text nicht lesen»:
+   weicher Textschatten wie im Auftakt und eine sanfte Abdunklung hinter dem Satz, ohne Kante */
+#ki-wfen .wfen__in::before{content:"";position:absolute;left:50%;top:50%;width:min(1100px,110%);height:150%;transform:translate(-50%,-50%);z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(3,10,23,.62) 0%,rgba(3,10,23,.38) 45%,rgba(3,10,23,0) 75%)}
+#ki-wfen .wfen__t{text-shadow:0 .02em .05em rgba(3,10,23,.9),0 .08em .22em rgba(3,10,23,.8),0 .18em .6em rgba(3,10,23,.6)}
+#ki-wfen .wfen__k{text-shadow:0 1px 2px rgba(3,10,23,.95),0 2px 12px rgba(3,10,23,.85)}
+#ki-wfen .wfen__z{filter:drop-shadow(0 2px 10px rgba(3,10,23,.85))}
+.ki-preise{list-style:none;max-width:620px;margin:clamp(26px,3vw,40px) auto 0;padding:0;text-align:left}
+.ki-preise li{padding:12px 0;border-top:1px solid rgba(220,198,143,.22)}.ki-preise li:last-child{border-bottom:1px solid rgba(220,198,143,.22)}
+.ki-p__z{display:flex;align-items:baseline;gap:10px;margin:0}.ki-p__z b{flex:none;font:400 clamp(1.1rem,1.3vw,1.3rem)/1.2 var(--serif);color:#fbf6ea}
+.ki-p__z i{flex:1;border-bottom:1px dotted rgba(220,198,143,.6);transform:translateY(-.3em)}.ki-p__z span{flex:none;font:400 clamp(1.05rem,1.2vw,1.22rem)/1.2 var(--serif);color:var(--gold);white-space:nowrap}
+.ki-p__s{margin:4px 0 0;font-size:.95rem;line-height:1.5;color:rgba(251,246,234,.72)}
+.ki-preise__f{max-width:62ch;margin:14px auto 0;text-align:center;font-size:.88rem;line-height:1.5;color:rgba(251,246,234,.62)}
+.ki-preis{margin:-6px 0 clamp(12px,1.4vw,18px);font:400 clamp(1.05rem,1.2vw,1.2rem)/1.2 var(--serif);color:#7a6530}
+@media(max-width:600px){.ki-p__z{flex-wrap:wrap}.ki-p__z i{display:none}.ki-p__z span{width:100%}}
+.ki-karte h3{margin:0 0 clamp(14px,1.6vw,22px);font:400 clamp(1.8rem,2.6vw,2.6rem)/1.08 var(--serif);color:var(--tinte)}
+.ki-karte dl{margin:0}
+.ki-z{padding:12px 0;border-top:1px solid rgba(150,125,64,.25)}
+.ki-z dt{margin-bottom:4px;font:400 10.5px/1.3 var(--serif);letter-spacing:.24em;text-transform:uppercase;color:#7a6530}
+.ki-z dd{margin:0;font-family:var(--serif);font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.55;color:rgba(12,21,38,.86)}
+.ki-z--ohne{margin-top:8px;padding:14px 18px;border-top:0;border-radius:14px;background:#0b1f40}
+.ki-z--ohne dt{color:var(--gold)}.ki-z--ohne dd{color:rgba(251,246,234,.9)}
+.ki-daten{list-style:none;margin:0;padding:0;display:grid;gap:clamp(18px,2.4vw,34px) clamp(24px,3.4vw,56px)}
+@media(min-width:760px){.ki-daten{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.ki-daten{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ki-daten li{padding-top:16px;border-top:1px solid rgba(220,198,143,.32)}
+.ki-daten b{display:block;margin-bottom:6px;font:400 clamp(1.3rem,1.6vw,1.6rem)/1.15 var(--serif);color:var(--gold)}
+.ki-daten li>span{font-family:var(--serif);font-size:clamp(1rem,1.08vw,1.1rem);line-height:1.55;color:rgba(251,246,234,.82)}
+.ki-hand{display:grid;gap:clamp(30px,4vw,72px);align-items:center}
+@media(min-width:960px){.ki-hand{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.ki-hand__b{margin:0;border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px rgba(150,125,64,.45),0 0 0 8px #fbf6ea,0 0 0 9px rgba(150,125,64,.25),0 50px 70px -44px rgba(6,20,43,.6)}
+.ki-hand__b img{display:block;width:100%;height:auto;background-size:cover;color:transparent}
+.ki-hand__l{list-style:none;margin:clamp(20px,2.4vw,32px) 0 0;padding:0}
+.ki-hand__l li{padding:12px 0;border-top:1px solid rgba(150,125,64,.25);font-family:var(--serif);font-size:clamp(1.04rem,1.14vw,1.18rem);line-height:1.55;color:rgba(12,21,38,.86)}
+.ki-hand__l b{font-weight:400;color:#7a6530}
+.ki-k{margin:0 0 10px;font:400 11px/1.3 var(--serif);letter-spacing:.3em;text-transform:uppercase;color:#7a6530}
+.ki-offen{margin-top:clamp(22px,2.6vw,34px);padding:18px 22px;border-radius:16px;background:rgba(150,125,64,.1);box-shadow:inset 0 0 0 1px rgba(150,125,64,.3)}
+.ki-offen p:last-child{margin:0;font-family:var(--serif);line-height:1.55;color:rgba(12,21,38,.84)}
+.ki-hand .kn-reihe{margin-top:clamp(22px,2.6vw,34px)}
+.ki-quellen{margin-top:clamp(22px,2.6vw,34px);font-size:.92rem;color:rgba(12,21,38,.7)}
+.ki-quellen ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.ki-quellen a{display:inline-flex;gap:6px;color:#7a6530;text-decoration:none;border-bottom:1px solid rgba(150,125,64,.4)}
+.ki-fuss{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding:22px var(--rand,24px);font-size:.86rem;color:rgba(251,246,234,.6);background:#040d1e}
+.ki-fuss p{margin:0}.ki-fuss a{color:rgba(251,246,234,.8)}
+</style>
+<script src="/besuch.js?v=3c4c57a56e" defer></script><script src="/verweil.js?v=5881fd455d" defer></script></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="ce"><path  d="M170.5,0.6c5.6,0,11.1,0,16.7,0c2.1,0,4.2,0.2,6.2,0.9c3.3,1.1,3.9,3.4,1.6,6c-1.8,2-4.1,3.5-6.4,5
+		c-4.1,2.5-8.4,4.7-12.6,7c-1.7,0.9-3.4,1.8-5,2.9c-0.5,0.4-1.1,0.7-1.5,1.2c-0.3,0.2-0.5,0.6-0.3,1c0.2,0.3,0.6,0.5,0.9,0.4
+		c0.6-0.2,1.2-0.3,1.8-0.6c1.8-0.7,3.5-1.4,5.4-1.7c2.8-0.4,5.5-0.1,8.1,1.3c1.7,1,3,2.4,3.1,4.5c0.1,1.6-0.2,3.1-1.3,4.4
+		c-0.5,0.6-1.2,1.1-2,1.3c-0.3,0.1-0.6,0.2-0.5-0.4c0.1-1.2-0.3-1.7-1.6-1.8c-1.3-0.1-2.6,0.1-3.8,0.4c-2.3,0.6-4.7,1.3-7,1.7
+		c-1.6,0.3-3.2,0.4-4.8-0.1c-3.9-1.3-6-5.7-3.5-9.4c1.4-2.2,3.3-3.8,5.4-5.4c2.6-2.1,5.5-3.8,8.2-5.8c1.3-0.9,2.6-1.8,3.5-3.1
+		c0.9-1.2,0.6-2.6-0.6-3.5c-0.5-0.3-1.1-0.5-1.7-0.7c-1-0.3-2.1-0.3-3.1-0.4c-2.2-0.2-4.4-0.1-6.6,0.2c-2.6,0.4-3.8,1.8-3.9,4.5
+		c0,2.8-0.1,5.6,0,8.4c0,1.1-0.3,1.8-1.1,2.6c-1.9,1.8-3.2,3.9-3.3,6.6c-0.1,1.6,0.4,2.9,1.3,4.2c0.7,1,1.5,1.8,2.4,2.5
+		c0.5,0.4,0.7,0.8,0.7,1.4c0,4,0,7.9,0,11.9c0,3,1.2,4.8,4,6c2,0.8,4.1,1.1,6.3,1.2c2.7,0.2,5.3,0.3,8,0.2c1.9-0.1,3.9-0.1,5.7-0.7
+		c2-0.6,3.5-1.6,4.2-3.7c0.2-0.6,0.5-0.5,1-0.3c1.8,0.9,3,2.3,3.8,4.1c0.8,2,1,4.1,0.4,6.3c-0.7,2.7-2.4,4.4-4.9,5.5
+		c-2.6,1.1-5.3,1.4-8,1.3c-3.4-0.1-6.8-0.3-10.3-0.5c-5.5-0.3-11,0.1-16.4,0.3c-2.6,0.1-5.2,0.3-7.8,0.1c-2.1-0.2-4.2-0.8-6-2
+		c-1.9-1.2-2-2.4-0.2-3.9c0.9-0.8,2-1.3,3.1-1.9c1.3-0.8,2.6-1.5,3.8-2.4c1.1-0.9,1.6-1.9,1.6-3.3c0-13.1,0-26.1,0-39.2
+		c0-0.3,0-0.6,0-1c0-2-0.8-3.5-2.5-4.6c-1.2-0.7-2.4-1.5-3.6-2.2c-0.8-0.5-1.5-0.9-2.2-1.5c-1.2-0.9-1.2-2.1,0-3.1
+		c0.7-0.6,1.5-0.9,2.4-1.2c2.7-0.8,5.6-1,8.4-1C160.5,0.5,165.5,0.5,170.5,0.6L170.5,0.6z"/><path  d="M96,28.3c-0.1,6.8,1.7,12.5,5.7,17.3c4,4.8,9.1,7.8,15.2,8.8c4.5,0.7,8.9,0.3,13.2-1.4
+		c3.2-1.3,5.7-3.4,6.8-6.8c0.2-0.7,0.6-0.7,1.1-0.5c1.3,0.5,2.2,1.5,2.7,2.8c2,5.1,1.1,10.5-4.1,14.3c-2.9,2.1-6.2,3.3-9.6,4
+		c-6.2,1.3-12.3,1.5-18.4-0.2c-9.7-2.8-16-9.1-19.4-18.5c-1.9-5.3-2.3-10.8-1.8-16.4c0.4-5.2,1.6-10.2,3.9-14.9
+		c3.1-6.4,7.7-11.4,14.2-14.5c4.7-2.3,9.7-2.7,14.9-2.1c3.4,0.4,6.7,1.3,9.7,3c3.5,2,6.1,4.7,7.1,8.8c0.8,3.4,0.6,6.7-1.3,9.8
+		c-2,3.3-5,4.8-8.6,5.4c-2.4,0.4-4.7,0.3-7-0.4c-4.4-1.4-7.1-5.5-7.1-9.4c0-0.6-0.1-1.1-0.3-1.7c-0.2-0.5-0.4-0.9-0.9-1.1
+		c-0.5-0.3-1.1-0.4-1.6-0.1c-0.5,0.3-0.5,0.8-0.4,1.3c0.1,1.1,0,1.4-1.1,1.7c-1.6,0.4-3.1-0.1-3.8-1.1c-0.9-1.3-0.8-3.5,0.1-4.8
+		c1.1-1.5,2.6-2.2,4.4-2.2c2-0.1,3.7,0.7,5.1,2.1c0.8,0.8,1.5,1.6,2.2,2.4c1.1,1.1,2.5,1.7,4.2,1.5c2.1-0.2,3.8-1.9,4-4
+		c0.2-2.6-1-4.5-3.3-5.7c-2.3-1.2-4.7-1.4-7.2-1.3c-5.9,0.2-10.3,3-13.7,7.7c-2.5,3.6-3.8,7.6-4.5,11.9C96.1,25.6,96,27.2,96,28.3"
+		/></g><linearGradient id="cegold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0dfae"/><stop offset=".3" stop-color="#d6bb78"/><stop offset=".52" stop-color="#a98a45"/><stop offset=".66" stop-color="#8a7030"/><stop offset=".84" stop-color="#c2a560"/><stop offset="1" stop-color="#e2cd95"/></linearGradient></defs></svg>
+<div class="gang-linie" aria-hidden="true"></div>
+<header class="leiste"><div class="insel">
+  <a class="insel__m" href="index.html"><svg viewBox="87 0 112 68" aria-hidden="true" fill="currentColor"><use href="#ce"/></svg><b>CARLTON-EUROPE</b><span>Entwurf</span></a>
+  <nav aria-label="Kapitel"><a href="index.html#k1">Befund</a><a href="index.html#k2">Marke</a><a href="index.html#k3">Website</a><a href="index.html#k4">Karten</a><a href="index.html#k5">Werkzeuge</a><a href="index.html#k6">Draussen</a><a href="index.html#k7">Geprüft</a><a href="index.html#k8">Angebot</a><a href="index.html#uebersicht">Übersicht</a></nav>
+  <a class="glanz" href="../index.html" target="_blank" rel="noopener">Zur Website<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+</div></header>
+
+<main>
+<section class="fl fl--nacht tapete-leicht blatt ki-auftakt" id="oben">
+  <div class="in">
+    <p class="ki-paar" data-a="auf"><svg class="ki-ce" viewBox="87 0 112 68" fill="currentColor" aria-hidden="true"><use href="#ce"/></svg><span>×</span><svg class="ki-claude" viewBox="0 0 24 24" role="img" aria-label="Claude"><path fill="currentColor" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></p>
+    <div class="kopfzeile"><div><p class="kap kap--z" data-a="auf"><svg class="kap__z" viewBox="87 0 112 68" aria-hidden="true"><use href="#ce"/></svg><span>KI und Ihre Daten</span></p><h1 class="t1 zt"><span class="z"><span>Wo die KI hilft.</span></span><span class="z"><span><em>Und wo Ihre Daten bleiben.</em></span></span></h1></div><div class="lauf"><p data-a="worte">Vier Werkzeuge Ihres Hauses arbeiten mit Claude, dem Sprachmodell von Anthropic. Hier steht für jedes, was es tut, was dabei zum Anbieter geht, was Ihr Haus aufbewahrt und was ohne KI weiterläuft.</p></div></div>
+    <figure class="ki-gross" data-a="hoch"><img src="img/ki-auftakt.webp?v=955d11ca" width="1800" height="857" alt="Die Kaminbar des Carlton-Europe am Abend" decoding="async" style="background-image:url(data:image/webp;base64,UklGRiwBAABXRUJQVlA4ICABAAAwBgCdASooABMAPulurFEpJqQiqrgIASAdCWwAuzN0zwADZpffWEZrTs9YX1n37Zw8QC8ka20e99EAAPulh6leOwPMiX8GzzOdz4NbWP/4WXn5K5UEhPvvilROQ13uD5tcrZjvI9HFOzk4SXU6gihejS9tTWRMP8v01HGSxTdao9cWn8rdtL9Ye/QYIqAUPAFrr7uBQ6wCI2vbbFI5Wrex+ERq4rlj0i4H4mDlLnZifiTP8Wll/XL5EUO2fk24ZbfAhrtX9zuZxXzKzSAMKfPtfRyTeDWApLbE2MGoBOtbHy1//18SKOlAAfelCQjvmmQg7i4S05A3DxmfqiZGBfzqk68qpxtv60T0YP5hvJMdRXmIXo/mJ2UNksa7JMSIAAA=)" srcset="img/ki-auftakt-600.webp?v=603971e1 600w, img/ki-auftakt-1400.webp?v=1c999f05 1400w, img/ki-auftakt.webp?v=955d11ca 1800w" sizes="(-webkit-min-device-pixel-ratio:1.5) 75vw, 100vw"></figure>
+    <ul class="ki-zahlen"><li data-a="auf" style="--i:0"><b><span class="odo" data-z="4"></span></b><span>Werkzeuge nutzen KI, alle anderen arbeiten ohne.</span></li><li data-a="auf" style="--i:1"><b><span class="odo" data-z="0"></span></b><span>Ihrer Daten gehen ins Training des Modells.</span></li><li data-a="auf" style="--i:2"><b><span class="odo" data-z="30"></span></b><span>Tage, dann löscht der Anbieter jede Eingabe.</span></li><li data-a="auf" style="--i:3"><b><span class="odo" data-z="12"></span></b><span>Monate bewahrt Ihr Haus Fragen und Anfragen auf, dann sind sie weg.</span></li></ul>
+    <p class="ki-konto" data-a="auf">Die KI läuft über ein eigenes Konto Ihres Hauses beim Anbieter. Abgerechnet wird dort nach Verbrauch, mit einer Obergrenze je Monat, die wir gemeinsam festlegen.</p>
+    <ul class="ki-preise" data-a="auf"><li><p class="ki-p__z"><b>Rezeption im Chat</b><i></i><span>USD 0.19</span></p><p class="ki-p__s">Erste Frage eines Gastes nach einer Pause; jede weitere innert fünf Minuten 1 bis 2 Cent.</p></li><li><p class="ki-p__z"><b>La Réception</b><i></i><span>bis USD 0.27</span></p><p class="ki-p__s">Ein Antwortentwurf nach einer Pause; danach bis USD 0.10. Links einlesen kostet je nach Länge der Seite.</p></li><li><p class="ki-p__z"><b>L’Imprimerie</b><i></i><span>bis USD 0.35</span></p><p class="ki-p__s">Fünf Entwürfe nach einer Pause; danach bis USD 0.17. Die fertigen Vorlagen kosten nichts.</p></li><li><p class="ki-p__z"><b>Le Livre</b><i></i><span>bis USD 0.06</span></p><p class="ki-p__s">Eine Markenprüfung.</p></li></ul>
+    <p class="ki-preise__f" data-a="auf">Preise des Anbieters, Stand Oktober 2026. Was ein Monat kostet, hängt daran, wie oft Gäste und Team die KI nutzen; die Obergrenze hält es im Rahmen.</p>
+  </div>
+</section>
+<section class="fl fl--papier tapete-hell blatt ki-vier">
+  <div class="in">
+    <div class="kopfzeile"><div><p class="kap kap--z" data-a="auf"><svg class="kap__z" viewBox="87 0 112 68" aria-hidden="true"><use href="#ce"/></svg><span>Wo sie arbeitet</span></p><h2 class="t2 zt"><span class="z"><span>Vier Stellen,</span></span><span class="z"><span><em>genau beschrieben.</em></span></span></h2></div><div class="lauf"><p data-a="worte">Fällt die KI aus oder schalten Sie sie ab, arbeiten alle vier Werkzeuge weiter. Es fehlt nur, was die KI schreibt.</p></div></div>
+    <article class="ki-stelle"><figure class="ki-bild ki-bild--handy"><div class="ki-tel" data-a="hoch"><div class="ki-tel__s"><video class="ki-film" muted playsinline loop preload="none" poster="film/ki-chat.webp" data-film="../assets/video/rezeption-ki-m.mp4?v=2" aria-label="Der Chat der Rezeption am Handy"></video></div></div></figure><div class="ki-karte" data-a="auf"><p class="ki-nr">I</p><h3>Rezeption im Chat</h3><p class="ki-preis">USD 0.19</p><dl><div class="ki-z"><dt>Was sie tut</dt><dd>Beantwortet Fragen von Gästen auf der Website und in der Zimmermappe, aus Ihren Seiten und Unterlagen, nimmt Anfragen auf und legt bei Fragen nach Daten die Buchungsmaske ins Gespräch.</dd></div><div class="ki-z"><dt>Was zum Anbieter geht</dt><dd>Fragen und Antworten des Gesprächs. Name und Kontakt nur, wenn ein Gast selbst etwas anfragt.</dd></div><div class="ki-z"><dt>Was gespeichert wird</dt><dd>Fragen und Antworten im privaten Speicher Ihrer Website, E-Mail-Adressen und Telefonnummern darin unkenntlich, nach zwölf Monaten gelöscht. Die IP-Adresse nur kurz im Arbeitsspeicher, gegen zu viele Anfragen.</dd></div><div class="ki-z ki-z--ohne"><dt>Ohne KI</dt><dd>Statt einer Antwort zeigt der Chat die passende Stelle aus der Hotelinformation A–Z. Gebucht wird auf der Website unabhängig davon.</dd></div></dl></div></article><article class="ki-stelle ki-stelle--um"><figure class="ki-bild ki-bild--laptop"><div class="ki-dev" data-a="hoch" style="aspect-ratio:2000/1673"><div class="ki-dev__s" style="left:9.7242%;top:2.0296%;width:80.5516%;height:62.3256%"><video class="ki-film" muted playsinline loop preload="none" poster="film/ki-reception.webp" data-film="film/ki-reception.mp4" aria-label="La Réception am Rechner"></video></div><img class="ki-dev__g" src="img/ins-geraet.webp?v=77d6d2df" width="2000" height="1673" alt="" loading="lazy" decoding="async"></div></figure><div class="ki-karte" data-a="auf"><p class="ki-nr">II</p><h3>La Réception</h3><p class="ki-preis">bis USD 0.27</p><dl><div class="ki-z"><dt>Was sie tut</dt><dd>Schreibt Ihrem Team zu jeder Anfrage aus dem Chat einen Antwortbrief nach den Vorlagen des Hauses und zeigt Briefe in einer anderen Sprache zum Mitlesen auf Deutsch.</dd></div><div class="ki-z"><dt>Was zum Anbieter geht</dt><dd>Die Anfrage mit Name, Kontakt und Anliegen, das Gespräch im Chat und die passende Vorlage des Hauses.</dd></div><div class="ki-z"><dt>Was gespeichert wird</dt><dd>Anfragen und Briefe im privaten Speicher Ihrer Website, nach zwölf Monaten gelöscht. Verschickt wird von hier nichts.</dd></div><div class="ki-z ki-z--ohne"><dt>Ohne KI</dt><dd>Eingang, Anfragen und Status lassen sich weiter bedienen. Die Briefe schreibt Ihr Team dann selbst.</dd></div></dl></div></article><article class="ki-stelle"><figure class="ki-bild ki-bild--laptop"><div class="ki-dev" data-a="hoch" style="aspect-ratio:2000/1673"><div class="ki-dev__s" style="left:9.7242%;top:2.0296%;width:80.5516%;height:62.3256%"><video class="ki-film" muted playsinline loop preload="none" poster="film/ki-imprimerie.webp" data-film="film/ki-imprimerie.mp4" aria-label="L’Imprimerie am Rechner"></video></div><img class="ki-dev__g" src="img/ins-geraet.webp?v=77d6d2df" width="2000" height="1673" alt="" loading="lazy" decoding="async"></div></figure><div class="ki-karte" data-a="auf"><p class="ki-nr">III</p><h3>L’Imprimerie</h3><p class="ki-preis">bis USD 0.35</p><dl><div class="ki-z"><dt>Was sie tut</dt><dd>Macht aus einem Satz Ihres Teams einen Entwurf: Sie wählt Format, Aufbau und Fotos und schreibt die Texte. Gesetzt wird mit den Vorlagen des Hauses, darum bleibt jeder Entwurf in Ihrer Marke.</dd></div><div class="ki-z"><dt>Was zum Anbieter geht</dt><dd>Ihr Satz, dazu Marke, Fotokatalog und der Wortlaut Ihrer Website und Unterlagen. Keine Angaben zu Gästen.</dd></div><div class="ki-z"><dt>Was gespeichert wird</dt><dd>Ihre Arbeiten und eigenen Fotos bleiben im Browser auf Ihrem Gerät.</dd></div><div class="ki-z ki-z--ohne"><dt>Ohne KI</dt><dd>Unter «Vorlagen» geht es jederzeit ohne KI weiter. Nur «aus einem Satz entwerfen» braucht sie.</dd></div></dl></div></article><article class="ki-stelle ki-stelle--um"><figure class="ki-bild ki-bild--laptop"><div class="ki-dev" data-a="hoch" style="aspect-ratio:2000/1673"><div class="ki-dev__s" style="left:9.7242%;top:2.0296%;width:80.5516%;height:62.3256%"><video class="ki-film" muted playsinline loop preload="none" poster="film/ki-livre.webp" data-film="film/ki-livre.mp4" aria-label="Le Livre am Rechner"></video></div><img class="ki-dev__g" src="img/ins-geraet.webp?v=77d6d2df" width="2000" height="1673" alt="" loading="lazy" decoding="async"></div></figure><div class="ki-karte" data-a="auf"><p class="ki-nr">IV</p><h3>Le Livre</h3><p class="ki-preis">bis USD 0.06</p><dl><div class="ki-z"><dt>Was sie tut</dt><dd>Prüft einen Entwurf, etwa eine Anzeige oder ein Plakat der Druckerei, gegen die Marke des Hauses.</dd></div><div class="ki-z"><dt>Was zum Anbieter geht</dt><dd>Die ersten zwei Seiten der Datei als Bild.</dd></div><div class="ki-z"><dt>Was gespeichert wird</dt><dd>Nichts.</dd></div><div class="ki-z ki-z--ohne"><dt>Ohne KI</dt><dd>Markenbuch, Fotos und die Messung der Farben laufen weiter. Nur die schriftliche Beurteilung fehlt.</dd></div></dl></div></article>
+  </div>
+</section>
+<section class="wfen" id="ki-wfen" aria-label="Die KI schreibt. Ihr Team entscheidet.">
+  <div class="wfen__f">
+    <img src="img/ki-fenster.webp?v=17e79668" width="1800" height="750" alt="Die Rezeption des Carlton-Europe" loading="lazy" decoding="async" srcset="img/ki-fenster-600.webp?v=254558d2 600w, img/ki-fenster-1400.webp?v=87377cf3 1400w, img/ki-fenster.webp?v=17e79668 1800w" sizes="(-webkit-min-device-pixel-ratio:1.5) 75vw, 100vw">
+    <div class="wfen__in"><svg class="wfen__z" viewBox="87 0 112 68" aria-hidden="true"><use href="#ce"/></svg><h2 class="wfen__t"><span>Die KI schreibt.</span><span><em>Ihr Team entscheidet.</em></span></h2><p class="wfen__k">Keine Nachricht an einen Gast geht hinaus, ohne dass jemand aus Ihrem Haus sie abschickt.</p></div>
+  </div>
+</section>
+<script>
+/* Fenster wie in der Werkbank (fenster_ausblick.py): der Satz kommt, wenn der Ausschnitt gut im Bild ist */
+(function () { var f = document.getElementById('ki-wfen'); if (!f) return;
+  if (!('IntersectionObserver' in window)) { f.classList.add('da'); return; }
+  f.classList.add('weg');
+  new IntersectionObserver(function (es) { f.classList.toggle('weg', !es[0].isIntersecting); }).observe(f);
+  new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); f.classList.add('da'); } }, { threshold: 0.35 }).observe(f);
+})();
+</script>
+<section class="fl fl--navy tapete blatt">
+  <div class="in">
+    <div class="kopfzeile"><div><p class="kap kap--z" data-a="auf"><svg class="kap__z" viewBox="87 0 112 68" aria-hidden="true"><use href="#ce"/></svg><span>Anthropic · Claude</span></p><h2 class="t2 zt"><span class="z"><span>Was mit Ihren Daten</span></span><span class="z"><span><em>geschieht.</em></span></span></h2></div><div class="lauf"><p data-a="worte">Der Anbieter des Sprachmodells ist Anthropic. Was er zusagt, steht in seinen Geschäftsbedingungen; was Ihr Haus aufbewahrt, bestimmen Sie.</p></div></div>
+    <ul class="ki-daten"><li data-a="auf" style="--i:0"><b>Nicht zum Lernen</b><span>Was über das Konto Ihres Hauses läuft, nutzt Anthropic nicht zum Training seiner Modelle.</span></li><li data-a="auf" style="--i:1"><b>Nach 30 Tagen gelöscht</b><span>Eingaben und Antworten löscht Anthropic innert 30 Tagen. Länger nur bei Verstössen gegen seine Nutzungsregeln oder wenn ein Gesetz es verlangt.</span></li><li data-a="auf" style="--i:2"><b>Mit Vertrag</b><span>Ein Vertrag zur Auftragsbearbeitung mit Standardvertragsklauseln und einem Zusatz für die Schweiz ist Teil der Geschäftsbedingungen und gilt mit dem Konto Ihres Hauses.</span></li><li data-a="auf" style="--i:0"><b>Ihr eigener Speicher</b><span>Was Ihr Haus aufbewahrt, liegt privat im Speicher Ihrer Website in Frankfurt am Main, nur über die Werkzeuge lesbar, und wird nach zwölf Monaten gelöscht.</span></li><li data-a="auf" style="--i:1"><b>Menschen verschicken</b><span>Die KI verschickt nichts und bucht nichts. Jede Antwort an einen Gast schickt Ihr Team selbst.</span></li><li data-a="auf" style="--i:2"><b>Gebucht wird woanders</b><span>Gebucht und bezahlt wird in SimpleBooking wie heute. Karten- und Ausweisdaten gehören nicht in den Chat, das steht dort auch so.</span></li></ul>
+  </div>
+</section>
+<section class="fl fl--papier tapete-hell blatt">
+  <div class="in ki-hand">
+    <figure class="ki-hand__b" data-a="hoch"><img src="img/ki-team.webp?v=cca1397e" width="1080" height="720" alt="Das Team des Carlton-Europe" loading="lazy" decoding="async" style="background-image:url(data:image/webp;base64,UklGRrIBAABXRUJQVlA4IKYBAADwBwCdASooABsAPuVgqk0pJaQiMBqqqSAciWwAnSFc3AI5KJF+VdmqTZ7xGEjLsfECQYS7reG7tBn1rL9VfKdEA7sLm7SVmcAA91utdwSrfgNvl1x2jn4oYVEq3rIoZSqFEIhlnv5A8PF4q0ImQ+587fgT8fuupFuwew3+1/fkDE/KzqY85dWi8zXolxNclDsQhmvj0CnS39/yJj2E4Gz9DDJ9npZmRYL0QnjCj7YA5rIHd0JN07zCPFoIv1hw8TRH7abGeFShUDx0GMoqn4HEhXbUzgi8/IXLBY3zuFsDwG6kFv2F963GTcs+dAflU8Qf5vK9oKpF/TsylZXv56TzCHMj4Yjmry+gOUYiPt9bxcdkP78BU1/d/RjE+uP8fJWDE8PQzHceAMetJlrOsLWNGXY2pJNqyhy99lqRvsvAt17WxO5XMF4uOHZdd22AiEhRdDTu9P8tt79paiI9gU2CYAED1wvQEKG3IDuLbU350lVmsg5o+FKbzE/xY9xe1x9Yj6X6tBcqJY7R5f+aJpN6Grjrx/e45JRTiE8bkyzqk9L3cAAAAA==)"></figure>
+    <div>
+      <h2 class="t2 zt"><span class="z"><span>Sie entscheiden,</span></span><span class="z"><span><em>wie weit sie geht.</em></span></span></h2>
+      <ul class="ki-hand__l"><li data-a="auf" style="--i:0"><b>Das Konto</b> läuft auf Ihr Haus. Beim Anbieter sehen Sie jeden Aufruf.</li><li data-a="auf" style="--i:1"><b>Die Obergrenze</b> gilt je Monat. Ist sie erreicht, laufen die Werkzeuge bis zum nächsten Monat ohne KI weiter.</li><li data-a="auf" style="--i:2"><b>Der Schalter</b> liegt bei Ihnen. Auf Ihren Wunsch schalte ich die KI ab, die Werkzeuge laufen weiter wie beschrieben.</li></ul>
+      <div class="ki-offen" data-a="auf"><p class="ki-k">Was Ihr Haus noch festlegt</p><p>Die Datenschutzerklärung ist als Entwurf vorbereitet. Zwei Punkte entscheidet Ihr Haus: die Rechtsgrundlage für die Übermittlung in die USA und ob das berechtigte Interesse des Hauses als Grundlage passt.</p></div>
+      <div class="kn-reihe" data-a="auf"><a class="kn kn--klein" href="../datenschutz.html#ki-assistent" target="_blank" rel="noopener">Entwurf der Datenschutzerklärung<i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></i></a><a class="kn kn--klein kn--linie" href="index.html#ag-vorschlag">Zurück zur Idee<i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></i></a></div>
+      <div class="ki-quellen" data-a="auf"><p>Angaben des Anbieters, gelesen am 17. Oktober 2026:</p><ul><li><a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener">Anthropic: Training mit Daten<i aria-hidden="true">↗</i></a></li><li><a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" target="_blank" rel="noopener">Anthropic: Aufbewahrung<i aria-hidden="true">↗</i></a></li><li><a href="https://www.anthropic.com/legal/data-processing-addendum" target="_blank" rel="noopener">Anthropic: Vertrag zur Auftragsbearbeitung<i aria-hidden="true">↗</i></a></li></ul></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="ki-fuss"><p>Ein Entwurf von Robert Reff, Tasty Studios, Hamburg, für das Carlton-Europe. Nicht die offizielle Website des Hauses.</p><a href="impressum.html">Impressum und Datenschutz</a></footer>
+<script>
+/* Filme der vier Stellen: laden erst, wenn sie ins Bild kommen, laufen nur sichtbar, sonst Pause (ki_seite.py) */
+(function () { var vs = [].slice.call(document.querySelectorAll('video.ki-film')); if (!vs.length) return;
+  function an(v) { if (!v.getAttribute('src')) { v.src = v.getAttribute('data-film'); } var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  if (!('IntersectionObserver' in window)) { vs.forEach(an); return; }
+  var vor = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting && !x.target.getAttribute('src')) { x.target.preload = 'auto'; x.target.src = x.target.getAttribute('data-film'); } }); }, { rootMargin: '120% 0px' });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) an(x.target); else x.target.pause(); }); }, { threshold: 0.25 });
+  vs.forEach(function (v) { vor.observe(v); io.observe(v); }); })();
+</script>
+<script src="werkbank.js?v=1792352813"></script>
+</body>
+</html>

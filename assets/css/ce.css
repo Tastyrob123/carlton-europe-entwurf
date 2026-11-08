@@ -1,0 +1,533 @@
+/* Carlton-Europe Vintage Adults Hotel · Gestaltungsentwurf Tasty Studios
+   Farben und Schriften des Hauses (Marine, Messing, Sand · Libre Baskerville, Montserrat),
+   Flächen: mattes Papier, erhabene Kacheln, Einkerbungen. Bewegung nur über transform und opacity. */
+@font-face{font-family:"Baskerville CE";src:url(../fonts/libre-baskerville-400.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Baskerville CE";src:url(../fonts/libre-baskerville-400-italic.woff2) format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat CE";src:url(../fonts/montserrat-400-latin.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+/* Ersatzschriften in der Laufweite der Hausschriften, damit beim Laden nichts springt */
+@font-face{font-family:"Baskerville Ersatz";src:local("Georgia");size-adjust:115.4%}
+@font-face{font-family:"Baskerville Ersatz";font-style:italic;src:local("Georgia Italic"),local("Georgia-Italic");size-adjust:102.7%}
+@font-face{font-family:"Montserrat Ersatz";src:local("Arial");size-adjust:111.9%}
+:root{
+  --papier:#efe6d2;--karte:#f6eede;--weiss:#fcf7eb;--sand:#dccfb2;
+  --marine:#0b1f40;--navy:#0b1f40;--nacht:#06142b;--tinte:#1b2231;--grau:#5f5a4e;
+  --messing:#a98a45;--messing-tief:#7d6228;--messing-hell:#dcc68f;
+  --linie:rgba(11,31,64,.17);
+  --kachel:14px 14px 34px rgba(64,48,16,.17),-10px -10px 26px rgba(255,251,240,.9);
+  --weich:6px 6px 16px rgba(64,48,16,.15),-5px -5px 12px rgba(255,251,240,.92);
+  --kerbe:inset 3px 3px 7px rgba(64,48,16,.18),inset -3px -3px 7px rgba(255,251,240,.95);
+  --serif:"Baskerville CE","Baskerville Ersatz",Georgia,serif;--sans:"Montserrat CE","Montserrat Ersatz",Arial,sans-serif;
+  --aus:cubic-bezier(.2,.7,.1,1);--rand:clamp(20px,4.4vw,56px);--fuss:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--nacht);color:var(--tinte);font-family:var(--sans);font-size:1.0625rem;line-height:1.68;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--marine);margin:0;letter-spacing:-.012em}
+h1{font-size:clamp(2.5rem,5.7vw,5.1rem);line-height:1.04}
+h2{font-size:clamp(2rem,3.9vw,3.5rem);line-height:1.09}
+h3{font-size:clamp(1.3rem,1.9vw,1.7rem);line-height:1.22}
+h1 i,h2 i,h3 i{font-style:italic;color:var(--messing-tief)}
+p{margin:0 0 1em}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--rand)}
+.seite{position:relative;z-index:2;background:var(--papier);margin-bottom:var(--fuss);border-radius:0 0 34px 34px;overflow:clip}
+.klein{font-size:.74rem;font-weight:600;color:var(--messing-tief)}
+.sub{font-size:clamp(1.05rem,1.35vw,1.22rem);color:var(--grau);max-width:40em}
+.nur-leser{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--messing);outline-offset:3px;border-radius:6px}
+
+/* ── Auftakt ── */
+.auftakt{position:fixed;inset:0;z-index:90;background:var(--papier);display:grid;place-items:center;transition:transform .9s var(--aus) .15s}
+.auftakt svg{width:min(34vw,150px);color:var(--marine);opacity:0;transform:translateY(14px);animation:hoch .7s var(--aus) .1s forwards}
+.auftakt span{position:absolute;bottom:14vh;left:0;right:0;text-align:center;opacity:0;animation:hoch .7s var(--aus) .35s forwards}
+.geladen .auftakt{transform:translateY(-101%)}
+.still .auftakt{display:none}
+@keyframes hoch{to{opacity:1;transform:none}}
+
+/* ── Insel (Kopfleiste) ── */
+.insel{position:fixed;z-index:60;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px));display:flex;align-items:center;gap:8px;padding:8px 8px 8px 20px;background:var(--weiss);border-radius:999px;box-shadow:0 12px 34px rgba(6,20,43,.22),0 0 0 1px rgba(169,138,69,.28)}
+.insel .marke{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--marine);margin-right:auto}
+.insel .marke svg{height:30px;width:auto;display:block}
+.insel .marke b{font-family:var(--serif);font-weight:700;font-size:.98rem;letter-spacing:.06em;color:var(--tinte)}
+.insel nav{display:flex;gap:2px}
+.insel nav a{padding:10px 16px;border-radius:999px;font-size:.88rem;font-weight:500;text-decoration:none;color:var(--tinte);transition:background .25s,color .25s}
+.insel nav a:hover,.insel nav a[aria-current]{background:var(--papier);box-shadow:var(--kerbe);color:var(--marine)}
+.insel .tel{font-size:.86rem;font-weight:500;text-decoration:none;padding:10px 14px;white-space:nowrap}
+.insel .menue{display:none;width:44px;height:44px;border:0;border-radius:50%;background:var(--papier);box-shadow:var(--kerbe);position:relative}
+.insel .menue i{position:absolute;left:13px;right:13px;height:2px;background:var(--navy);border-radius:2px;transition:transform .3s var(--aus)}
+.insel .menue i:first-child{top:17px}.insel .menue i:last-child{top:25px}
+.offen .insel .menue i:first-child{transform:translateY(4px) rotate(45deg)}.offen .insel .menue i:last-child{transform:translateY(-4px) rotate(-45deg)}
+.tafel{position:fixed;inset:0;z-index:55;background:var(--papier);padding:108px var(--rand) 34px;display:flex;flex-direction:column;gap:6px;transform:translateY(-102%);transition:transform .55s var(--aus);overflow:auto}
+.offen .tafel{transform:none}
+.tafel a{font-family:var(--serif);font-size:1.9rem;color:var(--marine);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--linie)}
+.tafel a small{display:block;font-family:var(--sans);font-size:.8rem;color:var(--grau);letter-spacing:.02em;margin-top:2px}
+.tafel .unten{margin-top:auto;padding-top:22px;font-size:.95rem;color:var(--grau)}
+.tafel .unten a{font-family:var(--sans);font-size:1rem;border:0;padding:0;display:inline}
+
+/* ── Knöpfe, Etiketten, Kacheln ── */
+.knopf{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;border:0;background:var(--navy);color:var(--messing-hell);font-weight:600;font-size:.9rem;letter-spacing:.03em;text-decoration:none;white-space:nowrap;box-shadow:0 10px 22px rgba(6,20,43,.26),inset 0 0 0 1px rgba(220,198,143,.42);transition:transform .35s var(--aus),background .25s}
+.knopf:hover{background:#12305f}
+.knopf svg{width:15px;height:15px;transition:transform .35s var(--aus)}
+.knopf:hover svg{transform:translateX(4px)}
+.knopf.hell{background:var(--karte);color:var(--marine);box-shadow:var(--weich)}
+.knopf.hell:hover{background:var(--weiss)}
+.knopf.klar{background:transparent;color:var(--marine);box-shadow:none;padding-left:0;padding-right:0;border-radius:0;border-bottom:1px solid var(--messing)}
+.insel .knopf{padding:12px 22px}
+.etikett{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;background:var(--papier);box-shadow:var(--kerbe);font-size:.72rem;font-weight:600;color:var(--messing-tief)}
+.etikett b{font-family:var(--serif);font-size:.95rem;letter-spacing:0;color:var(--marine);font-weight:700}
+.kachel{background:var(--karte);border-radius:30px;box-shadow:var(--kachel);padding:10px}
+.kachel>.bild{border-radius:21px;overflow:hidden;position:relative;background:var(--sand)}
+.kachel>.bild img{width:100%;height:100%;object-fit:cover}
+.kachel .innen{padding:22px 20px 20px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}
+.chips li,.chip{padding:8px 15px;border-radius:999px;background:var(--papier);box-shadow:var(--kerbe);font-size:.84rem;font-weight:500;color:var(--tinte)}
+
+/* ── Bewegung ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--aus),transform .9s var(--aus)}
+.rv.da{opacity:1;transform:none}
+.rv-2{transition-delay:.1s}.rv-3{transition-delay:.2s}.rv-4{transition-delay:.3s}
+.vorhang{position:relative;overflow:hidden}
+.vorhang::after{content:"";position:absolute;inset:-1px;background:var(--karte);transform-origin:50% 0;transition:transform 1.1s var(--aus)}
+.vorhang.da::after{transform:scaleY(0)}
+.vorhang.papier::after{background:var(--papier)}
+.tapete .vorhang.papier::after{background:#f2e9d7}
+.vorhang img{transform:scale(1.07);transition:transform 1.6s var(--aus)}
+.vorhang.da img{transform:none}
+.bst{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.bst>span{display:inline-block;transform:translateY(105%);transition:transform .85s var(--aus);transition-delay:calc(var(--i)*38ms + .15s)}
+.geladen .bst>span,.still .bst>span{transform:none}
+.still .rv{opacity:1;transform:none;transition:none}.still .vorhang::after{display:none}.still .vorhang img{transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.vorhang::after{display:none}.vorhang img{transform:none}.bst>span{transform:none}.auftakt{display:none}}
+.zeiger{position:fixed;z-index:95;left:0;top:0;width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid var(--messing);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .3s,width .3s,height .3s,margin .3s}
+.zeiger.an{opacity:.85}.zeiger.gross{width:64px;height:64px;margin:-32px 0 0 -32px}
+@media (hover:none),(pointer:coarse){.zeiger{display:none}}
+
+/* ── Kopfbereich Start ── */
+.held{padding:118px 0 0;position:relative}
+.held .raster{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,72px);align-items:center}
+.held h1{margin:18px 0 20px;font-size:clamp(2.5rem,5.1vw,4.5rem)}
+.held .knoepfe{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center;margin-top:30px}
+.zeichnung{position:relative;max-width:520px;margin:0 clamp(70px,8vw,120px) 0 auto;width:100%}
+.zeichnung img{width:100%}
+.zeichnung .band{position:absolute;left:4%;right:0;display:flex;align-items:center;justify-content:flex-end;text-decoration:none;border-radius:14px}
+.zeichnung .band span{transform:translateX(46%);padding:8px 14px 8px 12px;border-radius:999px;background:var(--weiss);box-shadow:var(--weich);font-size:.74rem;font-weight:600;color:var(--marine);display:flex;gap:9px;align-items:center;white-space:nowrap;transition:transform .4s var(--aus),background .25s,color .25s}
+.zeichnung .band span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--messing)}
+.zeichnung .band::before{content:"";position:absolute;inset:0;border-radius:14px;background:rgba(144,129,78,.14);opacity:0;transition:opacity .3s}
+.zeichnung .band:hover::before,.zeichnung .band:focus-visible::before{opacity:1}
+.zeichnung .band:hover span{transform:translateX(40%);background:var(--navy);color:var(--messing-hell)}
+.zeichnung figcaption{margin-top:8px;font-size:.78rem;color:var(--grau);text-align:center;max-width:26em;margin-inline:auto}
+.anfrage{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:10px;align-items:stretch;padding:10px;position:relative;z-index:3}
+.anfrage label{display:flex;flex-direction:column;gap:2px;padding:12px 20px;border-radius:21px;background:var(--papier);box-shadow:var(--kerbe)}
+.anfrage label span{font-size:.7rem;font-weight:600;color:var(--messing-tief)}
+.anfrage input,.anfrage select{border:0;background:transparent;font:500 1.02rem var(--sans);color:var(--marine);padding:2px 0;width:100%;min-width:0;appearance:none;-webkit-appearance:none}
+.anfrage .knopf{border-radius:21px;justify-content:center}
+.anfrage+.hinweis{margin:14px 6px 0;font-size:.84rem;color:var(--grau)}
+
+/* ── Laufband ── */
+.laufband{margin-top:64px;border-block:1px solid var(--linie);overflow:hidden;padding:17px 0}
+.laufband div{display:flex;width:max-content;animation:lauf 46s linear infinite;animation-play-state:paused}
+.laufband.lebt div{animation-play-state:running}
+.laufband span{font-family:var(--serif);font-style:italic;font-size:1.22rem;color:var(--marine);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.laufband span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--messing)}
+@keyframes lauf{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.laufband div{animation:none}}
+
+/* ── Abschnitte ── */
+.ab{padding:clamp(84px,11vw,150px) 0;position:relative}
+.kopf{max-width:54rem;margin-bottom:clamp(36px,5vw,64px)}
+.kopf h2{margin:18px 0 18px}
+.kopf.mitte{margin-inline:auto;text-align:center}.kopf.mitte .sub{margin-inline:auto}
+.zwei{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,3.4vw,52px);align-items:center}
+.zwei.oben{align-items:start}
+.schalter{display:inline-flex;padding:5px;border-radius:999px;background:var(--papier);box-shadow:var(--kerbe);gap:2px}
+.schalter button{border:0;background:transparent;padding:9px 20px;border-radius:999px;font-size:.84rem;font-weight:600;color:var(--grau);transition:color .25s,background .25s}
+.schalter button[aria-pressed=true]{background:var(--weiss);color:var(--marine);box-shadow:var(--weich)}
+.wechsel{position:relative}
+.wechsel img{transition:opacity .7s ease}
+.wechsel img+img{position:absolute;inset:0;opacity:0}
+.wechsel[data-stand="1"] img:first-child{opacity:0}.wechsel[data-stand="1"] img+img{opacity:1}
+.zahlen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:clamp(40px,5vw,70px)}
+.zahl{padding:26px 24px;border-radius:26px;background:var(--papier);box-shadow:var(--kerbe)}
+.zahl b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,3.6vw,3.3rem);line-height:1;color:var(--marine);font-variant-numeric:tabular-nums}
+.zahl span{display:block;margin-top:10px;font-size:.88rem;color:var(--grau);line-height:1.45}
+.tapete{background-color:#f2e9d7;background-image:url(../img/tapete.webp?v=c929f6ca);background-size:1100px auto;background-position:50% 0}
+
+/* ── Lift ── */
+.lift{position:fixed;z-index:40;right:18px;top:50%;transform:translateY(-50%);padding:12px 9px;border-radius:999px;background:#fcf7eb;box-shadow:0 10px 28px rgba(6,20,43,.2),0 0 0 1px rgba(169,138,69,.28);opacity:0;pointer-events:none;transition:opacity .4s}
+.im-lift .lift{opacity:1;pointer-events:auto}
+.lift ol{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:6px}
+.lift a{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font-family:var(--serif);font-weight:700;font-size:.9rem;color:var(--grau);text-decoration:none;position:relative;z-index:1;transition:color .3s}
+.lift a[aria-current]{color:var(--messing-hell)}
+.lift .kabine{position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--navy);transition:transform .6s var(--aus)}
+.lift small{display:block;text-align:center;font-size:.56rem;font-weight:700;color:var(--messing-tief);margin-bottom:8px}
+@media (max-width:1180px){.lift{display:none}}
+.etage{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:center;margin-bottom:26px}
+.etage .nr{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:var(--papier);box-shadow:var(--kerbe);font-family:var(--serif);font-size:1.7rem;color:var(--marine)}
+.etage .wo{font-size:.74rem;font-weight:600;color:var(--messing-tief)}
+
+/* Keller */
+.paar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,34px)}
+.paar .kachel .bild{aspect-ratio:4/3}
+.paar h3{margin-bottom:10px}
+.paar p{color:var(--grau);font-size:1rem}
+.fakten{display:grid;gap:0;margin:16px 0 0;padding:0;list-style:none}
+.fakten li{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-top:1px solid var(--linie);font-size:.93rem}
+.fakten li span{color:var(--grau)}.fakten li b{font-weight:600;color:var(--marine);text-align:right}
+
+/* Parterre */
+.tische{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:start;margin-top:clamp(50px,6vw,90px)}
+.tische ul{list-style:none;margin:0;padding:0}
+.tische li{border-top:1px solid var(--linie)}
+.tische li:last-child{border-bottom:1px solid var(--linie)}
+.tische li button{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:8px 20px;align-items:baseline;width:100%;padding:24px 4px}
+.tische li em{font-family:var(--serif);font-style:italic;color:var(--messing-tief);font-size:1rem}
+.tische li strong{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,2.3vw,2rem);color:var(--marine);transition:transform .45s var(--aus);display:block}
+.tische li.an strong{transform:translateX(10px)}
+.tische li small{font-size:.82rem;color:var(--grau);white-space:nowrap}
+.tische li p{grid-column:2/4;margin:0;color:var(--grau);font-size:.97rem;max-width:34em}
+.tische li p a{color:var(--marine)}
+.tische .stapel{position:sticky;top:110px}
+.tische .stapel .bild{aspect-ratio:4/5}
+.tische .stapel img{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.tische .stapel img.an{opacity:1}
+
+/* Etagen */
+.finder{padding:26px;margin-bottom:34px}
+.finder .fragen{display:grid;gap:16px}
+.finder .wahl{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.finder .frage{min-width:11.5em;font-family:var(--serif);font-style:italic;color:var(--marine);font-size:1.05rem}
+.pille{border:0;padding:10px 18px;border-radius:999px;background:var(--weiss);box-shadow:var(--weich);font-size:.86rem;font-weight:500;color:var(--tinte);transition:background .25s,color .25s,box-shadow .25s}
+.pille[aria-pressed=true]{background:var(--navy);color:var(--messing-hell);box-shadow:none}
+.finder .stand{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--linie);font-size:.94rem;color:var(--grau)}
+.finder .stand b{color:var(--marine);font-weight:600}
+.finder .stand button{border:0;background:none;font-size:.84rem;font-weight:600;color:var(--messing-tief);text-decoration:underline;text-underline-offset:4px}
+.zimmer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.2vw,30px)}
+.zimmer .kachel{display:flex;flex-direction:column;transition:opacity .45s,transform .6s var(--aus)}
+.zimmer .kachel.aus{opacity:.26;transform:scale(.975)}
+.zimmer .bild{aspect-ratio:3/2}
+.zimmer .innen{display:flex;flex-direction:column;gap:10px;flex:1}
+.zimmer .innen p{font-size:.95rem;color:var(--grau);margin:0}
+.zimmer .zeile{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.zimmer .zeile small{font-size:.8rem;color:var(--messing-tief);font-weight:600;white-space:nowrap}
+.zimmer .mit{margin-top:auto;padding-top:12px;display:flex;flex-wrap:wrap;gap:7px}
+.zimmer .mit span{font-size:.76rem;font-weight:500;padding:6px 11px;border-radius:999px;background:var(--papier);box-shadow:var(--kerbe)}
+
+/* Dunkle Flächen: Navy mit Creme und Messing. Die Bausteine lesen ihre Farben aus den Variablen. */
+.nacht{background:var(--navy);color:#e9dfca;color-scheme:dark;
+  --papier:#0b1f40;--karte:#102952;--weiss:#173463;--sand:#1b3a6b;--marine:#f7efdd;--tinte:#eee5d1;--grau:#b9bcc4;
+  --messing:#dcc68f;--messing-tief:#dcc68f;--linie:rgba(220,198,143,.24);
+  --kachel:16px 16px 36px rgba(0,0,0,.4),-8px -8px 22px rgba(255,255,255,.035);
+  --weich:6px 6px 16px rgba(0,0,0,.36),-4px -4px 10px rgba(255,255,255,.045);
+  --kerbe:inset 3px 3px 8px rgba(0,0,0,.46),inset -2px -2px 6px rgba(255,255,255,.065)}
+.nacht.tief{background:var(--nacht);--papier:#06142b;--karte:#0b2147;--weiss:#12305c}
+.nacht.tapete{background-color:#0b1f40;background-image:url(../img/tapete-navy.webp?v=ba8679c1)}
+.nacht .knopf{background:var(--messing-hell);color:var(--nacht);box-shadow:0 10px 24px rgba(0,0,0,.32)}
+.nacht .knopf:hover{background:#ead8a8}
+.nacht .knopf.klar{background:transparent;color:#f7efdd;box-shadow:none}
+.nacht .knopf.hell{background:var(--karte);color:#f7efdd;box-shadow:var(--weich)}
+.nacht .pille{color:#eee5d1}.nacht .pille[aria-pressed=true]{background:var(--messing-hell);color:var(--nacht)}
+.nacht .schalter button[aria-pressed=true]{background:var(--messing-hell);color:var(--nacht);box-shadow:none}
+.nacht .vorhang::after{background:var(--karte)}.nacht .vorhang.papier::after{background:var(--papier)}
+.nacht .zeichnung .band:hover span{background:var(--messing-hell);color:var(--nacht)}
+.nacht .zeichnung .band::before{background:rgba(220,198,143,.12)}
+.nacht .schild{background:var(--messing-hell)}
+.nacht a{color:inherit}
+.sterne{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 27% 62%,#cdbf8c 50%,transparent 51%),radial-gradient(1.4px 1.4px at 43% 11%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 58% 34%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 71% 8%,#cdbf8c 50%,transparent 51%),radial-gradient(1px 1px at 84% 27%,#fff 50%,transparent 51%),radial-gradient(1.3px 1.3px at 93% 58%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 6% 81%,#fff 50%,transparent 51%),radial-gradient(1.1px 1.1px at 36% 88%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 66% 77%,#cdbf8c 50%,transparent 51%),radial-gradient(1.2px 1.2px at 78% 91%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 50% 52%,#fff 50%,transparent 51%);opacity:.75}
+.dach .rahmen{border-radius:30px;padding:10px;background:var(--karte);box-shadow:0 30px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(220,198,143,.2)}
+.dach .rahmen .bild{border-radius:21px;overflow:hidden;aspect-ratio:2/1;position:relative}
+.dach .zwei{margin-top:clamp(34px,4vw,60px)}
+.dach .rahmen img{width:100%;height:100%;object-fit:cover}
+.dach .unter{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 10px 6px;flex-wrap:wrap}
+.dach .unter span{font-size:.84rem;color:var(--grau)}
+
+/* ── Strecke (quer) ── */
+.strecke{position:relative}
+.strecke .halt{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:96px 0 34px}
+.strecke .bahn{display:flex;gap:clamp(18px,2.2vw,30px);padding:26px var(--rand) 40px;will-change:transform}
+.strecke .kopf{margin-bottom:8px}
+.karte{flex:0 0 min(78vw,430px);display:flex;flex-direction:column}
+.karte .bild{aspect-ratio:5/4}
+.karte .innen{display:flex;flex-direction:column;gap:10px;flex:1}
+.karte .innen p{font-size:.94rem;color:var(--grau);margin:0}
+.karte .preis{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--linie)}
+.karte .preis b{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--marine)}
+.karte.schrift .bild{display:grid;place-items:center;background:var(--navy);color:var(--messing-hell);text-align:center;padding:24px}
+.karte.schrift .bild b{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,3.4rem);line-height:1.05;display:block}
+.karte.schrift .bild small{display:block;margin-top:12px;font-size:.74rem;font-weight:600;}
+.fortschritt{margin:0 var(--rand);height:2px;background:var(--linie);border-radius:2px;overflow:hidden}
+.fortschritt i{display:block;height:100%;background:var(--messing);transform-origin:0 50%;transform:scaleX(0)}
+@media (max-width:900px),(prefers-reduced-motion:reduce){
+  .strecke{height:auto!important}.strecke .halt{position:static;height:auto;padding:84px 0 60px}
+  .strecke .bahn{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;scrollbar-width:none}.strecke .bahn::-webkit-scrollbar{display:none}
+  .karte{scroll-snap-align:center}.fortschritt{display:none}
+}
+
+/* ── Unterwegs, Türen, Stimmen ── */
+.vier{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,26px)}
+.vier .kachel .bild{aspect-ratio:4/5}
+.vier h3{font-size:1.3rem;margin-bottom:8px}
+.vier p{font-size:.92rem;color:var(--grau);margin:0}
+.zitat{margin:clamp(40px,5vw,70px) auto 0;max-width:46rem;text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.45;color:var(--marine)}
+.zitat cite{display:block;margin-top:14px;font-family:var(--sans);font-style:normal;font-size:.78rem;font-weight:600;color:var(--messing-tief)}
+.tueren{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,34px)}
+.tuer{text-decoration:none;display:block;transition:transform .6s var(--aus)}
+.tuer:hover{transform:translateY(-6px)}
+.tuer .bild{aspect-ratio:16/10}
+.tuer .innen{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.tuer .innen p{margin:8px 0 0;color:var(--grau);font-size:.97rem;max-width:26em}
+.tuer .pfeil{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--messing-hell);transition:transform .45s var(--aus)}
+.tuer:hover .pfeil{transform:translateX(6px)}
+.tuer .pfeil svg{width:18px;height:18px}
+.stimmen{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:center}
+.note{padding:34px;text-align:center}
+.note b{font-family:var(--serif);font-weight:400;font-size:clamp(4rem,8vw,6.4rem);line-height:1;color:var(--marine);display:block}
+.note span{display:block;margin-top:8px;color:var(--grau);font-size:.95rem}
+.note small{display:block;margin-top:16px;font-size:.76rem;color:var(--grau)}
+.marken{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;justify-content:center}
+.insta{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.insta a{display:block;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--sand);box-shadow:var(--weich);transition:transform .5s var(--aus)}
+.insta a:hover{transform:translateY(-4px)}
+.insta img{width:100%;height:100%;object-fit:cover}
+
+/* ── Anreise ── */
+.anreise{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,64px);align-items:start}
+.wege{display:grid;gap:14px}
+.weg{padding:22px 24px;border-radius:24px;background:var(--papier);box-shadow:var(--kerbe)}
+.weg h3{font-size:1.18rem;margin-bottom:6px}
+.weg p{margin:0;font-size:.95rem;color:var(--grau)}
+
+/* ── Fuss (liegt unter der Seite und wird freigelegt) ── */
+.fuss{position:fixed;left:0;right:0;bottom:0;z-index:1;background:var(--nacht);color:#c3c2c0;padding:clamp(60px,8vw,110px) 0 28px}
+.fuss .oben{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2.4fr));gap:clamp(22px,3vw,48px)}
+.fuss svg.logo{width:min(250px,60vw);height:auto;color:#f7efdd}
+.fuss svg.logo .mono{color:var(--messing-hell)}
+.fuss h3{font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--messing-hell);margin-bottom:14px}
+.fuss a{color:#e9e4d6;text-decoration:none}.fuss a:hover{color:var(--messing-hell)}
+.fuss ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.95rem}
+.fuss p{font-size:.95rem;margin:16px 0 0;max-width:26em}
+.fuss .satz{margin-top:clamp(40px,6vw,80px);font-family:var(--serif);font-style:italic;font-size:clamp(2rem,5.4vw,4.6rem);line-height:1.06;color:#f7efdd}
+.fuss .satz i{color:var(--messing-hell)}
+.fuss .unten{margin-top:34px;padding-top:20px;border-top:1px solid rgba(220,198,143,.2);display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;font-size:.8rem;color:#98a2b0}
+.fuss.fliesst{position:relative}
+
+/* ── Unterseiten ── */
+.titel{padding:170px 0 clamp(46px,6vw,80px)}
+.titel h1{font-size:clamp(2.4rem,5.2vw,4.6rem);margin:20px 0 22px;max-width:15em}
+.titel .zwei{align-items:end}
+.breit .bild{aspect-ratio:21/9}
+.tabelle{width:100%;border-collapse:collapse;font-size:.95rem}
+.tabelle th,.tabelle td{padding:14px 12px;text-align:left;border-top:1px solid var(--linie);vertical-align:top}
+.tabelle thead th{border:0;font-size:.72rem;font-weight:600;color:var(--messing-tief);padding-bottom:10px}
+.tabelle tbody th{font-family:var(--serif);font-weight:400;font-size:1.08rem;color:var(--marine)}
+.tabelle td.ja{color:var(--marine);font-weight:600}.tabelle td.nein{color:#9aa3ae}
+.rollt{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.rollt .tabelle{min-width:720px}
+.aufstieg{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(22px,3.4vw,52px);align-items:center}
+.aufstieg .bild{aspect-ratio:3/2}
+.aufstieg .bild img{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.aufstieg .bild img.an{opacity:1}
+.aufstieg .stufe{font-family:var(--serif);font-size:clamp(3.4rem,6vw,5rem);line-height:1;color:var(--marine)}
+.aufstieg .stufe small{font-size:.32em;color:var(--messing-tief);font-style:italic;margin-left:.35em}
+.aufstieg h3{margin:10px 0 10px}
+.aufstieg p{color:var(--grau);min-height:5.2em}
+.regler{-webkit-appearance:none;appearance:none;width:100%;height:34px;background:transparent;margin:16px 0 4px}
+.regler::-webkit-slider-runnable-track{height:12px;border-radius:999px;background:var(--papier);box-shadow:var(--kerbe)}
+.regler::-moz-range-track{height:12px;border-radius:999px;background:var(--papier);box-shadow:var(--kerbe)}
+.regler::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;margin-top:-11px;border-radius:50%;background:var(--navy);border:4px solid var(--messing-hell);box-shadow:0 6px 14px rgba(11,31,64,.3)}
+.regler::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--navy);border:4px solid var(--messing-hell)}
+.marken-zeile{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;letter-spacing:.08em;color:var(--grau)}
+.galerie{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,1.8vw,24px)}
+.galerie figure{margin:0}
+.galerie figure:nth-child(1){grid-column:span 7}.galerie figure:nth-child(2){grid-column:span 5}
+.galerie figure:nth-child(3){grid-column:span 4}.galerie figure:nth-child(4){grid-column:span 4}.galerie figure:nth-child(5){grid-column:span 4}
+.galerie .bild{aspect-ratio:3/2}
+.galerie figure{display:flex;flex-direction:column}
+.galerie figure:nth-child(2) .bild{aspect-ratio:auto;flex:1;min-height:0}
+.galerie figcaption{padding:12px 10px 6px;font-size:.84rem;color:var(--grau);display:flex;justify-content:space-between;gap:10px}
+.galerie figcaption b{color:var(--marine);font-weight:600}
+.uebergabe{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(14px,2.4vw,34px);align-items:center}
+.maske{padding:24px}
+.maske .feld{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--linie);font-size:.93rem}
+.maske .feld span{color:var(--grau)}.maske .feld b{color:var(--marine);font-weight:600}
+.maske.ziel{background:var(--navy);color:#e9dfca;box-shadow:0 20px 40px rgba(6,20,43,.3),inset 0 0 0 1px rgba(220,198,143,.3)}
+.maske.ziel .klein{color:var(--messing-hell)}.maske.ziel .feld{border-color:rgba(220,198,143,.22)}.maske.ziel .feld span{color:#c3c2c0}.maske.ziel .feld b{color:#f7efdd}
+.uebergabe .pfeil{display:grid;justify-items:center;gap:8px;font-size:.72rem;font-weight:600;color:var(--messing-tief)}
+.uebergabe .pfeil svg{width:44px;height:44px;color:var(--messing)}
+.saison{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(22px,3.4vw,52px);align-items:center}
+.monate{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:16px}
+.monate .pille{padding:10px 0;text-align:center}
+.preise{padding:26px}
+.preise .feld{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--linie)}
+.preise .feld:first-of-type{border:0}
+.preise .feld span{color:var(--grau);font-size:.95rem}
+.preise .feld b{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:var(--marine);font-variant-numeric:tabular-nums}
+.saele{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(22px,3.4vw,52px);align-items:start}
+.saele .links{position:sticky;top:110px}
+.saele .gross{font-family:var(--serif);font-size:clamp(4rem,8vw,6.6rem);line-height:1;color:var(--marine);font-variant-numeric:tabular-nums}
+.saele .gross small{font-size:.22em;font-family:var(--sans);font-weight:600;color:var(--messing-tief);margin-left:.6em}
+.saal{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:center;padding:10px;margin-bottom:14px;transition:opacity .4s,transform .5s var(--aus)}
+.saal.aus{opacity:.3;transform:scale(.985)}
+.saal .bild{aspect-ratio:4/3;border-radius:21px}
+.saal h3{font-size:1.25rem}
+.saal p{margin:4px 0 0;font-size:.88rem;color:var(--grau)}
+.saal .mass{text-align:right;padding-right:14px;font-size:.84rem;color:var(--grau);white-space:nowrap}
+.saal .mass b{display:block;font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--marine)}
+.drei{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,26px)}
+.paket{padding:30px 26px;display:flex;flex-direction:column;gap:10px}
+.paket .ab-preis{font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--marine)}
+.paket .ab-preis small{font-family:var(--sans);font-size:.74rem;font-weight:600;color:var(--messing-tief);display:block;margin-bottom:8px}
+.paket ul{list-style:none;margin:8px 0 0;padding:0;font-size:.92rem;color:var(--grau)}
+.paket li{padding:8px 0;border-top:1px solid var(--linie)}
+.paket.vor{background:var(--navy);color:#e9dfca;box-shadow:0 22px 44px rgba(6,20,43,.32),inset 0 0 0 1px rgba(220,198,143,.3)}
+.paket.vor h3,.paket.vor .ab-preis{color:#f7efdd}.paket.vor .ab-preis small{color:var(--messing-hell)}.paket.vor ul{color:#c3c2c0}.paket.vor li{border-color:rgba(220,198,143,.22)}
+.formular{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:22px}
+.formular label{display:flex;flex-direction:column;gap:3px;padding:12px 18px;border-radius:20px;background:var(--papier);box-shadow:var(--kerbe)}
+.formular label.ganz{grid-column:1/-1}
+.formular label span{font-size:.7rem;font-weight:600;color:var(--messing-tief)}
+.formular input,.formular select,.formular textarea{border:0;background:transparent;font:500 1rem var(--sans);color:var(--marine);padding:3px 0;width:100%;resize:vertical;appearance:none;-webkit-appearance:none}
+.formular .knopf{grid-column:1/-1;justify-content:center}
+.zeit .jahr{flex:0 0 min(80vw,350px)}
+.zeit .jahr .innen{padding:26px 22px}
+.zeit .jahr b{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,5vw,4.2rem);line-height:1;color:var(--marine);display:block}
+.zeit .jahr h3{font-size:1.2rem;margin:12px 0 8px}
+.zeit .jahr p{font-size:.93rem;color:var(--grau);margin:0}
+.zeit .jahr .bild{aspect-ratio:16/10}
+.zeit .jahr.blau{background:var(--navy);box-shadow:0 22px 44px rgba(6,20,43,.32),inset 0 0 0 1px rgba(220,198,143,.3)}
+.zeit .jahr.blau b,.zeit .jahr.blau h3{color:#f7efdd}.zeit .jahr.blau p{color:#c3c2c0}
+.plaene{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,34px)}
+.plaene figure{margin:0;padding:clamp(18px,2.4vw,34px)}
+.plaene figcaption{margin-top:14px;font-size:.84rem;color:var(--grau);text-align:center}
+.leute{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(22px,3.4vw,52px);align-items:center}
+.leute .bild{aspect-ratio:5/4}
+.leute ul{list-style:none;margin:0;padding:0}
+.leute li{padding:20px 0;border-top:1px solid var(--linie);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:baseline}
+.leute li b{font-family:var(--serif);font-weight:400;font-size:1.2rem;color:var(--marine);display:block}
+.leute li small{font-size:.74rem;font-weight:600;color:var(--messing-tief)}
+.leute li q{font-family:var(--serif);font-style:italic;color:var(--grau);font-size:1rem;quotes:"«" "»"}
+.liste{columns:2;column-gap:40px;list-style:none;margin:0;padding:0;font-size:.95rem}
+.liste li{padding:10px 0;border-top:1px solid var(--linie);break-inside:avoid;display:flex;justify-content:space-between;gap:14px}
+.liste li span{color:var(--grau)}
+.schluss{text-align:center}
+.schluss .knoepfe{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
+
+/* ── Konzept-Blatt ── */
+.blatt{max-width:880px;margin:0 auto}
+.blatt h2{font-size:clamp(1.7rem,2.8vw,2.4rem);margin:clamp(50px,6vw,84px) 0 18px}
+.blatt h3{margin:30px 0 10px}
+.blatt p,.blatt li{color:var(--tinte)}
+.blatt ul,.blatt ol{padding-left:1.2em}.blatt li{margin-bottom:8px}
+.blatt a{color:var(--marine)}
+.blatt .tabelle{margin:14px 0 6px}
+.blatt .kasten{padding:24px 26px;border-radius:24px;background:var(--papier);box-shadow:var(--kerbe);margin:18px 0}
+.blatt .vergleich{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0}
+.blatt .vergleich figure{margin:0}.blatt .vergleich figcaption{font-size:.82rem;color:var(--grau);padding:10px 8px 4px}
+
+/* ── Schmal ── */
+@media (max-width:1020px){
+  .insel nav,.insel .tel{display:none}.insel .menue{display:block}
+  .held .raster{grid-template-columns:1fr;min-height:0}
+  .zeichnung{margin:0 auto;max-width:460px;order:-1}
+  .zeichnung .band span{transform:none;font-size:.66rem;padding:6px 10px}
+  .zeichnung .band:hover span{transform:none}
+  .zahlen{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .zimmer,.drei{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .vier{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tische,.anreise,.stimmen,.aufstieg,.saison,.saele,.leute{grid-template-columns:1fr}
+  .tische .stapel,.saele .links{position:static}
+  .tische .stapel .bild{aspect-ratio:3/2}
+  .fuss .oben{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .insta{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  body{font-size:1rem}
+  .held{padding-top:104px}
+  .anfrage{grid-template-columns:repeat(2,minmax(0,1fr))}.anfrage label:nth-of-type(3),.anfrage .knopf{grid-column:1/-1}
+  .zwei,.paar,.tueren,.plaene,.zimmer,.drei,.uebergabe,.blatt .vergleich{grid-template-columns:1fr}
+  .uebergabe .pfeil svg{transform:rotate(90deg)}
+  .vier{gap:12px}.vier .innen{padding:14px 10px 12px}.vier h3{font-size:1.1rem}
+  .etage .nr{width:58px;height:58px;font-size:1.3rem}
+  .finder{padding:18px}.finder .frage{min-width:100%}
+  .tische li button{grid-template-columns:auto 1fr;padding:20px 2px}.tische li small{grid-column:2}.tische li p{grid-column:1/-1}
+  .galerie figure{grid-column:1/-1!important}.galerie figure:nth-child(2) .bild{aspect-ratio:3/2;height:auto}
+  .saal{grid-template-columns:96px 1fr}.saal .mass{grid-column:1/-1;text-align:left;padding:0 6px 6px;display:flex;gap:14px;align-items:baseline}.saal .mass b{display:inline}
+  .formular{grid-template-columns:1fr}.liste{columns:1}
+  .leute li{grid-template-columns:1fr;gap:6px}
+  .fuss .oben{grid-template-columns:1fr}
+  .insta{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .monate{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .titel{padding-top:128px}
+  .seite{border-radius:0 0 24px 24px}
+}
+
+.saal .bild.leer{display:grid;place-items:center;background:var(--navy);color:var(--messing-hell)}.saal .bild.leer svg{width:46%}
+.zeit .jahr .bild+.innen{padding-top:20px}
+
+.zahl b span{display:inline;font-size:inherit;color:inherit;margin:0;line-height:inherit}
+.zeit .halt{justify-content:flex-start;padding-top:112px!important}
+.zeit .jahr .innen{display:flex;flex-direction:column}
+.zeit .jahr:not(:has(.bild)) .innen{justify-content:flex-end;flex:1}
+@media (max-width:720px){
+  .insel{padding-left:16px}.insel .marke b{font-size:.84rem;white-space:nowrap}.insel .marke svg{height:26px}
+  .vier{grid-template-columns:1fr}
+  .vier .kachel{display:grid;grid-template-columns:118px 1fr;align-items:center}
+  .vier .kachel .bild{aspect-ratio:1}
+  .vier .kachel .innen{padding:10px 12px 10px 16px}
+}
+@media (max-width:380px){.insel .marke b{display:none}}
+.strecke .bahn::after{content:"";flex:0 0 calc(var(--rand) - 20px)}
+
+/* ── Kleintext: keine gesperrten Versalien, keine Punkte. Beschriftungen stehen in der Titelschrift, kursiv. ── */
+.klein,.etage .wo,.zitat cite,.karte.schrift .bild small,.saele .gross small,.uebergabe .pfeil,.lift small,.fuss h3,.paket .ab-preis small{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+.klein{font-size:1rem;color:var(--messing-tief)}
+.etage{grid-template-columns:auto auto 1fr;gap:6px 18px}
+.etage .wo{font-size:1.25rem;color:var(--messing-tief)}
+.etage::after{content:"";height:1px;background:var(--linie);align-self:center}
+
+.zitat cite{font-size:.98rem;color:var(--grau)}
+.karte.schrift .bild small{font-size:1.05rem}
+.saele .gross small{font-size:.24em;color:var(--messing-tief)}
+.uebergabe .pfeil{font-size:.98rem}
+.lift small{font-size:.74rem;margin-bottom:6px}
+.fuss h3{font-size:1.05rem;color:var(--messing-hell)}
+.paket .ab-preis small{font-size:.95rem;margin-bottom:6px}
+.anfrage label span,.formular label span{font-size:.78rem;font-weight:600;color:var(--messing-tief)}
+.tabelle thead th{font-size:.8rem;font-weight:600;color:var(--messing-tief)}
+.marken-zeile{font-size:.8rem;font-weight:500}
+.leute li small{font-size:.86rem;font-weight:400;color:var(--grau);display:block;margin-top:2px}
+.zeichnung .band span{font-family:var(--serif);font-style:italic;font-size:1rem;font-weight:400;padding:7px 16px;gap:0}
+.zeichnung .band span::before{display:none}
+.laufband span::after{width:34px;height:1px;border-radius:0;background:var(--messing)}
+.maske h3,.preise h3{font-size:1.15rem;margin-bottom:8px}
+.maske.ziel h3{color:#f7efdd}
+.preise h3.zeit{font-style:italic;color:var(--messing-tief);font-size:1.05rem;min-height:2.6em}
+.note b{margin-top:0}
+/* Schild: das Zeichen der Marke (auf der bisherigen Seite ein messingfarbenes Feld mit gekappten Ecken) */
+.schild{display:inline-block;padding:9px 20px 8px;background:var(--messing);color:var(--nacht);font-family:var(--serif);font-weight:700;font-size:.98rem;letter-spacing:.01em;clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px)}
+@media (max-width:1020px){.zeichnung .band span{font-size:.9rem;padding:5px 12px}}
+
+.blatt a.knopf{color:var(--messing-hell)}.blatt a.knopf.hell{color:var(--marine)}
+
+/* ── Edler: Messinglinie im Bild, feine Linien, ruhigere Grössen ── */
+.kachel>.bild::before,.dach .rahmen .bild::before{content:"";position:absolute;inset:9px;border:1px solid rgba(236,220,178,.62);border-radius:13px;pointer-events:none;z-index:3}
+.saal .bild::before,.insta a::before{display:none}
+.vorhang::after{z-index:4}
+h1{letter-spacing:-.018em}h2{letter-spacing:-.015em}
+.sub{font-weight:300;color:var(--tinte)}
+.nacht .sub{color:#d9d2c2}
+.held{padding-bottom:0}
+.held .laufband{margin-top:54px;border-bottom:0}
+.held .anfrage{box-shadow:var(--kachel),inset 0 0 0 1px rgba(220,198,143,.22)}
+.titel.nacht{padding-bottom:clamp(54px,7vw,96px)}
+.titel.nacht+.ab{padding-top:clamp(60px,7vw,100px)}
+.zahl b,.note b,.aufstieg .stufe,.saele .gross,.paket .ab-preis,.preise .feld b{color:var(--marine)}
+.kopf h2::after{content:"";display:block;width:54px;height:1px;background:var(--messing);margin-top:22px}
+.kopf.mitte h2::after{margin-inline:auto}
+.zwei>.kopf h2::after{margin-bottom:4px}
+.auftakt{background:var(--navy)}.auftakt svg{color:var(--messing-hell)}.auftakt .klein{color:#e9dfca}
+.fuss .oben{padding-bottom:6px}
+.blatt .kasten{background:var(--karte)}
+
+@media (min-width:1021px){.held h1{white-space:nowrap}.held .sub{min-height:5.1em}}

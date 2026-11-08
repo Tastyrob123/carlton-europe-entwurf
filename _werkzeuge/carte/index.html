@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de-CH">
+<head><!--demo-weiche--><script src="/_demo/karte.js"></script><script src="/_demo/shim.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Carte · Carlton-Europe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06142b">
+<link rel="icon" href="/assets/logo/favicon.ico">
+<link rel="preload" href="/assets/fonts/libre-baskerville-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/InstrumentSans-normal-400_600.woff2" as="font" type="font/woff2" crossorigin>
+<script src="/_werkzeuge/carte/fehlermelder.js?v=1"></script>
+<script src="/_werkzeuge/carte/auftakt.js?v=1"></script>
+<link rel="stylesheet" href="/_werkzeuge/carte/carte.css?v=9">
+<link rel="stylesheet" href="/_werkzeuge/carte/schweben.css?v=1">
+</head>
+<body class="lc">
+<header class="oben" id="oben"></header>
+<aside class="rand" id="rand"></aside>
+<main class="haupt">
+  <header class="kopf" id="kopf"></header>
+  <div class="arbeit" id="arbeit">
+    <section class="liste" id="liste" aria-label="Einträge der Karte"></section>
+    <section class="vorschau" aria-label="Vorschau der Karte">
+      <div class="vorschau__k"><div class="ansicht" role="group" aria-label="Vorschau"><button type="button" data-ansicht="karte" aria-pressed="true">Karte</button><button type="button" data-ansicht="website" aria-pressed="false">Website</button></div><span class="mono" id="v-zahl">Vorschau</span><span class="vorschau__w" id="v-warn" hidden></span><div class="vorschau__z"><button type="button" class="rund rund--d" data-zoom="-1" aria-label="Kleiner"><svg viewBox="0 0 14 14"><path d="M3 7h8"/></svg></button><button type="button" class="rund rund--d" data-zoom="1" aria-label="Grösser"><svg viewBox="0 0 14 14"><path d="M7 3v8M3 7h8"/></svg></button></div></div>
+      <iframe class="vorschau__f" id="vf" title="Die Karte, wie sie in der PDF steht" src="/_werkzeuge/carte/blatt.html"></iframe>
+      <div class="web" id="web" hidden><iframe id="web-f" title="Die Seite der Website, auf der die Karte hängt"></iframe></div>
+    </section>
+  </div>
+</main>
+<footer class="leiste" id="leiste" aria-live="polite"></footer>
+<div class="fenster" id="fenster" hidden></div>
+<div class="meldung" id="meldung" aria-live="polite"></div>
+<script src="/_werkzeuge/carte/satz/satz.js?v=3"></script>
+<script src="/assets/js/listenbilder.js?v=1"></script>
+<script src="/_werkzeuge/carte/carte.js?v=13-qp"></script>
+<script src="/_werkzeuge/carte/schweben.js?v=1" data-wurzel=".haupt" data-blaetter=".vorschau__k" data-kacheln="#kopf .kopf__kn > *"></script>
+<script src="/_werkzeuge/carte/rundgang.js?v=2" defer></script>
+<script src="/_werkzeuge/carte/zur-werkbank.js?v=6" defer data-zw data-neben="#rand" data-luft="40" data-ueber="#leiste"></script>
+<script src="/assets/js/auftritt.js?v=406" defer></script>
+<script src="/werkzeuge/demo-aus.js" defer></script></body>
+</html>

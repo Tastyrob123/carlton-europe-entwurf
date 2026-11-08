@@ -1,0 +1,171 @@
+/* Seite «Rezeption im Chat» (rezeption.py). Baut auf main.css auf: Farben, Schrift, Knöpfe (.kn), Flächen (.fl), Tapete. */
+body.rz{background:var(--nacht)}
+.rz em{font-style:normal;color:var(--gold)}
+.fl--papier.rz-buchen em,.fl--papier em,.fl--creme em,.rz-tel em{color:var(--taupe)}
+
+/* Leiste: schmale Insel oben */
+.rz-leiste{position:fixed;z-index:60;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:22px;padding:7px 7px 7px 20px;border-radius:999px;
+  background:rgba(11,31,64,.94);box-shadow:0 0 0 1px rgba(220,198,143,.25),0 14px 30px -16px rgba(0,0,0,.7)}
+.rz-leiste__marke{display:flex;align-items:center;gap:10px;color:var(--gold)}
+.rz-leiste__marke svg{width:34px;height:auto}
+.rz-leiste__marke b{font-family:var(--serif);font-weight:400;font-size:17px;letter-spacing:.06em;color:#fff;text-transform:uppercase}
+
+/* Auftakt */
+.rz-auftakt{min-height:100svh;display:flex;align-items:center;padding:140px var(--rand) 90px;text-align:center}
+.rz-auftakt .in{display:flex;flex-direction:column;align-items:center}
+.rz-auftakt__ce{width:86px;height:auto;color:var(--gold);margin-bottom:26px}
+.rz-auftakt .lauf{margin:30px auto 0;max-width:62ch;color:var(--creme)}
+.rz-auftakt .lauf p+p{margin-top:12px}
+.rz-kn{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+
+/* Telefon (Bewegung aus dem Showcase, Farben des Carlton) */
+.rz-tel{background:radial-gradient(120% 80% at 36% 50%,#fbf6ea 50%,var(--papier) 100%);color:var(--tinte)}
+/* Tapete des Hauses, nur hinter dem Handy, sehr leise. Steht still. */
+.rz-tel{position:relative;isolation:isolate}
+.rz-tel::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:url(../img/tapete.webp) 50% 0/1100px auto;opacity:.35}
+.s-telefon3d{height:100vh;height:100svh;position:relative;overflow:hidden}
+.s-telefon3d .tel-pin{position:absolute;inset:0;overflow:hidden}
+.s-telefon3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#telefon3d-text{position:absolute;top:50%;right:7vw;transform:translateY(-50%);z-index:3;width:clamp(360px,38vw,600px);display:flex;flex-direction:column;gap:22px;
+  opacity:0;transition:opacity .9s var(--e1),transform .9s var(--e1)}
+#telefon3d-text.da{opacity:1}
+#telefon3d-text h2{margin:0}
+.tel-vor{font-size:clamp(1.05rem,1.2vw,1.2rem);line-height:1.6;margin:0;color:var(--tinte)}
+.tel-liste{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.tel-liste li{position:relative;padding-left:28px;font-size:clamp(.98rem,1.08vw,1.08rem);line-height:1.6;color:#3d3a33}
+.tel-liste li::before{content:"";position:absolute;left:3px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 1px var(--taupe)}
+#telefon3d-laden{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.nur-mobil{display:none}
+/* Ausweg ohne 3D am Rechner (14.10.2026, rezeption.js setzt .flach): der flache Rahmen mit dem Film links, der Text rechts, keine Ladezeile */
+.s-telefon3d.flach canvas,.s-telefon3d.flach #telefon3d-laden{display:none}
+.s-telefon3d.flach .m-telefon{display:block;position:absolute;left:30%;top:50%;margin:0;width:min(270px,22vw,calc((100svh - 150px)*.4627));transform:translate(-50%,-50%)}
+.s-telefon3d.flach .m-tel-rahmen{padding:10px;border-radius:44px;background:linear-gradient(160deg,#2b2d33,#0d0e11 45%,#1b1c20);box-shadow:0 0 0 1.5px #3a3c42,0 40px 70px -36px rgba(0,0,0,.7)}
+.s-telefon3d.flach .m-tel-film{display:block;width:100%;height:auto;border-radius:34px;background:#0b1a36}
+@media (max-width:900px) and (orientation:portrait),(max-width:700px){
+  .s-telefon3d{height:auto;overflow:visible;padding:70px var(--rand) 60px}
+  .s-telefon3d .tel-pin{position:static;display:flex;flex-direction:column;gap:34px;overflow:visible}
+  .s-telefon3d canvas,#telefon3d-laden{display:none}
+  .nur-mobil{display:block}
+  #telefon3d-text{position:static;transform:none;width:auto;opacity:1;order:2}
+  .m-telefon{order:1;margin:0 auto;width:min(300px,76vw)}
+  .m-tel-rahmen{padding:10px;border-radius:44px;background:linear-gradient(160deg,#2b2d33,#0d0e11 45%,#1b1c20);box-shadow:0 0 0 1.5px #3a3c42,0 40px 70px -36px rgba(0,0,0,.7)}
+  .m-tel-film{display:block;width:100%;height:auto;border-radius:34px;background:#0b1a36}
+}
+
+/* Was Gäste wissen wollen: Gespräche als Paare aus Frage und Antwort */
+.rz-fragen .lauf{color:var(--creme);margin-top:20px}
+.rz-gespraeche{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:44px}
+.rz-g{position:relative;padding:26px 26px 22px;border-radius:var(--r-l);background:#0b1f40;box-shadow:inset 0 0 0 1px rgba(220,198,143,.22),0 24px 40px -30px rgba(0,0,0,.8)}
+.rz-g__f{justify-self:end;margin:0 0 16px auto;max-width:82%;width:fit-content;padding:11px 16px;border-radius:18px 18px 6px 18px;background:#1c3a6b;color:#fff;font-size:15.5px;line-height:1.45}
+.rz-g__a{margin:0;max-width:92%;padding:14px 17px;border-radius:18px 18px 18px 6px;background:#13284d;color:#ece4d2;font-size:15.5px;line-height:1.6;box-shadow:inset 0 0 0 1px rgba(220,198,143,.14)}
+.rz-g__s{display:block;margin-top:14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--taupe)}
+
+/* Zwei Spalten mit Text und Notiz */
+.rz-zwei{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end}
+.rz-zwei .lauf{margin-top:20px}
+.rz-notiz{margin:0;font-size:14px;line-height:1.6;color:var(--taupe);max-width:44ch;justify-self:end}
+.rz-schirm{margin:40px 0 0;padding:8px;border-radius:var(--r-xl);background:#fff;box-shadow:inset 0 0 0 1px rgba(138,117,69,.3),0 40px 80px -46px rgba(6,20,43,.6)}
+.rz-schirm img{display:block;width:100%;height:auto;border-radius:calc(var(--r-xl) - 8px)}
+
+/* Zimmermappe */
+.rz-mappe__in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.rz-mappe__b{margin:0}.rz-mappe__b img{width:100%;height:auto;display:block}
+.rz-mappe .lauf{color:var(--creme);margin-top:20px}
+.rz-mappe .rz-kn{justify-content:flex-start}
+
+/* Tal und Wetter */
+.rz-tal__in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.8fr);gap:clamp(30px,6vw,100px);align-items:center}
+.rz-tal .lauf{margin-top:20px}.rz-tal .lauf p+p{margin-top:12px}
+.rz-tal__b{margin:0;justify-self:center;width:min(420px,70vw)}.rz-tal__b img{width:100%;height:auto;display:block}
+
+/* Für das Haus: Bildschirm und Brief */
+.rz-haus__b{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start;margin-top:10px}
+.rz-brief{margin:40px 0 0;padding:28px 28px 24px;border-radius:var(--r-l);background:#fbf6ea;color:var(--tinte);box-shadow:inset 0 0 0 1px rgba(138,117,69,.3),0 30px 60px -40px rgba(6,20,43,.5);font-size:14.5px;line-height:1.6}
+.rz-brief p{margin:0 0 8px}
+.rz-brief__k{display:block;margin-bottom:14px;font-family:var(--serif);font-size:17px;color:var(--taupe)}
+
+/* Vier Häuser */
+.rz-vier .lauf{color:var(--creme);margin-top:20px}
+.rz-haeuser{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.rz-h{display:flex;flex-direction:column;border-radius:var(--r-l);overflow:hidden;background:#0b1f40;box-shadow:inset 0 0 0 1px rgba(220,198,143,.25);transition:transform .6s var(--e2)}
+.rz-h:hover{transform:translateY(-3px)}
+.rz-h__b{display:block;aspect-ratio:4/3;overflow:hidden}.rz-h__b img{width:100%;height:100%;object-fit:cover;display:block}
+.rz-h__t{display:flex;flex-direction:column;gap:3px;padding:16px 18px 18px}
+.rz-h__t b{font-family:var(--serif);font-weight:400;font-size:19px;color:#fff}
+.rz-h__t i{font-style:normal;font-size:13.5px;color:var(--creme)}
+.rz-h__t u{display:flex;align-items:center;gap:6px;margin-top:10px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.rz-h__t u svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.4}
+
+/* Grosse Zahlen */
+.rz-zahlen{padding-top:clamp(56px,7vw,100px);padding-bottom:clamp(56px,7vw,100px);border-top:1px solid rgba(220,198,143,.3);border-bottom:1px solid rgba(220,198,143,.3)}
+.rz-zahlen__in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;text-align:center}
+.rz-zahlen b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(3.6rem,8vw,7.5rem);line-height:1;color:var(--gold)}
+.rz-zahlen span{display:block;margin-top:10px;font-size:14px;color:var(--creme)}
+
+/* Grenzen */
+.rz-grenzen .rz-zwei{align-items:start}
+.rz-liste{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.rz-liste li{padding:16px 0;border-top:1px solid rgba(138,117,69,.35);font-size:clamp(1rem,1.1vw,1.1rem);line-height:1.6}
+.rz-liste li:last-child{border-bottom:1px solid rgba(138,117,69,.35)}
+.rz-liste a{text-decoration:underline;text-underline-offset:3px}
+
+/* Schluss */
+.rz-schluss{text-align:center;padding-top:clamp(90px,11vw,170px);padding-bottom:60px}
+.rz-schluss .in{display:flex;flex-direction:column;align-items:center}
+.rz-studie{margin-top:70px;font-size:12px;color:var(--creme);opacity:.6}
+
+/* Einblenden von unten (nur transform und opacity) */
+.js [data-r]{opacity:0;transform:translateY(30px);transition:opacity 1.1s var(--e1),transform 1.3s var(--e1)}
+.js [data-r="schweb"]{transform:translateY(70px) scale(.97)}
+.js [data-r].da{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}}
+
+@media (max-width:900px){
+  .rz-zwei,.rz-mappe__in,.rz-tal__in,.rz-haus__b{grid-template-columns:1fr}
+  .rz-notiz{justify-self:start}
+  .rz-haeuser{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rz-zahlen__in{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
+  .rz-gespraeche{grid-template-columns:1fr}
+  .rz-brief{margin-top:0}
+}
+@media (max-width:520px){
+  .rz-haeuser{grid-template-columns:1fr}
+  .rz-leiste{gap:12px;padding-left:14px}.rz-leiste__marke b{font-size:14px}
+  .rz-g{padding:20px 16px 18px}.rz-g__f,.rz-g__a{max-width:100%}
+}
+@media (max-width:520px){
+  .rz-leiste{left:12px;right:12px;transform:none;justify-content:space-between}
+  .rz-leiste__marke b{display:none}
+  .rz-leiste .kn{height:42px}
+}
+
+html,body.rz{overflow-x:clip}
+/* Handy-Reihe «Was Gäste wissen wollen» wie beim Grand Beau-Rivage (Robert 18.10.2026 20:38): vier Handys aus Blender, versetzt hoch und tief,
+   beim Scrollen gegenläufig, beim Überfahren eins grösser und die anderen dunkler. Nur transform und opacity, Schatten als eigenes Bild. */
+.rz-fragen{isolation:isolate;overflow-x:clip}
+.rz-fragen>.in{position:relative;z-index:1}
+.rz-fragen::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:#030b1c;opacity:0;transition:opacity 1s cubic-bezier(.19,1,.22,1)}
+.rz-fragen.hg-an::after{opacity:.42}
+.hg{display:flex;justify-content:center;align-items:flex-start;margin-top:clamp(36px,5vw,72px)}
+.hg__h{position:relative;flex:0 0 auto;width:clamp(210px,21.5vw,380px);margin:0 0 0 clamp(14px,2vw,34px);z-index:1}
+.hg__h:first-child{margin-left:0}
+.hg__h:nth-child(even){margin-top:clamp(40px,6vw,96px)}
+.hg__box{position:relative;transition:transform 1.1s cubic-bezier(.19,1,.22,1)}
+.hg__schatten{position:absolute;left:-46.862%;top:-22.916%;width:193.724%;height:145.831%;max-width:none;pointer-events:none}
+.hg__geraet{position:relative;display:block;width:100%;height:auto}
+.hg__dunkel{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .9s cubic-bezier(.19,1,.22,1)}
+.hg__h.an{z-index:2}
+.hg__h.an .hg__box{transform:scale(1.055)}
+.hg.hg-an .hg__h:not(.an) .hg__dunkel{opacity:.62}
+@media (max-width:980px){
+  .hg{flex-wrap:wrap;gap:40px 6%}
+  .hg__h,.hg__h:first-child{width:min(44%,300px);margin:0}
+  .hg__h:nth-child(even){margin-top:56px}
+}
+@media (max-width:560px){
+  .hg{display:block}
+  .hg__h,.hg__h:first-child{width:66%;margin:0 0 30px}
+  .hg__h:nth-child(even){margin:0 0 30px auto}
+  .hg__h:last-child{margin-bottom:0}
+}
+@media (prefers-reduced-motion:reduce){.hg__box,.hg__dunkel,.rz-fragen::after{transition:none}}

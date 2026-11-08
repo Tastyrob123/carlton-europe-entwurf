@@ -1,0 +1,158 @@
+{
+ "haus": "Carlton-Europe Interlaken",
+ "stand": "17.10.2026",
+ "quelle": "assets/css/main.css :root",
+ "farben": [
+  {
+   "k": "nacht",
+   "name": "Nacht",
+   "hex": "#06142B",
+   "rgb": [
+    6,
+    20,
+    43
+   ],
+   "rolle": "Grund der Seite, dunkle Abschnitte",
+   "gruppe": "nacht"
+  },
+  {
+   "k": "navy",
+   "name": "Marine",
+   "hex": "#0B1F40",
+   "rgb": [
+    11,
+    31,
+    64
+   ],
+   "rolle": "zweite dunkle Fläche, die Leiste oben",
+   "gruppe": "nacht"
+  },
+  {
+   "k": "blau",
+   "name": "Blau",
+   "hex": "#12305E",
+   "rgb": [
+    18,
+    48,
+    94
+   ],
+   "rolle": "das Gewählte in Auswahl und Kalender",
+   "gruppe": "nacht"
+  },
+  {
+   "k": "weiss",
+   "name": "Weiss",
+   "hex": "#FBF6EA",
+   "rgb": [
+    251,
+    246,
+    234
+   ],
+   "rolle": "Karten, Felder, Auswahlfenster",
+   "gruppe": "papier"
+  },
+  {
+   "k": "papier",
+   "name": "Papier",
+   "hex": "#F4ECDC",
+   "rgb": [
+    244,
+    236,
+    220
+   ],
+   "rolle": "helle Abschnitte",
+   "gruppe": "papier"
+  },
+  {
+   "k": "creme",
+   "name": "Creme",
+   "hex": "#E8DBBF",
+   "rgb": [
+    232,
+    219,
+    191
+   ],
+   "rolle": "zweite helle Fläche, Tapete hell",
+   "gruppe": "papier"
+  },
+  {
+   "k": "gold",
+   "name": "Gold",
+   "hex": "#DCC68F",
+   "rgb": [
+    220,
+    198,
+    143
+   ],
+   "rolle": "Zeichen, Linien und Betonung auf Dunkel",
+   "gruppe": "messing"
+  },
+  {
+   "k": "taupe",
+   "name": "Taupe",
+   "hex": "#8A7545",
+   "rgb": [
+    138,
+    117,
+    69
+   ],
+   "rolle": "zweite Titelzeile und Linien auf Hell",
+   "gruppe": "messing"
+  },
+  {
+   "k": "tinte",
+   "name": "Tinte",
+   "hex": "#0C1526",
+   "rgb": [
+    12,
+    21,
+    38
+   ],
+   "rolle": "Schrift auf hellen Flächen",
+   "gruppe": "tinte"
+  }
+ ],
+ "glanz": [
+  {
+   "k": "relief",
+   "name": "Gold mit Relief",
+   "verlauf": "linear-gradient(180deg,#f8eac0 0%,#e2c684 26%,#bf9a54 47%,#94723a 60%,#d4b575 80%,#f0deaa 100%)",
+   "stopps": [
+    "#F8EAC0",
+    "#E2C684",
+    "#BF9A54",
+    "#94723A",
+    "#D4B575",
+    "#F0DEAA"
+   ],
+   "wo": "das CE im Auftakt und in der Leiste, als Bild gerechnet"
+  },
+  {
+   "k": "ortszeile",
+   "name": "Glanzgold Schrift",
+   "verlauf": "linear-gradient(180deg,#fbf0cf 0%,#ead39c 30%,#c9a764 48%,#9c7b43 58%,#dcc189 76%,#f3e3b6 100%)",
+   "stopps": [
+    "#FBF0CF",
+    "#EAD39C",
+    "#C9A764",
+    "#9C7B43",
+    "#DCC189",
+    "#F3E3B6"
+   ],
+   "wo": "Ortszeile «Vintage Adults Hotel · Interlaken · seit 1898»"
+  },
+  {
+   "k": "knopf",
+   "name": "Glanzgold Knopf",
+   "verlauf": "linear-gradient(180deg,#f8eac6 0%,#ead09a 20%,#d6b679 52%,#c2a062 80%,#aa874f 100%)",
+   "stopps": [
+    "#F8EAC6",
+    "#EAD09A",
+    "#D6B679",
+    "#C2A062",
+    "#AA874F"
+   ],
+   "wo": "Knopf «Verfügbarkeit prüfen» in der Buchungsleiste"
+  }
+ ]
+}

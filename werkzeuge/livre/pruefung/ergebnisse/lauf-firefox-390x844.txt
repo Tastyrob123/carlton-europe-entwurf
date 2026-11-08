@@ -1,0 +1,76 @@
+Nr | Carlton   | Zeile (firefox, 390 × 844)
+ 1 | ✓ Guten   | Übersicht lädt, Begrüssung im Titel
+ 2 | ✓ 3       | Drei Karten Bildarchiv, Dateien, Prüfung
+ 3 | ✓ 4       | Vier Zahlen unter den Karten
+ 4 | ✓         | Karte Markenbuch mit Knopf «Lesen»
+ 5 | ✓ 5       | Rand: «Arbeiten» mit drei Ansichten und Markenbuch
+ 6 | ✓         | Kopf: Marke, Titel und Stand, Sprache, Anleitung, Maison, Markenbuch
+ 7 | ✓         | Leiste unten: Bildrechte und ZIP
+ 8 | ✓ 3       | Sprachwahl öffnet mit allen Sprachen
+ 9 | ✓ Good e  | Sprache English ändert Titel, Rand, Leiste
+10 | ✓         | Sprache bleibt nach Neuladen (Browser merkt sie)
+11 | ✓         | Sprache Français
+12 | ✓         | Zurück auf Deutsch
+13 | ✓         | Sprachwahl schliesst beim Klicken daneben
+14 | ✓ 6 Link  | Alle Links in Kopf, Rand und Leiste antworten
+15 | ✓ 3543 K  | ZIP mit allen Dateien lädt
+16 | ✓         | Rand → Bildarchiv
+17 | ✓         | Rand → Logo & Dateien
+18 | ✓         | Rand → Markenprüfung
+19 | ✓         | Marke im Kopf führt zur Übersicht
+20 | ✓         | Karte «Logo & Dateien» öffnet die Ansicht
+21 | ✓         | Adresse mit #bilder öffnet gleich das Bildarchiv
+22 | ✓ 48 von  | Raster zeigt zuerst 48 Kacheln
+23 | ✓ 144     | Nachladen beim Scrollen hängt Kacheln an
+24 | ✓ 17      | Suche «terr» filtert
+25 | ✓ 17 VON  | Zähler «x von y» stimmt zur Suche
+26 | ✓         | Leere Suche zeigt Hinweis statt Kacheln
+27 | ✓         | «Filter zurücksetzen» zeigt wieder alle
+28 | ✓ 34/48/  | Filter Bereich: 10 Knöpfe, Wahl wirkt, «Alle» löst
+29 | ✓ 27/11/  | Filter Saison: 3 Knöpfe, Wahl wirkt, «Alle» löst
+30 | ✓ 31/48   | Filter Format: 2 Knöpfe, Wahl wirkt, «Alle» löst
+31 | ✓ 48/16/  | Filter Herkunft: 4 Knöpfe, Wahl wirkt, «Alle» löst
+32 | ✓         | Foto öffnet gross im Fenster mit Titel, Quelle, Original
+33 | ✓         | Vier Grössen Instagram, Story, Website, Druck
+34 | ✓         | Hinweis zum Beschneiden: «Ausschnitt: Feld ziehen»
+35 | ✓ Story   | Über jede Grösse fahren zeigt den Rahmen mit Mass
+36 | ✓ k=aare  | Rahmen ziehen ändert den Ausschnitt im Download- und Imprimerie-Link
+37 | ✓ ton-eu  | Download Instagram 1080 × 1350 (Server)
+38 | ✓ -aare-  | Download Story 1080 × 1920 (Server)
+39 | ✓ ="carl  | Download Website 2000 px (Server)
+40 | ✓ 2191 K  | Download Druck volle Auflösung (Server)
+41 | ✓ carlto  | Klick auf «Laden» speichert eine JPG-Datei
+42 | ✓ foto=a  | Zwei Wege in L’Imprimerie (Beitrag, Story) mit Foto und Ausschnitt
+43 | ✓         | Esc schliesst das Fenster
+44 | ✓         | Kreuz schliesst das Fenster
+45 | ✓         | Klick neben das Fenster schliesst es
+46 | ✓         | KI-Bild trägt den dunklen Hinweis und «-mit-ki-erzeugt» im Dateinamen
+47 | ✓ 7       | Dateien: Logo, Querform, Zeichen, Wortmarke, Tapete, Farben, Schriften
+48 | ✓ 41 Dat  | Jede Datei der Ansicht ist abrufbar
+49 | ✓ #06142  | Farbe antippen kopiert den Hexwert, Meldung erscheint
+50 | ✓ linear  | Glanzgold-Farbe kopiert den Verlauf
+51 | ✓ rgb(    | Zweite Zeile einer Farbe kopiert den RGB-Wert
+52 | ✓ 4       | Schriften mit WOFF2-Knopf
+53 | ✓         | Knopf «Regeln im Markenbuch» führt ins Markenbuch
+54 | ✓         | Prüfung: Feld mit «Datei wählen», Beispiel-Link, Hinweis «nichts gespeichert»
+55 | ✓         | Unter dem leeren Feld steht schon ein Beispiel
+56 | ✓         | Falscher Dateityp wird abgewiesen, Meldung erscheint
+57 | ✓         | Gewählte Datei: Vorschau, Name, Grösse, «Prüfen»
+58 | ✓         | Nach der Wahl verschwindet das Beispiel darunter
+59 | ✓         | Prüfen zeigt drei Schritte mit Abtastung
+60 | ✓ Ergebn  | Prüfung endet mit Ergebnis (Messung) oder mit Meldung und Feld
+61 | ✓ 1 Töne  | Ergebnis: Vorschau, gemessene Farben, Prozent im Rahmen
+62 | ✓         | Ergebnis: Hinweis, wenn Claude nicht antwortet, sonst Punkte
+63 | ✓         | «Als Text kopieren» legt die Rückmeldung in die Zwischenablage
+64 | ✓ le-liv  | «Ergebnis sichern» speichert eine HTML-Datei auf dem Rechner
+65 | ✓         | «Neuen Entwurf prüfen» setzt das Feld zurück
+66 | ✓ 6 Punk  | «Beispiel ansehen» zeigt die Rückmeldung zum Beispiel-Entwurf
+67 | ✓         | Beispiel: Punkte sortiert, «passt nicht» zuerst
+68 | ✓         | Adresse mit ?beispiel=1#pruefung öffnet das Beispiel gleich
+69 | ✓ 0 px    | Kein seitliches Verrutschen (390 px)
+70 | ✓         | Handy: Menü öffnet und zeigt die Ansichten
+71 | ✓         | Handy: Wahl im Menü wechselt die Ansicht und schliesst das Menü
+72 | ✓ 366     | Handy: Foto-Fenster passt in den Bildschirm
+73 | ✓         | Keine Fehler in der Konsole, keine toten Anfragen
+
+Summe: Carlton 73/73

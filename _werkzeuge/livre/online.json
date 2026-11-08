@@ -1,0 +1,15 @@
+{
+ "name": "Le Livre",
+ "hinweis": "Prüf-Chat Le Livre, 16.10.2026. Funktion = _werkzeuge/livre/online/livre_online.py (Vorbild api/livre.py des Rivage), Logik und Daten als lib. Le Livre speichert nichts und braucht den Blob-Speicher nicht (läuft mit Vorführung und Blob gleich). Schlüssel: ANTHROPIC_API_KEY (+ ANTHROPIC_WORKSPACE_ID) nur für die Beurteilung durch Claude; ohne Schlüssel misst die Prüfung nur die Farben. Online geht ein Entwurf bis rund 3 MB (Vercel nimmt höchstens 4,5 MB an; Bilder verkleinert die Oberfläche vorher). L’Imprimerie ruft die Markenprüfung unter /marke/api/pruefen, darum die zweite Umleitung. Prüfung: Laden ja, kurz nein (nichts zu speichern), voll nein (Szenario ruft Claude, kostet).",
+ "funktionen": {"api/livre.py": {"von": "_werkzeuge/livre/online/livre_online.py", "dauer": 120}},
+ "lib": {"_werkzeuge/livre/livre.py": "api/_lib/livre/livre.py", "marke/livre.json": "api/_lib/livre/livre.json"},
+ "statik": {"_werkzeuge/livre": "werkzeuge/livre"},
+ "umleitungen": [
+  {"source": "/werkzeuge/livre/api/:pfad*", "destination": "/api/livre?__weg=/werkzeuge/livre/api/:pfad*"},
+  {"source": "/_werkzeuge/livre/api/:pfad*", "destination": "/api/livre?__weg=/_werkzeuge/livre/api/:pfad*"},
+  {"source": "/marke/api/:pfad*", "destination": "/api/livre?__weg=/marke/api/:pfad*"},
+  {"source": "/_werkzeuge/livre/:pfad*", "destination": "/werkzeuge/livre/:pfad*"}
+ ],
+ "stand": "/marke/livre.json",
+ "pruefung": {"weg": "/werkzeuge/livre/", "kurz": false}
+}

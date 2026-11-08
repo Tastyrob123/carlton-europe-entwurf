@@ -1,0 +1,90 @@
+/* Carlton-Europe · PDF-Unterlagen im Stil der Website: Marine, Messing, Papier · Libre Baskerville, Instrument Sans, DM Mono */
+/* Feste Schnitte statt variabler Schriften (python3 pdf/schriften.py): variable Schriften kommen als «Type 3» in die PDF und sehen in der Apple-Vorschau verschwommen aus */
+@font-face{font-family:'Baskerville CE';font-style:normal;font-weight:400;src:url('../assets/fonts/druck/LibreBaskerville-Regular.ttf') format('truetype')}
+@font-face{font-family:'Baskerville CE';font-style:normal;font-weight:500;src:url('../assets/fonts/druck/LibreBaskerville-Medium.ttf') format('truetype')}
+@font-face{font-family:'Baskerville CE';font-style:normal;font-weight:600;src:url('../assets/fonts/druck/LibreBaskerville-SemiBold.ttf') format('truetype')}
+@font-face{font-family:'Baskerville CE';font-style:normal;font-weight:700;src:url('../assets/fonts/druck/LibreBaskerville-Bold.ttf') format('truetype')}
+@font-face{font-family:'Baskerville CE';font-style:italic;font-weight:400 700;src:url('../assets/fonts/druck/LibreBaskerville-Italic.ttf') format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400;src:url('../assets/fonts/druck/InstrumentSans-Regular.ttf') format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:500;src:url('../assets/fonts/druck/InstrumentSans-Medium.ttf') format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600;src:url('../assets/fonts/druck/InstrumentSans-SemiBold.ttf') format('truetype')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:700;src:url('../assets/fonts/druck/InstrumentSans-Bold.ttf') format('truetype')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:400;src:url('../assets/fonts/druck/DMMono-Regular.ttf') format('truetype')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:500;src:url('../assets/fonts/druck/DMMono-Medium.ttf') format('truetype')}
+:root{--papier:#f4ecdc;--navy:#0b1f40;--nacht:#06142b;--tinte:#1b2231;--grau:#5f5a4e;--messing:#a98a45;--messing-tief:#7d6228;--gold:#dcc68f;--creme:#e8dbbf;
+  --serif:'Baskerville CE',Georgia,serif;--sans:'Instrument Sans',Arial,sans-serif;--mono:'DM Mono',Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#8f8672;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.blatt{position:relative;overflow:hidden;background:var(--papier);margin:0 auto;page-break-after:always;break-after:page;color:var(--tinte)}
+@media screen{.blatt{margin:10mm auto}}
+.band{position:absolute;left:0;top:0;right:0;background:#0b1f40 url(tapete-navy-breit.jpg) 50% 0/300mm auto no-repeat;border-bottom:.5mm solid var(--messing)}
+.band::after{content:"";position:absolute;left:0;right:0;bottom:-1.3mm;height:.18mm;background:var(--messing);opacity:.55}
+.logo{position:absolute;overflow:visible}
+.logo .ce1{fill:var(--navy)}.logo .ce2{fill:var(--tinte)}
+.logo.hell .ce1{fill:var(--gold)}.logo.hell .ce2{fill:var(--papier)}
+/* keine weichen Schatten: die Apple-Vorschau zeichnet sie als graue Kästen */
+.foto{position:absolute;object-fit:cover;border-radius:2.6mm;border:.25mm solid rgba(138,117,69,.7)}
+.lin{position:absolute;height:0;border-top:.22mm solid rgba(138,117,69,.55)}
+.lin--v{width:0;border-top:0;border-left:.22mm solid rgba(138,117,69,.55)}
+.punkt{position:absolute;width:1.5mm;height:1.5mm;margin:-.75mm 0 0 -.75mm;border-radius:50%;background:var(--messing)}
+.blatt-z{position:absolute;display:block}
+.blatt-z svg{height:100%;width:auto;display:block}
+.blatt-z path{fill:currentColor}.blatt-z .ader{fill:none;stroke:var(--papier);stroke-width:.8;stroke-linecap:round}
+.blatt-z.veg{color:#55793a}.blatt-z.vegan{color:#7a4a82}
+
+.t{font-size:var(--g);position:absolute;white-space:pre;line-height:1.2;transform:translateY(-100%);font-family:var(--sans);font-weight:400;color:var(--tinte);font-kerning:normal}
+.t.c{transform:translate(-50%,-100%);text-align:center}
+.t.r{text-align:right}
+.t.h{font-family:var(--serif);font-weight:400;color:var(--navy);font-size-adjust:none;letter-spacing:.01em}
+.t.n{font-family:var(--serif);color:var(--navy)}
+.t.n2{font-weight:600;color:var(--tinte)}
+.t.fr{color:var(--messing-tief)}
+.t.d{color:#2c3342}
+.t.pr{font-family:var(--serif);color:var(--navy);font-feature-settings:"lnum","tnum"}
+.t.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--messing-tief)}
+.t.fuss{font-family:var(--mono);letter-spacing:.06em;color:var(--grau)}
+.t.gold{color:var(--messing-tief)}
+.t.imband{color:var(--papier)!important}
+.t.imband.h,.t.imband.n{color:var(--gold)!important}
+
+.band--schmal{height:7.5mm}
+.fz{position:absolute;left:50%;bottom:9mm;width:9mm;height:6.3mm;margin-left:-4.5mm;overflow:visible}
+.fz path{fill:var(--messing);opacity:.75}
+.grafik{position:absolute;object-fit:contain}
+.t.h{letter-spacing:.05em;font-size:calc(var(--g)*1.22)}
+.t .x.xd{font-family:var(--sans);font-weight:400;color:#2c3342}
+.t .x.xb{font-family:var(--serif);font-weight:400;color:var(--navy)}
+.t.n2 .x.xb,.t.d .x.xb,.t.fr .x.xb{font-family:var(--sans);font-weight:600}
+.t .x.fr{color:var(--messing-tief)}
+
+.t.u{font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--messing-tief);font-size:calc(var(--g)*.62);padding-bottom:.5mm}
+.t.h .x.xd{font-family:var(--serif);color:var(--messing-tief)}
+.t.fuss{font-size:var(--g)}
+
+.t.hh{font-size:calc(var(--g)*1.0)}
+.t.imband .x.xd,.t.imband.h .x.xd{color:var(--papier)!important}
+.kb{display:inline-block;width:.62em;height:.62em;border:.22mm solid var(--messing-tief);border-radius:.4mm;margin:0 .5em 0 0;vertical-align:-.04em}
+.orn{display:inline-block;width:1.7mm;height:1.7mm;background:var(--messing);transform:rotate(45deg);vertical-align:.3em}
+.lin--schreib{border-top:.22mm solid rgba(11,31,64,.45)}
+
+.innen{position:absolute;left:0;right:0}
+.t.kap{font-family:var(--serif);color:var(--navy);letter-spacing:.08em}
+
+.t.h.eng{font-size:var(--g);letter-spacing:.01em}
+
+.t.h.leicht{color:var(--messing-tief)}
+.t.h.leicht .x.xb{color:var(--navy)}
+.t.h.leicht.imband{color:var(--papier)!important}
+.t.h.leicht.imband .x.xb{color:var(--gold)!important}
+.t.kap{letter-spacing:.06em;font-size:calc(var(--g)*.95)}
+.t.fuss2{font-family:var(--sans);color:var(--grau)}
+.t.fuss2 .x.xb,.t .x.xb.fuss2{font-family:var(--serif);color:var(--navy)}
+.t.kopf{font-family:var(--sans);font-weight:600;color:var(--messing-tief);font-size:calc(var(--g)*.9)}
+
+/* Rubriken der Karten: grosses Wort in normaler Schreibung, Übersetzungen klein in Messing */
+.t.h.rubrik{font-size:calc(var(--g)*1.9);letter-spacing:0;line-height:1.15}
+.t.h.titel{font-size:calc(var(--g)*1.42);letter-spacing:0}
+.t.h .hk{font-family:var(--sans);font-weight:600;font-size:.34em;letter-spacing:.08em;color:var(--messing-tief);margin-left:.5em}
+
+/* Warnzeile (im Original rot): gedecktes Rot des Hauses */
+.t.warn,.t.warn .x{color:#8c2331!important}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de-CH">
+<head><!--demo-weiche--><script src="/_demo/karte.js"></script><script src="/_demo/shim.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Bureau · Carlton-Europe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1f40">
+<link rel="icon" href="/assets/logo/favicon.ico">
+<link rel="preload" href="/assets/fonts/libre-baskerville-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/InstrumentSans-normal-400_600.woff2" as="font" type="font/woff2" crossorigin>
+<script src="auftakt.js?v=1"></script>
+<link rel="stylesheet" href="/assets/css/auswahl.css">
+<link rel="stylesheet" href="bureau.css?v=7">
+<script>/* Fehler des Bureau mitschreiben, bevor irgendetwas anderes läuft: liest die Prüfung (pruefung.html). Wie Grand Beau-Rivage (15.10.2026):
+   Netzfehler nie melden (Safari meldete sonst die eigene gescheiterte Meldung in einer Schleife), höchstens 20 je Seite. */
+(function(){var zahl=0;function merk(t){t=String(t);if(++zahl>20||/Load failed|access control|abort|NetworkError/i.test(t))return;
+try{var a=JSON.parse(localStorage.getItem('ce_fehler')||'[]');a.push({zeit:new Date().toLocaleString('de-CH'),wo:'Bureau',text:t.slice(0,300)});localStorage.setItem('ce_fehler',JSON.stringify(a.slice(-12)))}catch(e){}
+try{fetch('/control/api/b/fehler',{method:'POST',headers:{'Content-Type':'application/json','X-Studio':'1'},body:JSON.stringify({text:t.slice(0,600)}),keepalive:true}).catch(function(){})}catch(e){}}
+window.addEventListener('error',function(e){merk((e.message||'Fehler')+' · '+(e.filename||'').split('/').pop()+':'+(e.lineno||''))});
+window.addEventListener('unhandledrejection',function(e){merk('Versprechen: '+((e.reason&&e.reason.message)||e.reason))});window.bureauMerk=merk})();</script>
+<script src="/besuch.js?v=3c4c57a56e" defer></script><script src="/verweil.js?v=5881fd455d" defer></script></head>
+<body class="bu">
+<header class="kopf" id="kopf"></header>
+<aside class="rand" id="rand" aria-label="Bereiche des Bureau"></aside>
+<main class="haupt" id="haupt">
+
+  <div class="start-tuer" id="tuer" hidden>
+    <h1>Le Bureau startet nicht.</h1>
+    <p id="tuer-t">Die Verbindung zum Server-Teil fehlt.</p>
+    <a class="kn" href="/control/pruefung.html">Prüfung öffnen<i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></i></a>
+  </div>
+  <div id="ansicht"></div>
+</main>
+<footer class="leiste" id="leiste" aria-live="polite"></footer>
+<div class="fenster" id="fenster" hidden></div>
+<div class="meldung" id="meldung" aria-live="polite"></div>
+<script src="/assets/js/auswahl.js"></script>
+<script src="bureau.js?v=13"></script>
+<script src="schweben.js?v=1" data-wurzel="#ansicht" data-blaetter="#ansicht h2.zw, #ansicht .lage" data-kacheln="#ansicht .aufgaben > .ag, #ansicht .bereiche > .bk"></script>
+<script src="zur-werkbank.js?v=7" defer data-zw data-neben="#rand" data-luft="40" data-ueber="#leiste"></script>
+<script src="buehne.js?v=1" defer></script>
+<script src="rundgang.js?v=3" defer data-werkzeug="bureau"></script>
+<script src="/assets/js/verteilen.js?v=1" defer></script>
+<script src="/werkzeuge/demo-aus.js" defer></script></body>
+</html>

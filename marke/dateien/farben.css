@@ -1,0 +1,15 @@
+/* Carlton-Europe Interlaken · Farben der neuen Website (aus assets/css/main.css) · Le Livre, Stand 17.10.2026 */
+:root{
+  --nacht:#06142b;   /* Nacht: Grund der Seite, dunkle Abschnitte */
+  --navy:#0b1f40;   /* Marine: zweite dunkle Fläche, die Leiste oben */
+  --blau:#12305e;   /* Blau: das Gewählte in Auswahl und Kalender */
+  --weiss:#fbf6ea;   /* Weiss: Karten, Felder, Auswahlfenster */
+  --papier:#f4ecdc;   /* Papier: helle Abschnitte */
+  --creme:#e8dbbf;   /* Creme: zweite helle Fläche, Tapete hell */
+  --gold:#dcc68f;   /* Gold: Zeichen, Linien und Betonung auf Dunkel */
+  --taupe:#8a7545;   /* Taupe: zweite Titelzeile und Linien auf Hell */
+  --tinte:#0c1526;   /* Tinte: Schrift auf hellen Flächen */
+  --glanz-relief:linear-gradient(180deg,#f8eac0 0%,#e2c684 26%,#bf9a54 47%,#94723a 60%,#d4b575 80%,#f0deaa 100%);   /* Gold mit Relief: das CE im Auftakt und in der Leiste, als Bild gerechnet */
+  --glanz-ortszeile:linear-gradient(180deg,#fbf0cf 0%,#ead39c 30%,#c9a764 48%,#9c7b43 58%,#dcc189 76%,#f3e3b6 100%);   /* Glanzgold Schrift: Ortszeile «Vintage Adults Hotel · Interlaken · seit 1898» */
+  --glanz-knopf:linear-gradient(180deg,#f8eac6 0%,#ead09a 20%,#d6b679 52%,#c2a062 80%,#aa874f 100%);   /* Glanzgold Knopf: Knopf «Verfügbarkeit prüfen» in der Buchungsleiste */
+}

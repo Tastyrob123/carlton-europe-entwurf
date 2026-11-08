@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Feed · Carlton-Europe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06142b">
+<link rel="icon" href="../assets/logo/favicon.ico">
+<style>
+@font-face{font-family:'Baskerville CE';font-weight:400 700;font-display:swap;src:url('../assets/fonts/libre-baskerville-700.woff2') format('woff2')}
+@font-face{font-family:'Instrument Sans';font-weight:400 600;font-display:swap;src:url('../assets/fonts/InstrumentSans-normal-400_600.woff2') format('woff2')}
+@font-face{font-family:'DM Mono';font-weight:400;font-display:swap;src:url('../assets/fonts/DMMono-normal-400.woff2') format('woff2')}
+:root{--nacht:#06142b;--navy:#0b1f40;--gold:#dcc68f;--papier:#f4ecdc;--e1:cubic-bezier(.16,1,.3,1);--e2:cubic-bezier(.32,.72,0,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--nacht);color:#fff;font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--nacht) url(../assets/img/tapete-navy.webp) 50% 0/1100px auto;min-height:100vh}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.stage{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;gap:clamp(40px,7vw,110px);padding:56px 24px}
+.aside{max-width:430px}
+.aside>*{opacity:0;transform:translateY(34px);animation:auf 1.2s var(--e1) forwards}
+.aside>*:nth-child(2){animation-delay:.1s}.aside>*:nth-child(3){animation-delay:.2s}.aside>*:nth-child(4){animation-delay:.3s}.aside>*:nth-child(5){animation-delay:.4s}.aside>*:nth-child(6){animation-delay:.5s}.aside>*:nth-child(7){animation-delay:.6s}.aside>*:nth-child(8){animation-delay:.7s}
+@keyframes auf{to{opacity:1;transform:none}}
+.aside svg.ce{width:74px;height:auto;color:var(--gold);margin-bottom:30px;display:block}
+.aside .kap{display:flex;align-items:center;gap:16px;font-family:'Baskerville CE',Georgia,serif;color:var(--gold);font-size:1.08rem;margin-bottom:22px}
+.aside .kap i{width:64px;height:1px;background:currentColor;opacity:.75}
+.aside h1{font-family:'Baskerville CE',Georgia,serif;font-weight:400;font-size:clamp(2.8rem,4.6vw,4.3rem);line-height:1.06;margin-bottom:26px}
+.aside h1 em{font-style:normal;color:var(--gold);display:block}
+.aside p{font-size:1.1rem;line-height:1.66;color:rgba(255,255,255,.82)}
+.aside p+p{margin-top:14px}
+.aside dl{display:grid;grid-template-columns:auto 1fr;gap:10px 20px;margin-top:30px;padding-top:24px;border-top:1px solid rgba(220,198,143,.3);font-size:.98rem}
+.aside dt{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-top:3px}
+.aside dd{color:rgba(255,255,255,.82);line-height:1.5}
+.kn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:14px;height:54px;padding:0 8px 0 26px;border-radius:999px;margin-top:32px;font-family:'DM Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#0c1526;
+  background:linear-gradient(180deg,#fbf3e2,#e8dbbf 46%,#cfbd98);box-shadow:inset 0 1px 0 rgba(255,255,255,.92),inset 0 -3px 0 rgba(110,88,44,.38),0 16px 26px -14px rgba(0,0,0,.6);transition:transform .55s var(--e2)}
+.kn:hover{transform:translateY(-2px)}.kn:active{transform:translateY(1px) scale(.985)}
+.kn i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#1e3c72,#050f22);color:#fbf6ea;box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 3px 6px rgba(0,0,0,.35)}
+.kn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.2}
+/* Gerät */
+.devwrap{position:relative;flex:none;opacity:0;transform:translateY(90px) rotate(3deg);animation:geraet 1.5s var(--e1) .25s forwards}
+@keyframes geraet{to{opacity:1;transform:none}}
+.device{width:402px;height:874px;border-radius:62px;background:#000;padding:12px;position:relative;box-shadow:0 0 0 2px #2c2e36,0 0 0 9px #0a0c12,0 0 0 10px rgba(220,198,143,.35),0 60px 90px -30px rgba(0,0,0,.85)}
+.screen{width:100%;height:100%;border-radius:50px;overflow:hidden;background:#000;position:relative;display:flex;flex-direction:column;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:124px;height:36px;border-radius:20px;background:#000;z-index:30}
+.status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px 36px;font-size:16px;font-weight:600;flex:none;position:relative;z-index:25;background:#000}
+.status .ic{display:flex;gap:6px;align-items:center}
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.top{display:flex;align-items:center;justify-content:space-between;padding:6px 16px 10px;position:sticky;top:0;background:#000;z-index:20}
+.top .u{display:flex;align-items:center;gap:6px;font-size:20px;font-weight:700;letter-spacing:-.01em}
+.top .r{display:flex;gap:22px}
+.head{display:flex;align-items:center;gap:22px;padding:4px 16px 10px}
+.avr{width:86px;height:86px;border-radius:50%;padding:2px;background:conic-gradient(#a98a45,#f3e3b8,#7d6228,#dcc68f,#a98a45);flex:none}
+.avr img{width:100%;height:100%;border-radius:50%;border:3px solid #000;display:block;object-fit:cover}
+.nums{display:flex;flex:1;justify-content:space-around;text-align:center}
+.nums b{display:block;font-size:17px;font-weight:700}
+.nums span{font-size:13px;color:#e8e8e8}
+.bio{padding:0 16px;font-size:14px;line-height:1.38}
+.bio .n{font-weight:600}.bio .cat{color:#a8a8a8}.bio .l{color:#e0f1ff;font-weight:600}
+.btns{display:flex;gap:6px;padding:12px 16px 4px}
+.btns div{flex:1;background:#262626;border-radius:9px;text-align:center;font-size:14px;font-weight:600;padding:8px 0}
+.btns div.p{background:#0095f6}
+.hl{display:flex;gap:14px;padding:14px 16px 12px;overflow-x:auto;scrollbar-width:none}
+.hl::-webkit-scrollbar{display:none}
+.h{text-align:center;font-size:12px;flex:none;width:68px}
+.h i{display:block;width:66px;height:66px;border-radius:50%;border:1px solid #3a3a3a;padding:3px;margin:0 auto 6px}
+.h i img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.tabs{display:flex;border-bottom:1px solid #262626;position:sticky;top:48px;background:#000;z-index:19}
+.tabs div{flex:1;display:flex;justify-content:center;padding:11px 0;color:#8e8e8e}
+.tabs div.on{color:#fff;box-shadow:inset 0 -1.5px 0 #fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.t{aspect-ratio:3/4;overflow:hidden;background:#0b1f40;position:relative;cursor:pointer;padding:0;display:block;width:100%}
+.t img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transform:scale(1.08);transition:opacity .9s var(--e1),transform 1.3s var(--e1);transition-delay:calc(var(--i)*55ms + .9s)}
+.geladen .t img{opacity:1;transform:none}
+.nav{height:82px;flex:none;display:flex;justify-content:space-around;align-items:flex-start;padding-top:12px;border-top:1px solid #1d1d1d;background:#000}
+.nav .me{width:26px;height:26px;border-radius:50%;border:2px solid #fff;overflow:hidden}
+.nav .me img{width:100%;height:100%;object-fit:cover;display:block}
+.post{position:absolute;inset:0;background:#000;z-index:40;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .5s var(--e2);visibility:hidden}
+.post.on{transform:none;visibility:visible}
+.post .bar{height:54px;flex:none}
+.post .ph{display:flex;align-items:center;gap:10px;padding:8px 14px}
+.post .ph b{font-size:14px}
+.post .ph .mini{width:32px;height:32px;border-radius:50%;overflow:hidden;border:1px solid #333}
+.post .ph .mini img{width:100%;height:100%;object-fit:cover;display:block}
+.post .ph .back{margin-right:6px;font-size:24px;line-height:1;padding:4px 8px 6px 0}
+.post .body{flex:1;overflow-y:auto;scrollbar-width:none}
+.post .body::-webkit-scrollbar{display:none}
+.post .img{width:100%;aspect-ratio:4/5;display:block;object-fit:cover;background:#0b1f40}
+.post .act{display:flex;gap:16px;padding:10px 14px 4px}
+.post .act span{margin-left:auto}
+.post .cap{padding:6px 14px 18px;font-size:14px;line-height:1.42}
+.post .cap b{font-weight:600}
+.post .nx{display:flex;justify-content:space-between;padding:0 14px 22px;font-size:13px;color:#a8a8a8}
+.post .nx button{padding:6px 0}
+@media (max-width:1000px){.stage{gap:44px}.aside{max-width:340px}}
+@media (max-width:820px){
+  body{background:#000}
+  .stage{padding:0;gap:0;min-height:100svh;display:block}
+  .aside{display:none}
+  .devwrap{animation:none;opacity:1;transform:none}
+  .device{width:100vw;height:100svh;border-radius:0;padding:0;box-shadow:none}
+  .screen{border-radius:0}.island{display:none}.status{height:14px}.status>*{display:none}.post .bar{height:14px}
+  .zurueck{display:flex}
+}
+.zurueck{display:none;position:fixed;z-index:60;right:14px;bottom:96px;height:44px;padding:0 18px;border-radius:999px;align-items:center;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#0c1526;background:linear-gradient(180deg,#fbf3e2,#cfbd98);box-shadow:0 10px 20px -8px rgba(0,0,0,.8)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.aside>*,.devwrap,.t img{opacity:1!important;transform:none!important}}
+</style>
+<script src="/besuch.js?v=3c4c57a56e" defer></script><script src="/verweil.js?v=5881fd455d" defer></script></head>
+<body>
+<div class="stage">
+  <div class="aside">
+    <svg class="ce" viewBox="87 0 112 68" fill="currentColor" aria-hidden="true"><path  d="M170.5,0.6c5.6,0,11.1,0,16.7,0c2.1,0,4.2,0.2,6.2,0.9c3.3,1.1,3.9,3.4,1.6,6c-1.8,2-4.1,3.5-6.4,5
+		c-4.1,2.5-8.4,4.7-12.6,7c-1.7,0.9-3.4,1.8-5,2.9c-0.5,0.4-1.1,0.7-1.5,1.2c-0.3,0.2-0.5,0.6-0.3,1c0.2,0.3,0.6,0.5,0.9,0.4
+		c0.6-0.2,1.2-0.3,1.8-0.6c1.8-0.7,3.5-1.4,5.4-1.7c2.8-0.4,5.5-0.1,8.1,1.3c1.7,1,3,2.4,3.1,4.5c0.1,1.6-0.2,3.1-1.3,4.4
+		c-0.5,0.6-1.2,1.1-2,1.3c-0.3,0.1-0.6,0.2-0.5-0.4c0.1-1.2-0.3-1.7-1.6-1.8c-1.3-0.1-2.6,0.1-3.8,0.4c-2.3,0.6-4.7,1.3-7,1.7
+		c-1.6,0.3-3.2,0.4-4.8-0.1c-3.9-1.3-6-5.7-3.5-9.4c1.4-2.2,3.3-3.8,5.4-5.4c2.6-2.1,5.5-3.8,8.2-5.8c1.3-0.9,2.6-1.8,3.5-3.1
+		c0.9-1.2,0.6-2.6-0.6-3.5c-0.5-0.3-1.1-0.5-1.7-0.7c-1-0.3-2.1-0.3-3.1-0.4c-2.2-0.2-4.4-0.1-6.6,0.2c-2.6,0.4-3.8,1.8-3.9,4.5
+		c0,2.8-0.1,5.6,0,8.4c0,1.1-0.3,1.8-1.1,2.6c-1.9,1.8-3.2,3.9-3.3,6.6c-0.1,1.6,0.4,2.9,1.3,4.2c0.7,1,1.5,1.8,2.4,2.5
+		c0.5,0.4,0.7,0.8,0.7,1.4c0,4,0,7.9,0,11.9c0,3,1.2,4.8,4,6c2,0.8,4.1,1.1,6.3,1.2c2.7,0.2,5.3,0.3,8,0.2c1.9-0.1,3.9-0.1,5.7-0.7
+		c2-0.6,3.5-1.6,4.2-3.7c0.2-0.6,0.5-0.5,1-0.3c1.8,0.9,3,2.3,3.8,4.1c0.8,2,1,4.1,0.4,6.3c-0.7,2.7-2.4,4.4-4.9,5.5
+		c-2.6,1.1-5.3,1.4-8,1.3c-3.4-0.1-6.8-0.3-10.3-0.5c-5.5-0.3-11,0.1-16.4,0.3c-2.6,0.1-5.2,0.3-7.8,0.1c-2.1-0.2-4.2-0.8-6-2
+		c-1.9-1.2-2-2.4-0.2-3.9c0.9-0.8,2-1.3,3.1-1.9c1.3-0.8,2.6-1.5,3.8-2.4c1.1-0.9,1.6-1.9,1.6-3.3c0-13.1,0-26.1,0-39.2
+		c0-0.3,0-0.6,0-1c0-2-0.8-3.5-2.5-4.6c-1.2-0.7-2.4-1.5-3.6-2.2c-0.8-0.5-1.5-0.9-2.2-1.5c-1.2-0.9-1.2-2.1,0-3.1
+		c0.7-0.6,1.5-0.9,2.4-1.2c2.7-0.8,5.6-1,8.4-1C160.5,0.5,165.5,0.5,170.5,0.6L170.5,0.6z"/><path  d="M96,28.3c-0.1,6.8,1.7,12.5,5.7,17.3c4,4.8,9.1,7.8,15.2,8.8c4.5,0.7,8.9,0.3,13.2-1.4
+		c3.2-1.3,5.7-3.4,6.8-6.8c0.2-0.7,0.6-0.7,1.1-0.5c1.3,0.5,2.2,1.5,2.7,2.8c2,5.1,1.1,10.5-4.1,14.3c-2.9,2.1-6.2,3.3-9.6,4
+		c-6.2,1.3-12.3,1.5-18.4-0.2c-9.7-2.8-16-9.1-19.4-18.5c-1.9-5.3-2.3-10.8-1.8-16.4c0.4-5.2,1.6-10.2,3.9-14.9
+		c3.1-6.4,7.7-11.4,14.2-14.5c4.7-2.3,9.7-2.7,14.9-2.1c3.4,0.4,6.7,1.3,9.7,3c3.5,2,6.1,4.7,7.1,8.8c0.8,3.4,0.6,6.7-1.3,9.8
+		c-2,3.3-5,4.8-8.6,5.4c-2.4,0.4-4.7,0.3-7-0.4c-4.4-1.4-7.1-5.5-7.1-9.4c0-0.6-0.1-1.1-0.3-1.7c-0.2-0.5-0.4-0.9-0.9-1.1
+		c-0.5-0.3-1.1-0.4-1.6-0.1c-0.5,0.3-0.5,0.8-0.4,1.3c0.1,1.1,0,1.4-1.1,1.7c-1.6,0.4-3.1-0.1-3.8-1.1c-0.9-1.3-0.8-3.5,0.1-4.8
+		c1.1-1.5,2.6-2.2,4.4-2.2c2-0.1,3.7,0.7,5.1,2.1c0.8,0.8,1.5,1.6,2.2,2.4c1.1,1.1,2.5,1.7,4.2,1.5c2.1-0.2,3.8-1.9,4-4
+		c0.2-2.6-1-4.5-3.3-5.7c-2.3-1.2-4.7-1.4-7.2-1.3c-5.9,0.2-10.3,3-13.7,7.7c-2.5,3.6-3.8,7.6-4.5,11.9C96.1,25.6,96,27.2,96,28.3"
+		/></svg>
+    <p class="kap"><b style="font-weight:400">09</b><i></i><span>Instagram</span></p>
+    <h1>Damals <em>und heute.</em></h1>
+    <p>Sie nennen Ihr Haus «Vintage», und Sie sind seit 1898 Gastgeber. Daraus ist meine Idee für Instagram: Jede dritte Reihe ist ein Paar, links oder rechts ein Foto mit einem Jahr oder einem Satz aus Ihrem Haus, daneben über zwei Beiträge Ihr Haus heute.</p>
+    <p>Dazwischen stehen zwei Bilder hochkant über zwei Reihen, der Weinkeller und der Turm des Carlton. Ihre Sätze stehen direkt auf den Fotos. Tippen Sie einen Beitrag an, dann sehen Sie ihn gross und mit einem Text dazu.</p>
+    <dl>
+      <dt>Beiträge</dt><dd>36 in 12 Reihen, 1080 × 1350</dd>
+      <dt>Aufbau</dt><dd>Paare mit Jahr oder Satz neben dem Haus heute, zwei Bilder hochkant über zwei Reihen</dd>
+      <dt>Bilder</dt><dd>von Ihrer Website, aus Ihrem Archiv und von Schweiz Tourismus</dd>
+      <dt>Texte</dt><dd>Ideen von mir, die Sätze auf den Fotos stammen von Ihnen</dd>
+    </dl>
+    <p style="margin-top:18px;font-size:13px;line-height:1.5;opacity:.72">Ein Entwurf von Robert Reff, Tasty Studios, Hamburg. Nur über diesen Link erreichbar, in keiner Suchmaschine. Fotos, Zeichen und Texte gehören Ihrem Haus. <a href="../werkbank/impressum.html" style="color:inherit">Impressum und Datenschutz</a></p>
+    <a class="kn" href="../werkbank/index.html#feed">Zur Übersicht<i><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></i></a>
+  </div>
+  <div class="devwrap"><div class="device" id="device"><div class="screen">
+    <div class="island"></div>
+    <div class="status"><span>9:41</span><span class="ic">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+      <svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#fff" opacity=".5"/><rect x="2" y="2" width="19" height="8" rx="2" fill="#fff"/><rect x="24" y="4" width="1.6" height="4" rx=".8" fill="#fff" opacity=".5"/></svg></span></div>
+    <div class="scroll" id="scroll">
+      <div class="top"><div class="u">carltoneuropehotel <svg width="12" height="8" viewBox="0 0 12 8"><path d="M1 1.5 6 6.5l5-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></div><div class="r"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div></div>
+      <div class="head">
+        <div class="avr"><img src="avatar.jpg?v=167c9ad2" alt="Profilbild: das CE des Hauses in Gold auf der Tapete"></div>
+        <div class="nums"><div><b>281</b><span>Beiträge</span></div><div><b>2’868</b><span>Follower</span></div><div><b>116</b><span>Gefolgt</span></div></div>
+      </div>
+      <div class="bio"><div class="n">Carlton-Europe Vintage Adults Hotel</div><div class="cat">Hotel</div><div>Zwei Jugendstilhäuser am Höheweg in Interlaken.</div><div>Gastgeber seit 1898. Vier Sterne, für Gäste ab 16 Jahren.</div><div class="l">carltoneurope.ch</div></div>
+      <div class="btns"><div class="p">Folgen</div><div>Nachricht</div><div>Kontakt</div></div>
+      <div class="hl"><div class="h"><i><img src="thumbs-w/h-0.webp?v=77b0468a" alt=""></i>Damals</div><div class="h"><i><img src="thumbs-w/h-1.webp?v=802d4866" alt=""></i>Zimmer</div><div class="h"><i><img src="thumbs-w/h-2.webp?v=a8f6e187" alt=""></i>Dachterrasse</div><div class="h"><i><img src="thumbs-w/h-3.webp?v=616cab73" alt=""></i>Genuss</div><div class="h"><i><img src="thumbs-w/h-4.webp?v=b70681d0" alt=""></i>Wellness</div></div>
+      <div class="tabs"><div class="on"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></div><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M9 3l3 5M15 3l3 5"/><path d="m10.5 11.5 4 2.5-4 2.5z" fill="currentColor"/></svg></div><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M6.5 19a6 6 0 0 1 11 0"/></svg></div></div>
+      <div class="grid" id="grid"><button class="t" type="button" data-i="0" style="--i:0" aria-label="Beitrag 1 öffnen"><img src="thumbs-w/01.webp?v=8726c5bb" alt=""></button><button class="t" type="button" data-i="1" style="--i:1" aria-label="Beitrag 2 öffnen"><img src="thumbs-w/02.webp?v=da7f8c7f" alt=""></button><button class="t" type="button" data-i="2" style="--i:2" aria-label="Beitrag 3 öffnen"><img src="thumbs-w/03.webp?v=20cbc816" alt=""></button><button class="t" type="button" data-i="3" style="--i:3" aria-label="Beitrag 4 öffnen"><img src="thumbs-w/04.webp?v=976cc313" alt=""></button><button class="t" type="button" data-i="4" style="--i:4" aria-label="Beitrag 5 öffnen"><img src="thumbs-w/05.webp?v=db811d78" alt=""></button><button class="t" type="button" data-i="5" style="--i:5" aria-label="Beitrag 6 öffnen"><img src="thumbs-w/06.webp?v=f73924bd" alt=""></button><button class="t" type="button" data-i="6" style="--i:6" aria-label="Beitrag 7 öffnen"><img src="thumbs-w/07.webp?v=dbb9e852" alt=""></button><button class="t" type="button" data-i="7" style="--i:7" aria-label="Beitrag 8 öffnen"><img src="thumbs-w/08.webp?v=12cb7c39" alt=""></button><button class="t" type="button" data-i="8" style="--i:8" aria-label="Beitrag 9 öffnen"><img src="thumbs-w/09.webp?v=59a8bee1" alt=""></button><button class="t" type="button" data-i="9" style="--i:9" aria-label="Beitrag 10 öffnen"><img src="thumbs-w/10.webp?v=9a14b378" alt=""></button><button class="t" type="button" data-i="10" style="--i:10" aria-label="Beitrag 11 öffnen"><img src="thumbs-w/11.webp?v=e125908e" alt=""></button><button class="t" type="button" data-i="11" style="--i:11" aria-label="Beitrag 12 öffnen"><img src="thumbs-w/12.webp?v=ca8ce3af" alt=""></button><button class="t" type="button" data-i="12" style="--i:12" aria-label="Beitrag 13 öffnen"><img src="thumbs-w/13.webp?v=44d45e8e" alt="" loading=lazy></button><button class="t" type="button" data-i="13" style="--i:13" aria-label="Beitrag 14 öffnen"><img src="thumbs-w/14.webp?v=af7d033b" alt="" loading=lazy></button><button class="t" type="button" data-i="14" style="--i:14" aria-label="Beitrag 15 öffnen"><img src="thumbs-w/15.webp?v=9c98aceb" alt="" loading=lazy></button><button class="t" type="button" data-i="15" style="--i:15" aria-label="Beitrag 16 öffnen"><img src="thumbs-w/16.webp?v=d9f21255" alt="" loading=lazy></button><button class="t" type="button" data-i="16" style="--i:16" aria-label="Beitrag 17 öffnen"><img src="thumbs-w/17.webp?v=b284d842" alt="" loading=lazy></button><button class="t" type="button" data-i="17" style="--i:17" aria-label="Beitrag 18 öffnen"><img src="thumbs-w/18.webp?v=600ecd36" alt="" loading=lazy></button><button class="t" type="button" data-i="18" style="--i:18" aria-label="Beitrag 19 öffnen"><img src="thumbs-w/19.webp?v=e35eca47" alt="" loading=lazy></button><button class="t" type="button" data-i="19" style="--i:19" aria-label="Beitrag 20 öffnen"><img src="thumbs-w/20.webp?v=ca024f5b" alt="" loading=lazy></button><button class="t" type="button" data-i="20" style="--i:20" aria-label="Beitrag 21 öffnen"><img src="thumbs-w/21.webp?v=5bd9c32f" alt="" loading=lazy></button><button class="t" type="button" data-i="21" style="--i:21" aria-label="Beitrag 22 öffnen"><img src="thumbs-w/22.webp?v=a34cf121" alt="" loading=lazy></button><button class="t" type="button" data-i="22" style="--i:22" aria-label="Beitrag 23 öffnen"><img src="thumbs-w/23.webp?v=d9f192be" alt="" loading=lazy></button><button class="t" type="button" data-i="23" style="--i:23" aria-label="Beitrag 24 öffnen"><img src="thumbs-w/24.webp?v=7177625a" alt="" loading=lazy></button><button class="t" type="button" data-i="24" style="--i:24" aria-label="Beitrag 25 öffnen"><img src="thumbs-w/25.webp?v=9aa1fc55" alt="" loading=lazy></button><button class="t" type="button" data-i="25" style="--i:25" aria-label="Beitrag 26 öffnen"><img src="thumbs-w/26.webp?v=22d26324" alt="" loading=lazy></button><button class="t" type="button" data-i="26" style="--i:26" aria-label="Beitrag 27 öffnen"><img src="thumbs-w/27.webp?v=7f945402" alt="" loading=lazy></button><button class="t" type="button" data-i="27" style="--i:27" aria-label="Beitrag 28 öffnen"><img src="thumbs-w/28.webp?v=31130c88" alt="" loading=lazy></button><button class="t" type="button" data-i="28" style="--i:28" aria-label="Beitrag 29 öffnen"><img src="thumbs-w/29.webp?v=064e01fe" alt="" loading=lazy></button><button class="t" type="button" data-i="29" style="--i:29" aria-label="Beitrag 30 öffnen"><img src="thumbs-w/30.webp?v=15f06156" alt="" loading=lazy></button><button class="t" type="button" data-i="30" style="--i:30" aria-label="Beitrag 31 öffnen"><img src="thumbs-w/31.webp?v=e79f5df9" alt="" loading=lazy></button><button class="t" type="button" data-i="31" style="--i:31" aria-label="Beitrag 32 öffnen"><img src="thumbs-w/32.webp?v=f6ce61d3" alt="" loading=lazy></button><button class="t" type="button" data-i="32" style="--i:32" aria-label="Beitrag 33 öffnen"><img src="thumbs-w/33.webp?v=621d881f" alt="" loading=lazy></button><button class="t" type="button" data-i="33" style="--i:33" aria-label="Beitrag 34 öffnen"><img src="thumbs-w/34.webp?v=0f12c5fb" alt="" loading=lazy></button><button class="t" type="button" data-i="34" style="--i:34" aria-label="Beitrag 35 öffnen"><img src="thumbs-w/35.webp?v=b02a15c3" alt="" loading=lazy></button><button class="t" type="button" data-i="35" style="--i:35" aria-label="Beitrag 36 öffnen"><img src="thumbs-w/36.webp?v=0bb79458" alt="" loading=lazy></button></div>
+    </div>
+    <div class="nav"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3.5 10.5 12 3.5l8.5 7V20.5h-5.5v-6h-6v6H3.5z"/></svg><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M9 3l3 5M15 3l3 5"/><path d="m10.5 11.5 4 2.5-4 2.5z" fill="currentColor"/></svg><div class="me"><img src="avatar.jpg?v=167c9ad2" alt=""></div></div>
+    <div class="post" id="post" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="ph"><button class="back" type="button" id="zu" aria-label="Zurück zum Profil">‹</button><div class="mini"><img src="avatar.jpg?v=167c9ad2" alt=""></div><b>carltoneuropehotel</b></div>
+      <div class="body"><img class="img" id="pimg" alt=""><div class="act"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 20.5s-7.5-4.6-7.5-10a4.2 4.2 0 0 1 7.5-2.6 4.2 4.2 0 0 1 7.5 2.6c0 5.400-7.5 10-7.5 10z"/></svg><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.400L3.5 20.5l1.600-4.400A8.5 8.5 0 1 1 20.5 11.5z"/></svg><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5z"/></svg><span><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M6 3.5h12v17l-6-4.5-6 4.5z"/></svg></span></div>
+        <div class="cap"><b>carltoneuropehotel</b> <span id="pcap"></span></div>
+        <div class="nx"><button type="button" id="vor">‹ Vorheriger</button><span id="pnr"></span><button type="button" id="nach">Nächster ›</button></div></div>
+    </div>
+  </div></div></div>
+</div>
+<a class="zurueck" href="../werkbank/index.html#feed">Zur Übersicht</a>
+<script>
+(function () {
+  var D = ["Das Carlton auf einer kolorierten Ansichtskarte, damals noch als Hôtel de l’Univers et Brünig.", "Und heute: zwei Häuser am Höheweg, links das Europe. Ein Bild über zwei Beiträge.", "Rechts das Carlton mit seinem Turm. Seit 2006 sind die beiden Häuser ein Hotel.", "Der Empfang. Unsere Rezeption ist täglich von 7 bis 24 Uhr für Sie da.", "Einzigartig anders seit 1898. Zwei Jugendstilhäuser, vier Sterne und ein Team, das Sie zu jeder Jahreszeit empfängt.", "Ein Platz am Kamin. Mehr braucht ein Abend manchmal nicht.", "Der Hansen-Ritschard-Saal, unser Hotelrestaurant. Ein Bild über zwei Beiträge.", "Regionale und saisonale Küche und eine grosse Auswahl an Schweizer Weinen.", "Das Gartenschach im Hotelpark.", "Im Caveau de l’Europe. Ein Bild über zwei Reihen.", "Der Pavillon auf der Dachterrasse der Aarmühle-Suite. Ein Glasdach, Felldecken und die Berge rundherum.", "Das Frühstück. Und wer später aufsteht, bestellt unser 24-Stunden-Frühstück aufs Zimmer.", "Den Weinkeller dürfen Sie gerne mit Voranmeldung besichtigen.", "Individuell eingerichtete Zimmer, jedes ein wenig anders.", "Stars only: eine Nacht unter dem Sternenhimmel auf der Panorama-Dachterrasse der Aarmühle-Suite. Für zwei Personen mit Frühstück ab CHF 799.00.", "Christian Hansen baute das Carlton im Jahr 1900, mit Privatbadezimmern, Heizung und Lift. Das Treppenhaus heute.", "Und heute: das Carlton im Frühling, mit seinem Turm. Ein Bild über zwei Beiträge.", "Gastgeber seit 1898.", "Der Naturbadeteich im Hotelpark. Für ihn verwenden wir keine Chemikalien.", "Eine unserer Signature-Suiten.", "Ich bin Aris, der Hotelhund. Wohlerzogene Hunde sind bei uns herzlich willkommen.", "Einer unserer historischen Säle, heute. Ein Bild über zwei Beiträge.", "Unsere historischen Säle bieten Platz für bis zu 120 Gäste.", "Weiss gedeckt, mit Gläsern.", "Schatz, wie werden wir heiraten? Im kleinen oder grossen Rahmen, mit einem Cocktail auf der Dachterrasse oder einem Barbecue im Hotelgarten. Unsere Packages heissen Eiger, Mönch und Jungfrau.", "Interlaken im Herbst, zwischen den beiden Seen.", "Das Berner Oberländer Wellnessdörfli: Finnische Sauna, Bio-Sauna, Dampfbad und Kneippbecken.", "Apéro über den Dächern von Interlaken.", "Der Hotelgarten: Lounge, Schirme und der Naturbadeteich.", "Das Carlton mit seinem Turm. Ein Bild über zwei Reihen.", "Das Chalet Beizli. Schweizerische und internationale Gerichte, von Dienstag bis Samstag.", "Was bedeutet Vintage? Ursprünglich bedeutete es den Jahrgang eines guten Weins. Heute beschreibt es ganz allgemein wertvolle Gegenstände aus längst vergangenen Tagen.", "Gebaut im Jahr 1900.", "Festlich gedeckt, mit roten Rosen und Kristallgläsern.", "Und heute: Winter auf der Dachterrasse. Ein Bild über zwei Beiträge.", "Der Pavillon im Schnee, dahinter die Berge."], post = document.getElementById('post'), img = document.getElementById('pimg'), cap = document.getElementById('pcap'), nr = document.getElementById('pnr'), n = 0;
+  function zeig(i) { n = (i + D.length) % D.length; img.src = 'posts/' + ('0' + (n + 1)).slice(-2) + '.jpg'; cap.textContent = D[n]; nr.textContent = (n + 1) + ' / ' + D.length; post.classList.add('on'); post.setAttribute('aria-hidden', 'false'); post.querySelector('.body').scrollTop = 0; }
+  function zu() { post.classList.remove('on'); post.setAttribute('aria-hidden', 'true'); }
+  document.getElementById('grid').addEventListener('click', function (e) { var t = e.target.closest('.t'); if (t) zeig(+t.dataset.i); });
+  document.getElementById('zu').addEventListener('click', zu);
+  document.getElementById('vor').addEventListener('click', function () { zeig(n - 1); });
+  document.getElementById('nach').addEventListener('click', function () { zeig(n + 1); });
+  document.addEventListener('keydown', function (e) { if (!post.classList.contains('on')) return; if (e.key === 'Escape') zu(); if (e.key === 'ArrowRight') zeig(n + 1); if (e.key === 'ArrowLeft') zeig(n - 1); });
+  requestAnimationFrame(function () { document.body.classList.add('geladen'); });
+})();
+</script>
+<script src="../maison/zur-werkbank.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+# Carlton-Europe Interlaken — Mail-Vorlagen (Stand 15.10.2026)
+
+10 HTML-Mails im Stil der neuen Website. Je Fall:
+
+- `NN-<fall>/template.html` — Vorlage mit `{{platzhaltern}}` für den Versand (Tabellen, Stil im Element, Bilder über `{{asset_base}}`).
+- `NN-<fall>/index.html` — dieselbe Mail mit Beispielwerten zum Ansehen.
+- `index.html` — Übersicht fürs Haus, alle untereinander.
+
+Gemeinsam: `img/` (Kopf mit Zeichen auf der Tapete, Fotos 1200 × 600 unter 100 KB, Zeichen). Schriften: Libre Baskerville, Instrument Sans und DM Mono, wo das Mailprogramm sie kennt, sonst Georgia und Helvetica.
+Bau: `python3 _werkbank/mails_bau.py` (Bilder und Mails), `python3 _werkbank/mails_bau.py mails` (Bilder bleiben). Nur Deutsch.
+
+Vor einem echten Versand braucht es das Mailprogramm des Hauses und dessen Prüfung; Absender, Zeitpunkte und Abmelde-Link stellt das Haus ein.
+
+## Die Fälle
+
+| Nr | Fall | Betreff | Absender | Ausgelöst |
+|---|---|---|---|---|
+| 01 | Ihre Buchung | `Ihre Buchung ist bestätigt · {{buchungsnummer}}` | info@carltoneurope.ch | Direkt nach der Buchung über SimpleBooking (Hotel 4401) oder an der Rezeption. |
+| 02 | Vor Ihrer Anreise | `Bald sind Sie bei uns · Ihre Wünsche für den {{anreise}}` | info@carltoneurope.ch | Sieben Tage vor der Anreise (den Zeitpunkt wählt das Haus). |
+| 03 | Ihre Wünsche | `Ihre Wünsche sind bei uns angekommen` | info@carltoneurope.ch | Nach dem Absenden auf «Vor Ihrer Anreise» (anreise.html). |
+| 04 | Ihr Tisch | `Ihr Tisch im Hansen-Ritschard-Saal · {{datum}}, {{uhrzeit}} Uhr` | info@carltoneurope.ch | Nach einer Reservierung am Telefon, an der Rezeption oder über «Vor Ihrer Anreise». |
+| 05 | Auf Wiedersehen | `Auf Wiedersehen in Interlaken` | info@carltoneurope.ch | Ein bis zwei Tage nach der Abreise. |
+| 06 | Ihr Gutschein | `Ihr Gutschein vom Carlton-Europe · {{gutscheinnummer}}` | info@carltoneurope.ch | Nach der Bestellung eines Gutscheins auf angebote.html#gutscheine. |
+| 07 | Ihre Anfrage | `Ihre Anfrage ist bei uns · {{anlass}} am {{wunschtermin}}` | info@carltoneurope.ch | Nach dem Absenden einer Anfrage auf tagen-feiern.html (Rechner). |
+| 08 | Unter dem Sternenhimmel | `Eine Nacht unter dem Sternenhimmel` | info@carltoneurope.ch | Nachricht an Gäste, die Neuigkeiten abonniert haben (mit Abmelde-Link). |
+| 09 | Silvester | `Silvesterzauber & Gala-Genuss im Carlton-Europe` | info@carltoneurope.ch | Im Herbst an Gäste, die Neuigkeiten abonniert haben (mit Abmelde-Link). |
+| 10 | Annullation | `Ihre Annullation ist bestätigt · {{buchungsnummer}}` | info@carltoneurope.ch | Nach der Annullation einer Buchung (SimpleBooking oder Rezeption). |
+
+## Platzhalter
+
+| Platzhalter | Bedeutung |
+|---|---|
+| `{{asset_base}}` | Adresse, unter der der Ordner «mails» liegt, ohne «/» am Ende. |
+| `{{website}}` | Adresse der Website, ohne «/» am Ende. |
+| `{{anrede}}` | Anrede mit Namen, z. B. «Guten Tag Frau Keller». Ohne Namen: «Guten Tag». |
+| `{{gast_name}}` | Vor- und Nachname. |
+| `{{buchungsnummer}}` | Buchungsnummer aus SimpleBooking oder der Rezeption. |
+| `{{zimmer}}` | Zimmerkategorie wie auf der Website. |
+| `{{anreise}}` | Tag der Anreise, ausgeschrieben. |
+| `{{abreise}}` | Tag der Abreise, ausgeschrieben. |
+| `{{gaeste}}` | Zahl der Gäste. |
+| `{{gesamtpreis}}` | Total mit «CHF». |
+| `{{zahlung}}` | Wie bezahlt wird. |
+| `{{ankunft}}` | Gewählte Ankunftszeit. |
+| `{{kissen}}` | Gewähltes Kissen aus dem Kissen-Menü. |
+| `{{lunchbox}}` | Gewählte Lunchbox mit Tag und Preis. |
+| `{{tisch}}` | Tischwunsch. |
+| `{{datum}}` | Tag der Reservierung. |
+| `{{uhrzeit}}` | Zeit, z. B. «19.00». |
+| `{{personen}}` | Zahl der Personen. |
+| `{{bemerkung}}` | Notiz des Gastes; leer lassen, wenn keine. |
+| `{{gutschein_art}}` | Art des Gutscheins. |
+| `{{betrag}}` | Wert mit «CHF». |
+| `{{gutscheinnummer}}` | Nummer des Gutscheins. |
+| `{{widmung}}` | Widmung in «». |
+| `{{anlass}}` | Anlass aus dem Rechner. |
+| `{{wunschtermin}}` | Wunschtermin. |
+| `{{richtpreis}}` | Satz zum Richtpreis. |
+| `{{annullationsdatum}}` | Tag der Annullation. |
+| `{{gebuehr}}` | Annullationsgebühr oder «keine». |
+| `{{abmelden}}` | Abmelde-Link des Versandprogramms (nur Nachrichten an Abonnenten). |
+
+## Herkunft
+
+Angaben aus der neuen Website und Carlton Control (Zeiten, Preise, Packages), Sätze zu Stars Only und Silvester wörtlich von angebote.html. Anreden, Übergänge und Kartenbeschriftungen sind von Tasty Studios.

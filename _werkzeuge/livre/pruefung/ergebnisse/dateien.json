@@ -1,0 +1,102 @@
+[
+ {
+  "t": "Jede Farbe im Livre = Variable in assets/css/main.css",
+  "ok": true,
+  "m": "9 Farben gleich"
+ },
+ {
+  "t": "farben.json = Farben im Werkzeug",
+  "ok": true,
+  "m": "9 Einträge"
+ },
+ {
+  "t": "farben.css enthält jeden Hexwert",
+  "ok": true,
+  "m": "alle"
+ },
+ {
+  "t": "farben.ase ist eine Adobe-Farbpalette mit allen Tönen",
+  "ok": true,
+  "m": "9 Blöcke"
+ },
+ {
+  "t": "Glanzgold-Verläufe stehen so in main.css (oder sind als Bild gerechnet)",
+  "ok": true,
+  "m": "['relief']"
+ },
+ {
+  "t": "Schriften der Website (@font-face in main.css)",
+  "ok": true,
+  "m": "['Baskerville CE', 'Baskerville Ersatz', 'Baskerville Fein', 'DM Mono', 'Instrument Sans', 'Montserrat CE', 'Sans Ersatz']"
+ },
+ {
+  "t": "schriften.zip: jede Schrift Byte für Byte die der Website",
+  "ok": true,
+  "m": "['schriften/libre-baskerville-400.woff2', 'schriften/libre-baskerville-700.woff2', 'schriften/montserrat-600-latin.woff2', 'schriften/InstrumentSans-normal-400_600.woff2', 'schriften/LIESMICH.txt']"
+ },
+ {
+  "t": "Die vier WOFF2-Knöpfe zeigen auf Schriften der Website, jede in main.css eingebunden",
+  "ok": true,
+  "m": "['libre-baskerville-400.woff2', 'libre-baskerville-700.woff2', 'montserrat-600-latin.woff2', 'InstrumentSans-normal-400_600.woff2'] · in main.css: ['InstrumentSans-normal-400_600.woff2', 'libre-baskerville-400.woff2', 'libre-baskerville-700.woff2', 'montserrat-600-latin.woff2']"
+ },
+ {
+  "t": "Jede Schrift im Werkzeug ist dieselbe Datei wie eine Familie der Website (die Website nennt sie nur anders: Baskerville Fein/CE, Montserrat CE)",
+  "ok": true,
+  "m": "{'libre-baskerville-400.woff2': 'Baskerville Fein', 'libre-baskerville-700.woff2': 'Baskerville CE', 'montserrat-600-latin.woff2': 'Montserrat CE', 'InstrumentSans-normal-400_600.woff2': 'Instrument Sans'}"
+ },
+ {
+  "t": "Jede Datei der Ansicht öffnet sich (SVG lesbar, PNG/WebP dekodiert, ZIP heil)",
+  "ok": true,
+  "m": "39"
+ },
+ {
+  "t": "Füllfarben der Zeichen- und Logodateien sind Hausfarben",
+  "ok": true,
+  "m": "alle"
+ },
+ {
+  "t": "Zeichen-, Logo- und Wortmarken-PNG mit durchsichtigem Grund",
+  "ok": true,
+  "m": "alle"
+ },
+ {
+  "t": "Tapete-WebP = Datei der Website (hell, dunkel, creme)",
+  "ok": true,
+  "m": "alle drei gleich"
+ },
+ {
+  "t": "tapete-original.svg = assets/logo/tapete.svg",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "t": "logo-original.svg = assets/logo/carlton-europe.svg",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "t": "Paket (ZIP) enthält jede Einzeldatei Byte für Byte",
+  "ok": true,
+  "m": "fehlt [] · anders [] · zusätzlich []"
+ },
+ {
+  "t": "Vorher/Nachher: 53 nachgeschärfte Fotos, je Original im gleichen Ausschnitt",
+  "ok": true,
+  "m": "53 gleich"
+ },
+ {
+  "t": "Keine verwaisten Originale",
+  "ok": true,
+  "m": "[]"
+ },
+ {
+  "t": "Jedes Foto des Archivs liegt auf der Website (gross und klein)",
+  "ok": true,
+  "m": "205"
+ },
+ {
+  "t": "Zahlen der Übersicht stimmen zur Liste",
+  "ok": true,
+  "m": "{'fotos': 205, 'haus': 141, 'frei': 16, 'ki': 28, 'partner': 20, 'ue': 53, 'vn': 53, 'dateien': 41, 'datum': '15.10.2026'}"
+ }
+]

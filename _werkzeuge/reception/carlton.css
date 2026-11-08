@@ -1,0 +1,119 @@
+/* Feinabstimmung für Baskerville und Instrument Sans statt Cormorant und Cinzel (Carlton-Europe). Wird nach hell.css geladen; Grundlage ist das Werkzeug des Grand Beau-Rivage, Funktion und Aufbau unverändert. */
+@media (max-width:480px){
+  #k-probe{letter-spacing:.07em;font-size:10px;padding-left:12px}
+}
+/* Handy in Safari: lange Zeilen in den Karten des Eingangs drückten die Seite breiter als den Bildschirm (Überlauf 33 px); gilt auch im Werkzeug des Grand Beau-Rivage */
+.gs-hinweis{min-width:0;max-width:100%;overflow:hidden}
+@media (max-width:760px){.gs-hinweis{align-items:stretch}.gs-hinweis #gs-name{max-width:100%}}
+
+/* ========== Der Brief als Hotel-Briefpapier (Robert 16.10.2026: «viel luxuriöser und edler, muss zum Luxushotel passen») ==========
+   Büttenpapier mit Tiefe, Doppelrahmen mit Jugendstil-Ecken, Kopf mit Goldprägung, gesetzter Text ohne Eingabekästen, Unterschrift mit Siegel,
+   Fusszeile mit Adresse, Telefon und Website. Gilt für «Gestalten», «Nur Text», PDF und die Vorschau; die Mail trägt dasselbe Kleid in reception.js (briefMail). */
+.brief{--ri:20px;--gold:#b89a58;--tinte-brief:#1d2a42;
+  padding:clamp(58px,6.2vw,92px) clamp(40px,6vw,92px) clamp(48px,5vw,76px);border-radius:2px;color:var(--tinte-brief);
+  background:
+    url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2740%27%20height=%2740%27%20viewBox=%270%200%2040%2040%27%3E%3Cg%20transform=%27translate%280%2C0%29%27%20fill=%27none%27%20stroke=%27%23b89a58%27%20stroke-linecap=%27round%27%3E%3Cpath%20d=%27M2%2030V11Q2%202%2011%202H30%27%20stroke-width=%271.5%27/%3E%3Cpath%20d=%27M8%2025V15Q8%208%2015%208H25%27%20stroke-width=%27.9%27%20opacity=%27.8%27/%3E%3Cpath%20d=%27M15%2015Q22%2015%2022%2022%27%20stroke-width=%27.9%27%20opacity=%27.7%27/%3E%3Ccircle%20cx=%2715%27%20cy=%2715%27%20r=%271.7%27%20fill=%27%23b89a58%27%20stroke=%27none%27/%3E%3Cpath%20d=%27M2%2033v3M33%202h3%27%20stroke-width=%271.1%27%20opacity=%27.6%27/%3E%3C/g%3E%3C/svg%3E") left calc(var(--ri) - 6px) top calc(var(--ri) - 6px) / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2740%27%20height=%2740%27%20viewBox=%270%200%2040%2040%27%3E%3Cg%20transform=%27translate%2840%2C0%29%20scale%28-1%2C1%29%27%20fill=%27none%27%20stroke=%27%23b89a58%27%20stroke-linecap=%27round%27%3E%3Cpath%20d=%27M2%2030V11Q2%202%2011%202H30%27%20stroke-width=%271.5%27/%3E%3Cpath%20d=%27M8%2025V15Q8%208%2015%208H25%27%20stroke-width=%27.9%27%20opacity=%27.8%27/%3E%3Cpath%20d=%27M15%2015Q22%2015%2022%2022%27%20stroke-width=%27.9%27%20opacity=%27.7%27/%3E%3Ccircle%20cx=%2715%27%20cy=%2715%27%20r=%271.7%27%20fill=%27%23b89a58%27%20stroke=%27none%27/%3E%3Cpath%20d=%27M2%2033v3M33%202h3%27%20stroke-width=%271.1%27%20opacity=%27.6%27/%3E%3C/g%3E%3C/svg%3E") right calc(var(--ri) - 6px) top calc(var(--ri) - 6px) / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2740%27%20height=%2740%27%20viewBox=%270%200%2040%2040%27%3E%3Cg%20transform=%27translate%280%2C40%29%20scale%281%2C-1%29%27%20fill=%27none%27%20stroke=%27%23b89a58%27%20stroke-linecap=%27round%27%3E%3Cpath%20d=%27M2%2030V11Q2%202%2011%202H30%27%20stroke-width=%271.5%27/%3E%3Cpath%20d=%27M8%2025V15Q8%208%2015%208H25%27%20stroke-width=%27.9%27%20opacity=%27.8%27/%3E%3Cpath%20d=%27M15%2015Q22%2015%2022%2022%27%20stroke-width=%27.9%27%20opacity=%27.7%27/%3E%3Ccircle%20cx=%2715%27%20cy=%2715%27%20r=%271.7%27%20fill=%27%23b89a58%27%20stroke=%27none%27/%3E%3Cpath%20d=%27M2%2033v3M33%202h3%27%20stroke-width=%271.1%27%20opacity=%27.6%27/%3E%3C/g%3E%3C/svg%3E") left calc(var(--ri) - 6px) bottom calc(var(--ri) - 6px) / 40px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2740%27%20height=%2740%27%20viewBox=%270%200%2040%2040%27%3E%3Cg%20transform=%27translate%2840%2C40%29%20scale%28-1%2C-1%29%27%20fill=%27none%27%20stroke=%27%23b89a58%27%20stroke-linecap=%27round%27%3E%3Cpath%20d=%27M2%2030V11Q2%202%2011%202H30%27%20stroke-width=%271.5%27/%3E%3Cpath%20d=%27M8%2025V15Q8%208%2015%208H25%27%20stroke-width=%27.9%27%20opacity=%27.8%27/%3E%3Cpath%20d=%27M15%2015Q22%2015%2022%2022%27%20stroke-width=%27.9%27%20opacity=%27.7%27/%3E%3Ccircle%20cx=%2715%27%20cy=%2715%27%20r=%271.7%27%20fill=%27%23b89a58%27%20stroke=%27none%27/%3E%3Cpath%20d=%27M2%2033v3M33%202h3%27%20stroke-width=%271.1%27%20opacity=%27.6%27/%3E%3C/g%3E%3C/svg%3E") right calc(var(--ri) - 6px) bottom calc(var(--ri) - 6px) / 40px 40px no-repeat,
+    radial-gradient(130% 80% at 50% -5%,rgba(255,255,255,.7),rgba(255,255,255,0) 62%),
+    radial-gradient(150% 130% at 50% 45%,rgba(160,128,70,0) 52%,rgba(160,128,70,.17) 100%),
+    repeating-linear-gradient(0deg,rgba(120,95,50,.032) 0 1px,rgba(120,95,50,0) 1px 4px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .36 0 0 0 0 .24 0 0 0 .085 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23k)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg,#fcf8ee,#f6eedc);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(138,117,69,.22),0 2px 3px rgba(6,20,43,.28),0 22px 36px -14px rgba(0,0,0,.6),0 60px 90px -44px rgba(0,0,0,.85)}
+.brief::before{inset:var(--ri);border:1px solid rgba(184,154,88,.62)}
+.brief::after{left:calc(var(--ri) + 6px);right:calc(var(--ri) + 6px);top:calc(var(--ri) + 6px);bottom:calc(var(--ri) + 6px);height:auto;background:none;border:1px solid rgba(184,154,88,.26)}
+/* Kopf */
+.brief__kopf{gap:7px;padding-bottom:0;margin-bottom:30px;border-bottom:0}
+.brief__kopf img,.gs--zeichen img,.brief__siegel img{filter:drop-shadow(0 1px 0 rgba(255,255,255,.95)) drop-shadow(0 -1px 0 rgba(96,68,18,.38)) drop-shadow(0 2px 3px rgba(96,68,18,.22))}
+.brief__kopf img{width:64px;margin-bottom:10px}
+.gs--zeichen{--fs:64px;width:calc(64px * var(--s,1))}
+.brief__kopf b,.gs--haus{font-family:var(--caps);font-weight:400;letter-spacing:.34em;color:var(--navy)}
+.gs--haus{--fs:19px}
+.brief__kopf b{font-size:19px}
+.brief__kopf span,.gs--zeile{font-family:var(--serif);font-style:italic;font-size:10px;letter-spacing:.2em;white-space:nowrap;text-transform:uppercase;color:var(--taupe)}
+.gs--zeile{--fs:10px;margin-top:9px}
+/* Linien: fein, bei der ersten mit Rautenschmuck */
+.gs--linie i{height:var(--lst,1px);background:var(--lfb,linear-gradient(90deg,rgba(184,154,88,0),rgba(184,154,88,.7) 18%,rgba(184,154,88,.7) 82%,rgba(184,154,88,0)))}
+.gs--linie[data-b="linie1"] i{position:relative;overflow:visible}
+.gs--linie[data-b="linie1"] i::after{content:'';position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%) rotate(45deg);background:var(--gold);box-shadow:0 0 0 5px #fbf5e6,0 0 0 6px rgba(184,154,88,.55)}
+.brief__linie{background:linear-gradient(90deg,rgba(184,154,88,0),rgba(184,154,88,.6),rgba(184,154,88,0))}
+/* An / Von: dezenter Briefblock */
+.brief__an{gap:10px 36px;margin:2px 0 26px}
+.brief__an dt,.gs--an dt{font:italic 12px/1.2 var(--serif);letter-spacing:.06em;text-transform:none;color:var(--taupe)}
+.brief__an dd,.gs--an dd{margin-top:3px;font:400 15px/1.35 var(--serif);color:var(--navy)}
+.brief__an dd small{font:italic 12.5px/1.4 var(--serif);color:#6e5c36}
+.brief__an a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(184,154,88,.55)}
+/* Betreff in Kapitälchen */
+.brief__betreff{padding-top:16px;border-top:0;background:linear-gradient(90deg,rgba(184,154,88,.55),rgba(184,154,88,0) 70%) top left/100% 1px no-repeat}
+.brief__betreff dt,.gs-mono{display:block;margin-bottom:5px;font:italic 12px/1.2 var(--serif);letter-spacing:.06em;text-transform:none;color:var(--taupe)}
+.brief__betreff dd{font:400 16.5px/1.5 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.gs--betreff{--fs:16.5px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;line-height:1.5;color:var(--navy)}
+.brief--gestalt .brief__betreff{margin:0 0 30px;padding-top:16px;background:linear-gradient(90deg,rgba(184,154,88,.55),rgba(184,154,88,0) 70%) top left/100% 1px no-repeat}
+/* Brieftext: kleiner, ruhiger, in Briefgrösse */
+.brief__text{font:400 16.5px/1.78 var(--serif);color:var(--tinte-brief);margin-top:6px}
+.brief__text p{margin:0 0 1.05em}
+.gs--p{--fs:16.5px;line-height:1.78;margin:0 0 calc(1.05em + var(--mb,0px));color:var(--tinte-brief)}
+.brief__text[dir="rtl"] .gs--p,.brief__text[dir="rtl"]{font-size:16px;line-height:1.95}
+.gs--sign{margin-top:calc(1.5em + var(--mb,0px))}
+.gs--sign::first-line{font-style:italic;color:var(--navy)}
+/* Offene Stellen: Textmarker in Gold, kein Etikett */
+.offen-feld{padding:0 1px;border-radius:0;font-style:italic;color:#7a5f2c;background:linear-gradient(transparent 58%,rgba(220,198,143,.55) 58%);box-shadow:none;border-bottom:1px dotted rgba(138,117,69,.7)}
+.offen-feld i{display:none}
+.gs .offen-feld::before{content:none}
+/* Schreiben im Satz: kein Kasten, nur ein warmer Schimmer und die Schreibmarke in Gold */
+.gs--schreib{background:rgba(239,224,184,.2);box-shadow:0 0 0 6px rgba(239,224,184,.2);border-radius:2px;caret-color:var(--gold)}
+.brief__text textarea,.brief__betreff input{display:block;width:100%;border:0;border-radius:2px;background:transparent;box-shadow:none;resize:none;overflow:hidden;outline:0;caret-color:var(--gold);color:inherit;transition:background-color .3s var(--e1),box-shadow .3s var(--e1);-webkit-appearance:none;appearance:none}
+.brief__text textarea{min-height:420px;padding:0;font:400 16.5px/1.78 var(--serif)}
+.brief__betreff input{padding:0;font:400 16.5px/1.5 var(--serif);letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.brief__text textarea:hover,.brief__betreff input:hover{background:rgba(239,224,184,.12);box-shadow:0 0 0 8px rgba(239,224,184,.12)}
+.brief__text textarea:focus,.brief__betreff input:focus{background:rgba(239,224,184,.2);box-shadow:0 0 0 8px rgba(239,224,184,.2)}
+/* Siegel und Fusszeile */
+.brief__siegel{display:flex;align-items:center;justify-content:center;width:62px;height:62px;margin:34px auto 6px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 35% 28%,#fffdf6,#f2e7c8 70%);box-shadow:0 0 0 1px rgba(184,154,88,.8),0 0 0 4px #faf3e1,0 0 0 5px rgba(184,154,88,.5),0 6px 10px -4px rgba(96,68,18,.35),inset 0 1px 2px rgba(255,255,255,.9)}
+.brief__siegel img{width:38px;height:auto}
+.brief__fuss,.gs--fuss{font-family:var(--serif);font-size:11px;line-height:1.9;letter-spacing:.1em;text-transform:none;color:#6e5c36}
+.brief__fuss{margin-top:18px;padding-top:16px;border-top:0;background:linear-gradient(90deg,rgba(184,154,88,0),rgba(184,154,88,.55),rgba(184,154,88,0)) top center/100% 1px no-repeat}
+.gs--fuss{--fs:11px;margin-top:0;padding-top:14px}
+.brief--leer .brief__kopf{margin-bottom:22px}
+@media (max-width:760px){
+  .brief{--ri:9px;padding:46px 26px 36px;background-size:30px 30px,30px 30px,30px 30px,30px 30px,auto,auto,auto,auto,auto}
+  .brief::after{left:calc(var(--ri) + 5px);right:calc(var(--ri) + 5px);top:calc(var(--ri) + 5px);bottom:calc(var(--ri) + 5px)}
+  .brief__kopf b,.brief__kopf b{font-size:15.5px}.brief__text,.gs--p,.brief__text textarea{font-size:15.5px}
+  .brief__betreff dd,.gs--betreff,.brief__betreff input{font-size:14.5px}
+  .brief__kopf span{font-size:8.5px;letter-spacing:.14em;white-space:normal}.gs--haus{--fs:16px}.gs--zeile{--fs:8.5px;letter-spacing:.14em;white-space:normal}
+  .brief__an{grid-template-columns:1fr}.gs--fuss,.brief__fuss{font-size:10.5px;letter-spacing:.06em}
+}
+.gs-flaeche .brief{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(138,117,69,.22),0 2px 3px rgba(6,20,43,.25),0 22px 40px -18px rgba(11,31,64,.55)}
+
+/* ========== Drucken (⌘P) ==========
+   Dieselbe Seite wie beim PDF: A4 ohne Seitenränder des Browsers, nur der Brief, Papierton und Gold immer mit (unabhängig von «Hintergrund drucken»),
+   keine Leisten, Knöpfe, Rahmen der Auswahl, kein Schimmer vom Bearbeiten. Das fertige PDF setzt der Server («Als PDF sichern»); das hier sichert den normalen Druck ab. */
+@media print{
+  @page{size:A4;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff!important;height:auto!important;overflow:visible!important}
+  body.re>*:not(main){display:none!important}
+  .haupt{height:0!important;min-height:0!important;overflow:hidden!important;margin:0!important;padding:0!important}
+  .re-detail,.gs-flaeche,.re-eingang,#ansicht,.re-post,.re-spalte{transform:none!important;position:static!important;filter:none!important}
+  .gs-hinweis,.gs-werk,.gw,.re-post__kopf,.re-post__unten,.re-post__kn,.re-notiz,.re-modus,.re-liste{display:none!important}
+  #brief,.brief--bearb{position:absolute!important;left:0;top:0;width:calc(210mm / .8)!important;max-width:none!important;margin:0!important;zoom:.8;border-radius:0!important;box-shadow:none!important;
+    padding:24mm 26mm 22mm!important;min-height:calc(297mm / .8);break-inside:auto}
+  .gs{box-shadow:none!important;cursor:default!important;background:none!important}
+  .offen-feld{background:none!important;border:0!important;box-shadow:none!important;color:inherit!important;font-style:inherit!important;padding:0!important}   /* keine Bearbeitungsspuren im Druck */
+  .brief__kopf img,.gs--zeichen img,.brief__siegel img{filter:none!important}
+  .brief__siegel{background:#f6ecd0!important;overflow:hidden;box-shadow:0 0 0 1px rgba(184,154,88,.85),0 0 0 4px #faf3e1,0 0 0 5px rgba(184,154,88,.5)!important}
+  .gs--schreib,.gs--wahl{box-shadow:none!important;background:none!important}
+  .gs--p,.gs--bild,.gs--an,.brief__siegel,.gs--fuss{break-inside:avoid}
+  .brief--bearb textarea{field-sizing:content;height:auto!important;min-height:0!important;overflow:visible!important}
+  .brief__text textarea:hover,.brief__text textarea:focus,.brief__betreff input:hover,.brief__betreff input:focus{background:transparent!important;box-shadow:none!important}
+}
+
+/* Abnahme 17.10.2026: lange Wörter ohne Leerzeichen (eingefügte Links, Zeichenketten aus Mails) brechen um, statt die Seite breiter zu machen
+   (Fund: ein Nachtrag mit 5'000 Zeichen ohne Leerzeichen machte «Vom Team nachgetragen» 25'000 px breit) */
+.re #ansicht :is(.re-n, .re-f, .re-a, .re-d, .sb-z, .sb-offen__z, .wi-l, .re-notiz, #w-antwort, .re-zitat, blockquote, .gs--p, .brief__text, .re-de) {overflow-wrap:anywhere;min-width:0}
+
+/* Abnahme 17.10.2026: am Laptop (1366 × 650) lag «Zum Eingang» der Übersicht nach dem Hinscrollen unter der festen Leiste unten.
+   Scrollen zu einem Ziel (Tastatur, Sprungmarken, scrollIntoView) hält jetzt Abstand zu Kopf und Leiste. */
+html:has(body.re){scroll-padding-top:92px;scroll-padding-bottom:124px}

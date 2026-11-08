@@ -1,0 +1,40 @@
+Proben: drei-seiten.pdf=27940 gross-29mb.jpg=27768503 gross-31mb.jpg=32505856 kein-bild.png=50 klein-400.png=1067 riesig-169mp.png=517957
+✓  1 R15 Ladezeichen erst nach 280 ms (kurz nach dem Öffnen unsichtbar, danach sichtbar) · 0 → 1
+✓  2 R02 Auftakt: Kopf, Rand und Ansicht kommen zusammen, Schriften geladen · {"schrift":"loaded","kopf":true,"rand":true,"bild":true}
+✓  3 R04 Startfehler-Tür, wenn die Daten fehlen: Satz, Grund, «Neu laden», Anleitung · Le Livre startet nicht. livre.json fehlt. (404) Hilft das nicht: die Anleitung öffnen oder Tasty Studios Besch
+✓  4 R04 «Neu laden» startet Le Livre, sobald die Daten wieder da sind
+✓  5 R04 Lädt das Skript gar nicht: nach 12 s steht ein Satz statt endlosem Kreisel · "Le Livre lädt noch. Dauert es länger, bitte die Seite neu laden." · 1
+✓  6 R03 Fehlermelder: Skriptfehler im Browser gemerkt (höchstens 20) · 20 gemerkt
+✓  7 R03 Fehlermelder: an api/fehler gemeldet, höchstens 20 je Seite · 20 neue Zeilen im Protokoll des Servers
+✓  8 R03 Netzfehler (fehlende Bilder) werden nicht gemeldet · 0
+✓  9 R18 Prüfbrowser sieht kein Schild «Kurzer Rundgang»
+✓ 10 R18 «Kurzer Rundgang» als Weg im Rand
+✓ 11 R19 Ohne Herkunft aus der Werkbank kein Knopf «Zur Werkbank»
+✓ 12 R18 Rundgang über ?rundgang: Lichtkegel auf echten Stücken, vier Schritte, endet sauber · LE LIVRE · 1 VON 4 Das ist Le Livre Die Marke des  / LE LIVRE · 2 VON 4 Fotos, Logo, Prüfung Jedes Foto / LE LIVRE · 3 VON 4 Wie das Haus au
+✓ 13 R18 Rundgang erklärt was und wozu, nicht die Bedienung
+✓ 14 R19 Aus der Werkbank geöffnet: Knopf «Zur Werkbank» mit Weg zurück · ["Zur Werkbank","http://localhost:8966/werkbank/index.html#k5"]
+✓ 15 R19 Der Knopf bleibt über weitere Klicks (Sitzung)
+✓ 16 R17 «Weniger Bewegung»: alles steht sofort · 0 Stücke warten
+✓ 17 Vorher/Nachher: Schieber folgt der Maus · 25.0%
+✓ 18 Vorher/Nachher bei allen 53 nachgeschärften Fotos: drei Knöpfe, Vorher zeigt das Original, Schieber schneidet, Nachher zurück, Original ladbar, gleicher Ausschnitt · 53 von 53
+✓ 19 Fotos ohne Nachschärfung zeigen keine Vorher/Nachher-Knöpfe · apt-bett
+✓ 20 Suche mit 5’000 Zeichen: kein Absturz, Hinweis statt Kacheln · 5000 Zeichen im Feld
+✓ 21 Suche mit <script> und <img onerror>: nichts wird ausgeführt, nichts eingefügt · 0/1/53
+✓ 22 Suche mit Emoji: kein Absturz, Hinweis
+✓ 23 Suche mit Umlaut, gross und klein gleich («Säle») · 9/9/9
+✓ 24 Suche nur mit Leerzeichen zeigt alles
+✓ 25 Datei über 30 MB wird abgewiesen, klare Meldung · DIE DATEI IST GRÖSSER ALS 30 MB.
+✓ 26 Foto knapp unter 30 MB (2’600 × 2’600, Rauschen): wird verkleinert gesendet und geprüft · {"erg":1,"feld":0,"melde":""}
+✓ 27 Kleines Bild (400 px): geprüft, Farben gemessen · 100 % der Fläche in den Farben des Hauses
+✓ 28 Riesenbild 13’000 × 13’000: geprüft (verkleinert) oder sauber abgewiesen, kein Absturz · {"erg":1,"feld":0,"melde":""}
+✓ 29 «Bild» ohne Bild: Meldung, Feld bleibt mit der Datei · DIE PRÜFUNG GING NICHT DURCH: DAS BILD LIESS SICH NICHT ÖFFNEN. ERLAUBT SIND JPG, PNG, WEBP UND PDF.
+✓ 30 PDF mit drei Seiten: geprüft, Seitenzahl genannt · drei-seiten.pdf 3 Seiten, geprüft die ersten 3 Gemessene Farben Ohne KI gemessen, gegen die Palette des Hauses. Fotos im
+✓ 31 Netz weg beim Prüfen: Meldung «Keine Verbindung», Datei bleibt gewählt · DIE PRÜFUNG GING NICHT DURCH: KEINE VERBINDUNG. DER ENTWURF BLEIBT GEWÄHLT, BITTE NOCH EINMAL PRÜFEN
+✓ 32 Netz wieder da: dieselbe Datei lässt sich prüfen
+✓ 33 Keine Skriptfehler und keine Dialoge bei allen Proben
+✓ 34 Zwei Fenster prüfen gleichzeitig: jedes bekommt seine eigene Rückmeldung · klein-400.png Gemessene Farben Ohne KI g | drei-seiten.pdf 3 Seiten, geprüft die er
+✓ 35 Zwei Fenster: Neuladen zeigt die zuletzt gewählte Ansicht (im Browser gemerkt), nichts geht verloren · dateien
+✓ 36 320 und 390 px, drei Sprachen, vier Ansichten: kein seitliches Verrutschen · 24 Ansichten
+✓ 37 Englisch und Französisch: keine deutschen Wörter in Kopf, Rand, Leiste, Titeln und Knöpfen
+
+Summe webkit: 37/37

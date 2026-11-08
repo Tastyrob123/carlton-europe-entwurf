@@ -1,0 +1,224 @@
+[
+ {
+  "nr": 1,
+  "t": "R15 Ladezeichen erst nach 280 ms (kurz nach dem Öffnen unsichtbar, danach sichtbar)",
+  "ok": true,
+  "m": "0 → 1"
+ },
+ {
+  "nr": 2,
+  "t": "R02 Auftakt: Kopf, Rand und Ansicht kommen zusammen, Schriften geladen",
+  "ok": true,
+  "m": "{\"schrift\":\"loaded\",\"kopf\":true,\"rand\":true,\"bild\":true}"
+ },
+ {
+  "nr": 3,
+  "t": "R04 Startfehler-Tür, wenn die Daten fehlen: Satz, Grund, «Neu laden», Anleitung",
+  "ok": true,
+  "m": "Le Livre startet nicht. livre.json fehlt. (404) Hilft das nicht: die Anleitung öffnen oder Tasty Studios Besch"
+ },
+ {
+  "nr": 4,
+  "t": "R04 «Neu laden» startet Le Livre, sobald die Daten wieder da sind",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 5,
+  "t": "R04 Lädt das Skript gar nicht: nach 12 s steht ein Satz statt endlosem Kreisel",
+  "ok": true,
+  "m": "\"Le Livre lädt noch. Dauert es länger, bitte die Seite neu laden.\" · 1"
+ },
+ {
+  "nr": 6,
+  "t": "R03 Fehlermelder: Skriptfehler im Browser gemerkt (höchstens 20)",
+  "ok": true,
+  "m": "20 gemerkt"
+ },
+ {
+  "nr": 7,
+  "t": "R03 Fehlermelder: an api/fehler gemeldet, höchstens 20 je Seite",
+  "ok": true,
+  "m": "20 neue Zeilen im Protokoll des Servers"
+ },
+ {
+  "nr": 8,
+  "t": "R03 Netzfehler (fehlende Bilder) werden nicht gemeldet",
+  "ok": true,
+  "m": "0"
+ },
+ {
+  "nr": 9,
+  "t": "R18 Prüfbrowser sieht kein Schild «Kurzer Rundgang»",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 10,
+  "t": "R18 «Kurzer Rundgang» als Weg im Rand",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 11,
+  "t": "R19 Ohne Herkunft aus der Werkbank kein Knopf «Zur Werkbank»",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 12,
+  "t": "R18 Rundgang über ?rundgang: Lichtkegel auf echten Stücken, vier Schritte, endet sauber",
+  "ok": true,
+  "m": "LE LIVRE · 1 VON 4 Das ist Le Livre Die Marke des  / LE LIVRE · 2 VON 4 Fotos, Logo, Prüfung Jedes Foto / LE LIVRE · 3 VON 4 Wie das Haus aussieht Das Marke / LE LIVRE · 4 VON 4 Weitergeben mit einem Klick All"
+ },
+ {
+  "nr": 13,
+  "t": "R18 Rundgang erklärt was und wozu, nicht die Bedienung",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 14,
+  "t": "R19 Aus der Werkbank geöffnet: Knopf «Zur Werkbank» mit Weg zurück",
+  "ok": true,
+  "m": "[\"Zur Werkbank\",\"http://localhost:8966/werkbank/index.html#k5\"]"
+ },
+ {
+  "nr": 15,
+  "t": "R19 Der Knopf bleibt über weitere Klicks (Sitzung)",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 16,
+  "t": "R17 «Weniger Bewegung»: alles steht sofort",
+  "ok": true,
+  "m": "0 Stücke warten"
+ },
+ {
+  "nr": 17,
+  "t": "Vorher/Nachher: Schieber folgt der Maus",
+  "ok": true,
+  "m": "25.0%"
+ },
+ {
+  "nr": 18,
+  "t": "Vorher/Nachher bei allen 53 nachgeschärften Fotos: drei Knöpfe, Vorher zeigt das Original, Schieber schneidet, Nachher zurück, Original ladbar, gleicher Ausschnitt",
+  "ok": true,
+  "m": "53 von 53"
+ },
+ {
+  "nr": 19,
+  "t": "Fotos ohne Nachschärfung zeigen keine Vorher/Nachher-Knöpfe",
+  "ok": true,
+  "m": "apt-bett"
+ },
+ {
+  "nr": 20,
+  "t": "Suche mit 5’000 Zeichen: kein Absturz, Hinweis statt Kacheln",
+  "ok": true,
+  "m": "5000 Zeichen im Feld"
+ },
+ {
+  "nr": 21,
+  "t": "Suche mit <script> und <img onerror>: nichts wird ausgeführt, nichts eingefügt",
+  "ok": true,
+  "m": "0/1/53"
+ },
+ {
+  "nr": 22,
+  "t": "Suche mit Emoji: kein Absturz, Hinweis",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 23,
+  "t": "Suche mit Umlaut, gross und klein gleich («Säle»)",
+  "ok": true,
+  "m": "9/9/9"
+ },
+ {
+  "nr": 24,
+  "t": "Suche nur mit Leerzeichen zeigt alles",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 25,
+  "t": "Datei über 30 MB wird abgewiesen, klare Meldung",
+  "ok": true,
+  "m": "DIE DATEI IST GRÖSSER ALS 30 MB."
+ },
+ {
+  "nr": 26,
+  "t": "Foto knapp unter 30 MB (2’600 × 2’600, Rauschen): wird verkleinert gesendet und geprüft",
+  "ok": true,
+  "m": "{\"erg\":1,\"feld\":0,\"melde\":\"\"}"
+ },
+ {
+  "nr": 27,
+  "t": "Kleines Bild (400 px): geprüft, Farben gemessen",
+  "ok": true,
+  "m": "100 % der Fläche in den Farben des Hauses"
+ },
+ {
+  "nr": 28,
+  "t": "Riesenbild 13’000 × 13’000: geprüft (verkleinert) oder sauber abgewiesen, kein Absturz",
+  "ok": true,
+  "m": "{\"erg\":1,\"feld\":0,\"melde\":\"\"}"
+ },
+ {
+  "nr": 29,
+  "t": "«Bild» ohne Bild: Meldung, Feld bleibt mit der Datei",
+  "ok": true,
+  "m": "DIE PRÜFUNG GING NICHT DURCH: DAS BILD LIESS SICH NICHT ÖFFNEN. ERLAUBT SIND JPG, PNG, WEBP UND PDF."
+ },
+ {
+  "nr": 30,
+  "t": "PDF mit drei Seiten: geprüft, Seitenzahl genannt",
+  "ok": true,
+  "m": "drei-seiten.pdf 3 Seiten, geprüft die ersten 3 Gemessene Farben Ohne KI gemessen, gegen die Palette des Hauses. Fotos im"
+ },
+ {
+  "nr": 31,
+  "t": "Netz weg beim Prüfen: Meldung «Keine Verbindung», Datei bleibt gewählt",
+  "ok": true,
+  "m": "DIE PRÜFUNG GING NICHT DURCH: KEINE VERBINDUNG. DER ENTWURF BLEIBT GEWÄHLT, BITTE NOCH EINMAL PRÜFEN"
+ },
+ {
+  "nr": 32,
+  "t": "Netz wieder da: dieselbe Datei lässt sich prüfen",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 33,
+  "t": "Keine Skriptfehler und keine Dialoge bei allen Proben",
+  "ok": true,
+  "m": ""
+ },
+ {
+  "nr": 34,
+  "t": "Zwei Fenster prüfen gleichzeitig: jedes bekommt seine eigene Rückmeldung",
+  "ok": true,
+  "m": "klein-400.png Gemessene Farben Ohne KI g | drei-seiten.pdf 3 Seiten, geprüft die er"
+ },
+ {
+  "nr": 35,
+  "t": "Zwei Fenster: Neuladen zeigt die zuletzt gewählte Ansicht (im Browser gemerkt), nichts geht verloren",
+  "ok": true,
+  "m": "dateien"
+ },
+ {
+  "nr": 36,
+  "t": "320 und 390 px, drei Sprachen, vier Ansichten: kein seitliches Verrutschen",
+  "ok": true,
+  "m": "24 Ansichten"
+ },
+ {
+  "nr": 37,
+  "t": "Englisch und Französisch: keine deutschen Wörter in Kopf, Rand, Leiste, Titeln und Knöpfen",
+  "ok": true,
+  "m": ""
+ }
+]

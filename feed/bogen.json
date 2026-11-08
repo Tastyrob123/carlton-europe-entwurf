@@ -1,0 +1,266 @@
+{
+ "reihen": 12,
+ "stuecke": [
+  {
+   "id": "schrift-postkarte",
+   "r": 1,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "heute-haeuser",
+   "r": 1,
+   "c": 2,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "_quelle/extern/myswitzerland/myswitzerland-apartments-00069780_m.jpg"
+  },
+  {
+   "id": "empfang",
+   "r": 2,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "empfang"
+  },
+  {
+   "id": "schrift-schluessel",
+   "r": 2,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "kaminbar",
+   "r": 2,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "kaminbar"
+  },
+  {
+   "id": "saal-hr",
+   "r": 3,
+   "c": 1,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "saal-hr"
+  },
+  {
+   "id": "schach",
+   "r": 3,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "schach"
+  },
+  {
+   "id": "keller-hoch",
+   "r": 4,
+   "c": 1,
+   "w": 1,
+   "h": 2,
+   "art": "foto",
+   "bild": "keller-hoch"
+  },
+  {
+   "id": "dach-pavillon",
+   "r": 4,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "dach-pavillon"
+  },
+  {
+   "id": "brot",
+   "r": 4,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "brot"
+  },
+  {
+   "id": "zi-a",
+   "r": 5,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "zi-a"
+  },
+  {
+   "id": "schrift-dach-bett",
+   "r": 5,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "schrift-treppe",
+   "r": 6,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "haus-tag2",
+   "r": 6,
+   "c": 2,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "haus-tag2"
+  },
+  {
+   "id": "teich-blumen",
+   "r": 7,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "teich-blumen"
+  },
+  {
+   "id": "z-signature-253",
+   "r": 7,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "z-signature-253"
+  },
+  {
+   "id": "aris",
+   "r": 7,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "assets/img/aris-l.webp"
+  },
+  {
+   "id": "s-festsaal",
+   "r": 8,
+   "c": 1,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "s-festsaal"
+  },
+  {
+   "id": "tisch-gedeckt",
+   "r": 8,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "tisch-gedeckt"
+  },
+  {
+   "id": "schrift-hochzeit",
+   "r": 9,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "herbst",
+   "r": 9,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "herbst"
+  },
+  {
+   "id": "wellness",
+   "r": 9,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "wellness"
+  },
+  {
+   "id": "dach-apero",
+   "r": 10,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "dach-apero"
+  },
+  {
+   "id": "garten-lounge",
+   "r": 10,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "garten-lounge"
+  },
+  {
+   "id": "haus-sw-hoch",
+   "r": 10,
+   "c": 3,
+   "w": 1,
+   "h": 2,
+   "art": "foto",
+   "bild": "haus-sw-hoch"
+  },
+  {
+   "id": "pt-beizli-3",
+   "r": 11,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "pt-beizli-3"
+  },
+  {
+   "id": "schrift-keller-flaschen",
+   "r": 11,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "tafel-rot",
+   "r": 12,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "tafel-rot"
+  },
+  {
+   "id": "heute-dach-winter",
+   "r": 12,
+   "c": 2,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "_quelle/roh/lhtkwj_img_2998.jpg"
+  }
+ ]
+}

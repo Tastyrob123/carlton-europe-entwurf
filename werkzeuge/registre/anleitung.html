@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="de-CH">
+<head><!--demo-weiche--><script src="/_demo/karte.js"></script><script src="/_demo/shim.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anleitung · Le Registre · Carlton-Europe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06142b">
+<link rel="icon" href="../../assets/logo/favicon.ico">
+<link rel="preload" href="../../assets/fonts/libre-baskerville-700.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Baskerville CE';font-style:normal;font-weight:400 700;font-display:swap;src:url('../../assets/fonts/libre-baskerville-700.woff2') format('woff2')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url('../../assets/fonts/InstrumentSans-normal-400_600.woff2') format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url('../../assets/fonts/DMMono-normal-400.woff2') format('woff2')}
+:root{--nacht:#06142b;--navy:#0b1f40;--blau:#12305e;--papier:#f4ecdc;--weiss:#fbf6ea;--gold:#dcc68f;--taupe:#8a7545;--tinte:#0c1526;--blatt:#faf5ea;--linie:rgba(12,21,38,.11);--leise:#6f6250;
+  --serif:'Baskerville CE',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--mono:'DM Mono',ui-monospace,monospace;--e1:cubic-bezier(.16,1,.3,1);--e2:cubic-bezier(.32,.72,0,1)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--papier);color:var(--tinte);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ol,ul,figure{margin:0;padding:0}ol,ul{list-style:none}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3{font-family:var(--serif);font-weight:400}
+:focus-visible{outline:1.5px solid var(--taupe);outline-offset:3px;border-radius:6px}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.kn{position:relative;display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 6px 0 22px;border-radius:999px;font:11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:#fff;background:linear-gradient(180deg,#1f3f77,#0b1f40 46%,#040d1e);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -3px 0 rgba(0,0,0,.55),0 14px 22px -14px rgba(6,20,43,.55);transition:transform .5s var(--e2)}
+.kn:hover{transform:translateY(-2px)}
+.kn i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#fbf3e2,#cfbd98);color:var(--tinte);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -2px 0 rgba(0,0,0,.22)}
+.kn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.3}
+.kn--hell{background:linear-gradient(180deg,#fbf3e2,#e8dbbf 50%,#cfbd98);color:var(--tinte);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -3px 0 rgba(110,88,44,.38),0 14px 22px -14px rgba(0,0,0,.5)}
+.kn--hell i{background:linear-gradient(180deg,#1e3c72,#050f22);color:var(--weiss)}
+/* Kopf */
+.kopf{position:relative;isolation:isolate;color:var(--weiss);background-color:var(--navy);background-image:linear-gradient(rgba(11,31,64,.5),rgba(11,31,64,.5)),url(../../assets/img/tapete-navy.webp);background-size:auto,700px auto;background-position:0 0,50% 0;border-radius:0 0 34px 34px;overflow:hidden}
+.kopf::after{content:'';position:absolute;inset:auto 0 0 0;height:60%;z-index:-1;background:linear-gradient(0deg,rgba(6,20,43,.8),transparent)}
+.kopf__in{max-width:1180px;margin:0 auto;padding:36px 28px 74px}
+.kopf nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:56px;font:10.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.kopf nav a:hover{color:#fff}
+.kopf h1{font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.02;max-width:14ch}.kopf h1 em{font-style:italic;color:var(--gold)}
+.kopf p{margin-top:22px;max-width:56ch;font-size:1.08rem;color:rgba(251,246,234,.84)}
+.kopf .kn{margin-top:30px}
+.kopf .kn+.kn{margin-left:10px}
+/* Inhalt */
+main{max-width:1180px;margin:0 auto;padding:0 28px 120px}
+.inhalt{margin:58px 0 70px}
+.inhalt h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.08;margin:8px 0 8px}.inhalt h2 em{font-style:normal;color:var(--taupe)}
+.inhalt>p{max-width:60ch;color:var(--leise)}
+.themen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+.thema{background:var(--blatt);border-radius:22px;box-shadow:inset 0 0 0 1px var(--linie);padding:22px 24px}
+.thema h3{font-size:1.35rem;line-height:1.15;display:grid;gap:3px}.thema h3 small{font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}.thema h3 em{font:11px var(--mono);font-style:normal;color:var(--leise)}
+.thema ol{margin-top:12px;display:grid;gap:2px}
+.thema a{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:9px 6px;border-radius:12px;transition:background-color .3s}
+.thema a:hover{background:rgba(255,255,255,.7)}.thema a b{font:12px var(--mono);color:var(--taupe)}.thema a span{font-family:var(--serif)}.thema a i{font:10px var(--mono);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--leise)}
+/* Kapitel */
+.kap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,60px);align-items:start;padding:54px 0;border-top:1px solid var(--linie);scroll-margin-top:20px}
+.kap:nth-of-type(even) .kap__t{order:2}
+.kap h2{font-size:clamp(1.9rem,3.2vw,2.8rem);line-height:1.08;margin:12px 0 14px;text-wrap:balance}
+.einl{color:rgba(12,21,38,.78);max-width:54ch}
+.schritte{display:grid;gap:12px;margin:22px 0}
+.schritte li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;align-items:start}
+.schritte li span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--gold);font:12px var(--mono)}
+.schritte p{padding-top:3px}
+.wissen{padding:16px 18px;border-radius:16px;background:rgba(220,198,143,.3);font-size:14.5px;color:#4d3f1f}.wissen b{display:block;margin-bottom:3px;font:10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--tinte)}
+.kap__b{position:sticky;top:20px}
+.bild{display:block;width:100%;border-radius:20px;overflow:hidden;background:var(--navy);box-shadow:0 30px 50px -28px rgba(6,20,43,.6),inset 0 0 0 1px rgba(220,198,143,.3);cursor:zoom-in;transition:transform .6s var(--e2)}
+.bild:hover{transform:translateY(-3px)}.bild img{display:block;width:100%;height:auto}
+figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--leise)}
+/* Bild gross */
+.gross{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:3vmin;background:rgba(4,12,28,.88);cursor:zoom-out;animation:auf .35s var(--e1) both}
+.gross[hidden]{display:none}.gross img{max-width:100%;max-height:100%;border-radius:14px;box-shadow:0 40px 80px -30px #000}.gross small{position:absolute;bottom:14px;left:0;right:0;text-align:center;font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+@keyframes auf{from{opacity:0}}
+.fuss{margin-top:20px;padding:34px 0 0;border-top:1px solid var(--linie);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--leise);font-size:14px}
+@media (max-width:900px){.themen{grid-template-columns:1fr}.kap{grid-template-columns:1fr;padding:40px 0}.kap:nth-of-type(even) .kap__t{order:0}.kap__b{position:static}.kopf__in{padding:26px 18px 54px}.kopf nav{margin-bottom:36px}main{padding:0 18px 80px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="kopf"><div class="kopf__in">
+  <nav><span>Anleitung · Carlton-Europe Interlaken</span><a href="./">Le Registre öffnen</a></nav>
+  <h1>Wer zu Besuch war, <em>und was daraus wurde.</em></h1>
+  <p>10 kurze Kapitel. Wie Sie einen Besuch lesen, woher Ihre Gäste kommen, wann sie vorbeischauen, welche Seiten sie ansehen und wie oft die Website zur Buchung führt.</p>
+  <a class="kn" href="./">Le Registre öffnen<i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></i></a><a class="kn kn--hell" href="#inhalt">Zu den Kapiteln<i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></i></a>
+</div></header>
+<main>
+  <section class="inhalt" id="inhalt"><span class="mono">00 · Inhalt</span><h2>10 Kapitel, <em>vier Themen.</em></h2><p>Jedes Kapitel zeigt den Bereich und nennt die Schritte. Ein Klick macht das Bild gross, ein zweiter oder Esc bringt es zurück.</p>
+    <div class="themen"><section class="thema"><h3><small>Grundlagen</small>So geht Le Registre<em>2 Kapitel</em></h3><ol><li><a href="#k01"><b>01</b><span>So ist Le Registre aufgebaut.</span><i>Übersicht</i></a></li><li><a href="#k02"><b>02</b><span>Die Übersicht lesen.</span><i>Übersicht</i></a></li></ol></section><section class="thema"><h3><small>Die Gäste</small>Besuche, Herkunft und Zeit<em>4 Kapitel</em></h3><ol><li><a href="#k03"><b>03</b><span>Einen Besuch lesen.</span><i>Besuche</i></a></li><li><a href="#k04"><b>04</b><span>Wer weiter zur Buchung ging.</span><i>Besuche</i></a></li><li><a href="#k05"><b>05</b><span>Woher die Gäste kommen.</span><i>Herkunft</i></a></li><li><a href="#k06"><b>06</b><span>Wann Gäste vorbeischauen.</span><i>Zeit</i></a></li></ol></section><section class="thema"><h3><small>Die Website</small>Seiten, Verlauf und Buchung<em>3 Kapitel</em></h3><ol><li><a href="#k07"><b>07</b><span>Was am meisten angesehen wird.</span><i>Seiten</i></a></li><li><a href="#k08"><b>08</b><span>Wie sich die Besuche entwickeln.</span><i>Verlauf</i></a></li><li><a href="#k09"><b>09</b><span>Wie oft die Website zur Buchung führt.</span><i>Zur Buchung</i></a></li></ol></section><section class="thema"><h3><small>Gut zu wissen</small>Zählung<em>1 Kapitel</em></h3><ol><li><a href="#k10"><b>10</b><span>Was gezählt wird und was nicht.</span><i>Gut zu wissen</i></a></li></ol></section></div></section>
+<article class="kap" id="k01">
+  <div class="kap__t"><span class="mono">01 · Übersicht</span><h2>So ist Le Registre aufgebaut.</h2><p class="einl">Le Registre zeigt, wer Ihre Website besucht: woher die Gäste kommen, was sie sich ansehen, wie lange sie bleiben und wie oft es weiter zur Buchung geht. Sie ändern hier nichts, Sie lesen.</p>
+    <ol class="schritte"><li><span>1</span><p>Links die Bereiche: «Übersicht», darunter «Besuche», «Herkunft» und «Zeit» für die Gäste, «Seiten», «Verlauf» und «Zur Buchung» für die Website, zuletzt «So wird gezählt».</p></li><li><span>2</span><p>Unter dem Foto-Kopf wählen Sie den Zeitraum: 7, 30 oder 90 Tage. Alle Zahlen der Ansicht gelten für diesen Zeitraum.</p></li><li><span>3</span><p>Oben in der Leiste stehen Titel und Stand der Ansicht, rechts «Anleitung», «La Maison» und «Website ansehen». Unten nennt die Leiste die Besuche von heute.</p></li><li><span>4</span><p>Beim ersten Mal zeigt ein kleines Schild unten rechts «Kurzer Rundgang». Er lässt sich jederzeit über den Rand wieder öffnen.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Die Bilder dieser Anleitung zeigen Beispielwerte. Sie sind erfunden und im Bild so beschriftet. Ihre echten Besuche stehen in Le Registre, sobald die Website zählt.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: So ist Le Registre aufgebaut."><img src="anleitung/k01.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Übersicht: So ist Le Registre aufgebaut. (Beispielwerte)"></button>
+    <figcaption><span>le registre / übersicht</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k02">
+  <div class="kap__t"><span class="mono">02 · Übersicht</span><h2>Die Übersicht lesen.</h2><p class="einl">Oben vier Zahlen: Besuche (mit dem Vergleich zum Zeitraum davor), angesehene Seiten, Minuten je Besuch und wie viele weiter zu SimpleBooking gingen. Darunter die Besuche je Tag als Säulen.</p>
+    <ol class="schritte"><li><span>1</span><p>Mit der Maus über eine Säule fahren: Tag und Zahl der Besuche erscheinen.</p></li><li><span>2</span><p>«Woher die Gäste kommen» und «Am meisten angesehen» zeigen je die sechs ersten Plätze. Der Link daneben führt zur ganzen Liste.</p></li><li><span>3</span><p>Ganz unten stehen die letzten fünf Besuche. Ein Klick öffnet den Besuch.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Ein Besuch ist ein Gast an einem Tag. Kommt derselbe Gast nach mehr als einer halben Stunde Pause wieder, zählt das als neuer Besuch.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Die Übersicht lesen."><img src="anleitung/k02.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Übersicht: Die Übersicht lesen. (Beispielwerte)"></button>
+    <figcaption><span>le registre / übersicht</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k03">
+  <div class="kap__t"><span class="mono">03 · Besuche</span><h2>Einen Besuch lesen.</h2><p class="einl">Unter «Besuche» steht jeder einzelne Besuch: links die Liste nach Tagen, rechts der gewählte Besuch.</p>
+    <ol class="schritte"><li><span>1</span><p>Links einen Besuch anklicken. Im Kreis steht das Land, daneben Ort, Uhrzeit, Zahl der Seiten und Dauer. Die Seite bleibt, wo sie ist, nur die Karte rechts wechselt.</p></li><li><span>2</span><p>Rechts oben sechs Angaben: wann der Gast kam, wie lange er blieb, wie viele Seiten, mit welchem Gerät, in welcher Sprache und über welche Website er zu Ihnen fand.</p></li><li><span>3</span><p>Darunter «Der Weg durch die Website»: Seite für Seite in der Reihenfolge des Besuchs, mit der Zeit je Seite. Unter einer Seite steht, was der Gast dort angeklickt hat, etwa «Buchungsfenster geöffnet».</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Ein Name steht nie da. Le Registre kennt Ort, Uhrzeit und Weg, aber nicht, wer der Gast ist.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Einen Besuch lesen."><img src="anleitung/k03.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Besuche: Einen Besuch lesen. (Beispielwerte)"></button>
+    <figcaption><span>le registre / besuche</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k04">
+  <div class="kap__t"><span class="mono">04 · Besuche</span><h2>Wer weiter zur Buchung ging.</h2><p class="einl">Über der Liste grenzen Sie ein: alle Besuche, nur die mit Klick zu SimpleBooking, nur die mit Anruf oder Mail, oder nur die am Handy.</p>
+    <ol class="schritte"><li><span>1</span><p>Auf «Zur Buchung» klicken. Die Liste zeigt nur noch Besuche, bei denen der Gast zu SimpleBooking weiterging. Ihr Kreis ist golden.</p></li><li><span>2</span><p>Einen dieser Besuche öffnen und den Weg lesen: Welche Seiten hat der Gast vorher angesehen, wie lange, und von welcher Seite aus hat er gebucht?</p></li><li><span>3</span><p>«Anruf oder Mail» zeigt, wer die Nummer des Hauses gewählt oder eine Mail begonnen hat, «Am Handy» die Besuche vom Telefon.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>So sehen Sie, welche Seiten Gäste überzeugen. Sehen viele vor dem Klick dieselbe Zimmerseite an, lohnt es sich, gerade diese Seite gut zu pflegen.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Wer weiter zur Buchung ging."><img src="anleitung/k04.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Besuche: Wer weiter zur Buchung ging. (Beispielwerte)"></button>
+    <figcaption><span>le registre / besuche</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k05">
+  <div class="kap__t"><span class="mono">05 · Herkunft</span><h2>Woher die Gäste kommen.</h2><p class="einl">Unter «Herkunft» stehen Länder und Orte, wie viele aus der Schweiz kommen, die Sprache der gelesenen Seiten und das Gerät.</p>
+    <ol class="schritte"><li><span>1</span><p>«Länder» und «Orte» nennt die Verbindung des Gastes. Der Ort ist der seines Anschlusses und kann einige Kilometer danebenliegen.</p></li><li><span>2</span><p>«Gekommen über» zeigt, von welcher Website der Gast zu Ihnen fand: Google, Instagram, Booking.com oder eine andere. «Direkt aufgerufen» heisst: Adresse eingetippt, Lesezeichen oder Link aus einer Mail.</p></li><li><span>3</span><p>«Sprache» ist die Sprache der Seite, die der Gast gelesen hat (Deutsch, Englisch, Französisch), «Gerät» unterscheidet Handy, Tablet und Rechner.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Kommen viele Besuche aus einem Land, dessen Sprache die Website noch nicht spricht, sehen Sie es hier zuerst.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Woher die Gäste kommen."><img src="anleitung/k05.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Herkunft: Woher die Gäste kommen. (Beispielwerte)"></button>
+    <figcaption><span>le registre / herkunft</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k06">
+  <div class="kap__t"><span class="mono">06 · Zeit</span><h2>Wann Gäste vorbeischauen.</h2><p class="einl">Unter «Zeit» steht, zu welcher Stunde und an welchem Wochentag die Besuche beginnen. Uhrzeit von Interlaken.</p>
+    <ol class="schritte"><li><span>1</span><p>Oben vier Spitzen: wann die meisten kommen, welcher Tag am stärksten ist, wie viele ab 18 Uhr und wie viele am Wochenende.</p></li><li><span>2</span><p>«Zu welcher Uhrzeit» zeigt 24 Säulen, eine je Stunde. Mit der Maus darüber erscheint die Zahl.</p></li><li><span>3</span><p>«Wochentag und Stunde» legt beides übereinander: Je dunkler ein Feld, desto mehr Besuche.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>So sehen Sie, wann sich ein Beitrag, ein Newsletter oder ein Angebot am ehesten lohnt: Dann sind die Gäste ohnehin auf der Seite.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Wann Gäste vorbeischauen."><img src="anleitung/k06.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Zeit: Wann Gäste vorbeischauen. (Beispielwerte)"></button>
+    <figcaption><span>le registre / zeit</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k07">
+  <div class="kap__t"><span class="mono">07 · Seiten</span><h2>Was am meisten angesehen wird.</h2><p class="einl">Unter «Seiten» steht jede Seite der Website mit ihren Aufrufen, der Zeit, die Gäste im Schnitt darauf bleiben, und den Klicks von dort zu SimpleBooking.</p>
+    <ol class="schritte"><li><span>1</span><p>Die Liste ist nach Aufrufen geordnet, die meistbesuchte Seite steht oben.</p></li><li><span>2</span><p>«Zeit im Schnitt» zählt nur, solange die Seite im Vordergrund war. Liegt sie in einem Reiter im Hintergrund, läuft die Zeit nicht.</p></li><li><span>3</span><p>«Zur Buchung» nennt, wie oft Gäste von dieser Seite zu SimpleBooking gingen.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Eine Seite mit vielen Aufrufen und wenig Zeit wird oft nur überflogen. Eine Seite mit wenigen Aufrufen und viel Zeit wird gelesen, aber selten gefunden.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Was am meisten angesehen wird."><img src="anleitung/k07.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Seiten: Was am meisten angesehen wird. (Beispielwerte)"></button>
+    <figcaption><span>le registre / seiten</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k08">
+  <div class="kap__t"><span class="mono">08 · Verlauf</span><h2>Wie sich die Besuche entwickeln.</h2><p class="einl">Unter «Verlauf» steht der gewählte Zeitraum neben dem Zeitraum davor: Geht es aufwärts oder abwärts?</p>
+    <ol class="schritte"><li><span>1</span><p>Die Säulen zeigen die Besuche je Tag, dahinter hell derselbe Tag im Zeitraum davor.</p></li><li><span>2</span><p>«Neben dem Zeitraum davor» vergleicht Besuche, Seiten, Zeit, Buchungen sowie Anrufe und Mails, mit dem Unterschied in Prozent.</p></li><li><span>3</span><p>«Woche für Woche» fasst von Montag bis Sonntag zusammen, darunter die wichtigsten Länder als kleine Verlaufslinien.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Ein einzelner Tag sagt wenig. Achten Sie auf Wochen und auf die Richtung der Linien.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Wie sich die Besuche entwickeln."><img src="anleitung/k08.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Verlauf: Wie sich die Besuche entwickeln. (Beispielwerte)"></button>
+    <figcaption><span>le registre / verlauf</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k09">
+  <div class="kap__t"><span class="mono">09 · Zur Buchung</span><h2>Wie oft die Website zur Buchung führt.</h2><p class="einl">Sechs Werte zeigen, wie viele Aufrufe weiterführen: von der Startseite, den Zimmern und den Packages zu SimpleBooking, über «Buchen» im Dock am Rechner, aus dem Buchungsfenster und zu Anruf oder Mail.</p>
+    <ol class="schritte"><li><span>1</span><p>Jeder Wert steht als Anteil in Prozent, darunter die gezählten Zahlen, zum Beispiel «62 von 1’489 Aufrufen der Zimmerseiten».</p></li><li><span>2</span><p>«Buchungsfenster ohne Weiter» zählt, wie oft jemand das Fenster öffnet und dann nicht zu SimpleBooking geht.</p></li><li><span>3</span><p>Darunter «Von welcher Seite gebucht wird» und der Weg zur Buchung vom Besuch bis zu SimpleBooking.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Gezählt wird der Klick zu SimpleBooking. Ob danach gebucht wurde, sieht nur SimpleBooking.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Wie oft die Website zur Buchung führt."><img src="anleitung/k09.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Zur Buchung: Wie oft die Website zur Buchung führt. (Beispielwerte)"></button>
+    <figcaption><span>le registre / zur buchung</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+<article class="kap" id="k10">
+  <div class="kap__t"><span class="mono">10 · Gut zu wissen</span><h2>Was gezählt wird und was nicht.</h2><p class="einl">Le Registre zählt so wenig wie möglich und so viel wie nötig. «So wird gezählt» im Rand sagt es in einem Blick.</p>
+    <ol class="schritte"><li><span>1</span><p>Gezählt werden Seite, Zeit, Land und Ort, Gerät, Sprache, die Herkunft (nur der Name der Website) und die Klicks zu Buchung, Telefon, Mail und Chat.</p></li><li><span>2</span><p>Nie gezählt werden Namen, Mailadressen, Eingaben, die Adresse der Verbindung und Cookies. Am nächsten Tag erkennt Le Registre denselben Gast nicht wieder.</p></li><li><span>3</span><p>Die Daten liegen nur in Ihrem Speicher und werden nach 400 Tagen gelöscht.</p></li></ol>
+    <p class="wissen"><b>Gut zu wissen</b>Sobald die Zählung auf der Website läuft, steht sie auch in der Datenschutzerklärung.</p></div>
+  <figure class="kap__b"><button type="button" class="bild" aria-label="Bild gross ansehen: Was gezählt wird und was nicht."><img src="anleitung/k11.jpg" width="1200" height="750" decoding="async" alt="Le Registre, Gut zu wissen: Was gezählt wird und was nicht. (Beispielwerte)"></button>
+    <figcaption><span>le registre / gut zu wissen</span><span>Beispielwerte · Grösser ansehen</span></figcaption></figure>
+</article>
+  <div class="fuss"><span>Le Registre · Carlton-Europe Interlaken · Beispielwerte in allen Bildern</span><a href="./" style="border-bottom:1px solid currentColor">Zurück zu Le Registre</a></div>
+</main>
+<div class="gross" id="gross" hidden role="dialog" aria-modal="true" aria-label="Bild gross"><img alt=""><small>Klick oder Esc zum Schliessen</small></div>
+<script src="anleitung.js?v=1"></script>
+<script src="/assets/js/auftritt.js?v=406" defer></script>
+<script src="/maison/zur-werkbank.js?v=8" defer data-wb-seite></script>
+<script src="/werkzeuge/demo-aus.js" defer></script></body>
+</html>

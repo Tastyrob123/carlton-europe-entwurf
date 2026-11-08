@@ -1,0 +1,424 @@
+{
+ "carlton": [
+  {
+   "nr": 1,
+   "text": "Übersicht lädt, Begrüssung im Titel",
+   "ok": true,
+   "mass": "Guten Abend. Was brauchen Sie heute?"
+  },
+  {
+   "nr": 2,
+   "text": "Drei Karten Bildarchiv, Dateien, Prüfung",
+   "ok": true,
+   "mass": "3"
+  },
+  {
+   "nr": 3,
+   "text": "Vier Zahlen unter den Karten",
+   "ok": true,
+   "mass": "4"
+  },
+  {
+   "nr": 4,
+   "text": "Karte Markenbuch mit Knopf «Lesen»",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 5,
+   "text": "Rand: «Arbeiten» mit drei Ansichten und Markenbuch",
+   "ok": true,
+   "mass": "5"
+  },
+  {
+   "nr": 6,
+   "text": "Kopf: Marke, Titel und Stand, Sprache, Anleitung, Maison, Markenbuch",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 7,
+   "text": "Leiste unten: Bildrechte und ZIP",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 8,
+   "text": "Sprachwahl öffnet mit allen Sprachen",
+   "ok": true,
+   "mass": "3"
+  },
+  {
+   "nr": 9,
+   "text": "Sprache English ändert Titel, Rand, Leiste",
+   "ok": true,
+   "mass": "Good evening. What do you need"
+  },
+  {
+   "nr": 10,
+   "text": "Sprache bleibt nach Neuladen (Browser merkt sie)",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 11,
+   "text": "Sprache Français",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 12,
+   "text": "Zurück auf Deutsch",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 13,
+   "text": "Sprachwahl schliesst beim Klicken daneben",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 14,
+   "text": "Alle Links in Kopf, Rand und Leiste antworten",
+   "ok": true,
+   "mass": "6 Links"
+  },
+  {
+   "nr": 15,
+   "text": "ZIP mit allen Dateien lädt",
+   "ok": true,
+   "mass": "3543 KB"
+  },
+  {
+   "nr": 16,
+   "text": "Rand → Bildarchiv",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 17,
+   "text": "Rand → Logo & Dateien",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 18,
+   "text": "Rand → Markenprüfung",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 19,
+   "text": "Marke im Kopf führt zur Übersicht",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 20,
+   "text": "Karte «Logo & Dateien» öffnet die Ansicht",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 21,
+   "text": "Adresse mit #bilder öffnet gleich das Bildarchiv",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 22,
+   "text": "Raster zeigt zuerst 48 Kacheln",
+   "ok": true,
+   "mass": "48 von 205"
+  },
+  {
+   "nr": 23,
+   "text": "Nachladen beim Scrollen hängt Kacheln an",
+   "ok": true,
+   "mass": "144"
+  },
+  {
+   "nr": 24,
+   "text": "Suche «terr» filtert",
+   "ok": true,
+   "mass": "17"
+  },
+  {
+   "nr": 25,
+   "text": "Zähler «x von y» stimmt zur Suche",
+   "ok": true,
+   "mass": "17 VON 205 FOTOS"
+  },
+  {
+   "nr": 26,
+   "text": "Leere Suche zeigt Hinweis statt Kacheln",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 27,
+   "text": "«Filter zurücksetzen» zeigt wieder alle",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 28,
+   "text": "Filter Bereich: 10 Knöpfe, Wahl wirkt, «Alle» löst",
+   "ok": true,
+   "mass": "34/48/15"
+  },
+  {
+   "nr": 29,
+   "text": "Filter Saison: 3 Knöpfe, Wahl wirkt, «Alle» löst",
+   "ok": true,
+   "mass": "27/11/48"
+  },
+  {
+   "nr": 30,
+   "text": "Filter Format: 2 Knöpfe, Wahl wirkt, «Alle» löst",
+   "ok": true,
+   "mass": "31/48"
+  },
+  {
+   "nr": 31,
+   "text": "Filter Herkunft: 4 Knöpfe, Wahl wirkt, «Alle» löst",
+   "ok": true,
+   "mass": "48/16/28"
+  },
+  {
+   "nr": 32,
+   "text": "Foto öffnet gross im Fenster mit Titel, Quelle, Original",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 33,
+   "text": "Vier Grössen Instagram, Story, Website, Druck",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 34,
+   "text": "Hinweis zum Beschneiden: «Ausschnitt: Feld ziehen»",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 35,
+   "text": "Über jede Grösse fahren zeigt den Rahmen mit Mass",
+   "ok": true,
+   "mass": "Story · 1080 × 1920 px | Website · 2000 × 1332 px | Druck · 2'528 × 1'684 px"
+  },
+  {
+   "nr": 36,
+   "text": "Rahmen ziehen ändert den Ausschnitt im Download- und Imprimerie-Link",
+   "ok": true,
+   "mass": "k=aare&f=instagram&x=0.688&y=0.500"
+  },
+  {
+   "nr": 37,
+   "text": "Download Instagram 1080 × 1350 (Server)",
+   "ok": true,
+   "mass": "ton-europe-aare-instagram-1080x1350.jpg\""
+  },
+  {
+   "nr": 38,
+   "text": "Download Story 1080 × 1920 (Server)",
+   "ok": true,
+   "mass": "-aare-story-1080x1920-hochgerechnet.jpg\""
+  },
+  {
+   "nr": 39,
+   "text": "Download Website 2000 px (Server)",
+   "ok": true,
+   "mass": "=\"carlton-europe-aare-web-2000x1332.jpg\""
+  },
+  {
+   "nr": 40,
+   "text": "Download Druck volle Auflösung (Server)",
+   "ok": true,
+   "mass": "2191 KB"
+  },
+  {
+   "nr": 41,
+   "text": "Klick auf «Laden» speichert eine JPG-Datei",
+   "ok": true,
+   "mass": "carlton-europe-aare-web-2000x1332.jpg"
+  },
+  {
+   "nr": 42,
+   "text": "Zwei Wege in L’Imprimerie (Beitrag, Story) mit Foto und Ausschnitt",
+   "ok": true,
+   "mass": "foto=aare&art=insta&x=0.688&y=0.500 | foto=aare&art=story&x=0.500&y=0.500"
+  },
+  {
+   "nr": 43,
+   "text": "Esc schliesst das Fenster",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 44,
+   "text": "Kreuz schliesst das Fenster",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 45,
+   "text": "Klick neben das Fenster schliesst es",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 46,
+   "text": "KI-Bild trägt den dunklen Hinweis und «-mit-ki-erzeugt» im Dateinamen",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 47,
+   "text": "Dateien: Logo, Querform, Zeichen, Wortmarke, Tapete, Farben, Schriften",
+   "ok": true,
+   "mass": "7"
+  },
+  {
+   "nr": 48,
+   "text": "Jede Datei der Ansicht ist abrufbar",
+   "ok": true,
+   "mass": "41 Dateien"
+  },
+  {
+   "nr": 49,
+   "text": "Farbe antippen kopiert den Hexwert, Meldung erscheint",
+   "ok": true,
+   "mass": "#06142B #06142B"
+  },
+  {
+   "nr": 50,
+   "text": "Glanzgold-Farbe kopiert den Verlauf",
+   "ok": true,
+   "mass": "linear-gradient"
+  },
+  {
+   "nr": 51,
+   "text": "Zweite Zeile einer Farbe kopiert den RGB-Wert",
+   "ok": true,
+   "mass": "rgb("
+  },
+  {
+   "nr": 52,
+   "text": "Schriften mit WOFF2-Knopf",
+   "ok": true,
+   "mass": "4"
+  },
+  {
+   "nr": 53,
+   "text": "Knopf «Regeln im Markenbuch» führt ins Markenbuch",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 54,
+   "text": "Prüfung: Feld mit «Datei wählen», Beispiel-Link, Hinweis «nichts gespeichert»",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 55,
+   "text": "Unter dem leeren Feld steht schon ein Beispiel",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 56,
+   "text": "Falscher Dateityp wird abgewiesen, Meldung erscheint",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 57,
+   "text": "Gewählte Datei: Vorschau, Name, Grösse, «Prüfen»",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 58,
+   "text": "Nach der Wahl verschwindet das Beispiel darunter",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 59,
+   "text": "Prüfen zeigt drei Schritte mit Abtastung",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 60,
+   "text": "Prüfung endet mit Ergebnis (Messung) oder mit Meldung und Feld",
+   "ok": true,
+   "mass": "Ergebnis"
+  },
+  {
+   "nr": 61,
+   "text": "Ergebnis: Vorschau, gemessene Farben, Prozent im Rahmen",
+   "ok": true,
+   "mass": "1 Töne"
+  },
+  {
+   "nr": 62,
+   "text": "Ergebnis: Hinweis, wenn Claude nicht antwortet, sonst Punkte",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 63,
+   "text": "«Als Text kopieren» legt die Rückmeldung in die Zwischenablage",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 64,
+   "text": "«Ergebnis sichern» speichert eine HTML-Datei auf dem Rechner",
+   "ok": true,
+   "mass": "le-livre-pruefung-entwurf.html"
+  },
+  {
+   "nr": 65,
+   "text": "«Neuen Entwurf prüfen» setzt das Feld zurück",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 66,
+   "text": "«Beispiel ansehen» zeigt die Rückmeldung zum Beispiel-Entwurf",
+   "ok": true,
+   "mass": "6 Punkte"
+  },
+  {
+   "nr": 67,
+   "text": "Beispiel: Punkte sortiert, «passt nicht» zuerst",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 68,
+   "text": "Adresse mit ?beispiel=1#pruefung öffnet das Beispiel gleich",
+   "ok": true,
+   "mass": ""
+  },
+  {
+   "nr": 69,
+   "text": "Kein seitliches Verrutschen (1366 px)",
+   "ok": true,
+   "mass": "0 px"
+  },
+  {
+   "nr": 70,
+   "text": "Keine Fehler in der Konsole, keine toten Anfragen",
+   "ok": true,
+   "mass": ""
+  }
+ ]
+}

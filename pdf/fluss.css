@@ -1,0 +1,95 @@
+/* Freier Satz der Unterlagen (pdf/fluss.py). Alles Mass hängt an --s (Schriftmass der Seite, von fluss.js gesetzt). */
+.blatt.fl{--s:1;--rand:23mm;--oben:22mm;--unten:25mm;--preis:17mm;--fr:#7d6228;--en:#55607a;
+  font-family:var(--sans);font-size:calc(3.5mm*var(--s));line-height:1.42;color:#2c3342;font-kerning:normal}
+.f-A5 .blatt.fl{--rand:13mm;--oben:17mm;--unten:13mm;font-size:calc(2.75mm*var(--s))}
+.f-A4q .blatt.fl{--rand:18mm;--oben:31mm;--unten:15mm;font-size:calc(3.3mm*var(--s))}
+.fl *{box-sizing:border-box}
+.fl-in{position:absolute;left:var(--rand);right:var(--rand);top:var(--oben);bottom:var(--unten);display:flex;flex-direction:column;overflow:hidden}
+.fl-in>*{flex:none}
+.fl .feder{flex:1 1 0;min-height:0}
+.fl .luft{flex:none}
+
+/* Kopf */
+.fl-band{height:36mm}
+.fl-logo{left:50%;top:6mm;width:44.6mm;height:24mm;margin-left:-22.3mm}
+.blatt.fl.b-logo{--oben:46mm}
+.b-gross .fl-band{height:56mm}.b-gross .fl-logo{top:8mm;width:74.3mm;height:40mm;margin-left:-37.15mm}.blatt.fl.b-gross{--oben:66mm}
+.b-titel .fl-band{height:25mm}.blatt.fl.b-titel{--oben:33mm}
+.b-titel .fl-logo{left:auto;right:18mm;top:4.5mm;width:29mm;height:15.6mm;margin:0}
+.fl-schrift{position:absolute;left:18mm;top:5.6mm;font-family:var(--serif);font-size:9.6mm;letter-spacing:.05em;color:var(--papier);line-height:1.4;white-space:nowrap}
+.fl .fl-schrift b{font-weight:400;color:var(--gold)}
+.f-A5 .fl-band{height:22mm}.f-A5 .fl-logo{top:3.4mm;width:28.2mm;height:15.2mm;margin-left:-14.1mm}.f-A5 .blatt.fl.b-logo{--oben:28mm}
+.fl .fz{bottom:8.5mm}
+.fl-fuss{position:absolute;left:var(--rand);right:var(--rand);bottom:9mm;font-size:2.55mm;line-height:1.45;color:var(--grau);text-align:center}
+.fl .fl-fuss b{font-family:var(--serif);font-weight:400;letter-spacing:.07em;color:var(--navy)}
+.fl-fuss.zeile{display:flex;justify-content:space-between;align-items:baseline;text-align:left}
+.fl-fuss .nr{font-family:var(--serif);font-size:3.6mm;color:var(--navy);font-feature-settings:"lnum"}
+
+/* Schrift */
+.fl h1,.fl h2,.fl h3,.fl p,.fl ul,.fl ol{margin:0}
+.fl h1{text-wrap:balance;font-family:var(--serif);font-weight:400;font-size:2.35em;line-height:1.12;color:var(--navy);letter-spacing:.005em}
+.fl h2{text-wrap:balance;font-family:var(--serif);font-weight:400;font-size:1.5em;line-height:1.2;color:var(--navy);margin:1.05em 0 .38em}
+.fl-in>h2:first-child,.fl h1+h2{margin-top:0}
+.fl h3{font-family:var(--sans);font-weight:600;font-size:.76em;letter-spacing:.08em;text-transform:uppercase;color:var(--messing-tief);margin:1.5em 0 .5em}
+.fl p{margin:0 0 .62em}
+.fl p:last-child{margin-bottom:0}
+.fl b{font-weight:600;color:var(--tinte)}
+.fl em{font-style:normal;color:var(--messing-tief)}
+.fl .mitte{text-align:center;text-wrap:balance}
+.fl .kl{font-size:.84em}
+.fl .serif{font-family:var(--serif);color:var(--navy)}
+.fl .gross{font-size:1.18em}
+.fl .schmal{max-width:36em;margin-left:auto;margin-right:auto}
+.fl ul{list-style:none;padding:0}
+.fl li{position:relative;padding-left:1.35em;margin:0 0 .28em}
+.fl li::before{content:"";position:absolute;left:.25em;top:.58em;width:.3em;height:.3em;border-radius:50%;background:var(--messing)}
+.fl ul.strich li::before{width:.55em;height:0;border-top:.22mm solid var(--messing);border-radius:0;background:none;top:.72em;left:0}
+.fl .hoch{font-family:var(--serif);font-size:1.2em;line-height:1;vertical-align:-.12em}
+.fl .fr{color:var(--fr)}.fl .en{color:var(--en)}
+.fl-foto{display:block;object-fit:cover;border-radius:2.6mm;border:.25mm solid rgba(138,117,69,.7);margin:0 auto}
+.fl-foto.frei{border:0;border-radius:0;object-fit:contain}
+.fl .linie{border-top:.22mm solid rgba(138,117,69,.55);margin:1em 0}
+
+/* Blatt-Zeichen (vegetarisch, vegan) */
+.fl .bl{display:inline-block;height:1.45em;vertical-align:-.3em}
+.fl .bl svg{height:100%;width:auto;display:block}
+.fl .bl path{fill:currentColor}.fl .bl .ader{fill:none;stroke:var(--papier);stroke-width:.8;stroke-linecap:round}
+.fl .bl.veg{color:#55793a}.fl .bl.vegan{color:#7a4a82}
+
+/* Karten: Rubrik, Gericht, Zusatzzeile */
+.fl .karte{padding-left:9mm}
+.fl .rub{display:flex;align-items:baseline;gap:.9em;padding-bottom:.42em;border-bottom:.3mm solid var(--messing);margin-top:1.5em}
+.fl .rub:first-child{margin-top:0}
+.fl .rub h1{flex:none}
+.fl .rub--kl h1{font-size:1.75em}
+.fl .rub-u{flex:1;display:flex;flex-wrap:wrap;gap:0 .9em;font-weight:600;font-size:.72em;letter-spacing:.08em;text-transform:uppercase;color:var(--messing-tief)}
+.fl .rub-u span+span::before{content:"·";margin-right:.9em;color:var(--messing)}
+.fl .rub>i{font-style:normal;font-weight:600;font-size:.78em;letter-spacing:.08em;color:var(--messing-tief);width:var(--preis);text-align:right}
+.fl .g{position:relative;padding:.82em 0 .86em;border-bottom:.2mm solid rgba(138,117,69,.42)}
+.fl .g:last-child,.fl .g.ohne{border-bottom:0}
+.fl .g>.bl{position:absolute;left:-7.4mm;top:.86em;height:1.5em}
+.fl .g-k,.fl .g-z{display:flex;align-items:baseline;gap:.8em}
+.fl .g-n{flex:1;font-family:var(--serif);font-size:1.2em;line-height:1.25;color:var(--navy)}
+.fl .g-m{flex:none;font-size:.92em;color:var(--grau);white-space:nowrap}
+.fl .g-p{flex:none;width:var(--preis);text-align:right;font-family:var(--serif);font-size:1.2em;line-height:1.25;color:var(--navy);font-feature-settings:"lnum","tnum";white-space:nowrap}
+.fl .g-d,.fl .g-l{padding-right:calc(var(--preis) + 6mm)}
+.fl .g-d{margin-top:.12em}
+.fl .g-k2{align-items:flex-start;margin-top:.12em}.fl .g-k2 .g-d{flex:1;padding-right:0;margin-top:0}.fl .g-k2 .g-m{padding-top:.08em}.fl .g-k2 .g-p{margin-top:-.12em}
+.fl .g-l{margin-top:.48em}
+.fl .g-l b{display:block;font-weight:600;color:inherit}
+.fl .g-l span{display:block}
+.fl .g-z{margin-top:.5em}
+.fl .g-z .z-t{flex:1}
+.fl .g-z .z-t span{display:block}
+.fl .g-z .g-p{font-size:1.08em}
+.fl .hin{position:relative;text-align:center;padding:1em 8mm 0}
+.fl .hin p{margin:0 0 .12em;text-wrap:balance}
+.fl .hin .de{font-family:var(--serif);font-size:1.04em;color:var(--navy)}
+.fl .hin>.bl{position:absolute;left:-7.4mm;top:.95em}
+.fl .spr p{margin:0 0 .5em}
+
+.fl .pf{display:inline-block;width:1.25em;height:.72em;vertical-align:.02em;margin:0 .15em}
+.fl .kb{display:inline-block;width:.78em;height:.78em;border:.22mm solid var(--messing-tief);border-radius:.4mm;margin:0 .55em 0 0;vertical-align:-.08em}
+.fl .schreib{display:block;border-bottom:.22mm solid rgba(11,31,64,.5);height:1.9em}
+
+.fl .nw{white-space:nowrap}

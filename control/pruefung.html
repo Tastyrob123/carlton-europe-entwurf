@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="de-CH">
+<head><!--demo-weiche--><script src="/_demo/karte.js"></script><script src="/_demo/shim.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prüfung · Le Bureau</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06142b">
+<link rel="icon" href="/assets/logo/favicon.ico">
+<!-- Die Kontrolle von Le Bureau. Eine einzige Datei ohne Abhängigkeiten: kein studio.js, kein studio.css, keine Bibliothek.
+     Sie läuft, wenn sonst nichts mehr läuft, und sagt, woran es liegt. Lexikon unten: jede bekannte Fehlerquelle mit Prüfung und Behebung. -->
+<style>
+@font-face{font-family:'Baskerville CE';font-weight:400 700;font-display:swap;src:url('/assets/fonts/libre-baskerville-700.woff2') format('woff2')}
+@font-face{font-family:'Instrument Sans';font-weight:400 600;font-display:swap;src:url('/assets/fonts/InstrumentSans-normal-400_600.woff2') format('woff2')}
+@font-face{font-family:'DM Mono';font-weight:400;font-display:swap;src:url('/assets/fonts/DMMono-normal-400.woff2') format('woff2')}
+:root{--nacht:#06142b;--navy:#0b1f40;--papier:#f4ecdc;--blatt:#faf5ea;--gold:#dcc68f;--taupe:#8a7545;--tinte:#0c1526;--linie:rgba(12,21,38,.11);--leise:#6f6250;--gruen:#3f7a4f;--warn:#c98a1b;--rot:#b3261e;
+  --serif:'Baskerville CE',Georgia,'Times New Roman',serif;--sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'DM Mono',ui-monospace,Menlo,monospace}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--nacht)}
+body{margin:0;background:var(--papier);color:var(--tinte);font-family:var(--sans);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+body.eingebettet{background:var(--papier)}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3{font-family:var(--serif);font-weight:400}
+h1 em,h2 em{font-style:normal;color:var(--taupe)}
+.kopf{background:var(--nacht);color:#fff;padding:26px clamp(18px,4vw,56px) 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.kopf b{font-family:var(--serif);font-weight:400;font-size:1.3rem}
+.kopf span{font-family:var(--mono);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.kopf a{margin-left:auto;font-size:13.5px;color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.kopf a:hover{color:#fff}
+body.eingebettet .kopf{display:none}
+.in{max-width:1100px;margin:0 auto;padding:40px clamp(18px,4vw,56px) 90px}
+body.eingebettet .in{padding-top:8px}
+body.eingebettet .titel>div{display:none}
+body.eingebettet .titel{margin-bottom:18px}
+.titel{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.titel h1{font-size:clamp(2.1rem,4vw,3.4rem);line-height:1.04}
+.titel p{margin-top:12px;max-width:66ch;color:rgba(12,21,38,.72)}
+.kn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#fff;white-space:nowrap;
+  background:linear-gradient(180deg,#1f3f77 0%,#0b1f40 46%,#040d1e 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -3px 0 rgba(0,0,0,.55),0 1px 1px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.32,.72,0,1)}
+.kn:hover{transform:translateY(-2px)}
+.kn:active{transform:translateY(1px)}
+.kn[disabled]{opacity:.4;pointer-events:none}
+.kn--linie{background:none;color:var(--tinte);box-shadow:inset 0 0 0 1px currentColor;opacity:.85}
+.kn--rot{background:linear-gradient(180deg,#c43a30,#8f1d16 60%,#5f110c)}
+.knoepfe{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.ampel{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;background:var(--blatt);border-radius:22px;box-shadow:inset 0 0 0 1px var(--linie);padding:24px 26px;margin-bottom:26px}
+.ampel i{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--leise);color:#fff;font-family:var(--serif);font-size:1.6rem;font-style:normal;transition:background-color .4s}
+.ampel.ok i{background:var(--gruen)}.ampel.warn i{background:var(--warn)}.ampel.fehler i{background:var(--rot)}
+.ampel b{display:block;font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.1}
+.ampel p{margin-top:5px;color:rgba(12,21,38,.7);font-size:14.5px}
+.ampel .knoepfe{grid-column:1/-1;margin-top:6px}
+.zw{font-size:1.5rem;line-height:1.1;margin:38px 0 14px;display:flex;align-items:baseline;gap:12px}
+.zw span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--leise)}
+.blatt{background:var(--blatt);border-radius:22px;box-shadow:inset 0 0 0 1px var(--linie);padding:4px 0;overflow:hidden}
+.pz{display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;padding:14px 22px;border-top:1px solid var(--linie);align-items:start}
+.pz:first-child{border-top:0}
+.pz i{width:14px;height:14px;border-radius:50%;margin:5px 0 0 6px;background:var(--leise);flex:none;box-shadow:0 0 0 4px rgba(111,98,80,.15)}
+.pz.ok i{background:var(--gruen);box-shadow:0 0 0 4px rgba(63,122,79,.18)}
+.pz.warn i{background:var(--warn);box-shadow:0 0 0 4px rgba(201,138,27,.2)}
+.pz.fehler i{background:var(--rot);box-shadow:0 0 0 4px rgba(179,38,30,.18)}
+.pz.lauf i{background:var(--gold);animation:puls 1.1s infinite}
+@keyframes puls{50%{opacity:.35}}
+.pz b{display:block;font-size:15px;font-weight:600;line-height:1.3}
+.pz b small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.12em;color:var(--leise);margin-left:8px;text-transform:uppercase}
+.pz p{margin-top:3px;color:rgba(12,21,38,.74);font-size:14.5px;line-height:1.45;word-break:break-word}
+.pz p a{color:var(--taupe);text-decoration:none;border-bottom:1px solid currentColor}
+.leer{padding:20px 22px;color:var(--leise);font-size:14.5px}
+.proto{font-family:var(--mono);font-size:12px;line-height:1.5;color:rgba(12,21,38,.8);padding:14px 22px;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto}
+.proto div{padding:3px 0;border-top:1px solid var(--linie)}
+.proto div:first-child{border-top:0}
+.suche{width:100%;max-width:420px;background:#fff;border:0;border-radius:12px;padding:12px 15px;font-size:15px;box-shadow:inset 0 0 0 1px rgba(12,21,38,.14);margin-bottom:14px}
+.suche:focus{outline:0;box-shadow:inset 0 0 0 1.5px var(--taupe)}
+details{border-top:1px solid var(--linie)}
+details:first-of-type{border-top:0}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:52px minmax(0,1fr) 20px;gap:12px;align-items:center;padding:14px 22px;font-size:15px;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary code{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.12em;color:var(--taupe)}
+summary::after{content:'';width:8px;height:8px;border-right:1.4px solid var(--leise);border-bottom:1.4px solid var(--leise);transform:rotate(45deg);justify-self:center;transition:transform .3s}
+details[open] summary::after{transform:rotate(-135deg)}
+details.an summary{background:rgba(220,198,143,.22)}
+.lx{display:grid;gap:10px;padding:0 22px 20px 86px;font-size:14.5px;line-height:1.5;color:rgba(12,21,38,.8)}
+.lx div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px}
+.lx dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--leise);padding-top:4px}
+.lx dd code{font-family:var(--mono);font-size:12.5px;background:rgba(12,21,38,.06);padding:1px 6px;border-radius:5px}
+.fuss{margin-top:40px;font-size:12.5px;color:var(--leise);display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+.meldung{position:fixed;right:18px;bottom:18px;background:var(--tinte);color:#fff;border-radius:999px;padding:12px 20px;font-size:14px;box-shadow:0 18px 30px -16px rgba(0,0,0,.7);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none}
+.meldung.an{opacity:1;transform:none}
+@media (max-width:640px){.pz{padding:12px 16px}.lx{padding-left:16px}.lx div{grid-template-columns:1fr;gap:2px}summary{grid-template-columns:44px minmax(0,1fr) 16px;padding:12px 16px}.ampel{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<script src="/besuch.js?v=3c4c57a56e" defer></script><script src="/verweil.js?v=5881fd455d" defer></script></head>
+<body>
+<header class="kopf"><b>Le Bureau</b><span>Carlton-Europe · Prüfung</span><a href="/control/#/kontrolle" id="zurueck">Zurück zu Le Bureau</a></header>
+<main class="in">
+  <div class="titel"><div><h1>Die <em>Prüfung.</em></h1><p>Diese Seite prüft Le Bureau von aussen und von innen: im Browser, auf dem Server, in den Daten. Sie braucht nichts vom übrigen Werkzeug und funktioniert deshalb auch, wenn es nicht mehr lädt. Unten steht das Lexikon mit jeder bekannten Fehlerquelle, ihrer Prüfung und ihrer Behebung.</p></div>
+    <div class="knoepfe"><button class="kn" type="button" id="k-neu">Prüfung wiederholen</button><button class="kn kn--linie" type="button" id="k-bericht">Bericht kopieren</button></div></div>
+  <section class="ampel" id="ampel"><i>…</i><div><b id="a-titel">Die Prüfung läuft.</b><p id="a-text">Einen Moment, jeder Punkt wird einzeln geprüft.</p></div>
+    <div class="knoepfe" id="a-kn"></div></section>
+  <h2 class="zw">Im Browser<span id="z-b"></span></h2>
+  <div class="blatt" id="browser"></div>
+  <h2 class="zw">Auf dem Server<span id="z-s"></span></h2>
+  <div class="blatt" id="server"><div class="leer">Der Server wird gefragt …</div></div>
+  <h2 class="zw">Fehlerprotokoll<span id="z-p"></span></h2>
+  <div class="blatt" id="proto"><div class="leer">Noch nichts geladen.</div></div>
+  <h2 class="zw">Lexikon<span>Jede bekannte Fehlerquelle</span></h2>
+  <input class="suche" id="suche" type="search" placeholder="Suchen: Passwort, Bild, Veröffentlichen, Englisch …" aria-label="Im Lexikon suchen">
+  <div class="blatt" id="lexikon"></div>
+  <p class="fuss"><span id="f-l">Le Bureau</span><span id="f-r"></span></p>
+</main>
+<div class="meldung" id="meldung" role="status"></div>
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const h = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const EINGEBETTET = new URLSearchParams(location.search).has('eingebettet');
+if (EINGEBETTET) document.body.classList.add('eingebettet');
+let B = [], S = null, PROBE = false;
+
+// ---------------------------------------------------------------- Lexikon: jede Fehlerquelle, die dieses Werkzeug hat, mit Prüfung und Behebung
+const LEXIKON = [
+  ['K01', 'Le Bureau bleibt leer oder lädt gar nicht', 'Der Server (serve.py / studio.py) läuft nicht, ist abgestürzt oder antwortet auf einem anderen Port.', 'Diese Prüfseite: Punkt «Verbindung zum Server». Antwortet er nicht, ist der Server weg, nicht die Oberfläche.', 'Server neu starten: im Projektordner <code>python3 serve.py 8912</code>. Wird der Port als belegt gemeldet, läuft schon einer (K25).', 'Prüfseite ohne Server: nur die Browser-Punkte laufen. Online (Vercel) heisst dasselbe: Funktion api/probe.py antwortet nicht, Vercel-Logs ansehen.'],
+  ['K02', '«Keine Verbindung zu Le Bureau» beim Speichern', 'Die Verbindung ist mitten im Speichern abgerissen: Server neu gestartet, Netz weg, oder der Server ist bei dieser Anfrage abgestürzt.', 'Prüfseite neu laden. Antwortet der Server, war es ein Aussetzer. Das Fehlerprotokoll zeigt einen Eintrag «server», wenn der Server selbst gestolpert ist.', 'Noch einmal speichern. Steht im Protokoll ein Server-Eintrag, den Text Robert schicken (Bericht kopieren).', 'Seit 09.10.2026 fängt der Server jeden unerwarteten Fehler ab (Antwort 500 mit Text) und schreibt ihn in _studio/fehler.log.'],
+  ['K03', '«Der Entwurf lässt sich gerade nicht bauen»', 'bau.py ist beim Bauen der Seite abgebrochen: ein Baustein fehlt oder hat einen Fehler (inhalt/*.py, sprachen.py), ein Modul fehlt, oder die Daten sind beschädigt.', 'Server-Punkte «Bau der Seite» und «Bausteine». Das Protokoll nennt die letzte Zeile der Fehlermeldung.', '«Entwurf neu bauen» drücken. Scheitert es wieder, hilft nur Robert: die Fehlerzeile aus dem Protokoll nennt die Datei.', 'Bau von Hand: <code>CE_MARKEN=1 CE_ZIEL=/tmp/x CE_INHALT=_studio/entwurf.json python3 bau.py</code>; der Stacktrace steht in stderr.'],
+  ['K04', 'Anmeldung scheitert, Passwort vergessen', 'Das Passwort stimmt nicht, oder die Passwort-Datei (zugang.json) ist beschädigt.', 'Server-Punkt «Zugang». Steht dort «beschädigt», liegt es an der Datei, nicht am Passwort.', 'Passwort vergessen: Robert entfernt <code>_studio/zugang.json</code>; beim nächsten Öffnen legen Sie ein neues fest. Alle Entwürfe bleiben erhalten.', 'Übergangsweise ohne Passwort: leere Datei <code>_studio/offen</code> anlegen; zum Einschalten wieder löschen. Hash: PBKDF2-SHA256, 240 000 Runden.'],
+  ['K05', '«Zu viele Versuche»', 'Fünf falsche Passwörter hintereinander sperren die Anmeldung für 30 Sekunden.', 'Die Meldung nennt die Restzeit.', 'Warten, dann mit dem richtigen Passwort anmelden.', 'Zähler FEHL in studio.py, gilt für alle Verbindungen gemeinsam.'],
+  ['K06', 'Plötzlich abgemeldet', 'Eine Anmeldung gilt zwölf Stunden, danach meldet Le Bureau von selbst ab. Auch nach einem Passwortwechsel sind alle abgemeldet.', 'Kein Fehler. Entwürfe bleiben gespeichert.', 'Neu anmelden.', 'DAUER = 12 h in studio.py; Sitzungen liegen in _studio/sitzungen.json (nur Prüfsummen).'],
+  ['K07', 'Foto lässt sich nicht hochladen', 'Falsches Format (nur JPG, PNG, WebP), Datei über 30 MB, Bildwerkzeug (Pillow/numpy) fehlt, Bilderordner nicht beschreibbar, oder Sie sind in der Probe-Fassung (dort ist Hochladen abgeschaltet).', 'Server-Punkt «Bildwerkzeug». Die Meldung beim Hochladen nennt den Grund.', 'Foto als JPG unter 30 MB speichern und erneut versuchen. Fehlt das Werkzeug: <code>python3 -m pip install pillow numpy</code>.', 'bild_annehmen in studio.py schreibt nach assets/img/u-&lt;sha1&gt;&lt;art&gt;-s/-l.webp.'],
+  ['K08', 'PDF lässt sich nicht hochladen', 'Die Datei ist keine PDF (beginnt nicht mit %PDF) oder grösser als 25 MB.', 'Die Meldung beim Hochladen nennt den Grund.', 'PDF neu aus dem Ursprungsprogramm exportieren, Grösse prüfen.', 'pdf_annehmen in studio.py, Ablage in assets/pdf/&lt;name&gt;-&lt;sha1&gt;.pdf.'],
+  ['K09', 'Gespeichert, aber auf der Website nicht zu sehen', 'Speichern legt die Änderung nur im Entwurf ab. Auf die Website kommt sie erst mit «Veröffentlichen». Oder der Browser zeigt die alte Seite aus seinem Zwischenspeicher.', 'Leiste unten: steht dort eine Zahl, ist noch nicht veröffentlicht. «Entwurf ansehen» zeigt die Änderung.', 'Veröffentlichen. Danach die Website mit Umschalt + Neu laden öffnen.', 'Online halten Stylesheet und Skript ein Jahr im Browser (?v=), Bilder ohne ?v zehn Minuten.'],
+  ['K10', 'Veröffentlichen schlägt fehl', 'Der Bau der veröffentlichten Seite ist gescheitert. Le Bureau setzt den alten Stand automatisch zurück; die Website bleibt, wie sie war.', 'Server-Punkte «Bau der Seite» und «Veröffentlichte Website», Protokoll «bau».', '«Entwurf neu bauen» drücken. Geht das, noch einmal veröffentlichen. Sonst Robert mit dem Protokoll.', 'veroeffentlichen in studio.py: baue(LIVE) scheitert → stand.json zurück → erneuter Bau des alten Standes.'],
+  ['K11', 'Verlauf leer oder Stand lässt sich nicht zurückholen', 'Es wurde noch nie veröffentlicht, oder eine Verlaufsdatei ist beschädigt.', 'Server-Punkt «Verlauf».', 'Beschädigte Einträge lassen sich nicht retten; die übrigen bleiben nutzbar.', 'Ordner _studio/verlauf, je Veröffentlichung eine JSON mit dem ganzen Inhalt.'],
+  ['K12', '«Diese Stelle gibt es auf der Seite nicht mehr»', 'Ein Text wurde in Le Bureau geändert, und Robert hat die Seite seither umgebaut. Die Stelle findet keinen Platz mehr.', 'Server-Punkt «Textstellen», «Änderungen» im Werkzeug.', 'Änderung zurücknehmen und den Text an der neuen Stelle noch einmal ändern.', 'Fingerabdruck der Stelle (_kern) ändert sich mit dem Markup; REG["verwaist"] in studio_inhalt.'],
+  ['K13', 'Englisch oder Französisch zeigt deutschen Text', 'Jeder neue oder geänderte deutsche Text steht in den anderen Sprachen zuerst auf Deutsch, bis er übersetzt ist.', 'Server-Punkt «Sprachen», Bereich «Sprachen» im Werkzeug.', 'Unter «Sprachen» die Übersetzung eintragen und veröffentlichen.', 'sprachen.offen; Wörterbuch uebersetzung/en.json und fr.json plus C["woerter"] aus dem Studio.'],
+  ['K14', 'Eingang bekommt keine Einsendungen', 'Der Schalter «Formulare in den Eingang leiten» ist aus oder die Umstellung noch nicht veröffentlicht. Oder die Einsendung war Spam (Falle «website»/«fax» ausgefüllt), oder mehr als 20 Einsendungen in zehn Minuten von einer Adresse.', 'Bereich «Eingang»: Schalter prüfen; Leiste unten: veröffentlicht? Website im Quelltext: <code>data-formulare="eingang"</code>.', 'Schalter einschalten, veröffentlichen, Formular einmal selbst testen.', 'POST /control/api/formular?f=&lt;name&gt;, Ablage _studio/eingang/&lt;id&gt;.json, Anhänge daneben.'],
+  ['K15', 'Weiterleitung einer Einsendung scheitert', 'Die Adresse des Dienstes beginnt nicht mit https:// oder der Dienst antwortet nicht.', 'Im Eintrag im Eingang steht unter «Weitergeleitet» die Antwort oder der Fehler.', 'Adresse beim Dienst (Zapier, Make, Newsletter) neu kopieren und unter «Weiterleitung einrichten» eintragen.', 'weiterleiten in studio.py, 15 Sekunden Frist, JSON ohne Anhänge.'],
+  ['K16', 'Hinweis für Gäste erscheint nicht', 'Schalter aus, Zeitraum (ab/bis) liegt nicht um heute, oder nicht veröffentlicht.', 'Bereich «Hinweis für Gäste»: Vorschau zeigt «Ausgeschaltet», wenn Schalter oder Text fehlen.', 'Einschalten, Datum prüfen, veröffentlichen.', 'studio_inhalt.hinweis: data-von/data-bis, kleines Skript blendet im Browser nach Datum ein.'],
+  ['K17', 'Menüpunkt führt ins Leere', 'Eine eigene Seite wurde gelöscht oder ihre Anlage verworfen, der Menüpunkt blieb.', 'Bereich «Menü & Seiten».', 'Seit 09.10.2026 räumt Le Bureau den Punkt selbst weg; der Bau lässt nur Punkte zu Seiten zu, die es gibt. Sonst den Punkt im Menü ausblenden.', 'nav_sync in studio.py; nav() in studio_inhalt filtert unbekannte Ziele.'],
+  ['K18', 'Daten beschädigt (stand.json oder entwurf.json nicht lesbar)', 'Die Datei ist unvollständig geschrieben worden (Festplatte voll, Stromausfall) oder von Hand verändert.', 'Server-Punkte «Veröffentlichter Stand» und «Entwurf».', '«Stand aus dem Verlauf zurückholen» holt den letzten veröffentlichten Stand zurück. Die beschädigte Datei bleibt als Kopie liegen.', 'stand_wiederherstellen in studio.py; Kopie _studio/stand.json.beschaedigt-&lt;zeit&gt;.'],
+  ['K19', 'Festplatte voll oder Ordner nicht beschreibbar', 'Kein Platz mehr, oder der Datenordner gehört einem anderen Benutzer.', 'Server-Punkt «Datenordner und Speicherplatz».', 'Platz schaffen (Papierkorb, alte Sicherungen). Unter 200 MB frei scheitern Speichern und Veröffentlichen.', 'shutil.disk_usage(DATEN); Schreibprobe _studio/.schreibprobe.'],
+  ['K20', 'Probe-Fassung: Änderungen sind weg', 'In der Probe-Fassung (online) liegt Ihr Stand als Keks im Browser, 14 Tage lang. Ein anderer Browser, ein privates Fenster oder gelöschte Kekse zeigen den Ausgangsstand.', 'Server-Punkt «Wo die Daten liegen» sagt «Probe-Fassung».', 'Im selben Browser weiterarbeiten. Im echten Le Bureau liegt alles auf dem Server.', 'api/probe.py: Kekse ce_gast + ce_z0…ce_z3 (je 3600 Zeichen), Stand als zlib+base64.'],
+  ['K21', 'Oberfläche verhält sich seltsam, Knöpfe tun nichts', 'Der Browser hält eine alte Fassung von studio.js oder studio.css fest, oder ein Skriptfehler ist aufgetreten.', 'Browser-Punkte «Oberfläche» (Skript lesbar?) und «Letzte Fehler im Browser».', 'Seite mit Umschalt + Neu laden öffnen. Bleibt es, den Bericht kopieren und Robert schicken.', 'control/index.html lädt studio.js?v=N; bei jeder Änderung N hochzählen, online ist ?v ein Jahr im Zwischenspeicher.'],
+  ['K22', 'Graue Kacheln statt Bilder im Werkzeug, Lücken auf der Seite', 'Eine Bilddatei fehlt im Bilderordner (gelöscht, nicht mitkopiert, Hochladen abgebrochen).', 'Server-Punkt «Fotos» nennt die fehlenden Kennungen.', 'Foto noch einmal hochladen und an der Stelle wählen.', 'assets/img/&lt;key&gt;-s.webp / .webp / -l.webp; Manifest assets/img/manifest.json.'],
+  ['K23', 'Seite bearbeiten: Klick in die Seite markiert nichts', 'Der Entwurf im Rahmen ist nicht gekennzeichnet (Bau ohne CE_MARKEN), noch nicht fertig geladen, oder der Browser zeigt eine alte Fassung.', 'Browser-Punkt «Entwurf erreichbar»; im Entwurf-Quelltext müssen <code>data-e=</code>-Kennzeichen stehen.', '«Entwurf neu bauen», dann die Seite neu öffnen.', 'studio_inhalt.fertig setzt data-e/data-q nur mit CE_MARKEN=1; werkBereit in studio.js.'],
+  ['K24', 'Vergleich vorher/nachher bleibt leer', 'Der Vergleichsbau (vorher) fehlt, oder Sie sind nicht angemeldet (dann antwortet /vorher/ mit 403).', 'Browser-Punkt «Vergleich erreichbar», Server-Punkt «Vergleich gebaut».', '«Entwurf neu bauen» baut auch den Vergleich. Sonst neu anmelden.', 'Ordner _studio/_bau/vorher, gebaut aus stand.json mit Kennzeichen.'],
+  ['K25', 'Server startet nicht: «Address already in use»', 'Auf dem Port läuft schon ein Server (oft ein alter, vergessener).', 'Im Terminal: <code>lsof -iTCP:8912 -sTCP:LISTEN</code> zeigt den Prozess.', 'Den alten Prozess beenden (<code>kill &lt;PID&gt;</code>) oder einen anderen Port nehmen: <code>python3 serve.py 8913</code>.', 'Nie pkill auf Chrome; nur den eigenen Python-Prozess beenden.'],
+  ['K26', 'Formulare öffnen weiter das Mailprogramm', 'Die Umstellung auf den Eingang ist gespeichert, aber nicht veröffentlicht. Oder die Übertragung scheitert, dann öffnet die Seite als Ersatz das Mailprogramm.', 'Leiste unten, Eintrag «Formulare»; Website-Quelltext: data-formulare.', 'Veröffentlichen. Bleibt es dabei, antwortet /control/api/formular nicht (Server, K01).', 'Die Seite schickt per fetch an /control/api/formular und fällt bei Fehler auf mailto zurück.'],
+  ['K27', 'Preise oder Zahlen sehen falsch aus', 'Das Preisfeld ist frei: Mengen und Zusätze gehören mit hinein. Eine reine Zahl bekommt automatisch «CHF» davor; die grossen Zahlen nehmen nur ganze Zahlen ohne Punkt.', 'Vorschau rechts im Fenster «So steht es auf der Karte».', 'So eintragen, wie es dastehen soll: «18.50» oder «80 g 22.00 · 160 g 34.00».', 'preisT in studio.js; liste_pruef (zahl) in studio.py.'],
+  ['K28', '«Unerwarteter Fehler in Le Bureau»', 'Etwas, das niemand vorgesehen hat. Der Server hat es abgefangen und ins Protokoll geschrieben.', 'Fehlerprotokoll auf dieser Seite, Eintrag «server» mit der Stelle im Code.', 'Noch einmal versuchen. Bleibt es, Bericht kopieren und Robert schicken; die Website selbst ist davon nicht betroffen.', 'H.panne in studio.py: Traceback-Ende im Protokoll, Antwort 500 mit Text.'],
+  ['K29', 'Prüfseite sagt: Stand nicht abrufbar (401)', 'Sie sind nicht angemeldet. Die Prüfseite zeigt ohne Anmeldung nur die allgemeinen Punkte.', 'Browser-Punkt «Stand abrufbar».', 'In Le Bureau anmelden, dann die Prüfung wiederholen.', 'GET /control/api/stand verlangt die Sitzung (Keks ce_studio); /control/api/pruefung antwortet ohne Anmeldung gekürzt.'],
+  ['K30', 'Alles grün, aber die Website zeigt etwas anderes als der Entwurf', 'Online liegt die Website auf Vercel und wird von Robert hochgeladen; Le Bureau (echt) schreibt in den Ordner auf dem Server des Hauses. Die Probe-Fassung ändert die Online-Seite nie.', 'Server-Punkt «Wo die Daten liegen»: Probe-Fassung oder echt.', 'Im echten Betrieb: Server des Hauses und Website müssen derselbe Ordner sein (CE_LIVE). In der Probe: «Website ansehen» zeigt /live/, nicht die Online-Seite.', 'LIVE = CE_LIVE oder der Projektordner; online.py (Familie Maeder) lädt den Projektordner hoch.'],
+  ['K31', 'Le Bureau: «La Carte antwortet nicht»', 'Die Karten pflegt ein eigenes Werkzeug, La Carte, auf einem eigenen Server (am Rechner Port 8932). Läuft er nicht, zeigt Le Bureau die Karten nicht.', 'http://localhost:8932/_werkzeuge/carte/ öffnen.', 'La Carte starten: python3 _werkzeuge/carte/serve.py 8932 im Projektordner. Die Website selbst ist davon nicht betroffen.', 'Stichwort KARTEN. Le Bureau liest nur /api/status von La Carte (studio_bureau.py, _karten).'],
+  ['K32', 'Le Bureau: «Rückgängig» geht nicht mehr', 'Jedes Speichern legt den Entwurf davor als Schritt ab, die letzten 80 bleiben. Ältere Schritte sind weg.', 'Ordner schritte/ im Datenordner.', 'Die Änderung unter «Entwurf & Vergleich» einzeln zurücknehmen oder eine frühere Fassung in den Entwurf holen.', 'Stichwort RUECKGAENGIG. studio_bureau.py: _schritt_sichern, rueckgaengig.'],
+  ['K33', 'Le Bureau: «Es wird gerade veröffentlicht»', 'Eine Veröffentlichung läuft noch (ein bis zwei Minuten). Eine zweite startet erst danach.', 'Fenster mit den Schritten abwarten; beim Neuladen erscheint es wieder.', 'Warten. Hängt es länger als fünf Minuten: Kontrolle öffnen, Protokoll lesen, Server neu starten.', 'Stichwort LAEUFT. studio_bureau.py: LAUF, veroeffentlichen (eigener Faden).'],
+  ['K34', 'Le Bureau: «In einem anderen Fenster wurde gespeichert»', 'Le Bureau ist in zwei Fenstern oder auf zwei Geräten offen, und im anderen wurde zwischendurch gespeichert. Damit nichts still überschrieben wird, nimmt Le Bureau das Speichern nicht an.', 'Die Liste lädt sich von selbst neu, Ihre gelben Eingaben bleiben stehen.', 'Ansehen, ob die Änderung aus dem anderen Fenster bleiben soll, dann noch einmal speichern. Am besten nur in einem Fenster arbeiten.', 'Stichwort KONFLIKT. studio_bureau.py: basis() (Fingerabdruck des Entwurfs), _gleich(); bureau.js schickt ihn bei speichern, rueckgaengig, verwerfen, veroeffentlichen, zurueckholen mit.'],
+  ['K35', 'Le Bureau: «Zu viele Anfragen in kurzer Zeit»', 'Vom selben Rechner kamen in einer Minute mehr als 600 Abfragen oder mehr als 60 Speichervorgänge. Das schützt vor Programmen, die das Werkzeug überfluten.', 'Die Meldung erscheint statt der Antwort; nach einer Minute geht es wieder.', 'Eine Minute warten, dann noch einmal. Kommt es im normalen Arbeiten vor: Robert Bescheid geben.', 'Stichwort GRENZE. studio.py: zu_viele(), Antwort 429 mit Retry-After, Eintrag «zugang» im Protokoll.'],
+  ['K36', 'Le Bureau: «Anfrage kam von einer fremden Seite»', 'Eine andere Website hat versucht, im Namen des Browsers etwas an Le Bureau zu schicken. Das wird immer abgewiesen.', 'Bei normaler Arbeit erscheint das nie.', 'Nichts zu tun. Erscheint es beim Arbeiten im Bureau selbst: Adresse prüfen (localhost oder die Adresse des Hauses) und Robert Bescheid geben.', 'Stichwort HERKUNFT. studio.py: herkunft_fremd(), Antwort 403; Host-Prüfung davor (421, fremd()).'],
+  ['K37', 'Le Bureau: «Die Anfrage ist grösser als 32 MB»', 'Ein Foto oder eine Datei war zu gross für eine einzelne Anfrage.', 'Die Meldung erscheint beim Hochladen.', 'Foto kleiner exportieren (für die Website reichen 2000 Pixel Breite, höchstens 25 MB).', 'Stichwort GROESSE. studio.py do_POST, Antwort 413.'],
+];
+/* Stichworte aus Le Bureau («Was tun?» öffnet pruefung.html#<stichwort>): der passende Eintrag im Lexikon */
+const STICHWORT = { verbindung: 'K02', server: 'K28', eingabe: 'K27', stelle: 'K12', bild: 'K07', bau: 'K10', laeuft: 'K33', rueckgaengig: 'K32', verlauf: 'K11', seite: 'K23', zugang: 'K29', karten: 'K31', pdf: 'K08', daten: 'K18', konflikt: 'K34', grenze: 'K35', herkunft: 'K36', groesse: 'K37' };
+
+// ---------------------------------------------------------------- Prüfpunkte im Browser (ohne den Server, soweit es geht)
+const zeit = () => new Date().toLocaleString('de-CH', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+async function hole(url, opt = {}) {
+  const t0 = performance.now();
+  try {
+    const r = await fetch(url, Object.assign({ cache: 'no-store', credentials: 'same-origin', redirect: 'follow' }, opt));
+    return { ok: r.ok, status: r.status, ms: Math.round(performance.now() - t0), r };
+  } catch (e) { return { ok: false, status: 0, ms: Math.round(performance.now() - t0), fehler: e.message }; }
+}
+function setze(liste, id, titel, stand, text) {
+  const i = liste.findIndex(p => p.id === id), p = { id, titel, stand, text };
+  if (i < 0) liste.push(p); else liste[i] = p;
+  malBrowser();
+}
+async function browserPruefen() {
+  B = [];
+  setze(B, 'B01', 'Skript läuft', 'ok', `Diese Seite läuft. ${navigator.userAgent.replace(/\) .*/, ')')}, Fenster ${innerWidth} × ${innerHeight}.`);
+  let speicher = 'ok';
+  try { localStorage.setItem('ce_probe', '1'); localStorage.removeItem('ce_probe'); } catch (e) { speicher = 'warn'; }
+  setze(B, 'B02', 'Kekse und Speicher', navigator.cookieEnabled && speicher === 'ok' ? 'ok' : 'warn', navigator.cookieEnabled ? (speicher === 'ok' ? 'Kekse erlaubt, Speicher im Browser frei. Die Anmeldung bleibt erhalten.' : 'Kekse erlaubt, aber der Speicher im Browser ist gesperrt (privates Fenster?). Die Anmeldung geht, Hinweise des Werkzeugs gehen beim Schliessen verloren.') : 'Kekse sind gesperrt. Ohne Kekse hält keine Anmeldung, und die Probe-Fassung verliert jede Änderung (Lexikon K20).');
+  setze(B, 'B03', 'Verbindung zum Server', 'lauf', 'Wird geprüft …');
+  const st = await hole('/control/api/status');
+  let status = null;
+  if (st.ok) { try { status = await st.r.json(); } catch (e) {} }
+  if (!status) setze(B, 'B03', 'Verbindung zum Server', 'fehler', st.status ? `Der Server antwortet mit ${st.status}, aber nicht als Le Bureau. Läuft hier etwas anderes auf diesem Port? (Lexikon K01)` : `Keine Antwort vom Server (${st.fehler || 'keine Verbindung'}). Le Bureau läuft nicht (Lexikon K01).`);
+  else { PROBE = !!status.probe; setze(B, 'B03', 'Verbindung zum Server', 'ok', `Der Server antwortet in ${st.ms} ms${status.version ? ', Fassung ' + status.version : ''}${status.probe ? ', Probe-Fassung' : ''}. ${status.offen ? 'Ohne Passwort offen.' : status.eingerichtet ? (status.angemeldet ? 'Sie sind angemeldet.' : 'Sie sind nicht angemeldet.') : 'Noch kein Passwort festgelegt.'}`); }
+  setze(B, 'B04', 'Oberfläche', 'lauf', 'Wird geprüft …');
+  const teile = await Promise.all(['/control/index.html', '/control/studio.js', '/control/studio.css'].map(u => hole(u)));
+  const kaputt = teile.map((t, i) => [['index.html', 'studio.js', 'studio.css'][i], t]).filter(([, t]) => !t.ok);
+  if (kaputt.length) setze(B, 'B04', 'Oberfläche', 'fehler', 'Dateien der Oberfläche fehlen: ' + kaputt.map(([n, t]) => `${n} (${t.status || 'keine Antwort'})`).join(', ') + '. Ohne sie bleibt Le Bureau leer (Lexikon K21).');
+  else {
+    let js = '', syntax = '';
+    try { js = await teile[1].r.text(); new Function(js); } catch (e) { if (!(e instanceof EvalError) && !/unsafe-eval|Content Security|eval/i.test(e.message)) syntax = e.message; }   /* Endprüfung 19.10.2026 (N): die Sicherheitsregel der Seite verbietet das Probe-Ausführen, das ist kein Fehler der Datei */
+    const html = await teile[0].r.text().catch(() => '');
+    const v = (html.match(/studio\.js\?v=([\w.]+)/) || [])[1] || '?';
+    setze(B, 'B04', 'Oberfläche', syntax ? 'fehler' : 'ok', syntax ? `studio.js ist beschädigt und lässt sich nicht ausführen: ${syntax}. Le Bureau bleibt leer, bis die Datei ersetzt ist (Lexikon K21).` : `index.html, studio.js (${Math.round(js.length / 1024)} KB, Fassung ${v}) und studio.css sind da und lesbar.`);
+  }
+  setze(B, 'B05', 'Entwurf erreichbar', 'lauf', 'Wird geprüft …');
+  const ent = await hole('/entwurf/index.html');
+  let entText = '';
+  if (ent.ok) entText = await ent.r.text().catch(() => '');
+  setze(B, 'B05', 'Entwurf erreichbar', ent.ok ? (entText.includes('data-e=') ? 'ok' : 'warn') : ent.status === 403 ? 'warn' : 'fehler', ent.ok ? (entText.includes('data-e=') ? `Der Entwurf der Startseite kommt in ${ent.ms} ms und trägt die Kennzeichen zum Bearbeiten.` : 'Der Entwurf kommt, aber ohne Kennzeichen: Klicks in die Seite finden nichts (Lexikon K23).') : ent.status === 403 ? 'Der Entwurf verlangt eine Anmeldung. Nach dem Anmelden noch einmal prüfen (Lexikon K29).' : `Der Entwurf antwortet nicht (${ent.status || 'keine Verbindung'}). Er ist nicht gebaut oder der Server fehlt (Lexikon K03, K01).`);
+  const vor = await hole('/vorher/index.html');
+  setze(B, 'B06', 'Vergleich erreichbar', vor.ok ? 'ok' : vor.status === 403 ? 'warn' : 'fehler', vor.ok ? `Die Vergleichsseite (vorher) kommt in ${vor.ms} ms.` : vor.status === 403 ? 'Der Vergleich verlangt eine Anmeldung.' : `Der Vergleich antwortet nicht (${vor.status || 'keine Verbindung'}), «Vorher/Nachher ansehen» bleibt leer (Lexikon K24).`);
+  const web = await hole(PROBE ? '/live/index.html' : '/index.html');
+  setze(B, 'B07', 'Website erreichbar', web.ok ? 'ok' : 'fehler', web.ok ? `Die Website antwortet in ${web.ms} ms${PROBE ? ' (Probe: Ihr veröffentlichter Stand oder die Online-Seite)' : ''}.` : `Die Website antwortet nicht (${web.status || 'keine Verbindung'}).`);
+  const [bild, logo, font] = await Promise.all([hole('/assets/img/hero-f-s.webp', { method: 'HEAD' }), hole('/assets/logo/carlton-europe.svg', { method: 'HEAD' }), hole('/assets/fonts/libre-baskerville-700.woff2', { method: 'HEAD' })]);
+  const fehlt = [['Startbild', bild], ['Zeichen des Hauses', logo], ['Schrift', font]].filter(([, t]) => !t.ok).map(([n, t]) => `${n} (${t.status || 'keine Antwort'})`);
+  setze(B, 'B08', 'Bilder, Zeichen, Schriften', fehlt.length ? 'warn' : 'ok', fehlt.length ? 'Es fehlen: ' + fehlt.join(', ') + '. Die Oberfläche läuft trotzdem, sieht aber kahl aus (Lexikon K22).' : 'Startbild, Zeichen des Hauses und Schriften kommen an.');
+  setze(B, 'B09', 'Stand abrufbar', 'lauf', 'Wird geprüft …');
+  const sd = await hole('/control/api/stand');
+  if (sd.ok) {
+    let z = null; try { z = await sd.r.json(); } catch (e) {}
+    const soll = ['seiten', 'felder', 'listen', 'karte', 'bilder', 'aenderungen', 'verlauf', 'nav'], fehl = z ? soll.filter(k => !(k in z)) : soll;
+    const duenn = z && (!z.seiten || !z.seiten.length || !z.felder || !Object.keys(z.felder).length || !z.listen || !z.listen.pakete);
+    setze(B, 'B09', 'Stand abrufbar', fehl.length ? 'fehler' : duenn ? 'fehler' : 'ok', fehl.length ? `Der Stand kommt, aber unvollständig (es fehlt: ${fehl.join(', ')}). Die Oberfläche kann daran scheitern (Lexikon K03).` : duenn ? 'Der Stand kommt, aber ohne Seiten, Angaben oder Listen: der Entwurf ist nicht gebaut. «Entwurf neu bauen» (Lexikon K03).' : `Der ganze Stand kommt in ${sd.ms} ms: ${z.seiten.length} Seiten, ${Object.keys(z.felder).length} Angaben, ${Object.keys(z.listen).length} Listen, ${z.bilder.length} Bilder, ${z.aenderungen.length} Änderungen im Entwurf${z.fehler ? '. Baufehler gemeldet: ' + z.fehler : ''}.`);
+  } else setze(B, 'B09', 'Stand abrufbar', sd.status === 401 ? 'warn' : 'fehler', sd.status === 401 ? 'Nicht angemeldet: der Stand lässt sich erst nach der Anmeldung prüfen (Lexikon K29).' : sd.status === 422 || sd.status === 500 ? `Der Server kann den Stand nicht liefern (${sd.status}): ${await sd.r.text().then(t => { try { return JSON.parse(t).fehler; } catch (e) { return t.slice(0, 160); } }).catch(() => '')} (Lexikon K18, K28).` : `Der Stand antwortet nicht (${sd.status || 'keine Verbindung'}).`);
+  let letzte = [];
+  try { letzte = JSON.parse(localStorage.getItem('ce_fehler') || '[]'); } catch (e) {}
+  setze(B, 'B10', 'Letzte Fehler im Browser', letzte.length ? 'warn' : 'ok', letzte.length ? `${letzte.length} Skriptfehler aus Le Bureau in diesem Browser gemerkt. Letzter: ${letzte[letzte.length - 1].zeit} ${letzte[letzte.length - 1].text}` : 'Le Bureau hat in diesem Browser keinen Skriptfehler gemeldet.');
+  setze(B, 'B11', 'Netz', navigator.onLine ? 'ok' : 'warn', navigator.onLine ? 'Der Browser ist mit dem Netz verbunden.' : 'Der Browser meldet: kein Netz.');
+}
+
+// ---------------------------------------------------------------- Server fragen
+async function serverPruefen(tun) {
+  $('#server').innerHTML = '<div class="leer">Der Server wird gefragt …</div>';
+  const r = tun ? await hole('/control/api/pruefung', { method: 'POST', headers: { 'X-Studio': '1', 'Content-Type': 'application/json' }, body: JSON.stringify({ tun }) }) : await hole('/control/api/pruefung');
+  if (!r.ok) {
+    S = null;
+    let text = '';
+    try { text = (await r.r.json()).fehler || ''; } catch (e) {}
+    $('#server').innerHTML = `<div class="pz fehler"><i></i><div><b>Der Server antwortet nicht auf die Prüfung</b><p>${r.status ? `Antwort ${r.status}${text ? ': ' + h(text) : ''}.` : 'Keine Verbindung.'} Läuft Le Bureau? Siehe Lexikon <a href="#K01">K01</a>${r.status === 401 ? ', <a href="#K29">K29</a>' : ''}.</p></div></div>`;
+    return;
+  }
+  try { S = await r.r.json(); } catch (e) { S = null; $('#server').innerHTML = '<div class="pz fehler"><i></i><div><b>Die Antwort des Servers ist nicht lesbar</b><p>Lexikon <a href="#K28">K28</a>.</p></div></div>'; return; }
+  malServer();
+}
+const verweis = t => h(t).replace(/K(\d\d)/g, (m) => `<a href="#${m}">${m}</a>`);
+function malListe(el, liste) {
+  el.innerHTML = liste.map(p => `<div class="pz ${p.stand}"><i></i><div><b>${h(p.titel)}<small>${h(p.id)}</small></b><p>${verweis(p.text)}</p></div></div>`).join('') || '<div class="leer">Nichts geprüft.</div>';
+}
+function malBrowser() { malListe($('#browser'), B); $('#z-b').textContent = zusammen(B); ampel(); }
+function malServer() {
+  malListe($('#server'), S.punkte);
+  $('#z-s').textContent = zusammen(S.punkte) + (S.ganz ? '' : ' · ohne Anmeldung gekürzt');
+  const pr = $('#proto');
+  pr.innerHTML = S.ganz ? (S.protokoll.length ? `<div class="proto">${S.protokoll.map(z => `<div>${h(z)}</div>`).join('')}</div>` : '<div class="leer">Das Protokoll ist leer. Gut so.</div>') : '<div class="leer">Das Protokoll zeigt sich nach der Anmeldung.</div>';
+  $('#z-p').textContent = S.ganz ? `${S.protokoll.length} letzte Einträge` : '';
+  ampel();
+}
+const zusammen = l => { const n = s => l.filter(p => p.stand === s).length; return `${n('ok')} in Ordnung · ${n('warn')} Hinweise · ${n('fehler')} Fehler`; };
+function ampel() {
+  const alle = B.concat(S ? S.punkte : []), fehler = alle.filter(p => p.stand === 'fehler'), warn = alle.filter(p => p.stand === 'warn'), laeuft = alle.some(p => p.stand === 'lauf') || !S && !$('#server').querySelector('.pz');
+  const a = $('#ampel');
+  a.className = 'ampel ' + (laeuft ? '' : fehler.length ? 'fehler' : warn.length ? 'warn' : 'ok');
+  $('#ampel i').textContent = laeuft ? '…' : fehler.length ? String(fehler.length) : warn.length ? String(warn.length) : '✓';
+  $('#a-titel').textContent = laeuft ? 'Die Prüfung läuft.' : fehler.length ? (fehler.length === 1 ? 'Ein Punkt braucht Hilfe.' : `${fehler.length} Punkte brauchen Hilfe.`) : warn.length ? 'Läuft, mit Hinweisen.' : 'Alles in Ordnung.';
+  $('#a-text').textContent = laeuft ? 'Einen Moment, jeder Punkt wird einzeln geprüft.' : fehler.length ? fehler.map(p => p.titel).join(', ') + '. Die Zeile dazu nennt die Behebung; die Kennung K… führt ins Lexikon.' : warn.length ? warn.map(p => p.titel).join(', ') + '. Nichts davon hindert die Arbeit.' : `Browser, Server und Daten sind geprüft, ${zeit()}.`;
+  const kn = [];
+  if (S && S.ganz) {
+    kn.push('<button class="kn kn--linie" type="button" data-tun="bauen">Entwurf neu bauen</button>');
+    if (S.punkte.some(p => ['P08', 'P09'].includes(p.id) && p.stand === 'fehler')) kn.push('<button class="kn kn--rot" type="button" data-tun="stand-zurueck">Stand aus dem Verlauf zurückholen</button>');
+    if (S.protokoll.length) kn.push('<button class="kn kn--linie" type="button" data-tun="protokoll-leeren">Protokoll leeren</button>');
+  }
+  if (!EINGEBETTET) kn.push('<a class="kn kn--linie" href="/control/">Le Bureau öffnen</a>');
+  $('#a-kn').innerHTML = kn.join('');
+  $('#f-r').textContent = (S ? 'Server ' + S.version + ' · ' : '') + 'geprüft ' + zeit();
+}
+function malLexikon(filter) {
+  const f = (filter || '').trim().toLowerCase();
+  const liste = LEXIKON.filter(e => !f || e.join(' ').toLowerCase().includes(f));
+  $('#lexikon').innerHTML = liste.map(([k, t, u, p, b, r]) => `<details id="${k}"><summary><code>${k}</code><span>${h(t)}</span></summary><dl class="lx"><div><dt>Ursache</dt><dd>${u}</dd></div><div><dt>Prüfen</dt><dd>${p}</dd></div><div><dt>Beheben</dt><dd>${b}</dd></div><div><dt>Für Robert</dt><dd>${r}</dd></div></dl></details>`).join('') || '<div class="leer">Nichts gefunden. Anders suchen, oder Bericht kopieren und Robert schicken.</div>';
+}
+function oeffneLexikon(k) {
+  const d = document.getElementById(k);
+  if (!d) return;
+  document.querySelectorAll('details.an').forEach(x => x.classList.remove('an'));
+  d.open = true;
+  d.classList.add('an');
+  d.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
+function bericht() {
+  const z = l => l.map(p => `${p.id} ${p.stand.toUpperCase().padEnd(6)} ${p.titel}: ${p.text}`).join('\n');
+  const t = [`Le Bureau · Prüfbericht ${zeit()}`, location.origin, '', 'IM BROWSER', z(B), '', 'AUF DEM SERVER', S ? z(S.punkte) : 'keine Antwort', '', 'PROTOKOLL', S && S.protokoll.length ? S.protokoll.join('\n') : '(leer)', '', navigator.userAgent].join('\n');
+  const fertig = () => { const m = $('#meldung'); m.textContent = 'Der Bericht ist kopiert. In eine Mail an Robert einfügen.'; m.classList.add('an'); setTimeout(() => m.classList.remove('an'), 3200); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(fertig, () => prompt('Bericht zum Kopieren:', t));
+  else prompt('Bericht zum Kopieren:', t);
+}
+async function alles(tun) {
+  $('#k-neu').disabled = true;
+  await Promise.all([browserPruefen(), serverPruefen(tun)]);
+  $('#k-neu').disabled = false;
+  if (EINGEBETTET && parent !== window) { try { parent.postMessage({ ce: 'pruefung', gesamt: $('#ampel').className.replace('ampel ', '') }, location.origin); } catch (e) {} }
+}
+$('#k-neu').addEventListener('click', () => alles());
+$('#k-bericht').addEventListener('click', bericht);
+$('#a-kn').addEventListener('click', ev => { const b = ev.target.closest('[data-tun]'); if (!b) return; b.disabled = true; alles(b.dataset.tun); });
+$('#suche').addEventListener('input', ev => malLexikon(ev.target.value));
+document.addEventListener('click', ev => { const a = ev.target.closest('a[href^="#K"]'); if (a) { ev.preventDefault(); oeffneLexikon(a.getAttribute('href').slice(1)); } });
+if (EINGEBETTET) $('#zurueck').hidden = true;
+malLexikon('');
+alles().then(() => { const h = location.hash.slice(1).toLowerCase(); if (/^k\d+$/.test(h)) oeffneLexikon(h.toUpperCase()); else if (STICHWORT[h]) oeffneLexikon(STICHWORT[h]); });
+})();
+</script>
+<script src="/werkzeuge/demo-aus.js" defer></script></body>
+</html>

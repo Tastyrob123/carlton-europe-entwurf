@@ -1,0 +1,4993 @@
+{
+ "haus": "Carlton-Europe Interlaken",
+ "fotos": [
+  {
+   "k": "aare",
+   "t": {
+    "de": "Die Aare bei Interlaken, dahinter der Niesen",
+    "en": "The Aare near Interlaken, the Niesen behind",
+    "fr": "L’Aar près d’Interlaken, derrière le Niesen"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "aare-l.webp",
+   "fs": "aare-s.webp",
+   "ft": "t/aare.webp"
+  },
+  {
+   "k": "aktiv",
+   "t": {
+    "de": "Velofahrer und Motorradfahrer auf einer Bergstrasse über einem See",
+    "en": "Cyclist and motorcyclists on a mountain road above a lake",
+    "fr": "Cycliste et motards sur une route de montagne au-dessus d’un lac"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "aktiv-l.webp",
+   "fs": "aktiv-s.webp",
+   "ft": "t/aktiv.webp"
+  },
+  {
+   "k": "apt-bett",
+   "t": {
+    "de": "Schlafzimmer eines Apartments mit Durchblick in den Wohnraum",
+    "en": "Bedroom of an apartment with a view through to the living room",
+    "fr": "Chambre d’un appartement avec vue sur le séjour"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "apt-bett-l.webp",
+   "fs": "apt-bett-s.webp",
+   "ft": "t/apt-bett.webp"
+  },
+  {
+   "k": "apt-kueche",
+   "t": {
+    "de": "Wohnküche eines Apartments mit rundem Esstisch",
+    "en": "Kitchen-living room of an apartment with round dining table",
+    "fr": "Cuisine ouverte d’un appartement avec table ronde"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "apt-kueche-l.webp",
+   "fs": "apt-kueche-s.webp",
+   "ft": "t/apt-kueche.webp"
+  },
+  {
+   "k": "apt-schlafen",
+   "t": {
+    "de": "Apt schlafen"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "apt-schlafen-l.webp",
+   "fs": "apt-schlafen-s.webp",
+   "ft": "t/apt-schlafen.webp"
+  },
+  {
+   "k": "apt-wohnen",
+   "t": {
+    "de": "Wohnzimmer mit Küche in einem Serviced Apartment",
+    "en": "Living room with kitchen in a Serviced Apartment",
+    "fr": "Séjour avec cuisine dans un appartement avec services"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "apt-wohnen-l.webp",
+   "fs": "apt-wohnen-s.webp",
+   "ft": "t/apt-wohnen.webp"
+  },
+  {
+   "k": "aris",
+   "t": {
+    "de": "Aris, der Hotelhund, mit den Pfoten auf der Tastatur am Empfang",
+    "en": "Aris, the hotel dog, with his paws on the keyboard at reception",
+    "fr": "Aris, le chien de l’hôtel, les pattes sur le clavier de la réception"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2258,
+   "h": 1856,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "aris-l.webp",
+   "fs": "aris-s.webp",
+   "ft": "t/aris.webp"
+  },
+  {
+   "k": "aris-gras",
+   "t": {
+    "de": "Aris, der Hotelhund, liegt im Gras",
+    "en": "Aris, the hotel dog, lying in the grass",
+    "fr": "Aris, le chien de l’hôtel, couché dans l’herbe"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 749,
+   "h": 1107,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "aris-gras-l.webp",
+   "fs": "aris-gras-s.webp",
+   "ft": "t/aris-gras.webp"
+  },
+  {
+   "k": "asllanis",
+   "t": {
+    "de": "Asllanis"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 596,
+   "h": 448,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "asllanis-l.webp",
+   "fs": "asllanis-s.webp",
+   "ft": "t/asllanis.webp"
+  },
+  {
+   "k": "beizli",
+   "t": {
+    "de": "Beizli"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 589,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "beizli-l.webp",
+   "fs": "beizli-s.webp",
+   "ft": "t/beizli.webp"
+  },
+  {
+   "k": "beizli-2",
+   "t": {
+    "de": "Beizli 2"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1400,
+   "h": 743,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "beizli-2-l.webp",
+   "fs": "beizli-2-s.webp",
+   "ft": "t/beizli-2.webp"
+  },
+  {
+   "k": "bike",
+   "t": {
+    "de": "Zwei Mountainbiker am Beatenberg",
+    "en": "Two mountain bikers on the Beatenberg",
+    "fr": "Deux vététistes au Beatenberg"
+   },
+   "b": "region",
+   "s": "sommer",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "bike-l.webp",
+   "fs": "bike-s.webp",
+   "ft": "t/bike.webp"
+  },
+  {
+   "k": "bike-wald",
+   "t": {
+    "de": "Mountainbiker auf einem Waldweg",
+    "en": "Mountain biker on a forest trail",
+    "fr": "Vététiste sur un chemin forestier"
+   },
+   "b": "region",
+   "s": "sommer",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "bike-wald-l.webp",
+   "fs": "bike-wald-s.webp",
+   "ft": "t/bike-wald.webp"
+  },
+  {
+   "k": "blick-pano",
+   "t": {
+    "de": "Blick über Interlaken auf die Berge",
+    "en": "View over Interlaken to the mountains",
+    "fr": "Vue sur Interlaken et les montagnes"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 432,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "blick-pano-l.webp",
+   "fs": "blick-pano-s.webp",
+   "ft": "t/blick-pano.webp"
+  },
+  {
+   "k": "brot",
+   "t": {
+    "de": "Frühstücksbuffet mit Gipfeli und Brot",
+    "en": "Breakfast buffet with croissants and bread",
+    "fr": "Buffet du petit-déjeuner avec croissants et pain"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "brot-l.webp",
+   "fs": "brot-s.webp",
+   "ft": "t/brot.webp"
+  },
+  {
+   "k": "d-aperol",
+   "t": {
+    "de": "Aperol Spritz",
+    "en": "Aperol Spritz",
+    "fr": "Aperol Spritz"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-aperol.webp",
+   "fs": "d-aperol.webp",
+   "ft": "t/d-aperol.webp"
+  },
+  {
+   "k": "d-bier",
+   "t": {
+    "de": "Rugenbräu Stange",
+    "en": "Rugenbräu Stange",
+    "fr": "Rugenbräu Stange"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-bier.webp",
+   "fs": "d-bier.webp",
+   "ft": "t/d-bier.webp"
+  },
+  {
+   "k": "d-hausapero",
+   "t": {
+    "de": "Haus Apéro",
+    "en": "House aperitif",
+    "fr": "Apéritif maison"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-hausapero.webp",
+   "fs": "d-hausapero.webp",
+   "ft": "t/d-hausapero.webp"
+  },
+  {
+   "k": "d-hugo",
+   "t": {
+    "de": "Hugo",
+    "en": "Hugo",
+    "fr": "Hugo"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-hugo.webp",
+   "fs": "d-hugo.webp",
+   "ft": "t/d-hugo.webp"
+  },
+  {
+   "k": "d-sanbitter",
+   "t": {
+    "de": "Sanbitter-Orange",
+    "en": "Sanbitter-Orange",
+    "fr": "Sanbitter-Orange"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-sanbitter.webp",
+   "fs": "d-sanbitter.webp",
+   "ft": "t/d-sanbitter.webp"
+  },
+  {
+   "k": "d-schaumwein",
+   "t": {
+    "de": "Mauler cuvée tradition brut",
+    "en": "Mauler cuvée tradition brut",
+    "fr": "Mauler cuvée tradition brut"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-schaumwein.webp",
+   "fs": "d-schaumwein.webp",
+   "ft": "t/d-schaumwein.webp"
+  },
+  {
+   "k": "d-virginhugo",
+   "t": {
+    "de": "Virgin Hugo",
+    "en": "Virgin Hugo",
+    "fr": "Virgin Hugo"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-virginhugo.webp",
+   "fs": "d-virginhugo.webp",
+   "ft": "t/d-virginhugo.webp"
+  },
+  {
+   "k": "d-whisky",
+   "t": {
+    "de": "Swiss Highland Classic",
+    "en": "Swiss Highland Classic",
+    "fr": "Swiss Highland Classic"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "d-whisky.webp",
+   "fs": "d-whisky.webp",
+   "ft": "t/d-whisky.webp"
+  },
+  {
+   "k": "dach-apero",
+   "t": {
+    "de": "Apéro mit Schaumwein auf der Dachterrasse, dahinter der Niesen",
+    "en": "Aperitif with sparkling wine on the roof terrace, the Niesen behind",
+    "fr": "Apéritif au vin mousseux sur la terrasse du toit, le Niesen en arrière-plan"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 3104,
+   "h": 2247,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "dach-apero-l.webp",
+   "fs": "dach-apero-s.webp",
+   "ft": "t/dach-apero.webp"
+  },
+  {
+   "k": "dach-bett",
+   "t": {
+    "de": "Bett im Glaspavillon auf der Dachterrasse",
+    "en": "Bed in the glass pavilion on the roof terrace",
+    "fr": "Lit dans le pavillon de verre sur la terrasse du toit"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 6000,
+   "h": 3999,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-bett-l.webp",
+   "fs": "dach-bett-s.webp",
+   "ft": "t/dach-bett.webp"
+  },
+  {
+   "k": "dach-blick",
+   "t": {
+    "de": "Blick von der Dachterrasse über die Dächer von Interlaken",
+    "en": "View from the roof terrace over the rooftops of Interlaken",
+    "fr": "Vue de la terrasse du toit sur les toits d’Interlaken"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 4000,
+   "h": 3000,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-blick-l.webp",
+   "fs": "dach-blick-s.webp",
+   "ft": "t/dach-blick.webp"
+  },
+  {
+   "k": "dach-korb",
+   "t": {
+    "de": "Dach korb"
+   },
+   "b": "dach",
+   "s": "jahr",
+   "f": "quer",
+   "w": 621,
+   "h": 414,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "dach-korb-l.webp",
+   "fs": "dach-korb-s.webp",
+   "ft": "t/dach-korb.webp"
+  },
+  {
+   "k": "dach-pavillon",
+   "t": {
+    "de": "Glaspavillon mit Bett auf der Dachterrasse der Aarmühle-Suite",
+    "en": "Glass pavilion with bed on the roof terrace of the Aarmühle Suite",
+    "fr": "Pavillon de verre avec lit sur la terrasse de la suite Aarmühle"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 5184,
+   "h": 3455,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-pavillon-l.webp",
+   "fs": "dach-pavillon-s.webp",
+   "ft": "t/dach-pavillon.webp"
+  },
+  {
+   "k": "dach-sommer",
+   "t": {
+    "de": "Glaspavillon auf der Dachterrasse im Sommer, dahinter die Berge",
+    "en": "Glaspavillon auf der Dachterrasse im Sommer, dahinter die Berge",
+    "fr": "Glaspavillon auf der Dachterrasse im Sommer, dahinter die Berge"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 6000,
+   "h": 3999,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-sommer-l.webp",
+   "fs": "dach-sommer-s.webp",
+   "ft": "t/dach-sommer.webp"
+  },
+  {
+   "k": "dach-stuehle",
+   "t": {
+    "de": "Korbstühle auf der Dachterrasse",
+    "en": "Wicker chairs on the roof terrace",
+    "fr": "Fauteuils en osier sur la terrasse du toit"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2528,
+   "h": 1682,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-stuehle-l.webp",
+   "fs": "dach-stuehle-s.webp",
+   "ft": "t/dach-stuehle.webp"
+  },
+  {
+   "k": "dach-terrasse",
+   "t": {
+    "de": "Dachterrasse mit Sonnenschirm, dahinter die Berge",
+    "en": "Roof terrace with parasol, the mountains behind",
+    "fr": "Terrasse sur le toit avec parasol, les montagnes en arrière-plan"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 6000,
+   "h": 3999,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-terrasse-l.webp",
+   "fs": "dach-terrasse-s.webp",
+   "ft": "t/dach-terrasse.webp"
+  },
+  {
+   "k": "dach-tisch",
+   "t": {
+    "de": "Gedeckter Tisch auf der Dachterrasse",
+    "en": "Laid table on the roof terrace",
+    "fr": "Table dressée sur la terrasse du toit"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2389,
+   "h": 1792,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-tisch-l.webp",
+   "fs": "dach-tisch-s.webp",
+   "ft": "t/dach-tisch.webp"
+  },
+  {
+   "k": "dach-winter",
+   "t": {
+    "de": "Dachterrasse im Schnee",
+    "en": "Roof terrace in the snow",
+    "fr": "Terrasse sur le toit sous la neige"
+   },
+   "b": "dach",
+   "s": "winter",
+   "f": "quer",
+   "w": 5184,
+   "h": 3455,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "dach-winter-l.webp",
+   "fs": "dach-winter-s.webp",
+   "ft": "t/dach-winter.webp"
+  },
+  {
+   "k": "doldenhorn",
+   "t": {
+    "de": "Waldhotel Doldenhorn in Kandersteg",
+    "en": "Waldhotel Doldenhorn in Kandersteg",
+    "fr": "Waldhotel Doldenhorn à Kandersteg"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2391,
+   "h": 1792,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "doldenhorn-l.webp",
+   "fs": "doldenhorn-s.webp",
+   "ft": "t/doldenhorn.webp"
+  },
+  {
+   "k": "eladen",
+   "t": {
+    "de": "Elektroauto an der Ladestation vor dem Hotel",
+    "en": "Electric car at the charging station in front of the hotel",
+    "fr": "Voiture électrique à la borne de recharge devant l’hôtel"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 5184,
+   "h": 3455,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "eladen-l.webp",
+   "fs": "eladen-s.webp",
+   "ft": "t/eladen.webp"
+  },
+  {
+   "k": "empfang",
+   "t": {
+    "de": "Empfang des Hotels mit roter Theke",
+    "en": "Hotel reception with red counter",
+    "fr": "Réception de l’hôtel avec comptoir rouge"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "empfang-l.webp",
+   "fs": "empfang-s.webp",
+   "ft": "t/empfang.webp"
+  },
+  {
+   "k": "ernte",
+   "t": {
+    "de": "Wagen mit Kürbissen, Gemüse und Obst",
+    "en": "Cart with pumpkins, vegetables and fruit",
+    "fr": "Chariot de courges, de légumes et de fruits"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "ernte-l.webp",
+   "fs": "ernte-s.webp",
+   "ft": "t/ernte.webp"
+  },
+  {
+   "k": "feuer",
+   "t": {
+    "de": "Flammen im Kamin",
+    "en": "Flames in the fireplace",
+    "fr": "Flammes dans la cheminée"
+   },
+   "b": "halle",
+   "s": "winter",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "feuer-l.webp",
+   "fs": "feuer-s.webp",
+   "ft": "t/feuer.webp"
+  },
+  {
+   "k": "feuerring",
+   "t": {
+    "de": "Feuerring mit Fleisch und Maiskolben",
+    "en": "Fire ring with meat and corn on the cob",
+    "fr": "Cercle de feu avec viande et épis de maïs"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 5184,
+   "h": 3455,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "feuerring-l.webp",
+   "fs": "feuerring-s.webp",
+   "ft": "t/feuerring.webp"
+  },
+  {
+   "k": "g-brie",
+   "t": {
+    "de": "Brie Käsegratin mit Honig",
+    "en": "Brie cheese gratin with honey",
+    "fr": "Gratin de fromage Brie au miel"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-brie.webp",
+   "fs": "g-brie.webp",
+   "ft": "t/g-brie.webp"
+  },
+  {
+   "k": "g-cordonbleu",
+   "t": {
+    "de": "Cordon bleu vom Schwein",
+    "en": "Pork cordon bleu",
+    "fr": "Cordon bleu de porc"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-cordonbleu.webp",
+   "fs": "g-cordonbleu.webp",
+   "ft": "t/g-cordonbleu.webp"
+  },
+  {
+   "k": "g-entrecote",
+   "t": {
+    "de": "Entrecôte vom Oberland Rind",
+    "en": "Entrecôte of Oberland beef",
+    "fr": "Entrecôte de bœuf de l’Oberland"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-entrecote.webp",
+   "fs": "g-entrecote.webp",
+   "ft": "t/g-entrecote.webp"
+  },
+  {
+   "k": "g-fondue",
+   "t": {
+    "de": "Käse-Fondue aus Vuadens",
+    "en": "Cheese fondue from Vuadens",
+    "fr": "Fondue au fromage de Vuadens"
+   },
+   "b": "essen",
+   "s": "winter",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-fondue.webp",
+   "fs": "g-fondue.webp",
+   "ft": "t/g-fondue.webp"
+  },
+  {
+   "k": "g-forelle",
+   "t": {
+    "de": "Gebratenes Forellenfilet",
+    "en": "Fried trout fillet",
+    "fr": "Filet de truite frit"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-forelle.webp",
+   "fs": "g-forelle.webp",
+   "ft": "t/g-forelle.webp"
+  },
+  {
+   "k": "g-gerstensuppe",
+   "t": {
+    "de": "Oberländer Gerstensuppe",
+    "en": "Oberland barley soup",
+    "fr": "Soupe d’orge perlé de l’Oberland"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-gerstensuppe.webp",
+   "fs": "g-gerstensuppe.webp",
+   "ft": "t/g-gerstensuppe.webp"
+  },
+  {
+   "k": "g-geschnetzeltes",
+   "t": {
+    "de": "Kalbsgeschnetzeltes «Zürcher Art»",
+    "en": "Sliced veal “Zurich style”",
+    "fr": "Émincé de veau « à la zurichoise »"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-geschnetzeltes.webp",
+   "fs": "g-geschnetzeltes.webp",
+   "ft": "t/g-geschnetzeltes.webp"
+  },
+  {
+   "k": "g-meraengge",
+   "t": {
+    "de": "Merängge",
+    "en": "Meringue",
+    "fr": "Meringue"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-meraengge.webp",
+   "fs": "g-meraengge.webp",
+   "ft": "t/g-meraengge.webp"
+  },
+  {
+   "k": "g-roesti",
+   "t": {
+    "de": "Hausgemachte Rösti",
+    "en": "Homemade rösti",
+    "fr": "Rösti fait maison"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-roesti.webp",
+   "fs": "g-roesti.webp",
+   "ft": "t/g-roesti.webp"
+  },
+  {
+   "k": "g-tatar",
+   "t": {
+    "de": "Rindstatar",
+    "en": "Beef tartare",
+    "fr": "Tartare de bœuf"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-tatar.webp",
+   "fs": "g-tatar.webp",
+   "ft": "t/g-tatar.webp"
+  },
+  {
+   "k": "g-vermicelles",
+   "t": {
+    "de": "Vermicelles",
+    "en": "Vermicelles (chestnut purée)",
+    "fr": "Vermicelles (purée de marrons)"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "g-vermicelles.webp",
+   "fs": "g-vermicelles.webp",
+   "ft": "t/g-vermicelles.webp"
+  },
+  {
+   "k": "garten-annex",
+   "t": {
+    "de": "Garten am Annex mit den Aussensitzplätzen der Apartments",
+    "en": "Garden by the annexe with the outdoor seating areas of the apartments",
+    "fr": "Jardin de l’annexe avec les coins extérieurs des appartements"
+   },
+   "b": "haus",
+   "s": "sommer",
+   "f": "quer",
+   "w": 1400,
+   "h": 660,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "garten-annex-l.webp",
+   "fs": "garten-annex-s.webp",
+   "ft": "t/garten-annex.webp"
+  },
+  {
+   "k": "garten-lounge",
+   "t": {
+    "de": "Sitzgruppe am Naturbadeteich",
+    "en": "Seating by the natural swimming pond",
+    "fr": "Coin salon au bord de l’étang de baignade naturel"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2528,
+   "h": 1577,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "garten-lounge-l.webp",
+   "fs": "garten-lounge-s.webp",
+   "ft": "t/garten-lounge.webp"
+  },
+  {
+   "k": "garten-sitz",
+   "t": {
+    "de": "Sitzplatz im Hotelgarten",
+    "en": "Seating in the hotel garden",
+    "fr": "Coin salon dans le jardin de l’hôtel"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2731,
+   "h": 1536,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "garten-sitz-l.webp",
+   "fs": "garten-sitz-s.webp",
+   "ft": "t/garten-sitz.webp"
+  },
+  {
+   "k": "garten-teich",
+   "t": {
+    "de": "Hotelpark mit Naturbadeteich, dahinter der bewaldete Hang",
+    "en": "Hotel park with natural swimming pond, the wooded hillside behind",
+    "fr": "Parc de l’hôtel avec étang de baignade naturel, le versant boisé à l’arrière-plan"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2400,
+   "h": 1733,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "garten-teich-l.webp",
+   "fs": "garten-teich-s.webp",
+   "ft": "t/garten-teich.webp"
+  },
+  {
+   "k": "gasterntal",
+   "t": {
+    "de": "Berghotel Gasterntal in Selden bei Kandersteg",
+    "en": "Berghotel Gasterntal in Selden near Kandersteg",
+    "fr": "Berghotel Gasterntal à Selden près de Kandersteg"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4032,
+   "h": 3024,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "gasterntal-l.webp",
+   "fs": "gasterntal-s.webp",
+   "ft": "t/gasterntal.webp"
+  },
+  {
+   "k": "h-biskuit",
+   "t": {
+    "de": "Hundebiskuit",
+    "en": "Dog biscuit",
+    "fr": "Biscuit pour chien"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "h-biskuit.webp",
+   "fs": "h-biskuit.webp",
+   "ft": "t/h-biskuit.webp"
+  },
+  {
+   "k": "h-gefluegel",
+   "t": {
+    "de": "Geflügel",
+    "en": "Poultry",
+    "fr": "Volaille"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "h-gefluegel.webp",
+   "fs": "h-gefluegel.webp",
+   "ft": "t/h-gefluegel.webp"
+  },
+  {
+   "k": "h-glace",
+   "t": {
+    "de": "Schnauziis Hundeglace",
+    "en": "Schnauziis dog ice cream",
+    "fr": "Glace pour chien Schnauziis"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "h-glace.webp",
+   "fs": "h-glace.webp",
+   "ft": "t/h-glace.webp"
+  },
+  {
+   "k": "h-rind",
+   "t": {
+    "de": "Rindfleisch",
+    "en": "Beef",
+    "fr": "Bœuf"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 760,
+   "h": 882,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "h-rind.webp",
+   "fs": "h-rind.webp",
+   "ft": "t/h-rind.webp"
+  },
+  {
+   "k": "halle",
+   "t": {
+    "de": "Hotelhalle mit roten Polsterstühlen",
+    "en": "Hotel lounge with red upholstered chairs",
+    "fr": "Hall de l’hôtel avec fauteuils rouges"
+   },
+   "b": "halle",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "halle-l.webp",
+   "fs": "halle-s.webp",
+   "ft": "t/halle.webp"
+  },
+  {
+   "k": "haus-nacht",
+   "t": {
+    "de": "Das Carlton-Europe im Schnee zur blauen Stunde",
+    "en": "The Carlton-Europe in the snow at dusk",
+    "fr": "Le Carlton-Europe sous la neige à l’heure bleue"
+   },
+   "b": "haus",
+   "s": "winter",
+   "f": "quer",
+   "w": 2560,
+   "h": 1708,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "haus-nacht-l.webp",
+   "fs": "haus-nacht-s.webp",
+   "ft": "t/haus-nacht.webp"
+  },
+  {
+   "k": "haus-park",
+   "t": {
+    "de": "Carlton und Europe nebeneinander",
+    "en": "Carlton and Europe side by side",
+    "fr": "Le Carlton et l’Europe côte à côte"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1400,
+   "h": 660,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "haus-park-l.webp",
+   "fs": "haus-park-s.webp",
+   "ft": "t/haus-park.webp"
+  },
+  {
+   "k": "haus-sw",
+   "t": {
+    "de": "Haus sw"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1400,
+   "h": 660,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "haus-sw-l.webp",
+   "fs": "haus-sw-s.webp",
+   "ft": "t/haus-sw.webp"
+  },
+  {
+   "k": "haus-sw-breit",
+   "t": {
+    "de": "Haus sw breit"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 5588,
+   "h": 3057,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "haus-sw-breit-l.webp",
+   "fs": "haus-sw-breit-s.webp",
+   "ft": "t/haus-sw-breit.webp"
+  },
+  {
+   "k": "haus-sw-hoch",
+   "t": {
+    "de": "Haus sw hoch"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1636,
+   "h": 1823,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "haus-sw-hoch-l.webp",
+   "fs": "haus-sw-hoch-s.webp",
+   "ft": "t/haus-sw-hoch.webp"
+  },
+  {
+   "k": "haus-tag",
+   "t": {
+    "de": "Das Carlton-Europe in Interlaken",
+    "en": "The Carlton-Europe in Interlaken",
+    "fr": "Le Carlton-Europe à Interlaken"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1821,
+   "h": 864,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "haus-tag-l.webp",
+   "fs": "haus-tag-s.webp",
+   "ft": "t/haus-tag.webp"
+  },
+  {
+   "k": "haus-tag2",
+   "t": {
+    "de": "Das Carlton-Europe mit blühenden Bäumen",
+    "en": "The Carlton-Europe with trees in blossom",
+    "fr": "Le Carlton-Europe et ses arbres en fleurs"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1821,
+   "h": 864,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "haus-tag2-l.webp",
+   "fs": "haus-tag2-s.webp",
+   "ft": "t/haus-tag2.webp"
+  },
+  {
+   "k": "haus-weit",
+   "t": {
+    "de": "Das Carlton-Europe heute: links das Europe, rechts das Carlton mit Turm",
+    "en": "The Carlton-Europe today: the Europe on the left, the Carlton with its tower on the right",
+    "fr": "Le Carlton-Europe aujourd’hui : à gauche l’Europe, à droite le Carlton avec sa tour"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4288,
+   "h": 2247,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "haus-weit-l.webp",
+   "fs": "haus-weit-s.webp",
+   "ft": "t/haus-weit.webp"
+  },
+  {
+   "k": "herbst",
+   "t": {
+    "de": "Interlaken im Herbst von oben",
+    "en": "Interlaken in autumn from above",
+    "fr": "Interlaken en automne, vu d’en haut"
+   },
+   "b": "region",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2528,
+   "h": 1571,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "herbst-l.webp",
+   "fs": "herbst-s.webp",
+   "ft": "t/herbst.webp"
+  },
+  {
+   "k": "herbst-park",
+   "t": {
+    "de": "Hotelpark mit Naturbadeteich im Herbstlicht, dahinter der Annex und die Berge",
+    "en": "Hotel park with natural swimming pond in autumn light, the annexe and the mountains behind",
+    "fr": "Parc de l’hôtel avec étang de baignade naturel dans la lumière d’automne, derrière l’annexe et les montagnes"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 3200,
+   "h": 2133,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "herbst-park-l.webp",
+   "fs": "herbst-park-s.webp",
+   "ft": "t/herbst-park.webp"
+  },
+  {
+   "k": "hist-carlton-sw",
+   "t": {
+    "de": "Das Hotel de l’Europe mit Schriftzug auf dem Dach",
+    "en": "The Hotel de l’Europe with lettering on the roof",
+    "fr": "L’Hôtel de l’Europe avec son enseigne sur le toit"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1400,
+   "h": 660,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "hist-carlton-sw-l.webp",
+   "fs": "hist-carlton-sw-s.webp",
+   "ft": "t/hist-carlton-sw.webp"
+  },
+  {
+   "k": "hist-europe-farbe",
+   "t": {
+    "de": "Das Hotel Europe in einer Farbaufnahme",
+    "en": "The Hotel Europe in a colour photograph",
+    "fr": "L’hôtel Europe sur une photo en couleur"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 893,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "hist-europe-farbe-l.webp",
+   "fs": "hist-europe-farbe-s.webp",
+   "ft": "t/hist-europe-farbe.webp"
+  },
+  {
+   "k": "hist-europe-sw",
+   "t": {
+    "de": "Das Hotel Europe mit dem Schild «Europe Entrée», davor ein Wagen aus den Dreissigerjahren",
+    "en": "The Hotel Europe with the sign “Europe Entrée”, a 1930s car in front",
+    "fr": "L’hôtel Europe avec l’enseigne « Europe Entrée », devant une voiture des années trente"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1400,
+   "h": 660,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "hist-europe-sw-l.webp",
+   "fs": "hist-europe-sw-s.webp",
+   "ft": "t/hist-europe-sw.webp"
+  },
+  {
+   "k": "hist-farbe",
+   "t": {
+    "de": "Das Carlton und das Europe in einer alten Farbaufnahme",
+    "en": "The Carlton and the Europe in an old colour photograph",
+    "fr": "Le Carlton et l’Europe sur une ancienne photo en couleur"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "hist-farbe-l.webp",
+   "fs": "hist-farbe-s.webp",
+   "ft": "t/hist-farbe.webp"
+  },
+  {
+   "k": "hist-saal-sw",
+   "t": {
+    "de": "Hist saal sw"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 893,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "hist-saal-sw-l.webp",
+   "fs": "hist-saal-sw-s.webp",
+   "ft": "t/hist-saal-sw.webp"
+  },
+  {
+   "k": "hist-salon-sw",
+   "t": {
+    "de": "Hist salon sw"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "hist-salon-sw-l.webp",
+   "fs": "hist-salon-sw-s.webp",
+   "ft": "t/hist-salon-sw.webp"
+  },
+  {
+   "k": "hochzeit",
+   "t": {
+    "de": "Braut im weissen Kleid auf einem Jugendstilsofa, umgeben von Blumen",
+    "en": "Bride on an Art Nouveau sofa",
+    "fr": "Mariée sur un canapé Art nouveau"
+   },
+   "b": "feiern",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2048,
+   "h": 1536,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "hochzeit-l.webp",
+   "fs": "hochzeit-s.webp",
+   "ft": "t/hochzeit.webp"
+  },
+  {
+   "k": "hochzeit-strauss",
+   "t": {
+    "de": "Braut mit Blumenstrauss auf einem Sofa mit Blumenmuster",
+    "en": "Bride with a bouquet on a floral sofa",
+    "fr": "Mariée avec un bouquet sur un canapé fleuri"
+   },
+   "b": "feiern",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2048,
+   "h": 1367,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "hochzeit-strauss-l.webp",
+   "fs": "hochzeit-strauss-s.webp",
+   "ft": "t/hochzeit-strauss.webp"
+  },
+  {
+   "k": "hochzeit-stuhl",
+   "t": {
+    "de": "Stuhl mit Blumenschmuck und Bändern",
+    "en": "Chair decorated with flowers and ribbons",
+    "fr": "Chaise ornée de fleurs et de rubans"
+   },
+   "b": "feiern",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1696,
+   "h": 2502,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "hochzeit-stuhl-l.webp",
+   "fs": "hochzeit-stuhl-s.webp",
+   "ft": "t/hochzeit-stuhl.webp"
+  },
+  {
+   "k": "hunde",
+   "t": {
+    "de": "Zwei Hunde vor dem Eingang des Hotels",
+    "en": "Two dogs outside the hotel entrance",
+    "fr": "Deux chiens devant l’entrée de l’hôtel"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1674,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "hunde-l.webp",
+   "fs": "hunde-s.webp",
+   "ft": "t/hunde.webp"
+  },
+  {
+   "k": "ice",
+   "t": {
+    "de": "Zug auf der Aarebrücke in Interlaken, dahinter die Jungfrau",
+    "en": "Train on the Aare bridge in Interlaken, the Jungfrau behind",
+    "fr": "Train sur le pont de l’Aar à Interlaken, derrière la Jungfrau"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 3822,
+   "h": 2622,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "ice-l.webp",
+   "fs": "ice-s.webp",
+   "ft": "t/ice.webp"
+  },
+  {
+   "k": "kamin",
+   "t": {
+    "de": "Roter Kamin mit Polsterstühlen in der Hotelhalle",
+    "en": "Red fireplace with upholstered chairs in the hotel lounge",
+    "fr": "Cheminée rouge et chaises rembourrées dans le hall de l’hôtel"
+   },
+   "b": "halle",
+   "s": "winter",
+   "f": "quer",
+   "w": 2000,
+   "h": 1333,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "kamin-l.webp",
+   "fs": "kamin-s.webp",
+   "ft": "t/kamin.webp"
+  },
+  {
+   "k": "kaminbar",
+   "t": {
+    "de": "Kaminbar mit offenem Feuer und roten Polsterstühlen",
+    "en": "Fireside bar with open fire and red upholstered chairs",
+    "fr": "Bar à cheminée avec feu ouvert et fauteuils rouges"
+   },
+   "b": "halle",
+   "s": "winter",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "kaminbar-l.webp",
+   "fs": "kaminbar-s.webp",
+   "ft": "t/kaminbar.webp"
+  },
+  {
+   "k": "keller",
+   "t": {
+    "de": "Keller"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4928,
+   "h": 3265,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "keller-l.webp",
+   "fs": "keller-s.webp",
+   "ft": "t/keller.webp"
+  },
+  {
+   "k": "keller-fass",
+   "t": {
+    "de": "Fass mit Kerzenleuchter vor den Weinregalen",
+    "en": "Barrel with a candlestick in front of the wine racks",
+    "fr": "Tonneau avec un chandelier devant les casiers à vin"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 684,
+   "h": 456,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "keller-fass-l.webp",
+   "fs": "keller-fass-s.webp",
+   "ft": "t/keller-fass.webp"
+  },
+  {
+   "k": "keller-flaschen",
+   "t": {
+    "de": "Weinflaschen hinter einem Gitter im Weinkeller",
+    "en": "Wine bottles behind a grille in the wine cellar",
+    "fr": "Bouteilles de vin derrière une grille dans la cave"
+   },
+   "b": "essen",
+   "s": "sommer",
+   "f": "quer",
+   "w": 4928,
+   "h": 3265,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "keller-flaschen-l.webp",
+   "fs": "keller-flaschen-s.webp",
+   "ft": "t/keller-flaschen.webp"
+  },
+  {
+   "k": "keller-hoch",
+   "t": {
+    "de": "Weinkeller mit Kerze auf einem Fass",
+    "en": "Wine cellar with a candle on a barrel",
+    "fr": "Cave à vins avec une bougie sur un tonneau"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 2448,
+   "h": 3264,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "keller-hoch-l.webp",
+   "fs": "keller-hoch-s.webp",
+   "ft": "t/keller-hoch.webp"
+  },
+  {
+   "k": "keller-wein",
+   "t": {
+    "de": "Flasche und zwei Gläser auf einem Fass",
+    "en": "Bottle and two glasses on a barrel",
+    "fr": "Bouteille et deux verres sur un tonneau"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4928,
+   "h": 3265,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "keller-wein-l.webp",
+   "fs": "keller-wein-s.webp",
+   "ft": "t/keller-wein.webp"
+  },
+  {
+   "k": "kissen-studio-1",
+   "t": {
+    "de": "Dinkel-Kissen",
+    "en": "Spelt pillow",
+    "fr": "Oreiller d’épeautre"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 900,
+   "h": 821,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "kissen-studio-1.webp",
+   "fs": "kissen-studio-1.webp",
+   "ft": "t/kissen-studio-1.webp"
+  },
+  {
+   "k": "kissen-studio-2",
+   "t": {
+    "de": "Hirse-Kissen",
+    "en": "Millet pillow",
+    "fr": "Oreiller de millet"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 900,
+   "h": 821,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "kissen-studio-2.webp",
+   "fs": "kissen-studio-2.webp",
+   "ft": "t/kissen-studio-2.webp"
+  },
+  {
+   "k": "kissen-studio-3",
+   "t": {
+    "de": "Polyester-Hohlfaserkugeln",
+    "en": "Polyester hollow-fibre balls",
+    "fr": "Billes de fibres creuses en polyester"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 900,
+   "h": 821,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "kissen-studio-3.webp",
+   "fs": "kissen-studio-3.webp",
+   "ft": "t/kissen-studio-3.webp"
+  },
+  {
+   "k": "kissen-studio-4",
+   "t": {
+    "de": "Tempur-Kissen",
+    "en": "Tempur pillow",
+    "fr": "Oreiller Tempur"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 900,
+   "h": 821,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "kissen-studio-4.webp",
+   "fs": "kissen-studio-4.webp",
+   "ft": "t/kissen-studio-4.webp"
+  },
+  {
+   "k": "kissen-studio-5",
+   "t": {
+    "de": "Schurwolle-Kissen",
+    "en": "Virgin wool pillow",
+    "fr": "Oreiller en pure laine vierge"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 900,
+   "h": 821,
+   "art": "ki",
+   "q": "Mit KI erzeugt (Tasty Studios, Oktober 2026), kein Foto des Hauses",
+   "ki": true,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "kissen-studio-5.webp",
+   "fs": "kissen-studio-5.webp",
+   "ft": "t/kissen-studio-5.webp"
+  },
+  {
+   "k": "land-harder",
+   "t": {
+    "de": "Blick vom Harder Kulm auf Interlaken zwischen Thunersee und Brienzersee, dahinter Eiger, Mönch und Jungfrau",
+    "en": "View from the Harder Kulm over Interlaken between Lake Thun and Lake Brienz, with the Eiger, Mönch and Jungfrau behind",
+    "fr": "Vue du Harder Kulm sur Interlaken, entre le lac de Thoune et le lac de Brienz, avec l’Eiger, le Mönch et la Jungfrau à l’arrière-plan"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 6956,
+   "h": 2839,
+   "art": "frei",
+   "q": "Pierre-Selim Huard, CC BY 4.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "land-harder-l.webp",
+   "fs": "land-harder-s.webp",
+   "ft": "t/land-harder.webp"
+  },
+  {
+   "k": "lf-blauekuh",
+   "t": {
+    "de": "Hausgemachte Salami zum Trocknen auf dem Gestell der Metzgerei Blaue Kuh",
+    "en": "Homemade salami drying on a rack at the Blaue Kuh butcher’s",
+    "fr": "Salamis maison qui sèchent sur un chariot de la boucherie Blaue Kuh"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1696,
+   "h": 2528,
+   "art": "partner",
+   "q": "Foto der Metzgerei Blaue Kuh, von deren Website; Rechte bei der Metzgerei",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-blauekuh-l.webp",
+   "fs": "lf-blauekuh-s.webp",
+   "ft": "t/lf-blauekuh.webp"
+  },
+  {
+   "k": "lf-gourmador",
+   "t": {
+    "de": "Körbe mit Kürbissen, Gemüse und Früchten",
+    "en": "Baskets of pumpkins, vegetables and fruit",
+    "fr": "Paniers de courges, de légumes et de fruits"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1696,
+   "art": "haus",
+   "q": "Foto des Hauses (Erntewagen), für Gourmador",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-gourmador-l.webp",
+   "fs": "lf-gourmador-s.webp",
+   "ft": "t/lf-gourmador.webp"
+  },
+  {
+   "k": "lf-hr",
+   "t": {
+    "de": "Kaffeebeutel von H&amp;R Kaffee in einer Kiste",
+    "en": "Bags of H&amp;R coffee in a box",
+    "fr": "Sachets de café H&amp;R dans un carton"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2400,
+   "h": 1792,
+   "art": "partner",
+   "q": "Foto von H&R Gastro, von deren Website; Rechte bei H&R Gastro",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-hr-l.webp",
+   "fs": "lf-hr-s.webp",
+   "ft": "t/lf-hr.webp"
+  },
+  {
+   "k": "lf-k3",
+   "t": {
+    "de": "Käselaib, Käsehobel und Holzgeschirr im Käsekeller",
+    "en": "Cheese wheel, cheese slicer and wooden tools in the cheese cellar",
+    "fr": "Meule de fromage, rabot à fromage et ustensiles en bois dans la cave à fromages"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1696,
+   "art": "partner",
+   "q": "Foto des Käsehauses K3, von dessen Website; Rechte beim Käsehaus",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-k3-l.webp",
+   "fs": "lf-k3-s.webp",
+   "ft": "t/lf-k3.webp"
+  },
+  {
+   "k": "lf-michel",
+   "t": {
+    "de": "Bemehltes Jungfraubrot der Bäckerei Michel auf Holzbrettern",
+    "en": "Floured Jungfrau bread from Bäckerei Michel on wooden boards",
+    "fr": "Pain Jungfrau fariné de la boulangerie Michel sur des planches en bois"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1696,
+   "art": "partner",
+   "q": "Foto der Bäckerei Michel, von deren Website; Rechte bei der Bäckerei",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-michel-l.webp",
+   "fs": "lf-michel-s.webp",
+   "ft": "t/lf-michel.webp"
+  },
+  {
+   "k": "lf-ritschard",
+   "t": {
+    "de": "Alte Weinflaschen im Gewölbekeller des Hotels",
+    "en": "Old wine bottles in the hotel’s vaulted cellar",
+    "fr": "Vieilles bouteilles de vin dans la cave voûtée de l’hôtel"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1450,
+   "h": 1696,
+   "art": "haus",
+   "q": "Foto des Hauses (Gewölbekeller), für die Weinhandlung Ritschard",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-ritschard-l.webp",
+   "fs": "lf-ritschard-s.webp",
+   "ft": "t/lf-ritschard.webp"
+  },
+  {
+   "k": "lf-rugenbraeu",
+   "t": {
+    "de": "Rugenbräu wird aus der Flasche ins Glas eingeschenkt",
+    "en": "Rugenbräu being poured from the bottle into a glass",
+    "fr": "Rugenbräu versée de la bouteille dans un verre"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 2048,
+   "h": 2048,
+   "art": "partner",
+   "q": "Foto der Brauerei Rugenbräu, von deren Website; Rechte bei Rugenbräu",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": false,
+   "fl": "lf-rugenbraeu-l.webp",
+   "fs": "lf-rugenbraeu-s.webp",
+   "ft": "t/lf-rugenbraeu.webp"
+  },
+  {
+   "k": "maeder",
+   "t": {
+    "de": "Stephan JJ. Maeder",
+    "en": "Stephan JJ. Maeder",
+    "fr": "Stephan JJ. Maeder"
+   },
+   "b": "team",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1778,
+   "h": 1449,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "maeder-l.webp",
+   "fs": "maeder-s.webp",
+   "ft": "t/maeder.webp"
+  },
+  {
+   "k": "motorrad",
+   "t": {
+    "de": "Schwarzes BMW-Motorrad",
+    "en": "Black BMW motorcycle",
+    "fr": "Moto BMW noire"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "motorrad-l.webp",
+   "fs": "motorrad-s.webp",
+   "ft": "t/motorrad.webp"
+  },
+  {
+   "k": "ort-1",
+   "t": {
+    "de": "Ort 1"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Tycho, CC BY 3.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-1.webp",
+   "fs": "ort-1.webp",
+   "ft": "t/ort-1.webp"
+  },
+  {
+   "k": "ort-2",
+   "t": {
+    "de": "Ort 2"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Rectilinium, CC BY-SA 4.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-2.webp",
+   "fs": "ort-2.webp",
+   "ft": "t/ort-2.webp"
+  },
+  {
+   "k": "ort-3",
+   "t": {
+    "de": "Ort 3"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-3.webp",
+   "fs": "ort-3.webp",
+   "ft": "t/ort-3.webp"
+  },
+  {
+   "k": "ort-4",
+   "t": {
+    "de": "Ort 4"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-4.webp",
+   "fs": "ort-4.webp",
+   "ft": "t/ort-4.webp"
+  },
+  {
+   "k": "ort-5",
+   "t": {
+    "de": "Ort 5"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-5.webp",
+   "fs": "ort-5.webp",
+   "ft": "t/ort-5.webp"
+  },
+  {
+   "k": "ort-6",
+   "t": {
+    "de": "Ort 6"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Roland Donzé, gemeinfrei, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-6.webp",
+   "fs": "ort-6.webp",
+   "ft": "t/ort-6.webp"
+  },
+  {
+   "k": "ort-7",
+   "t": {
+    "de": "Ort 7"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-7.webp",
+   "fs": "ort-7.webp",
+   "ft": "t/ort-7.webp"
+  },
+  {
+   "k": "ort-8",
+   "t": {
+    "de": "Ort 8"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 720,
+   "h": 480,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ort-8.webp",
+   "fs": "ort-8.webp",
+   "ft": "t/ort-8.webp"
+  },
+  {
+   "k": "p-muerz",
+   "t": {
+    "de": "Wunsch Hotel Mürz",
+    "en": "Wunsch Hotel Mürz",
+    "fr": "Wunsch Hotel Mürz"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 593,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "p-muerz-l.webp",
+   "fs": "p-muerz-s.webp",
+   "ft": "t/p-muerz.webp"
+  },
+  {
+   "k": "p-no8",
+   "t": {
+    "de": "Bed &amp; Bar No 8 in Interlaken",
+    "en": "Bed &amp; Bar No 8 in Interlaken",
+    "fr": "Bed &amp; Bar No 8 à Interlaken"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1679,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "p-no8-l.webp",
+   "fs": "p-no8-s.webp",
+   "ft": "t/p-no8.webp"
+  },
+  {
+   "k": "p-pillon",
+   "t": {
+    "de": "Hotel du Pillon",
+    "en": "Hotel du Pillon",
+    "fr": "Hotel du Pillon"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1676,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "p-pillon-l.webp",
+   "fs": "p-pillon-s.webp",
+   "ft": "t/p-pillon.webp"
+  },
+  {
+   "k": "p-schueles",
+   "t": {
+    "de": "Schüle’s Gesundheitsresort bei Nacht",
+    "en": "Schüle’s Gesundheitsresort at night",
+    "fr": "Le Schüle’s Gesundheitsresort de nuit"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2491,
+   "h": 1696,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "p-schueles-l.webp",
+   "fs": "p-schueles-s.webp",
+   "ft": "t/p-schueles.webp"
+  },
+  {
+   "k": "p-weisseskreuz",
+   "t": {
+    "de": "Boutique Hotel Weisses Kreuz in Luzern",
+    "en": "Boutique Hotel Weisses Kreuz in Lucerne",
+    "fr": "Boutique Hotel Weisses Kreuz à Lucerne"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1690,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "p-weisseskreuz-l.webp",
+   "fs": "p-weisseskreuz-s.webp",
+   "ft": "t/p-weisseskreuz.webp"
+  },
+  {
+   "k": "pano-winter",
+   "t": {
+    "de": "Verschneite Dachterrasse mit Pavillon, ringsum die Berge",
+    "en": "Snow-covered roof terrace with pavilion, the mountains all around",
+    "fr": "Terrasse enneigée avec pavillon, entourée de montagnes"
+   },
+   "b": "haus",
+   "s": "winter",
+   "f": "quer",
+   "w": 1920,
+   "h": 643,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pano-winter-l.webp",
+   "fs": "pano-winter-s.webp",
+   "ft": "t/pano-winter.webp"
+  },
+  {
+   "k": "pavillon-feuer",
+   "t": {
+    "de": "Offener Glaspavillon mit Bett auf der Dachterrasse, davor die Feuerschale",
+    "en": "Open glass pavilion with bed on the roof terrace, the fire bowl in front",
+    "fr": "Pavillon de verre ouvert avec lit sur la terrasse du toit, devant le brasero"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 5184,
+   "h": 3455,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pavillon-feuer-l.webp",
+   "fs": "pavillon-feuer-s.webp",
+   "ft": "t/pavillon-feuer.webp"
+  },
+  {
+   "k": "pavillon-sommer",
+   "t": {
+    "de": "Dachterrasse mit Glaspavillon und gedecktem Tisch, dahinter die Berge",
+    "en": "Roof terrace with glass pavilion and a laid table, the mountains behind",
+    "fr": "Terrasse sur le toit avec pavillon de verre et table dressée, derrière les montagnes"
+   },
+   "b": "dach",
+   "s": "sommer",
+   "f": "quer",
+   "w": 6000,
+   "h": 3999,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pavillon-sommer-l.webp",
+   "fs": "pavillon-sommer-s.webp",
+   "ft": "t/pavillon-sommer.webp"
+  },
+  {
+   "k": "picknick",
+   "t": {
+    "de": "Frühstückskorb im Glaspavillon, dahinter die verschneiten Berge",
+    "en": "Breakfast basket in the glass pavilion, the snow-covered mountains behind",
+    "fr": "Panier de petit-déjeuner dans le pavillon de verre, derrière les montagnes enneigées"
+   },
+   "b": "haus",
+   "s": "sommer",
+   "f": "quer",
+   "w": 3996,
+   "h": 2663,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "picknick-l.webp",
+   "fs": "picknick-s.webp",
+   "ft": "t/picknick.webp"
+  },
+  {
+   "k": "postkarte",
+   "t": {
+    "de": "Kolorierte Postkarte des Hotel de l’Univers et Brünig",
+    "en": "Hand-coloured postcard of the Hotel de l’Univers et Brünig",
+    "fr": "Carte postale colorisée de l’Hôtel de l’Univers et Brünig"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2844,
+   "h": 1817,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "postkarte-l.webp",
+   "fs": "postkarte-s.webp",
+   "ft": "t/postkarte.webp"
+  },
+  {
+   "k": "postkarte-2",
+   "t": {
+    "de": "Postkarte 2"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1942,
+   "h": 1399,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": true,
+   "vn": false,
+   "fl": "postkarte-2-l.webp",
+   "fs": "postkarte-2-s.webp",
+   "ft": "t/postkarte-2.webp"
+  },
+  {
+   "k": "pt-asllanis-1",
+   "t": {
+    "de": "Raclette-Burger von Asllani’s Corner",
+    "en": "Raclette burger from Asllani’s Corner",
+    "fr": "Burger à la raclette d’Asllani’s Corner"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2731,
+   "h": 1536,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-asllanis-1-l.webp",
+   "fs": "pt-asllanis-1-s.webp",
+   "ft": "t/pt-asllanis-1.webp"
+  },
+  {
+   "k": "pt-asllanis-2",
+   "t": {
+    "de": "Zwei Burger mit Rind, Kalb und Speck",
+    "en": "Two burgers with beef, veal and bacon",
+    "fr": "Deux burgers au bœuf, au veau et au lard"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2731,
+   "h": 1536,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-asllanis-2-l.webp",
+   "fs": "pt-asllanis-2-s.webp",
+   "ft": "t/pt-asllanis-2.webp"
+  },
+  {
+   "k": "pt-asllanis-3",
+   "t": {
+    "de": "Burger mit doppelt knusprigem Poulet",
+    "en": "Burger with double-crispy chicken",
+    "fr": "Burger au poulet doublement croustillant"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2731,
+   "h": 1536,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-asllanis-3-l.webp",
+   "fs": "pt-asllanis-3-s.webp",
+   "ft": "t/pt-asllanis-3.webp"
+  },
+  {
+   "k": "pt-asllanis-4",
+   "t": {
+    "de": "Gastraum von Asllani’s Corner im Abendlicht",
+    "en": "Dining room of Asllani’s Corner in the evening light",
+    "fr": "Salle d’Asllani’s Corner dans la lumière du soir"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2731,
+   "h": 1536,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-asllanis-4-l.webp",
+   "fs": "pt-asllanis-4-s.webp",
+   "ft": "t/pt-asllanis-4.webp"
+  },
+  {
+   "k": "pt-beizli-1",
+   "t": {
+    "de": "Gedeckter Tisch am Fenster in der Arvenstube des Chalet Beizli",
+    "en": "Laid table by the window in the Arvenstube of the Chalet Beizli",
+    "fr": "Table dressée près de la fenêtre dans la salle en arolle du Chalet Beizli"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2768,
+   "h": 1848,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-beizli-1-l.webp",
+   "fs": "pt-beizli-1-s.webp",
+   "ft": "t/pt-beizli-1.webp"
+  },
+  {
+   "k": "pt-beizli-2",
+   "t": {
+    "de": "Eingang des Chalet Beizli mit Kuh und Schweizer Fahne",
+    "en": "Entrance of the Chalet Beizli with cow and Swiss flag",
+    "fr": "Entrée du Chalet Beizli avec vache et drapeau suisse"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2949,
+   "h": 2381,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-beizli-2-l.webp",
+   "fs": "pt-beizli-2-s.webp",
+   "ft": "t/pt-beizli-2.webp"
+  },
+  {
+   "k": "pt-beizli-3",
+   "t": {
+    "de": "Stube mit Eckbank und Holzdecke",
+    "en": "Parlour with corner bench and wooden ceiling",
+    "fr": "Salle avec banc d’angle et plafond en bois"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 6000,
+   "h": 3999,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-beizli-3-l.webp",
+   "fs": "pt-beizli-3-s.webp",
+   "ft": "t/pt-beizli-3.webp"
+  },
+  {
+   "k": "pt-beizli-4",
+   "t": {
+    "de": "Runder Tisch vor dem alten Buffet",
+    "en": "Round table in front of the old sideboard",
+    "fr": "Table ronde devant le vieux buffet"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 3556,
+   "h": 3024,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-beizli-4-l.webp",
+   "fs": "pt-beizli-4-s.webp",
+   "ft": "t/pt-beizli-4.webp"
+  },
+  {
+   "k": "pt-wyva-1",
+   "t": {
+    "de": "Theke der Weinbar Wyva mit Kerzen",
+    "en": "Counter of the Wyva wine bar with candles",
+    "fr": "Comptoir du bar à vins Wyva avec bougies"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2389,
+   "h": 1792,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-wyva-1-l.webp",
+   "fs": "pt-wyva-1-s.webp",
+   "ft": "t/pt-wyva-1.webp"
+  },
+  {
+   "k": "pt-wyva-2",
+   "t": {
+    "de": "Weinwand mit Flaschen",
+    "en": "Wall of wine bottles",
+    "fr": "Mur de bouteilles de vin"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1792,
+   "h": 2389,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-wyva-2-l.webp",
+   "fs": "pt-wyva-2-s.webp",
+   "ft": "t/pt-wyva-2.webp"
+  },
+  {
+   "k": "pt-wyva-3",
+   "t": {
+    "de": "Apéro-Platte mit belegten Brötchen",
+    "en": "Aperitif platter with canapés",
+    "fr": "Plateau d’apéritif avec canapés"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1200,
+   "h": 600,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-wyva-3-l.webp",
+   "fs": "pt-wyva-3-s.webp",
+   "ft": "t/pt-wyva-3.webp"
+  },
+  {
+   "k": "pt-wyva-4",
+   "t": {
+    "de": "Rotwein wird in ein Glas eingeschenkt",
+    "en": "Red wine being poured into a glass",
+    "fr": "Vin rouge versé dans un verre"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1200,
+   "h": 600,
+   "art": "partner",
+   "q": "Foto des Partnerbetriebs, von dessen Website; Rechte beim Partner",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "pt-wyva-4-l.webp",
+   "fs": "pt-wyva-4-s.webp",
+   "ft": "t/pt-wyva-4.webp"
+  },
+  {
+   "k": "reception",
+   "t": {
+    "de": "Empfang des Hotels mit roter Theke und Holzbalkendecke",
+    "en": "Hotel reception with red counter and beamed wooden ceiling",
+    "fr": "Réception de l’hôtel avec comptoir rouge et plafond à poutres en bois"
+   },
+   "b": "halle",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "reception-l.webp",
+   "fs": "reception-s.webp",
+   "ft": "t/reception.webp"
+  },
+  {
+   "k": "ruedihus",
+   "t": {
+    "de": "Landgasthof Ruedihus in Kandersteg",
+    "en": "Landgasthof Ruedihus in Kandersteg",
+    "fr": "Landgasthof Ruedihus à Kandersteg"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ruedihus-l.webp",
+   "fs": "ruedihus-s.webp",
+   "ft": "t/ruedihus.webp"
+  },
+  {
+   "k": "s-elisabeth",
+   "t": {
+    "de": "Salon Elisabeth",
+    "en": "Salon Elisabeth with long table",
+    "fr": "Salon Elisabeth avec longue table"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-elisabeth-l.webp",
+   "fs": "s-elisabeth-s.webp",
+   "ft": "t/s-elisabeth.webp"
+  },
+  {
+   "k": "s-festsaal",
+   "t": {
+    "de": "Festsaal Carlton",
+    "en": "Festsaal with chandeliers and red curtains",
+    "fr": "Salle des fêtes avec lustres et rideaux rouges"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-festsaal-l.webp",
+   "fs": "s-festsaal-s.webp",
+   "ft": "t/s-festsaal.webp"
+  },
+  {
+   "k": "s-festsaal-2",
+   "t": {
+    "de": "Festsaal mit Seminarbestuhlung",
+    "en": "Festsaal with seminar seating",
+    "fr": "Salle des fêtes en disposition séminaire"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-festsaal-2-l.webp",
+   "fs": "s-festsaal-2-s.webp",
+   "ft": "t/s-festsaal-2.webp"
+  },
+  {
+   "k": "s-gare",
+   "t": {
+    "de": "Salle de la Gare",
+    "en": "Salle de la Gare with beamed ceiling and U-shaped table",
+    "fr": "Salle de la Gare avec plafond à poutres et table en U"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-gare-l.webp",
+   "fs": "s-gare-s.webp",
+   "ft": "t/s-gare.webp"
+  },
+  {
+   "k": "s-harder",
+   "t": {
+    "de": "Harder",
+    "en": "Harder room with arched windows",
+    "fr": "Salle Harder avec fenêtres en arc"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-harder-l.webp",
+   "fs": "s-harder-s.webp",
+   "ft": "t/s-harder.webp"
+  },
+  {
+   "k": "s-jugendstil",
+   "t": {
+    "de": "Jugendstilsaal",
+    "en": "Jugendstilsaal with long table and parquet floor",
+    "fr": "Salle Art nouveau avec longue table et parquet"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-jugendstil-l.webp",
+   "fs": "s-jugendstil-s.webp",
+   "ft": "t/s-jugendstil.webp"
+  },
+  {
+   "k": "s-top",
+   "t": {
+    "de": "Top of Europe",
+    "en": "Seminar room under the roof with exposed beams",
+    "fr": "Salle de séminaire sous le toit avec charpente apparente"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "s-top-l.webp",
+   "fs": "s-top-s.webp",
+   "ft": "t/s-top.webp"
+  },
+  {
+   "k": "saal-abend-kerzen",
+   "t": {
+    "de": "Hansen-Ritschard-Saal am Abend, festlich gedeckt mit Kerzenleuchtern",
+    "en": "Hansen-Ritschard hall in the evening, festively laid with candelabras",
+    "fr": "Salle Hansen-Ritschard le soir, dressée pour la fête avec des chandeliers"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2000,
+   "h": 1333,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "saal-abend-kerzen-l.webp",
+   "fs": "saal-abend-kerzen-s.webp",
+   "ft": "t/saal-abend-kerzen.webp"
+  },
+  {
+   "k": "saal-hr",
+   "t": {
+    "de": "Hansen-Ritschard-Saal mit gedeckten Tischen unter Holzbalken",
+    "en": "Hansen-Ritschard-Saal with laid tables beneath wooden beams",
+    "fr": "Salle Hansen-Ritschard avec tables dressées sous les poutres en bois"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4608,
+   "h": 3071,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "saal-hr-l.webp",
+   "fs": "saal-hr-s.webp",
+   "ft": "t/saal-hr.webp"
+  },
+  {
+   "k": "saal-hr-kamin",
+   "t": {
+    "de": "Gedeckter Tisch mit Kerzenleuchter vor dem Kamin im Hansen-Ritschard-Saal",
+    "en": "Laid table with candelabra in front of the fireplace in the Hansen-Ritschard-Saal",
+    "fr": "Table dressée avec chandelier devant la cheminée de la salle Hansen-Ritschard"
+   },
+   "b": "essen",
+   "s": "winter",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "saal-hr-kamin-l.webp",
+   "fs": "saal-hr-kamin-s.webp",
+   "ft": "t/saal-hr-kamin.webp"
+  },
+  {
+   "k": "saal-hr-lounge",
+   "t": {
+    "de": "Frühstückssaal mit Polstersesseln und gedeckten Tischen",
+    "en": "Breakfast room with armchairs and laid tables",
+    "fr": "Salle du petit-déjeuner avec fauteuils et tables dressées"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4032,
+   "h": 3024,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "saal-hr-lounge-l.webp",
+   "fs": "saal-hr-lounge-s.webp",
+   "ft": "t/saal-hr-lounge.webp"
+  },
+  {
+   "k": "sbb",
+   "t": {
+    "de": "Familie mit Gepäckwagen am Bahnsteig",
+    "en": "Family with luggage trolley on the platform",
+    "fr": "Famille avec chariot à bagages sur le quai"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "quer",
+   "w": 890,
+   "h": 666,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "sbb-l.webp",
+   "fs": "sbb-s.webp",
+   "ft": "t/sbb.webp"
+  },
+  {
+   "k": "schach",
+   "t": {
+    "de": "Gartenschach im Hotelpark",
+    "en": "Garden chess in the hotel park",
+    "fr": "Jeu d’échecs de jardin dans le parc de l’hôtel"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2528,
+   "h": 1684,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "schach-l.webp",
+   "fs": "schach-s.webp",
+   "ft": "t/schach.webp"
+  },
+  {
+   "k": "schaumwein",
+   "t": {
+    "de": "Schaumwein im Kühler und zwei Gläser im Hotelpark",
+    "en": "Sparkling wine in a cooler and two glasses in the hotel park",
+    "fr": "Vin mousseux dans un seau et deux verres dans le parc de l’hôtel"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1682,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "schaumwein-l.webp",
+   "fs": "schaumwein-s.webp",
+   "ft": "t/schaumwein.webp"
+  },
+  {
+   "k": "schluessel",
+   "t": {
+    "de": "Schluessel"
+   },
+   "b": "halle",
+   "s": "jahr",
+   "f": "quer",
+   "w": 6048,
+   "h": 4031,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "schluessel-l.webp",
+   "fs": "schluessel-s.webp",
+   "ft": "t/schluessel.webp"
+  },
+  {
+   "k": "seminar",
+   "t": {
+    "de": "Seminarraum mit Tischen in U-Form",
+    "en": "Seminar room with tables in a U-shape",
+    "fr": "Salle de séminaire avec tables en U"
+   },
+   "b": "saele",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "seminar-l.webp",
+   "fs": "seminar-s.webp",
+   "ft": "t/seminar.webp"
+  },
+  {
+   "k": "silvester-saal",
+   "t": {
+    "de": "Festlich gedeckter Hansen-Ritschard-Saal mit Kerzenleuchtern am Abend",
+    "en": "Festively laid Hansen-Ritschard-Saal with candelabra in the evening",
+    "fr": "Salle Hansen-Ritschard dressée pour la fête, avec chandeliers, le soir"
+   },
+   "b": "saele",
+   "s": "winter",
+   "f": "quer",
+   "w": 3840,
+   "h": 2559,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "silvester-saal-l.webp",
+   "fs": "silvester-saal-s.webp",
+   "ft": "t/silvester-saal.webp"
+  },
+  {
+   "k": "suite-essen",
+   "t": {
+    "de": "Esszimmer der Aarmühle-Suite",
+    "en": "Dining room of the Aarmühle Suite",
+    "fr": "Salle à manger de la suite Aarmühle"
+   },
+   "b": "dach",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1682,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "suite-essen-l.webp",
+   "fs": "suite-essen-s.webp",
+   "ft": "t/suite-essen.webp"
+  },
+  {
+   "k": "suite-schlaf",
+   "t": {
+    "de": "Offenes Schlafzimmer der Aarmühle-Suite",
+    "en": "Open-plan bedroom of the Aarmühle Suite",
+    "fr": "Chambre ouverte de la suite Aarmühle"
+   },
+   "b": "dach",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1682,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "suite-schlaf-l.webp",
+   "fs": "suite-schlaf-s.webp",
+   "ft": "t/suite-schlaf.webp"
+  },
+  {
+   "k": "suite-treppe",
+   "t": {
+    "de": "Wendeltreppe zur Galerie",
+    "en": "Spiral staircase to the gallery",
+    "fr": "Escalier en colimaçon vers la galerie"
+   },
+   "b": "dach",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1682,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "suite-treppe-l.webp",
+   "fs": "suite-treppe-s.webp",
+   "ft": "t/suite-treppe.webp"
+  },
+  {
+   "k": "tafel-rot",
+   "t": {
+    "de": "Gedeckte Festtafel mit roten Blumen, Kerzen und Gläsern",
+    "en": "Festively laid table with red roses and crystal glasses",
+    "fr": "Table de fête dressée avec des roses rouges et des verres en cristal"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2752,
+   "h": 1472,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "tafel-rot-l.webp",
+   "fs": "tafel-rot-s.webp",
+   "ft": "t/tafel-rot.webp"
+  },
+  {
+   "k": "team",
+   "t": {
+    "de": "Das Team des Carlton-Europe jubelt vor dem Hotel",
+    "en": "The Carlton-Europe team cheering in front of the hotel",
+    "fr": "L’équipe du Carlton-Europe en liesse devant l’hôtel"
+   },
+   "b": "team",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1280,
+   "h": 720,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "team-l.webp",
+   "fs": "team-s.webp",
+   "ft": "t/team.webp"
+  },
+  {
+   "k": "team-gerber",
+   "t": {
+    "de": "Patrick Gerber",
+    "en": "Patrick Gerber",
+    "fr": "Patrick Gerber"
+   },
+   "b": "team",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 320,
+   "h": 320,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "team-gerber.webp",
+   "fs": "team-gerber.webp",
+   "ft": "t/team-gerber.webp"
+  },
+  {
+   "k": "team-johannes",
+   "t": {
+    "de": "Elke Johannes",
+    "en": "Elke Johannes",
+    "fr": "Elke Johannes"
+   },
+   "b": "team",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 320,
+   "h": 320,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "team-johannes.webp",
+   "fs": "team-johannes.webp",
+   "ft": "t/team-johannes.webp"
+  },
+  {
+   "k": "team-maeder",
+   "t": {
+    "de": "Stephan JJ. Maeder",
+    "en": "Stephan JJ. Maeder",
+    "fr": "Stephan JJ. Maeder"
+   },
+   "b": "team",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 320,
+   "h": 320,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "team-maeder.webp",
+   "fs": "team-maeder.webp",
+   "ft": "t/team-maeder.webp"
+  },
+  {
+   "k": "team-santos",
+   "t": {
+    "de": "Pedro dos Santos",
+    "en": "Pedro dos Santos",
+    "fr": "Pedro dos Santos"
+   },
+   "b": "team",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 320,
+   "h": 320,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "team-santos.webp",
+   "fs": "team-santos.webp",
+   "ft": "t/team-santos.webp"
+  },
+  {
+   "k": "teich",
+   "t": {
+    "de": "Teich"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 685,
+   "h": 456,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "teich-l.webp",
+   "fs": "teich-s.webp",
+   "ft": "t/teich.webp"
+  },
+  {
+   "k": "teich-2",
+   "t": {
+    "de": "Naturbadeteich im Hotelpark, dahinter der Annex und die Berge",
+    "en": "Natural swimming pond in the hotel park, the annexe and the mountains behind",
+    "fr": "Étang de baignade naturel dans le parc de l’hôtel, derrière l’annexe et les montagnes"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "teich-2-l.webp",
+   "fs": "teich-2-s.webp",
+   "ft": "t/teich-2.webp"
+  },
+  {
+   "k": "teich-blumen",
+   "t": {
+    "de": "Naturbadeteich im Hotelpark mit Holzsteg und Lavendel",
+    "en": "Natural swimming pond in the hotel park with wooden jetty and lavender",
+    "fr": "Étang de baignade naturel dans le parc de l’hôtel, avec ponton en bois et lavande"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 3200,
+   "h": 2133,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "teich-blumen-l.webp",
+   "fs": "teich-blumen-s.webp",
+   "ft": "t/teich-blumen.webp"
+  },
+  {
+   "k": "teich-tuecher",
+   "t": {
+    "de": "Frottiertücher im Korb am Naturbadeteich",
+    "en": "Frottiertücher im Korb am Naturbadeteich",
+    "fr": "Frottiertücher im Korb am Naturbadeteich"
+   },
+   "b": "garten",
+   "s": "sommer",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "teich-tuecher-l.webp",
+   "fs": "teich-tuecher-s.webp",
+   "ft": "t/teich-tuecher.webp"
+  },
+  {
+   "k": "teich-winter",
+   "t": {
+    "de": "Naturbadeteich im Winter",
+    "en": "Naturbadeteich im Winter",
+    "fr": "Naturbadeteich im Winter"
+   },
+   "b": "garten",
+   "s": "winter",
+   "f": "quer",
+   "w": 2560,
+   "h": 1708,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "teich-winter-l.webp",
+   "fs": "teich-winter-s.webp",
+   "ft": "t/teich-winter.webp"
+  },
+  {
+   "k": "terrasse-blick",
+   "t": {
+    "de": "Dachterrasse mit Blick über Interlaken auf die Berge",
+    "en": "Roof terrace with view over Interlaken to the mountains",
+    "fr": "Terrasse sur le toit avec vue sur Interlaken et les montagnes"
+   },
+   "b": "haus",
+   "s": "sommer",
+   "f": "quer",
+   "w": 4000,
+   "h": 3000,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "terrasse-blick-l.webp",
+   "fs": "terrasse-blick-s.webp",
+   "ft": "t/terrasse-blick.webp"
+  },
+  {
+   "k": "tisch-gedeckt",
+   "t": {
+    "de": "Weiss gedeckter Tisch mit Gläsern",
+    "en": "Table laid in white with glasses",
+    "fr": "Table nappée de blanc avec verres"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "tisch-gedeckt-l.webp",
+   "fs": "tisch-gedeckt-s.webp",
+   "ft": "t/tisch-gedeckt.webp"
+  },
+  {
+   "k": "tischdeko",
+   "t": {
+    "de": "Lange Tafel mit Kerzenleuchtern und Grün",
+    "en": "Long table with candelabra and greenery",
+    "fr": "Longue table avec chandeliers et verdure"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1400,
+   "h": 660,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "tischdeko-l.webp",
+   "fs": "tischdeko-s.webp",
+   "ft": "t/tischdeko.webp"
+  },
+  {
+   "k": "vk-glanz",
+   "t": {
+    "de": "Zwei Damen in Abendkleidern der Zwanzigerjahre mit Champagner",
+    "en": "Two ladies in 1920s evening gowns with champagne",
+    "fr": "Deux dames en robes de soirée des années vingt, coupe de champagne à la main"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1285,
+   "h": 1819,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "vk-glanz-l.webp",
+   "fs": "vk-glanz-s.webp",
+   "ft": "t/vk-glanz.webp"
+  },
+  {
+   "k": "vk-kerzen-nah",
+   "t": {
+    "de": "Brennende Kerzen und zwei Gläser Rotwein im Gewölbekeller",
+    "en": "Burning candles and two glasses of red wine in the vaulted cellar",
+    "fr": "Bougies allumées et deux verres de vin rouge dans la cave voûtée"
+   },
+   "b": "haus",
+   "s": "jahr",
+   "f": "hoch",
+   "w": 1469,
+   "h": 1664,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "vk-kerzen-nah-l.webp",
+   "fs": "vk-kerzen-nah-s.webp",
+   "ft": "t/vk-kerzen-nah.webp"
+  },
+  {
+   "k": "wellness",
+   "t": {
+    "de": "Holzhäuschen, Liegen und Wasserfall im Wellnessdörfli",
+    "en": "Wooden huts, loungers and waterfall in the wellness village",
+    "fr": "Maisonnettes en bois, chaises longues et cascade au village bien-être"
+   },
+   "b": "garten",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "wellness-l.webp",
+   "fs": "wellness-s.webp",
+   "ft": "t/wellness.webp"
+  },
+  {
+   "k": "wellness-2",
+   "t": {
+    "de": "Ruheraum im Wellnessdörfli mit Liegen und Holzhäuschen",
+    "en": "Ruheraum im Wellnessdörfli mit Liegen und Holzhäuschen",
+    "fr": "Ruheraum im Wellnessdörfli mit Liegen und Holzhäuschen"
+   },
+   "b": "garten",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "wellness-2-l.webp",
+   "fs": "wellness-2-s.webp",
+   "ft": "t/wellness-2.webp"
+  },
+  {
+   "k": "wellness-3",
+   "t": {
+    "de": "Gang im Wellnessdörfli mit Erlebnisdusche",
+    "en": "Passage in the wellness village with experience shower",
+    "fr": "Allée du village bien-être avec douche sensorielle"
+   },
+   "b": "garten",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "wellness-3-l.webp",
+   "fs": "wellness-3-s.webp",
+   "ft": "t/wellness-3.webp"
+  },
+  {
+   "k": "wellness-hoch",
+   "t": {
+    "de": "Gang zwischen den Saunahäuschen",
+    "en": "Passage between the sauna huts",
+    "fr": "Allée entre les maisonnettes de sauna"
+   },
+   "b": "garten",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 2015,
+   "h": 2048,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "wellness-hoch-l.webp",
+   "fs": "wellness-hoch-s.webp",
+   "ft": "t/wellness-hoch.webp"
+  },
+  {
+   "k": "winterbike",
+   "t": {
+    "de": "Mountainbike mit Helm im verschneiten Wald",
+    "en": "Mountain bike with helmet in the snowy forest",
+    "fr": "VTT avec casque dans la forêt enneigée"
+   },
+   "b": "region",
+   "s": "winter",
+   "f": "quer",
+   "w": 2048,
+   "h": 1356,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "winterbike-l.webp",
+   "fs": "winterbike-s.webp",
+   "ft": "t/winterbike.webp"
+  },
+  {
+   "k": "wyva",
+   "t": {
+    "de": "Wyva"
+   },
+   "b": "essen",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4000,
+   "h": 3000,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "wyva-l.webp",
+   "fs": "wyva-s.webp",
+   "ft": "t/wyva.webp"
+  },
+  {
+   "k": "z-alpin",
+   "t": {
+    "de": "Z alpin"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2215,
+   "h": 1172,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "z-alpin-l.webp",
+   "fs": "z-alpin-s.webp",
+   "ft": "t/z-alpin.webp"
+  },
+  {
+   "k": "z-classic",
+   "t": {
+    "de": "Classic-Zimmer mit Holzbett, Parkett und Kronleuchter",
+    "en": "Classic room with wooden bed, parquet floor and chandelier",
+    "fr": "Chambre Classic avec lit en bois, parquet et lustre"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-classic-l.webp",
+   "fs": "z-classic-s.webp",
+   "ft": "t/z-classic.webp"
+  },
+  {
+   "k": "z-classic-bad",
+   "t": {
+    "de": "Bad eines Classic-Zimmers mit rundem Spiegel",
+    "en": "Bathroom of a Classic room with round mirror",
+    "fr": "Salle de bains d’une chambre Classic avec miroir rond"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-classic-bad-l.webp",
+   "fs": "z-classic-bad-s.webp",
+   "ft": "t/z-classic-bad.webp"
+  },
+  {
+   "k": "z-classic-doppel",
+   "t": {
+    "de": "Classic-Doppelzimmer mit Kronleuchter und Sitzecke am Fenster",
+    "en": "Classic double room with chandelier and seating by the window",
+    "fr": "Chambre double Classic avec lustre et coin salon près de la fenêtre"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 1200,
+   "h": 800,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "z-classic-doppel-l.webp",
+   "fs": "z-classic-doppel-s.webp",
+   "ft": "t/z-classic-doppel.webp"
+  },
+  {
+   "k": "z-classic-einzel",
+   "t": {
+    "de": "Classic-Einzelzimmer unter dem Dach mit sichtbaren Holzbalken",
+    "en": "Classic single room under the roof with exposed wooden beams",
+    "fr": "Chambre simple Classic sous le toit, aux poutres apparentes"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2000,
+   "h": 1333,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "z-classic-einzel-l.webp",
+   "fs": "z-classic-einzel-s.webp",
+   "ft": "t/z-classic-einzel.webp"
+  },
+  {
+   "k": "z-signature-253",
+   "t": {
+    "de": "Signature-Suite 253 mit Bett und Polstersesseln",
+    "en": "Signature Suite 253 with bed and armchairs",
+    "fr": "Signature Suite 253 avec lit et fauteuils"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 5985,
+   "h": 3989,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-signature-253-l.webp",
+   "fs": "z-signature-253-s.webp",
+   "ft": "t/z-signature-253.webp"
+  },
+  {
+   "k": "z-signature-452",
+   "t": {
+    "de": "Wohnbereich der Signature-Suite 452 mit Holzbalken",
+    "en": "Living area of Signature Suite 452 with wooden beams",
+    "fr": "Espace séjour de la Signature Suite 452 avec poutres en bois"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-signature-452-l.webp",
+   "fs": "z-signature-452-s.webp",
+   "ft": "t/z-signature-452.webp"
+  },
+  {
+   "k": "z-signature-bad",
+   "t": {
+    "de": "Bad der Signature-Suite 452",
+    "en": "Bathroom of Signature Suite 452",
+    "fr": "Salle de bains de la Signature Suite 452"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-signature-bad-l.webp",
+   "fs": "z-signature-bad-s.webp",
+   "ft": "t/z-signature-bad.webp"
+  },
+  {
+   "k": "z-suite-hoch",
+   "t": {
+    "de": "Z suite hoch"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quadrat",
+   "w": 1756,
+   "h": 1819,
+   "art": "haus",
+   "q": "Broschüre des Hauses",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "z-suite-hoch-l.webp",
+   "fs": "z-suite-hoch-s.webp",
+   "ft": "t/z-suite-hoch.webp"
+  },
+  {
+   "k": "z-suite-sitz",
+   "t": {
+    "de": "Sitzbereich einer Signature-Suite",
+    "en": "Seating area of a Signature Suite",
+    "fr": "Coin salon d’une Signature Suite"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2389,
+   "h": 1792,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-suite-sitz-l.webp",
+   "fs": "z-suite-sitz-s.webp",
+   "ft": "t/z-suite-sitz.webp"
+  },
+  {
+   "k": "z-suite-whirlpool",
+   "t": {
+    "de": "Signature-Suite",
+    "en": "Signature Suite",
+    "fr": "Signature-Suite"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1682,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-suite-whirlpool-l.webp",
+   "fs": "z-suite-whirlpool-s.webp",
+   "ft": "t/z-suite-whirlpool.webp"
+  },
+  {
+   "k": "z-superior",
+   "t": {
+    "de": "Superior-Zimmer 258 mit Sitzgruppe und Kronleuchter",
+    "en": "Superior room 258 with seating area and chandelier",
+    "fr": "Chambre Superior 258 avec coin salon et lustre"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-superior-l.webp",
+   "fs": "z-superior-s.webp",
+   "ft": "t/z-superior.webp"
+  },
+  {
+   "k": "z-superior-2",
+   "t": {
+    "de": "Superior-Zimmer 358 mit Holzwand",
+    "en": "Superior room 358 with wood-panelled wall",
+    "fr": "Chambre Superior 358 avec paroi en bois"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-superior-2-l.webp",
+   "fs": "z-superior-2-s.webp",
+   "ft": "t/z-superior-2.webp"
+  },
+  {
+   "k": "z-superior-bett",
+   "t": {
+    "de": "Bett in einem Superior-Zimmer",
+    "en": "Bed in a Superior room",
+    "fr": "Lit dans une chambre Superior"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1687,
+   "art": "haus",
+   "q": "Website des Hauses",
+   "ki": false,
+   "ue": true,
+   "alt": false,
+   "vn": true,
+   "fl": "z-superior-bett-l.webp",
+   "fs": "z-superior-bett-s.webp",
+   "ft": "t/z-superior-bett.webp"
+  },
+  {
+   "k": "z-superior-relax",
+   "t": {
+    "de": "Superior-Doppelzimmer mit gestreifter Tapete, Kronleuchter und Sitzgruppe",
+    "en": "Superior double room with striped wallpaper, chandelier and seating area",
+    "fr": "Chambre double Superior avec papier peint rayé, lustre et coin salon"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 3200,
+   "h": 2131,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "z-superior-relax-l.webp",
+   "fs": "z-superior-relax-s.webp",
+   "ft": "t/z-superior-relax.webp"
+  },
+  {
+   "k": "zi-a",
+   "t": {
+    "de": "Suite mit Kronleuchter, Polstersesseln und grossen Fenstern",
+    "en": "Suite with chandelier, armchairs and large windows",
+    "fr": "Suite avec lustre, fauteuils et grandes fenêtres"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 5985,
+   "h": 3989,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-a-l.webp",
+   "fs": "zi-a-s.webp",
+   "ft": "t/zi-a.webp"
+  },
+  {
+   "k": "zi-b",
+   "t": {
+    "de": "Zimmer unter dem Dach mit Holzbalken",
+    "en": "Room under the roof with wooden beams",
+    "fr": "Chambre sous le toit avec poutres en bois"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 4032,
+   "h": 3024,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-b-l.webp",
+   "fs": "zi-b-s.webp",
+   "ft": "t/zi-b.webp"
+  },
+  {
+   "k": "zi-bad",
+   "t": {
+    "de": "Bad mit dunklen Fliesen und Wanne",
+    "en": "Bathroom with dark tiles and bathtub",
+    "fr": "Salle de bains aux carreaux sombres avec baignoire"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-bad-l.webp",
+   "fs": "zi-bad-s.webp",
+   "ft": "t/zi-bad.webp"
+  },
+  {
+   "k": "zi-c",
+   "t": {
+    "de": "Zimmer mit Bett in einer Holznische",
+    "en": "Room with bed in a wooden alcove",
+    "fr": "Chambre avec lit dans une alcôve en bois"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 3047,
+   "h": 2048,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-c-l.webp",
+   "fs": "zi-c-s.webp",
+   "ft": "t/zi-c.webp"
+  },
+  {
+   "k": "zi-d",
+   "t": {
+    "de": "Helles Zimmer mit Holzbalken",
+    "en": "Bright room with wooden beams",
+    "fr": "Chambre claire avec poutres en bois"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-d-l.webp",
+   "fs": "zi-d-s.webp",
+   "ft": "t/zi-d.webp"
+  },
+  {
+   "k": "zi-e",
+   "t": {
+    "de": "Zimmer mit blauen Vorhängen",
+    "en": "Room with blue curtains",
+    "fr": "Chambre aux rideaux bleus"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-e-l.webp",
+   "fs": "zi-e-s.webp",
+   "ft": "t/zi-e.webp"
+  },
+  {
+   "k": "zi-f",
+   "t": {
+    "de": "Zimmer mit gelb gestreifter Wand und Kronleuchter",
+    "en": "Room with yellow-striped wall and chandelier",
+    "fr": "Chambre avec paroi à rayures jaunes et lustre"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1685,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-f-l.webp",
+   "fs": "zi-f-s.webp",
+   "ft": "t/zi-f.webp"
+  },
+  {
+   "k": "zi-g",
+   "t": {
+    "de": "Zimmer mit Holzwand",
+    "en": "Room with wood-panelled wall",
+    "fr": "Chambre avec paroi en bois"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-g-l.webp",
+   "fs": "zi-g-s.webp",
+   "ft": "t/zi-g.webp"
+  },
+  {
+   "k": "zi-h",
+   "t": {
+    "de": "Zimmer mit Sitzgruppe am Fenster",
+    "en": "Room with seating area by the window",
+    "fr": "Chambre avec coin salon près de la fenêtre"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 2528,
+   "h": 1686,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-h-l.webp",
+   "fs": "zi-h-s.webp",
+   "ft": "t/zi-h.webp"
+  },
+  {
+   "k": "zi-i",
+   "t": {
+    "de": "Zimmer mit Sitzecke",
+    "en": "Room with sitting corner",
+    "fr": "Chambre avec coin salon"
+   },
+   "b": "zimmer",
+   "s": "jahr",
+   "f": "quer",
+   "w": 3850,
+   "h": 2570,
+   "art": "haus",
+   "q": "Material des Hauses (Website, Broschüre, Hausfotos)",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "zi-i-l.webp",
+   "fs": "zi-i-s.webp",
+   "ft": "t/zi-i.webp"
+  },
+  {
+   "k": "ziel-first",
+   "t": {
+    "de": "Ziel first"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "Blanky75, CC BY-SA 4.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-first.webp",
+   "fs": "ziel-first.webp",
+   "ft": "t/ziel-first.webp"
+  },
+  {
+   "k": "ziel-harder",
+   "t": {
+    "de": "Ziel harder"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "Manfred Wohlfahrt, gemeinfrei, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-harder.webp",
+   "fs": "ziel-harder.webp",
+   "ft": "t/ziel-harder.webp"
+  },
+  {
+   "k": "ziel-joch",
+   "t": {
+    "de": "Ziel joch"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-joch.webp",
+   "fs": "ziel-joch.webp",
+   "ft": "t/ziel-joch.webp"
+  },
+  {
+   "k": "ziel-muerren",
+   "t": {
+    "de": "Ziel muerren"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "Leonhard Lenz, CC0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-muerren.webp",
+   "fs": "ziel-muerren.webp",
+   "ft": "t/ziel-muerren.webp"
+  },
+  {
+   "k": "ziel-schiff",
+   "t": {
+    "de": "Ziel schiff"
+   },
+   "b": "region",
+   "s": "sommer",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "Martin Abegglen, CC BY-SA 3.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-schiff.webp",
+   "fs": "ziel-schiff.webp",
+   "ft": "t/ziel-schiff.webp"
+  },
+  {
+   "k": "ziel-schilthorn",
+   "t": {
+    "de": "Ziel schilthorn"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "Ximonic (Simo Räsänen), CC BY-SA 3.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-schilthorn.webp",
+   "fs": "ziel-schilthorn.webp",
+   "ft": "t/ziel-schilthorn.webp"
+  },
+  {
+   "k": "ziel-schynige",
+   "t": {
+    "de": "Ziel schynige"
+   },
+   "b": "region",
+   "s": "jahr",
+   "f": "quer",
+   "w": 560,
+   "h": 448,
+   "art": "frei",
+   "q": "JoachimKohler-HB, CC BY-SA 4.0, Wikimedia Commons",
+   "ki": false,
+   "ue": false,
+   "alt": false,
+   "vn": false,
+   "fl": "ziel-schynige.webp",
+   "fs": "ziel-schynige.webp",
+   "ft": "t/ziel-schynige.webp"
+  }
+ ],
+ "dateien": [
+  {
+   "k": "zeichen",
+   "vb": "86.20 -1.05 113.75 69.97",
+   "var": [
+    {
+     "k": "relief",
+     "grund": "dunkel",
+     "farbe": "#dcc68f",
+     "dateien": [
+      "zeichen-relief.png"
+     ]
+    },
+    {
+     "k": "gold",
+     "grund": "dunkel",
+     "farbe": "#dcc68f",
+     "dateien": [
+      "zeichen-gold.svg",
+      "zeichen-gold.png"
+     ]
+    },
+    {
+     "k": "taupe",
+     "grund": "hell",
+     "farbe": "#8a7545",
+     "dateien": [
+      "zeichen-taupe.svg",
+      "zeichen-taupe.png"
+     ]
+    },
+    {
+     "k": "marine",
+     "grund": "hell",
+     "farbe": "#0b1f40",
+     "dateien": [
+      "zeichen-marine.svg",
+      "zeichen-marine.png"
+     ]
+    },
+    {
+     "k": "weiss",
+     "grund": "dunkel",
+     "farbe": "#fbf6ea",
+     "dateien": [
+      "zeichen-weiss.svg",
+      "zeichen-weiss.png"
+     ]
+    },
+    {
+     "k": "blau",
+     "grund": "hell",
+     "farbe": "#003566",
+     "dateien": [
+      "zeichen-blau.svg",
+      "zeichen-blau.png"
+     ]
+    }
+   ]
+  },
+  {
+   "k": "wortmarke",
+   "vb": "-1.00 90.90 287.90 64.10",
+   "var": [
+    {
+     "k": "tinte",
+     "grund": "hell",
+     "farbe": "#0c1526",
+     "dateien": [
+      "wortmarke-tinte.svg",
+      "wortmarke-tinte.png"
+     ]
+    },
+    {
+     "k": "weiss",
+     "grund": "dunkel",
+     "farbe": "#fbf6ea",
+     "dateien": [
+      "wortmarke-weiss.svg",
+      "wortmarke-weiss.png"
+     ]
+    },
+    {
+     "k": "gold",
+     "grund": "dunkel",
+     "farbe": "#dcc68f",
+     "dateien": [
+      "wortmarke-gold.svg",
+      "wortmarke-gold.png"
+     ]
+    }
+   ]
+  },
+  {
+   "k": "logo",
+   "vb": "-6 -6 298 166",
+   "var": [
+    {
+     "k": "hell",
+     "grund": "hell",
+     "farbe": "#8a7545",
+     "dateien": [
+      "logo-hell.svg",
+      "logo-hell.png"
+     ]
+    },
+    {
+     "k": "dunkel",
+     "grund": "dunkel",
+     "farbe": "#dcc68f",
+     "dateien": [
+      "logo-dunkel.svg",
+      "logo-dunkel.png"
+     ]
+    },
+    {
+     "k": "original",
+     "grund": "hell",
+     "farbe": "#003566",
+     "dateien": [
+      "logo-original.svg"
+     ]
+    }
+   ]
+  },
+  {
+   "k": "quer",
+   "vb": "-6 -6 439.6 80.0",
+   "var": [
+    {
+     "k": "hell",
+     "grund": "hell",
+     "farbe": "#8a7545",
+     "dateien": [
+      "logo-quer-hell.svg",
+      "logo-quer-hell.png"
+     ]
+    },
+    {
+     "k": "dunkel",
+     "grund": "dunkel",
+     "farbe": "#dcc68f",
+     "dateien": [
+      "logo-quer-dunkel.svg",
+      "logo-quer-dunkel.png"
+     ]
+    }
+   ]
+  },
+  {
+   "k": "tapete",
+   "var": [
+    {
+     "k": "hell",
+     "grund": "hell",
+     "farbe": "#f4ecdc",
+     "px": [
+      1400,
+      358
+     ],
+     "dateien": [
+      "tapete-hell.svg",
+      "tapete-hell.png",
+      "tapete-hell.webp"
+     ]
+    },
+    {
+     "k": "creme",
+     "grund": "hell",
+     "farbe": "#e8dbbf",
+     "px": [
+      1400,
+      358
+     ],
+     "dateien": [
+      "tapete-creme.svg",
+      "tapete-creme.png",
+      "tapete-creme.webp"
+     ]
+    },
+    {
+     "k": "dunkel",
+     "grund": "dunkel",
+     "farbe": "#0b1f40",
+     "px": [
+      1400,
+      358
+     ],
+     "dateien": [
+      "tapete-dunkel.svg",
+      "tapete-dunkel.png",
+      "tapete-dunkel.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "k": "farben",
+   "var": [
+    {
+     "k": "farben",
+     "grund": "hell",
+     "farbe": "#dcc68f",
+     "dateien": [
+      "farben.css",
+      "farben.json",
+      "farben.ase"
+     ]
+    }
+   ]
+  },
+  {
+   "k": "schriften",
+   "var": [
+    {
+     "k": "schriften",
+     "grund": "hell",
+     "farbe": "#0c1526",
+     "dateien": [
+      "schriften.zip"
+     ]
+    }
+   ]
+  }
+ ],
+ "farben": [
+  {
+   "k": "nacht",
+   "n": "Nacht",
+   "h": "#06142B",
+   "rgb": [
+    6,
+    20,
+    43
+   ],
+   "r": "Grund der Seite, dunkle Abschnitte",
+   "g": "nacht"
+  },
+  {
+   "k": "navy",
+   "n": "Marine",
+   "h": "#0B1F40",
+   "rgb": [
+    11,
+    31,
+    64
+   ],
+   "r": "zweite dunkle Fläche, die Leiste oben",
+   "g": "nacht"
+  },
+  {
+   "k": "blau",
+   "n": "Blau",
+   "h": "#12305E",
+   "rgb": [
+    18,
+    48,
+    94
+   ],
+   "r": "das Gewählte in Auswahl und Kalender",
+   "g": "nacht"
+  },
+  {
+   "k": "weiss",
+   "n": "Weiss",
+   "h": "#FBF6EA",
+   "rgb": [
+    251,
+    246,
+    234
+   ],
+   "r": "Karten, Felder, Auswahlfenster",
+   "g": "papier"
+  },
+  {
+   "k": "papier",
+   "n": "Papier",
+   "h": "#F4ECDC",
+   "rgb": [
+    244,
+    236,
+    220
+   ],
+   "r": "helle Abschnitte",
+   "g": "papier"
+  },
+  {
+   "k": "creme",
+   "n": "Creme",
+   "h": "#E8DBBF",
+   "rgb": [
+    232,
+    219,
+    191
+   ],
+   "r": "zweite helle Fläche, Tapete hell",
+   "g": "papier"
+  },
+  {
+   "k": "gold",
+   "n": "Gold",
+   "h": "#DCC68F",
+   "rgb": [
+    220,
+    198,
+    143
+   ],
+   "r": "Zeichen, Linien und Betonung auf Dunkel",
+   "g": "messing"
+  },
+  {
+   "k": "taupe",
+   "n": "Taupe",
+   "h": "#8A7545",
+   "rgb": [
+    138,
+    117,
+    69
+   ],
+   "r": "zweite Titelzeile und Linien auf Hell",
+   "g": "messing"
+  },
+  {
+   "k": "tinte",
+   "n": "Tinte",
+   "h": "#0C1526",
+   "rgb": [
+    12,
+    21,
+    38
+   ],
+   "r": "Schrift auf hellen Flächen",
+   "g": "tinte"
+  }
+ ],
+ "glanz": [
+  {
+   "k": "relief",
+   "n": "Gold mit Relief",
+   "v": "linear-gradient(180deg,#f8eac0 0%,#e2c684 26%,#bf9a54 47%,#94723a 60%,#d4b575 80%,#f0deaa 100%)",
+   "s": [
+    "#F8EAC0",
+    "#E2C684",
+    "#BF9A54",
+    "#94723A",
+    "#D4B575",
+    "#F0DEAA"
+   ],
+   "r": "das CE im Auftakt und in der Leiste, als Bild gerechnet"
+  },
+  {
+   "k": "ortszeile",
+   "n": "Glanzgold Schrift",
+   "v": "linear-gradient(180deg,#fbf0cf 0%,#ead39c 30%,#c9a764 48%,#9c7b43 58%,#dcc189 76%,#f3e3b6 100%)",
+   "s": [
+    "#FBF0CF",
+    "#EAD39C",
+    "#C9A764",
+    "#9C7B43",
+    "#DCC189",
+    "#F3E3B6"
+   ],
+   "r": "Ortszeile «Vintage Adults Hotel · Interlaken · seit 1898»"
+  },
+  {
+   "k": "knopf",
+   "n": "Glanzgold Knopf",
+   "v": "linear-gradient(180deg,#f8eac6 0%,#ead09a 20%,#d6b679 52%,#c2a062 80%,#aa874f 100%)",
+   "s": [
+    "#F8EAC6",
+    "#EAD09A",
+    "#D6B679",
+    "#C2A062",
+    "#AA874F"
+   ],
+   "r": "Knopf «Verfügbarkeit prüfen» in der Buchungsleiste"
+  }
+ ],
+ "groessen": {
+  "carlton-europe-marke.zip": 3627530,
+  "farben.ase": 624,
+  "farben.css": 1311,
+  "farben.json": 2772,
+  "logo-dunkel.png": 157832,
+  "logo-dunkel.svg": 22529,
+  "logo-hell.png": 162212,
+  "logo-hell.svg": 22529,
+  "logo-original.svg": 23281,
+  "logo-quer-dunkel.png": 102873,
+  "logo-quer-dunkel.svg": 22604,
+  "logo-quer-hell.png": 106094,
+  "logo-quer-hell.svg": 22604,
+  "schriften.zip": 134275,
+  "tapete-creme.png": 163450,
+  "tapete-creme.svg": 204068,
+  "tapete-creme.webp": 11114,
+  "tapete-dunkel.png": 236982,
+  "tapete-dunkel.svg": 204068,
+  "tapete-dunkel.webp": 21328,
+  "tapete-hell.png": 279829,
+  "tapete-hell.svg": 204068,
+  "tapete-hell.webp": 25942,
+  "tapete-original.svg": 204068,
+  "wortmarke-gold.png": 121925,
+  "wortmarke-gold.svg": 20060,
+  "wortmarke-tinte.png": 119272,
+  "wortmarke-tinte.svg": 20060,
+  "wortmarke-weiss.png": 114704,
+  "wortmarke-weiss.svg": 20060,
+  "zeichen-blau.png": 82450,
+  "zeichen-blau.svg": 2601,
+  "zeichen-gold.png": 91121,
+  "zeichen-gold.svg": 2601,
+  "zeichen-marine.png": 89290,
+  "zeichen-marine.svg": 2601,
+  "zeichen-relief.png": 1441729,
+  "zeichen-taupe.png": 91420,
+  "zeichen-taupe.svg": 2601,
+  "zeichen-weiss.png": 86650,
+  "zeichen-weiss.svg": 2601
+ },
+ "stand": {
+  "fotos": 210,
+  "haus": 144,
+  "frei": 16,
+  "ki": 28,
+  "partner": 22,
+  "ue": 60,
+  "vn": 53,
+  "dateien": 41,
+  "datum": "17.10.2026"
+ }
+}

@@ -1,0 +1,490 @@
+#!/usr/bin/env python3
+"""Le Livre · Carlton-Europe, Server-Teil (Nachbau von livre.py des Grand Beau-Rivage, dort nur gelesen). Aufgerufen von server.py unter
+/_werkzeuge/livre/api/<was>:
+
+   GET  bild?k=<foto>&f=instagram|story|web|druck[&y=0..1][&x=0..1]   das Foto in fertiger Grösse als Download
+   GET  stand                                                           Zahlen für La Maison (Fotos, Dateien)
+   POST pruefen  {name, typ, daten (data-URL), sprache}                 Markenprüfung eines Entwurfs
+
+Farben werden ohne KI gemessen (gegen die Palette aus assets/css/main.css, Abstand nach CIEDE2000, siehe _werkbank/marke_daten.py); Bild, Schrift, Zeichen
+und Ton beurteilt Claude (Schlüssel aus dem Vault, wie bei der Rezeption). Gespeichert wird nichts: der Entwurf lebt nur im Arbeitsspeicher und in einem
+Zwischenordner, der nach der Antwort gelöscht wird. Die Bildliste baut _werkbank/marke_livre.py nach marke/livre.json."""
+import base64, io, json, math, os, re, shutil, subprocess, sys, tempfile, time, urllib.request, urllib.error
+from functools import lru_cache
+from PIL import Image, ImageOps, ImageFile, ImageFilter, ImageChops
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+Image.MAX_IMAGE_PIXELS = None
+HIER = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(HIER))
+# Lokal liest Le Livre die Marke aus der Website (marke_daten, Originale aus _quelle mit den überarbeiteten Fassungen über ki_quelle).
+# Online (Vercel, api/_lib/livre/) gibt es beides nicht: dann kommt alles aus marke/livre.json (Kopie neben dieser Datei), Fotos aus der Website.
+if os.path.isdir(os.path.join(ROOT, '_werkbank')):
+    sys.path.insert(0, os.path.join(ROOT, '_werkbank'))
+    sys.path.insert(0, ROOT)
+try:
+    import marke_daten as D  # noqa: E402
+except ImportError:
+    D = None
+try:
+    import ki_quelle  # noqa: E402,F401  (überarbeitete Fassungen gehen dem Original vor, wie beim Bau der Website)
+except ImportError:
+    pass
+LIVRE_JSON = next((x for x in (os.environ.get('LIVRE_JSON'), os.path.join(HIER, 'livre.json'), os.path.join(ROOT, 'marke', 'livre.json')) if x and os.path.exists(x)), os.path.join(ROOT, 'marke', 'livre.json'))
+FEHLER_LOG = os.environ.get('LIVRE_FEHLER') or os.path.join(HIER, '_qa', 'fehler.jsonl')   # _qa geht nie online (werkzeuge_online.py WEG)
+HOECHST_PIXEL = 120_000_000   # grösser liest die Prüfung nicht (Schutz vor Bildern, die beim Öffnen den Speicher sprengen)
+
+
+@lru_cache(maxsize=1)
+def _livre():
+    return json.load(open(LIVRE_JSON, encoding='utf-8'))
+
+
+def _farben():
+    return D.farben() if D else [(f['k'], f['k'], f['n'], f['h'].lower(), f.get('r', '')) for f in _livre()['farben']]
+
+
+def _glanz():
+    return D.glanz() if D else [(g['k'], g['n'], g['v'], g.get('r', '')) for g in _livre().get('glanz', [])]
+
+
+_KAT = {'t': 0, 'd': None}
+
+
+def _katalog():
+    """Alle Fotos (lokal mit Pfad zum Original), 60 s gemerkt: der Katalog liest jede Datei der Website an."""
+    if not D:
+        return _livre()['fotos']
+    if not _KAT['d'] or time.time() - _KAT['t'] > 60:
+        _KAT['d'], _KAT['t'] = D.katalog(), time.time()
+    return _KAT['d']
+
+MODELL = 'claude-sonnet-5-5'      # wie die Rezeption
+FORMATE = {'instagram': (1080, 1350, 'Instagram 1080 × 1350'), 'story': (1080, 1920, 'Story 1080 × 1920'),
+           'web': (2000, None, 'Web, längste Seite 2000 px'), 'druck': (None, None, 'Druck, volle Auflösung')}
+PAPIER = (244, 236, 220)
+
+
+# ---------------------------------------------------------------- Downloads
+def _eintrag(k):
+    for d in _katalog():
+        if d['k'] == k:
+            return d
+    raise ValueError('BILD · Dieses Foto gibt es nicht.')
+
+
+def _orig_pfad(d):
+    """Pfad zum Original oder None. Prüfung 16.10.2026: viele Fotos kennt nur das Bild-Verzeichnis der Website (manifest «herkunft»)."""
+    orig = d.get('orig')
+    if not (orig and os.path.exists(orig)):
+        h = _manifest().get(d['k'], {}).get('herkunft')
+        orig = os.path.join(ROOT, '_quelle', h) if h else None
+    return orig if orig and os.path.exists(orig) else None
+
+
+def ohne_original():
+    """Fotos, deren Original nicht hinterlegt ist: «Druck» liefert dort die Website-Grösse (die Oberfläche sagt es)."""
+    return [d['k'] for d in _katalog() if not _orig_pfad(d)]
+
+
+def _quelle_bild(k):
+    """Das Foto in der besten Fassung: Original aus _quelle (mit der überarbeiteten Fassung, wenn es sie gibt), sonst das grosse Bild der Website."""
+    d = _eintrag(k)
+    orig = _orig_pfad(d)
+    if orig:
+        q = orig
+        im = ImageOps.exif_transpose(Image.open(q))     # Image.open liefert dank ki_quelle die überarbeitete Fassung
+    else:
+        q = os.path.join(ROOT, 'assets', 'img', d['fl'])
+        if not os.path.exists(q):   # F17: kein Absturz, sondern eine Meldung mit Stichwort
+            raise ValueError('QUELLE · Das Original fehlt und das Foto liegt nicht auf der Website.')
+        im = ImageOps.exif_transpose(Image.open(q))
+    if im.mode in ('RGBA', 'LA', 'P'):                  # Freisteller (Gerichte, Getränke) auf Papier legen
+        im = im.convert('RGBA'); grund = Image.new('RGBA', im.size, PAPIER + (255,)); grund.alpha_composite(im); im = grund
+    return im.convert('RGB'), q
+
+
+@lru_cache(maxsize=1)
+def _manifest():
+    try:
+        return json.load(open(os.path.join(ROOT, 'assets', 'img', 'manifest.json'), encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+
+
+def bild(k, f, x=.5, y=.5):
+    """(Bytes, Inhaltstyp, Dateiname) eines Fotos in fertiger Grösse."""
+    if f not in FORMATE:
+        raise ValueError('FORMAT · Unbekannte Grösse.')
+    d = _eintrag(k)
+    im, q = _quelle_bild(k)
+    name = f'carlton-europe-{k}' + ('-mit-ki-erzeugt' if d['art'] == 'ki' else '')
+    if f == 'druck':
+        b = io.BytesIO(); im.save(b, 'JPEG', quality=95, subsampling=0, dpi=(300, 300))
+        ws = str(q) == 'websitegroesse' or os.path.join('assets', 'img') in str(q)   # kein Original erreichbar: der Name sagt es (wie online)
+        return b.getvalue(), 'image/jpeg', f'{name}-{"websitegroesse-" if ws else ""}druck-{im.size[0]}x{im.size[1]}.jpg'
+    if f == 'web':
+        im.thumbnail((2000, 2000), Image.LANCZOS)
+        b = io.BytesIO(); im.save(b, 'JPEG', quality=86, optimize=True, progressive=True)
+        return b.getvalue(), 'image/jpeg', f'{name}-web-{im.size[0]}x{im.size[1]}.jpg'
+    W, H = FORMATE[f][:2]
+    x = min(1, max(0, float(x))); y = min(1, max(0, float(y)))
+    w, h = im.size
+    if w / h > W / H:
+        nw = round(h * W / H); x0 = round((w - nw) * x); im = im.crop((x0, 0, x0 + nw, h))
+    else:
+        nh = round(w * H / W); y0 = round((h - nh) * y); im = im.crop((0, y0, w, y0 + nh))
+    klein = im.size[0] < W
+    im = im.resize((W, H), Image.LANCZOS)
+    b = io.BytesIO(); im.save(b, 'JPEG', quality=90, optimize=True, progressive=True)
+    return b.getvalue(), 'image/jpeg', f'{name}-{f}-{W}x{H}{"-hochgerechnet" if klein else ""}.jpg'
+
+
+# ---------------------------------------------------------------- Farbmessung (ohne KI)
+def _lab(rgb):
+    def lin(c):
+        c /= 255; return c / 12.92 if c <= .04045 else ((c + .055) / 1.055) ** 2.4
+    r, g, b = (lin(c) for c in rgb)
+    X = (r * .4124 + g * .3576 + b * .1805) / .95047
+    Y = (r * .2126 + g * .7152 + b * .0722)
+    Z = (r * .0193 + g * .1192 + b * .9505) / 1.08883
+    f = lambda t: t ** (1 / 3) if t > .008856 else 7.787 * t + 16 / 116
+    return 116 * f(Y) - 16, 500 * (f(X) - f(Y)), 200 * (f(Y) - f(Z))
+
+
+def de2000(a, b):
+    """ΔE 2000 zwischen zwei Lab-Werten (CIE), gleiche Rechnung wie _werkbank/marke_daten.py (hier eigen, damit sie auch online ohne Werkbank läuft)."""
+    L1, a1, b1 = a; L2, a2, b2 = b
+    C1, C2 = math.hypot(a1, b1), math.hypot(a2, b2); Cm = (C1 + C2) / 2
+    G = .5 * (1 - math.sqrt(Cm ** 7 / (Cm ** 7 + 25 ** 7)))
+    a1p, a2p = (1 + G) * a1, (1 + G) * a2
+    C1p, C2p = math.hypot(a1p, b1), math.hypot(a2p, b2)
+    h1p = math.degrees(math.atan2(b1, a1p)) % 360; h2p = math.degrees(math.atan2(b2, a2p)) % 360
+    dL, dC = L2 - L1, C2p - C1p
+    dh = 0 if C1p * C2p == 0 else (h2p - h1p if abs(h2p - h1p) <= 180 else h2p - h1p - 360 if h2p > h1p else h2p - h1p + 360)
+    dH = 2 * math.sqrt(C1p * C2p) * math.sin(math.radians(dh / 2))
+    Lm, Cmp = (L1 + L2) / 2, (C1p + C2p) / 2
+    hm = h1p + h2p if C1p * C2p == 0 else ((h1p + h2p) / 2 if abs(h1p - h2p) <= 180 else (h1p + h2p + 360) / 2 if h1p + h2p < 360 else (h1p + h2p - 360) / 2)
+    T = 1 - .17 * math.cos(math.radians(hm - 30)) + .24 * math.cos(math.radians(2 * hm)) + .32 * math.cos(math.radians(3 * hm + 6)) - .2 * math.cos(math.radians(4 * hm - 63))
+    SL = 1 + .015 * (Lm - 50) ** 2 / math.sqrt(20 + (Lm - 50) ** 2); SC = 1 + .045 * Cmp; SH = 1 + .015 * Cmp * T
+    RT = -2 * math.sqrt(Cmp ** 7 / (Cmp ** 7 + 25 ** 7)) * math.sin(math.radians(60 * math.exp(-((hm - 275) / 25) ** 2)))
+    return math.sqrt((dL / SL) ** 2 + (dC / SC) ** 2 + (dH / SH) ** 2 + RT * (dC / SC) * (dH / SH))
+
+
+def _rgb(h):
+    h = h.lstrip('#'); return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+PALETTE = [(k, n, h, _lab(_rgb(h))) for _, k, n, h, _ in _farben()]
+KAMINBAR_ROT = _lab((154, 31, 36))
+
+
+def farben(im, n=28):
+    """Die Töne eines Entwurfs, gemessen: Median-Schnitt auf n Farben, je Ton Anteil, nächste Farbe der Palette und Abstand (ΔE 2000).
+    Grenzen: unter 5 gilt als gleich, bis 12 als nah, darüber als fremd. Dazu reines Schwarz und das Rot der Kaminbar gesondert."""
+    im = im.convert('RGB'); im.thumbnail((900, 900))
+    # Nur ruhige Pixel zählen: Kanten von Schrift und Linien mischen zwei Farben und ergäben Töne, die im Entwurf niemand gesetzt hat
+    hoch, tief = im.filter(ImageFilter.MaxFilter(3)), im.filter(ImageFilter.MinFilter(3))
+    unruhe = ImageChops.subtract(hoch, tief).convert('L').point(lambda v: 255 if v > 26 else 0)
+    px_flach = [p for p, u in zip(im.getdata(), unruhe.getdata()) if not u] or list(im.getdata())
+    flach = Image.new('RGB', (len(px_flach), 1)); flach.putdata(px_flach)
+    q = flach.quantize(n, method=Image.Quantize.MEDIANCUT, kmeans=2)
+    pal = q.getpalette()[:n * 3]
+    farb = q.getcolors()
+    ges = sum(a for a, _ in farb) or 1
+    toene = []
+    for anz, i in sorted(farb, reverse=True):
+        rgb = tuple(pal[i * 3:i * 3 + 3]); lab = _lab(rgb)
+        best = min(PALETTE, key=lambda p: de2000(lab, p[3]))
+        d = de2000(lab, best[3])
+        toene.append(dict(hex='#%02x%02x%02x' % rgb, anteil=round(anz / ges, 4), naechste=best[0], name=best[1], palette=best[2], de=round(d, 1),
+                          urteil='gleich' if d < 5 else 'nah' if d < 12 else 'fremd'))
+    # zusammenfassen: alles, was einer Hausfarbe gleicht, als ein Ton; nahe und fremde Töne, die einander gleichen (ΔE < 6), ebenso
+    zus = []
+    for t in toene:
+        lab = _lab(tuple(int(t['hex'][i:i + 2], 16) for i in (1, 3, 5)))
+        for z in zus:
+            if (t['urteil'] == 'gleich' and z['urteil'] == 'gleich' and z['naechste'] == t['naechste']) or (t['urteil'] != 'gleich' and z['urteil'] == t['urteil'] and de2000(lab, z['_lab']) < 6):
+                z['anteil'] = round(z['anteil'] + t['anteil'], 4); break
+        else:
+            zus.append(dict(t, _lab=lab))
+    toene = [{k: v for k, v in z.items() if k != '_lab'} for z in sorted(zus, key=lambda z: -z['anteil']) if z['anteil'] >= .004]
+    # Sonderfälle auf allen Pixeln (verkleinert)
+    px = list(im.resize((min(im.size[0], 300), max(1, round(im.size[1] * min(im.size[0], 300) / im.size[0])))).getdata())
+    schwarz = rot = 0
+    for p in px:
+        L, a, b = _lab(p)
+        if L < 7 and math.hypot(a, b) < 6:
+            schwarz += 1
+        if de2000((L, a, b), KAMINBAR_ROT) < 8:
+            rot += 1
+    n_px = len(px) or 1
+    im_rahmen = sum(t['anteil'] for t in toene if t['urteil'] != 'fremd')
+    return dict(toene=toene, im_rahmen=round(im_rahmen, 3), schwarz=round(schwarz / n_px, 3), rot=round(rot / n_px, 3))
+
+
+# ---------------------------------------------------------------- Regeln für die Beurteilung (aus dem Markenbuch, marke/)
+def regeln():
+    pal = '\n'.join(f'- {n} {h} ({r})' for _, k, n, h, r in _farben())
+    glanz = '\n'.join(f'- {n}: {w}' for _, n, v, w in _glanz())
+    return f'''MARKE CARLTON-EUROPE VINTAGE ADULTS HOTEL INTERLAKEN (Markenbuch, Oktober 2026)
+
+Haltung: Ein Jahrgang, kein Trend. Zwei Häuser, das Carlton (Brünig et l’Univers) und die Villa Europe, seit 1898 ein Hotel am Höheweg 92–94 in Interlaken, ganzjährig geöffnet, für Erwachsene. Vintage heisst hier: wertvolle Gegenstände aus längst vergangenen Tagen, nicht Retro-Spielerei. Echte Fotos des Hauses, gross und scharf, warmes Licht; nichts aus Bilddatenbanken, nichts dazuerfunden.
+
+Farben (die Palette, aus der Gestaltung der Website gelesen):
+{pal}
+Regeln: Hell ist der Normalzustand (Papier, Creme und Weiss tragen den Lesetext). Nacht und Marine sind die dunklen Flächen, immer mit der Tapete Ton in Ton. Gold zeichnet (Zeichen, Linien, Betonung auf Dunkel) und schreibt nie den Lesetext; auf hellen Flächen steht die zweite Titelzeile in Taupe. Geschrieben wird in Tinte (#0C1526), nie in reinem Schwarz. Das Gold ist an festen Stellen ein Verlauf wie poliertes Messing:
+{glanz}
+Das Rot der Kaminbar (Vorhänge, Sessel, Kamin) bleibt im Foto und ist kein Ton der Seite. Richtwert der Mengen auf der Startseite: Nacht rund 36 %, Papier rund 25 %, Fotos der Rest, Tinte 2–3 %, Messing unter 1 %.
+
+Schriften (vier, jede mit Rolle): Libre Baskerville Regular für grosse Zeilen und Titel, normale Schreibung, nicht fett, die zweite Zeile in Taupe oder Gold. Libre Baskerville Bold, Versalien, 18 % gesperrt, nur für den Namen «Carlton-Europe» im Auftakt. Montserrat 600, Versalien, 30 % gesperrt, nur für die Ortszeile in Glanzgold. Instrument Sans 400–600 für alles, was gelesen wird, auch für Knöpfe. Keine anderen Schriften, keine Schreibschrift, keine Haarlinien-Didone.
+
+Zeichen und Name: Das CE aus dem Logo des Hauses (Jugendstil-Monogramm). Auf Nacht in Gold mit Relief, auf Papier in Taupe, daneben Marine, Weiss oder das Blau der Logodatei (#003566). Schutzraum: rundum ein Viertel der Höhe des Zeichens frei, kein Text, Bildrand oder Linie ragt hinein. Kleinste Höhe am Bildschirm 28 px. Das Zeichen steht gerade, ohne Rahmen, nicht verzerrt, nicht gedreht, nicht umgefärbt. Die Wortmarke «Carlton-Europe, Hotels & Restaurants & More, since 1898» bleibt, wie sie in der Logodatei steht.
+
+Tapete: das Muster der heutigen Website des Hauses, hell auf Papier, etwas tiefer auf Creme, nachtblau auf den dunklen Abschnitten. Nie ein freies Motiv.
+
+Bilder: zeigen, was der Gast vorfindet. Nie Schrift auf ein bewegtes Foto legen, nie ein erzeugtes Bild als ersten Eindruck, nie Gästefotos, nie hineinzoomen, bis es unscharf wird. Archivbilder (Schwarzweiss, Ansichtskarten) werden nicht eingefärbt. Bilder ohne Rahmenlinien: runde Ecken, weicher Schatten, der Name mittig darunter.
+
+Bausteine: Knöpfe als Pille mit rundem Knauf und Pfeil, Licht oben, Schatten unten. Billett mit gekerbten Ecken und Abriss für alles, was zusammengezählt wird. Leiste oben als nachtblaues Band (seit 16.10.2026): feine Goldlinie, das CE mittig auf der Linie, die Bereiche links und rechts in Baskerville, «Buchen» als Goldwort; beim Hinunterscrollen weg, beim Hochscrollen zurück. Das Kapitelzeichen (CE zwischen zwei feinen Linien) über Abschnitten statt einer Nummer. Keine Punkte in Knöpfen und Tasten, keine Systemauswahl des Browsers.
+
+Ton der Texte: ruhig, herzlich, konkret, in der Sie-Form, Schweizer Schreibung (ss statt ß). Kurze Sätze, jedes Wort hat einen Zweck. Keine Ausrufezeichen ausser in den eigenen Worten des Hauses («Willkommen!»), keine Superlative und Werbefloskeln («einzigartig», «unvergesslich» ausser als Zitat des Hauses), keine künstliche Dringlichkeit, keine Emojis. Lieber eine echte Angabe (Zeit, Ort, Preis) als ein Adjektiv. Gäste sind ab 16 Jahren willkommen, es ist ein Erwachsenenhotel; Kinder und Familien nicht ansprechen.'''
+
+
+SPRACHE = {'de': 'Deutsch in Schweizer Schreibung (ss statt ß)', 'en': 'Englisch', 'fr': 'Französisch'}
+
+
+def _ki_an():
+    """LIVRE_KI=0 schaltet den Aufruf von Claude ab (Prüfläufe, Regel 54: keine Kosten ohne Auftrag); die Farbmessung läuft trotzdem."""
+    return os.environ.get('LIVRE_KI', '1') != '0'
+
+
+def _schluessel():
+    if not os.environ.get('ANTHROPIC_API_KEY'):
+        p = os.path.expanduser('~/SecondBrain/04 Ressourcen/Notion & Systembau/API Keys/API Key Claude.md')
+        if not os.path.exists(p):
+            raise ValueError('KI · Für die Beurteilung fehlt der Schlüssel.')
+        k = open(p, encoding='utf-8').read()
+        os.environ['ANTHROPIC_API_KEY'] = re.search(r'sk-ant-[A-Za-z0-9_-]+', k).group(0)
+        m = re.search(r'wrkspc_[A-Za-z0-9]+', k)
+        if m:
+            os.environ.setdefault('ANTHROPIC_WORKSPACE_ID', m.group(0))
+
+
+def _claude(bilder_png, messung, sprache, name):
+    _schluessel()
+    inhalt = [{'type': 'image', 'source': {'type': 'base64', 'media_type': 'image/png', 'data': base64.b64encode(b).decode()}} for b in bilder_png]
+    farb = '\n'.join(f"- {t['hex']}: {t['anteil'] * 100:.0f} % der Fläche, nächste Hausfarbe {t['name']} {t['palette']}, Abstand ΔE {t['de']} ({t['urteil']})" for t in messung['toene'])
+    inhalt.append({'type': 'text', 'text': f'''Entwurf «{name}» ({len(bilder_png)} Seite(n) als Bild oben). Die Farben sind bereits gemessen (ohne KI):
+{farb}
+Anteil reines Schwarz: {messung['schwarz'] * 100:.0f} %. Anteil Kaminbar-Rot: {messung['rot'] * 100:.0f} %.
+Fotos im Entwurf zählen bei der Messung mit; beurteile Farben vor allem an Flächen, Schrift und Linien.
+
+Prüfe den Entwurf gegen die Marke und gib das Ergebnis ausschliesslich mit dem Werkzeug «rueckmeldung» zurück, ohne weiteren Text.
+Regeln: 5 bis 9 Punkte, je Bereich höchstens zwei. Nur, was im Bild wirklich zu sehen ist; siehst du etwas nicht sicher (etwa die genaue Schrift), sag das («wirkt wie», «nicht sicher erkennbar»). Erfinde keine Probleme: Was passt, steht als «passt». Zum Ton nur, wenn der Entwurf Text hat; «ton» höchstens drei Stellen, leer, wenn nichts zu ändern ist. Ruhig, sachlich, ohne Ausrufezeichen, ohne Werbesprache. Schreibe alle Texte auf {SPRACHE.get(sprache, SPRACHE['de'])}; Hexwerte und Schriftnamen bleiben wie sie sind.'''})
+    werkzeug = {'name': 'rueckmeldung', 'description': 'Die Markenprüfung eines Entwurfs, Punkt für Punkt.', 'input_schema': {
+        'type': 'object', 'required': ['art', 'gesamt', 'punkte', 'text', 'ton'], 'properties': {
+            'art': {'type': 'string', 'description': 'was der Entwurf ist, kurz (z. B. Instagram-Beitrag, Plakat A3)'},
+            'gesamt': {'type': 'string', 'description': 'ein ruhiger Satz: wie nah der Entwurf am Haus ist'},
+            'punkte': {'type': 'array', 'items': {'type': 'object', 'required': ['bereich', 'urteil', 'titel', 'text'], 'properties': {
+                'bereich': {'type': 'string', 'enum': ['farben', 'schrift', 'zeichen', 'abstand', 'bild', 'ton']},
+                'urteil': {'type': 'string', 'enum': ['passt', 'achten', 'passt_nicht']},
+                'titel': {'type': 'string', 'description': 'kurz'},
+                'text': {'type': 'string', 'description': 'ein bis zwei Sätze, konkret: was zu sehen ist und was zu tun wäre'}}}},
+            'text': {'type': 'string', 'description': 'der lesbare Text des Entwurfs, wörtlich, höchstens 600 Zeichen'},
+            'ton': {'type': 'array', 'items': {'type': 'object', 'required': ['stelle', 'vorschlag'], 'properties': {
+                'stelle': {'type': 'string', 'description': 'wörtlich aus dem Entwurf'}, 'vorschlag': {'type': 'string', 'description': 'Fassung im Ton des Hauses'}}}}}}}
+    koerper = {'model': MODELL, 'max_tokens': 4000, 'tools': [werkzeug], 'tool_choice': {'type': 'auto'},
+               'system': 'Du bist die Markenprüfung im Markenbuch des Carlton-Europe Vintage Adults Hotels in Interlaken. Du beurteilst Entwürfe von Agenturen und Mitarbeitenden ruhig, konkret und Punkt für Punkt gegen diese Regeln. Sprich vom Haus oder von der Marke des Hauses, nie von «Le Livre».\n\n' + regeln(),
+               'messages': [{'role': 'user', 'content': inhalt}]}
+    req = urllib.request.Request('https://api.anthropic.com/v1/messages', data=json.dumps(koerper).encode('utf-8'), method='POST',
+                                 headers={'content-type': 'application/json', 'x-api-key': os.environ['ANTHROPIC_API_KEY'], 'anthropic-version': '2023-06-01',
+                                          'anthropic-workspace-id': os.environ.get('ANTHROPIC_WORKSPACE_ID', '')})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        d = json.load(r)
+    for x in d.get('content', []):
+        if x.get('type') == 'tool_use' and x.get('name') == 'rueckmeldung':
+            return x.get('input') or {}
+    raise ValueError('KI · Die Beurteilung kam ohne lesbares Ergebnis zurück.')
+
+
+def pruefen(d, claude=None):
+    """Markenprüfung. Nichts wird gespeichert: Zwischenordner wird nach der Antwort gelöscht. claude=… lässt Prüfläufe ohne KI-Aufruf zu."""
+    daten = d.get('daten') or ''
+    m = re.match(r'data:([^;]+);base64,(.*)$', daten, re.S)
+    if not m:
+        raise ValueError('DATEI · Keine Datei angekommen.')
+    roh = base64.b64decode(m.group(2))
+    if len(roh) > 30 * 1024 * 1024:
+        raise ValueError('GROESSE · Die Datei ist grösser als 30 MB.')
+    typ = m.group(1); name = str(d.get('name') or 'Entwurf')[:120]; sprache = d.get('sprache') if d.get('sprache') in SPRACHE else 'de'
+    tmp = tempfile.mkdtemp(prefix='livre-')
+    try:
+        if typ == 'application/pdf' or roh[:4] == b'%PDF':
+            seiten = _pdf_seiten(roh, tmp)
+            if not seiten:
+                raise ValueError('PDF · Die PDF liess sich nicht lesen.')
+        else:
+            try:
+                im = Image.open(io.BytesIO(roh))
+                if im.size[0] * im.size[1] > HOECHST_PIXEL:
+                    raise OverflowError
+                im = ImageOps.exif_transpose(im); im.load()
+            except OverflowError:
+                raise ValueError(f'BILD · Das Bild ist mit {im.size[0]} × {im.size[1]} Pixeln zu gross. Bitte kleiner speichern (unter 100 Megapixel).')
+            except Exception:  # noqa: BLE001
+                raise ValueError('DATEI · Das Bild liess sich nicht öffnen. Erlaubt sind JPG, PNG, WebP und PDF.')
+            if im.mode in ('RGBA', 'LA', 'P'):
+                im = im.convert('RGBA'); grund = Image.new('RGBA', im.size, (255, 255, 255, 255)); grund.alpha_composite(im); im = grund
+            seiten = [im.convert('RGB')]
+        streifen = [s.copy() for s in seiten]
+        for s in streifen:
+            s.thumbnail((600, 600))
+        ges = Image.new('RGB', (max(s.size[0] for s in streifen), sum(s.size[1] for s in streifen)), (255, 255, 255))
+        y = 0
+        for s in streifen:
+            ges.paste(s, (0, y)); y += s.size[1]
+        messung = farben(ges)
+        vorschau = seiten[0].copy(); vorschau.thumbnail((900, 900))
+        b = io.BytesIO(); vorschau.save(b, 'JPEG', quality=82)
+        aus = dict(name=name, seiten=len(seiten), groesse=list(seiten[0].size), messung=messung, vorschau='data:image/jpeg;base64,' + base64.b64encode(b.getvalue()).decode())
+        pngs = []
+        for s in seiten[:2]:
+            t = s.copy(); t.thumbnail((1568, 1568)); bb = io.BytesIO(); t.save(bb, 'PNG'); pngs.append(bb.getvalue())
+        t0 = time.time()
+        try:
+            if not claude and not _ki_an():
+                # Robert 18.10.2026 18:52: statt eines Platzhalters glaubwürdige Beispiel-Urteile, als Beispiel beschriftet; die Farben bleiben gemessen
+                aus['ki'] = _beispiel_ki(messung, sprache); aus['beispiel_ki'] = True
+            else:
+                aus['ki'] = (claude or _claude)(pngs, messung, sprache, name)
+        except urllib.error.HTTPError as e:
+            aus['ki_fehler'] = _ki_meldung(e)
+        except Exception as e:  # noqa: BLE001
+            aus['ki_fehler'] = str(e)[:200]
+        aus['dauer'] = round(time.time() - t0, 1)
+        return aus
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+BEISPIEL_KI = {
+    'de': dict(art='Beispiel', gesamt='So liest sich die Rückmeldung im Betrieb: ruhig, Punkt für Punkt, mit dem, was zu tun ist. Die Farben sind gemessen, die übrigen Punkte stehen hier als Beispiel.',
+               farben_ok=('Farben im Rahmen des Hauses', '{p} % der Fläche liegen in den Farben des Hauses.'),
+               farben_ab=('Farben weichen ab', 'Nur {p} % der Fläche liegen in den Farben des Hauses. Die grossen Flächen besser in Marine oder Papier setzen, Gold nur für Linien und Zeichen.'),
+               punkte=[('schrift', 'achten', 'Titelschrift angleichen', 'Titel stehen beim Haus in der Libre Baskerville, ohne Fett; der Fliesstext in der Instrument Sans. Wo eine andere Titelschrift steht, bitte angleichen.'),
+                       ('zeichen', 'passt', 'Das CE steht frei', 'Das Zeichen ist nicht verzerrt und hat Luft. Rundherum mindestens die Höhe des C als Abstand halten.'),
+                       ('bild', 'achten', 'Bilder warm und echt', 'Die Marke zeigt echte Aufnahmen des Hauses in warmem Licht. Kühle Stockbilder wirken neben dem Haus fremd.'),
+                       ('ton', 'passt', 'Ton ruhig und herzlich', 'Die Ansprache mit «Sie», kurze Sätze und keine Ausrufezeichen passen zum Haus.')]),
+    'en': dict(art='Example', gesamt='This is how the feedback reads in daily use: calm, point by point, with what to do. The colours are measured; the other points are shown here as an example.',
+               farben_ok=('Colours within the house palette', '{p} % of the area is in the colours of the house.'),
+               farben_ab=('Colours drift', 'Only {p} % of the area is in the colours of the house. Set large areas in navy or paper, keep gold for lines and the mark.'),
+               punkte=[('schrift', 'achten', 'Match the title typeface', 'The house sets titles in Libre Baskerville, never bold, and body text in Instrument Sans. Where another title face appears, please align it.'),
+                       ('zeichen', 'passt', 'The CE stands free', 'The mark is not distorted and has room. Keep at least the height of the C as clear space around it.'),
+                       ('bild', 'achten', 'Warm, real pictures', 'The brand shows real photos of the house in warm light. Cool stock images look out of place next to it.'),
+                       ('ton', 'passt', 'Calm, warm tone', 'Formal address, short sentences and no exclamation marks suit the house.')]),
+    'fr': dict(art='Exemple', gesamt='Voici comment se lit le retour au quotidien : calme, point par point, avec ce qu’il faut faire. Les couleurs sont mesurées ; les autres points figurent ici à titre d’exemple.',
+               farben_ok=('Couleurs dans la palette de la maison', '{p} % de la surface est dans les couleurs de la maison.'),
+               farben_ab=('Les couleurs s’écartent', 'Seulement {p} % de la surface est dans les couleurs de la maison. Les grandes surfaces plutôt en marine ou papier, l’or pour les lignes et le signe.'),
+               punkte=[('schrift', 'achten', 'Harmoniser la police des titres', 'La maison compose les titres en Libre Baskerville, jamais en gras, et le texte en Instrument Sans. Là où une autre police de titre apparaît, merci d’harmoniser.'),
+                       ('zeichen', 'passt', 'Le CE respire', 'Le signe n’est pas déformé et dispose d’espace. Garder autour au moins la hauteur du C.'),
+                       ('bild', 'achten', 'Des images chaleureuses et vraies', 'La marque montre de vraies photos de la maison dans une lumière chaude. Les images froides de banque d’images détonnent.'),
+                       ('ton', 'passt', 'Un ton calme et chaleureux', 'Le vouvoiement, des phrases courtes et pas de points d’exclamation conviennent à la maison.')]),
+}
+
+
+def _beispiel_ki(messung, sprache):
+    """Beispiel-Urteile für die Vorführung ohne KI (Robert 18.10.2026): die Farben aus der echten Messung, Schrift, Zeichen, Bild und Ton als Beispiel."""
+    B = BEISPIEL_KI.get(sprache, BEISPIEL_KI['de'])
+    p = round((messung.get('im_rahmen') or 0) * 100)
+    ft, fx = B['farben_ok'] if p >= 60 else B['farben_ab']
+    punkte = [dict(bereich='farben', urteil='passt' if p >= 60 else 'achten', titel=ft, text=fx.format(p=p))]
+    punkte += [dict(bereich=b, urteil=u, titel=t, text=x) for b, u, t, x in B['punkte']]
+    return dict(art=B['art'], gesamt=B['gesamt'], punkte=punkte, ton=[], text='')
+
+
+def _ki_meldung(e):
+    """F23: ein leeres Guthaben beim Namen nennen, statt nur «Fehler 400» (sonst probiert das Haus endlos)."""
+    try:
+        roh = e.read()[:3000].decode('utf-8', 'replace')
+    except Exception:  # noqa: BLE001
+        roh = ''
+    if re.search(r'usage limit|credit balance|billing|quota|spend limit', roh, re.I):
+        return 'KI-GUTHABEN · Das Guthaben für die KI ist aufgebraucht. Die Farben sind gemessen; die übrige Beurteilung geht wieder, sobald es aufgeladen ist.'
+    if e.code in (401, 403):
+        return f'KI · Der Schlüssel für Claude wurde abgewiesen (Fehler {e.code}).'
+    if e.code in (429, 529):
+        return f'KI · Claude ist gerade ausgelastet (Fehler {e.code}). Bitte in einer Minute noch einmal prüfen.'
+    return f'KI · Claude antwortete mit Fehler {e.code}.'
+
+
+def _pdf_seiten(roh, tmp):
+    """Die ersten drei Seiten einer PDF als Bilder: online mit PyMuPDF (requirements.txt), lokal mit pdftoppm."""
+    try:
+        import pymupdf
+        doc = pymupdf.open(stream=roh, filetype='pdf')
+        aus = []
+        for i, seite in enumerate(doc):
+            if i >= 3:
+                break
+            pix = seite.get_pixmap(dpi=110)
+            aus.append(Image.frombytes('RGB', (pix.width, pix.height), pix.samples))
+        return aus
+    except ImportError:
+        pass
+    except Exception:  # noqa: BLE001
+        raise ValueError('PDF · Die PDF liess sich nicht lesen.')
+    p = os.path.join(tmp, 'e.pdf'); open(p, 'wb').write(roh)
+    try:
+        subprocess.run(['pdftoppm', '-r', '110', '-png', '-f', '1', '-l', '3', p, os.path.join(tmp, 's')], check=True, timeout=60, capture_output=True)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, FileNotFoundError):
+        raise ValueError('PDF · Die PDF liess sich nicht lesen.')
+    return [Image.open(os.path.join(tmp, f)).convert('RGB') for f in sorted(os.listdir(tmp)) if f.startswith('s')]
+
+
+import threading  # noqa: E402
+_FEHLER_SCHLOSS = threading.Lock()
+
+
+def fehler(d):
+    """R03: Skriptfehler aus dem Browser mitschreiben (je Zeile ein JSON, Datei höchstens 200 KB, ältere Zeilen fallen weg). Nichts davon geht an Dritte."""
+    if not isinstance(d, dict):
+        raise ValueError('EINGABE · Erwartet wird ein Fehlerbericht.')
+    e = {k: str(d.get(k) or '')[:300] for k in ('zeit', 'art', 'text', 'wo', 'seite', 'browser')}
+    e['eingang'] = time.strftime('%Y-%m-%d %H:%M:%S')
+    zeile = json.dumps(e, ensure_ascii=False)
+    try:
+        os.makedirs(os.path.dirname(FEHLER_LOG), exist_ok=True)
+        with _FEHLER_SCHLOSS:   # mehrere Meldungen gleichzeitig (Server mit Fäden): nacheinander anhängen, keine geht verloren
+            with open(FEHLER_LOG, 'a', encoding='utf-8') as f:
+                f.write(zeile + '\n')
+            if os.path.getsize(FEHLER_LOG) > 200_000:   # zu gross: die ältere Hälfte fällt weg
+                alt = open(FEHLER_LOG, encoding='utf-8').read().splitlines()
+                open(FEHLER_LOG, 'w', encoding='utf-8').write('\n'.join(alt[len(alt) // 2:]) + '\n')
+    except OSError:
+        print('LIVRE-FEHLER', zeile, file=sys.stderr)
+    return {'ok': True}
+
+
+# ---------------------------------------------------------------- Schnittstelle für server.py
+def stand():
+    try:
+        return json.load(open(LIVRE_JSON, encoding='utf-8')).get('stand', {})
+    except (OSError, ValueError):
+        return {}
+
+
+def get(was, q):
+    g = lambda n, s='': (q.get(n) or [s])[0]
+    if was == 'stand':
+        return dict(stand(), ohne_original=ohne_original())
+    if was == 'bild':
+        return bild(g('k'), g('f', 'web'), g('x', '.5') or .5, g('y', '.5') or .5)
+    raise ValueError('WEG · Unbekannte Anfrage.')
+
+
+def post(was, d):
+    if was == 'pruefen':
+        return pruefen(d if isinstance(d, dict) else {})
+    if was == 'fehler':
+        return fehler(d)
+    raise ValueError('WEG · Unbekannte Anfrage.')

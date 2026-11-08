@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Bureau · Carlton-Europe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06142b">
+<link rel="icon" href="/assets/logo/favicon.ico">
+<link rel="preload" href="/assets/fonts/libre-baskerville-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/InstrumentSans-normal-400_600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="studio.css?v=20">
+</head>
+<body>
+<div id="laedt" class="laedt" aria-live="polite"><div><svg viewBox="0 0 24 24" class="laedt__ring" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg><b>Le Bureau</b><span>Die Seiten werden vorbereitet. Hat sich an der Website etwas geändert, dauert das beim ersten Öffnen bis zu einer halben Minute.</span></div></div>
+<div id="tor" class="tor" hidden></div>
+<div id="app" class="app tapete" hidden>
+  <header class="kopfl" id="kopfl"></header>
+  <aside class="rand" id="rand" aria-label="Bereiche von Le Bureau"></aside>
+  <div class="haupt">
+    <main class="flaeche" id="sicht" tabindex="-1"></main>
+    <div class="leiste" id="leiste" aria-live="polite"></div>
+  </div>
+</div>
+<div id="lade" class="lade" hidden></div>
+<div id="vergleich" class="vgl" hidden></div>
+<div id="fenster" class="fenster" hidden></div>
+<div id="meldung" class="meldung" aria-live="polite"></div>
+<input type="file" id="datei" accept="image/jpeg,image/png,image/webp" hidden>
+<!-- Notausgang: lädt studio.js nicht oder bleibt es stumm, erscheint nach acht Sekunden der Weg zur Prüfung. Die Prüfung braucht nichts von diesem Skript. -->
+<div id="notaus" hidden style="position:fixed;inset:0;display:grid;place-items:center;padding:24px;background:#06142b;color:#fff;font-family:system-ui,sans-serif;text-align:center;z-index:50">
+  <div><p style="font-size:1.4rem;margin:0 0 10px">Le Bureau lädt nicht.</p><p style="margin:0 0 22px;color:rgba(255,255,255,.7)">Die Prüfung läuft auch ohne den Rest des Werkzeugs und sagt, woran es liegt.</p>
+  <a href="/control/pruefung.html" style="display:inline-block;padding:14px 26px;border-radius:999px;background:#dcc68f;color:#0c1526;text-decoration:none;font-weight:600">Zur Prüfung</a></div>
+</div>
+<script>(function(){function leer(){var a=document.getElementById('app'),t=document.getElementById('tor');return a&&t&&a.hidden&&t.hidden}
+setTimeout(function(){if(!window.CE_LAEUFT&&leer())document.getElementById('notaus').hidden=false},6000);
+setTimeout(function(){if(leer())document.getElementById('notaus').hidden=false},45000)})()</script>
+<script src="studio.js?v=23"></script>
+</body>
+</html>

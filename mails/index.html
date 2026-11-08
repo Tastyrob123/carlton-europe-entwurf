@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mails · Carlton-Europe</title>
+<meta name="robots" content="noindex, nofollow"><link rel="icon" href="../assets/logo/favicon.ico">
+<style>
+@font-face{font-family:'Baskerville CE';font-weight:400 700;font-display:swap;src:url('../assets/fonts/libre-baskerville-400.woff2') format('woff2')}
+@font-face{font-family:'Instrument Sans';font-weight:400 600;font-display:swap;src:url('../assets/fonts/InstrumentSans-normal-400_600.woff2') format('woff2')}
+@font-face{font-family:'DM Mono';font-weight:400;font-display:swap;src:url('../assets/fonts/DMMono-normal-400.woff2') format('woff2')}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#06142b url(../assets/img/tapete-navy.webp) 50% 0/1100px auto;color:#fff;font-family:'Instrument Sans',Arial,sans-serif}
+.mu-kopf{max-width:900px;margin:0 auto;padding:clamp(56px,8vw,110px) 24px clamp(30px,4vw,54px);text-align:center}
+.mu-kopf svg{display:block;width:clamp(72px,8vw,112px);height:auto;margin:0 auto 18px;fill:#dcc68f}
+.mu-kopf small{display:block;font-family:'Baskerville CE',Georgia,serif;font-size:1.06rem;color:#dcc68f}
+.mu-kopf h1{margin:16px 0 0;font-family:'Baskerville CE',Georgia,serif;font-weight:400;font-size:clamp(2.2rem,5.4vw,5rem);line-height:1.08}
+.mu-kopf h1 em{font-style:normal;color:#dcc68f}
+.mu-kopf p{max-width:60ch;margin:22px auto 0;font-size:1.1rem;line-height:1.66;color:rgba(255,255,255,.82)}
+.mu-z{display:inline-flex;align-items:center;gap:10px;margin:26px 6px 0;padding:14px 24px;border-radius:999px;background:linear-gradient(180deg,#fbf3e2,#e8dbbf);color:#0c1526;font-family:'DM Mono',Menlo,monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.mu-z--l{background:transparent;color:#dcc68f;box-shadow:inset 0 0 0 1px rgba(220,198,143,.5)}
+/* Robert 18.10.2026 13:43: «Die Mails bitte … so zum seitlichen Scrollen … So lange die nebeneinander … immer so die halbe Mail angezeigt, aber man kann die ausklappen» */
+.mu-band{position:relative;padding:0 0 clamp(70px,9vw,130px)}
+.mu-g{display:flex;gap:clamp(22px,3vw,40px);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:clamp(16px,6vw,90px);padding:6px clamp(16px,6vw,90px) 30px;scrollbar-width:none;align-items:flex-start}
+.mu-g::-webkit-scrollbar{display:none}
+.mu-k{flex:0 0 min(600px,86vw);min-width:0;scroll-snap-align:start}
+.mu-f{position:relative;max-height:640px;overflow:hidden;border-radius:4px;transition:max-height .5s ease}
+.mu-f::after{content:'';position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(180deg,rgba(6,20,43,0),#06142b);pointer-events:none;transition:opacity .3s}
+.mu-k.auf .mu-f{max-height:none}.mu-k.auf .mu-f::after{opacity:0}
+.mu-auf{display:inline-flex;align-items:center;gap:10px;margin:-22px 0 0;position:relative;z-index:1;padding:12px 22px;border:0;border-radius:999px;background:linear-gradient(180deg,#fbf3e2,#e8dbbf);color:#0c1526;font-family:'DM Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.mu-auf span+span{display:none}.mu-k.auf .mu-auf span{display:none}.mu-k.auf .mu-auf span+span{display:inline}.mu-k.auf .mu-auf{margin-top:16px}
+.mu-pf{display:flex;justify-content:center;gap:14px;margin:4px 0 0}
+.mu-pf button{width:52px;height:52px;border-radius:50%;border:0;background:rgba(220,198,143,.12);box-shadow:inset 0 0 0 1px rgba(220,198,143,.5);color:#dcc68f;font-size:20px;cursor:pointer}
+@media (hover:none){.mu-pf{display:none}}
+.mu-b{margin:0 0 16px}
+.mu-b span{display:block;margin-bottom:8px;font-family:'DM Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#dcc68f}
+.mu-b b{display:block;font-family:'Baskerville CE',Georgia,serif;font-weight:400;font-size:1.25rem;line-height:1.3}
+.mu-b dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0 0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.72)}
+.mu-b dt{font-family:'DM Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#dcc68f;padding-top:3px}.mu-b dd{margin:0}
+.mu-k iframe{display:block;width:100%;height:1100px;border:0;border-radius:4px;background:#efe6d3}
+.mu-l{display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 0}
+.mu-l a{font-family:'DM Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#dcc68f}
+.mu-fuss{max-width:900px;margin:0 auto;padding:0 24px 60px;text-align:center;font-size:.85rem;line-height:1.6;color:rgba(255,255,255,.6)}
+</style><script src="/besuch.js?v=3c4c57a56e" defer></script><script src="/verweil.js?v=5881fd455d" defer></script></head><body>
+<header class="mu-kopf"><svg viewBox="87 0 112 68" aria-hidden="true"><path  d="M170.5,0.6c5.6,0,11.1,0,16.7,0c2.1,0,4.2,0.2,6.2,0.9c3.3,1.1,3.9,3.4,1.6,6c-1.8,2-4.1,3.5-6.4,5
+		c-4.1,2.5-8.4,4.7-12.6,7c-1.7,0.9-3.4,1.8-5,2.9c-0.5,0.4-1.1,0.7-1.5,1.2c-0.3,0.2-0.5,0.6-0.3,1c0.2,0.3,0.6,0.5,0.9,0.4
+		c0.6-0.2,1.2-0.3,1.8-0.6c1.8-0.7,3.5-1.4,5.4-1.7c2.8-0.4,5.5-0.1,8.1,1.3c1.7,1,3,2.4,3.1,4.5c0.1,1.6-0.2,3.1-1.3,4.4
+		c-0.5,0.6-1.2,1.1-2,1.3c-0.3,0.1-0.6,0.2-0.5-0.4c0.1-1.2-0.3-1.7-1.6-1.8c-1.3-0.1-2.6,0.1-3.8,0.4c-2.3,0.6-4.7,1.3-7,1.7
+		c-1.6,0.3-3.2,0.4-4.8-0.1c-3.9-1.3-6-5.7-3.5-9.4c1.4-2.2,3.3-3.8,5.4-5.4c2.6-2.1,5.5-3.8,8.2-5.8c1.3-0.9,2.6-1.8,3.5-3.1
+		c0.9-1.2,0.6-2.6-0.6-3.5c-0.5-0.3-1.1-0.5-1.7-0.7c-1-0.3-2.1-0.3-3.1-0.4c-2.2-0.2-4.4-0.1-6.6,0.2c-2.6,0.4-3.8,1.8-3.9,4.5
+		c0,2.8-0.1,5.6,0,8.4c0,1.1-0.3,1.8-1.1,2.6c-1.9,1.8-3.2,3.9-3.3,6.6c-0.1,1.6,0.4,2.9,1.3,4.2c0.7,1,1.5,1.8,2.4,2.5
+		c0.5,0.4,0.7,0.8,0.7,1.4c0,4,0,7.9,0,11.9c0,3,1.2,4.8,4,6c2,0.8,4.1,1.1,6.3,1.2c2.7,0.2,5.3,0.3,8,0.2c1.9-0.1,3.9-0.1,5.7-0.7
+		c2-0.6,3.5-1.6,4.2-3.7c0.2-0.6,0.5-0.5,1-0.3c1.8,0.9,3,2.3,3.8,4.1c0.8,2,1,4.1,0.4,6.3c-0.7,2.7-2.4,4.4-4.9,5.5
+		c-2.6,1.1-5.3,1.4-8,1.3c-3.4-0.1-6.8-0.3-10.3-0.5c-5.5-0.3-11,0.1-16.4,0.3c-2.6,0.1-5.2,0.3-7.8,0.1c-2.1-0.2-4.2-0.8-6-2
+		c-1.9-1.2-2-2.4-0.2-3.9c0.9-0.8,2-1.3,3.1-1.9c1.3-0.8,2.6-1.5,3.8-2.4c1.1-0.9,1.6-1.9,1.6-3.3c0-13.1,0-26.1,0-39.2
+		c0-0.3,0-0.6,0-1c0-2-0.8-3.5-2.5-4.6c-1.2-0.7-2.4-1.5-3.6-2.2c-0.8-0.5-1.5-0.9-2.2-1.5c-1.2-0.9-1.2-2.1,0-3.1
+		c0.7-0.6,1.5-0.9,2.4-1.2c2.7-0.8,5.6-1,8.4-1C160.5,0.5,165.5,0.5,170.5,0.6L170.5,0.6z"/><path  d="M96,28.3c-0.1,6.8,1.7,12.5,5.7,17.3c4,4.8,9.1,7.8,15.2,8.8c4.5,0.7,8.9,0.3,13.2-1.4
+		c3.2-1.3,5.7-3.4,6.8-6.8c0.2-0.7,0.6-0.7,1.1-0.5c1.3,0.5,2.2,1.5,2.7,2.8c2,5.1,1.1,10.5-4.1,14.3c-2.9,2.1-6.2,3.3-9.6,4
+		c-6.2,1.3-12.3,1.5-18.4-0.2c-9.7-2.8-16-9.1-19.4-18.5c-1.9-5.3-2.3-10.8-1.8-16.4c0.4-5.2,1.6-10.2,3.9-14.9
+		c3.1-6.4,7.7-11.4,14.2-14.5c4.7-2.3,9.7-2.7,14.9-2.1c3.4,0.4,6.7,1.3,9.7,3c3.5,2,6.1,4.7,7.1,8.8c0.8,3.4,0.6,6.7-1.3,9.8
+		c-2,3.3-5,4.8-8.6,5.4c-2.4,0.4-4.7,0.3-7-0.4c-4.4-1.4-7.1-5.5-7.1-9.4c0-0.6-0.1-1.1-0.3-1.7c-0.2-0.5-0.4-0.9-0.9-1.1
+		c-0.5-0.3-1.1-0.4-1.6-0.1c-0.5,0.3-0.5,0.8-0.4,1.3c0.1,1.1,0,1.4-1.1,1.7c-1.6,0.4-3.1-0.1-3.8-1.1c-0.9-1.3-0.8-3.5,0.1-4.8
+		c1.1-1.5,2.6-2.2,4.4-2.2c2-0.1,3.7,0.7,5.1,2.1c0.8,0.8,1.5,1.6,2.2,2.4c1.1,1.1,2.5,1.7,4.2,1.5c2.1-0.2,3.8-1.9,4-4
+		c0.2-2.6-1-4.5-3.3-5.7c-2.3-1.2-4.7-1.4-7.2-1.3c-5.9,0.2-10.3,3-13.7,7.7c-2.5,3.6-3.8,7.6-4.5,11.9C96.1,25.6,96,27.2,96,28.3"
+		/></svg><small>Mails</small><h1>10 Vorlagen, <em>im Ton Ihres Hauses.</em></h1>
+<p>So könnten die Nachrichten aussehen, die Ihre Gäste von der Buchung bis nach der Abreise bekommen. Jede liegt als Vorlage mit Platzhaltern bereit, die Ihr Mailprogramm füllt. Gast, Daten und Nummern hier sind Beispiele, verschickt wird nichts.</p>
+<a class="mu-z" href="../werkbank/index.html#papier">Zur Übersicht</a><a class="mu-z mu-z--l" href="platzhalter.txt" target="_blank" rel="noopener">Platzhalter und Fälle</a></header>
+<main class="mu-band"><div class="mu-g"><section class="mu-k" id="buchung"><div class="mu-b"><span>01 · Ihre Buchung</span><b>Ihre Buchung ist bestätigt · CE-2611-0418</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Direkt nach der Buchung über SimpleBooking (Hotel 4401) oder an der Rezeption.</dd></dl></div>
+<div class="mu-f"><iframe src="01-buchung/index.html" title="Ihre Buchung" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="01-buchung/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="01-buchung/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="vor-anreise"><div class="mu-b"><span>02 · Vor Ihrer Anreise</span><b>Bald sind Sie bei uns · Ihre Wünsche für den Freitag, 6. November 2026</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Sieben Tage vor der Anreise (den Zeitpunkt wählt das Haus).</dd></dl></div>
+<div class="mu-f"><iframe src="02-vor-anreise/index.html" title="Vor Ihrer Anreise" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="02-vor-anreise/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="02-vor-anreise/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="wuensche"><div class="mu-b"><span>03 · Ihre Wünsche</span><b>Ihre Wünsche sind bei uns angekommen</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Nach dem Absenden auf «Vor Ihrer Anreise» (anreise.html).</dd></dl></div>
+<div class="mu-f"><iframe src="03-wuensche/index.html" title="Ihre Wünsche" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="03-wuensche/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="03-wuensche/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="tisch"><div class="mu-b"><span>04 · Ihr Tisch</span><b>Ihr Tisch im Hansen-Ritschard-Saal · Freitag, 6. November 2026, 19.00 Uhr</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Nach einer Reservierung am Telefon, an der Rezeption oder über «Vor Ihrer Anreise».</dd></dl></div>
+<div class="mu-f"><iframe src="04-tisch/index.html" title="Ihr Tisch" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="04-tisch/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="04-tisch/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="nach-aufenthalt"><div class="mu-b"><span>05 · Auf Wiedersehen</span><b>Auf Wiedersehen in Interlaken</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Ein bis zwei Tage nach der Abreise.</dd></dl></div>
+<div class="mu-f"><iframe src="05-nach-aufenthalt/index.html" title="Auf Wiedersehen" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="05-nach-aufenthalt/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="05-nach-aufenthalt/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="gutschein"><div class="mu-b"><span>06 · Ihr Gutschein</span><b>Ihr Gutschein vom Carlton-Europe · CE-2611-4F7K</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Nach der Bestellung eines Gutscheins auf angebote.html#gutscheine.</dd></dl></div>
+<div class="mu-f"><iframe src="06-gutschein/index.html" title="Ihr Gutschein" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="06-gutschein/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="06-gutschein/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="anfrage"><div class="mu-b"><span>07 · Ihre Anfrage</span><b>Ihre Anfrage ist bei uns · Seminar am 12. März 2027</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Nach dem Absenden einer Anfrage auf tagen-feiern.html (Rechner).</dd></dl></div>
+<div class="mu-f"><iframe src="07-anfrage/index.html" title="Ihre Anfrage" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="07-anfrage/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="07-anfrage/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="stars-only"><div class="mu-b"><span>08 · Unter dem Sternenhimmel</span><b>Eine Nacht unter dem Sternenhimmel</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Nachricht an Gäste, die Neuigkeiten abonniert haben (mit Abmelde-Link).</dd></dl></div>
+<div class="mu-f"><iframe src="08-stars-only/index.html" title="Unter dem Sternenhimmel" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="08-stars-only/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="08-stars-only/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="silvester"><div class="mu-b"><span>09 · Silvester</span><b>Silvesterzauber & Gala-Genuss im Carlton-Europe</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Im Herbst an Gäste, die Neuigkeiten abonniert haben (mit Abmelde-Link).</dd></dl></div>
+<div class="mu-f"><iframe src="09-silvester/index.html" title="Silvester" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="09-silvester/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="09-silvester/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section><section class="mu-k" id="annullation"><div class="mu-b"><span>10 · Annullation</span><b>Ihre Annullation ist bestätigt · CE-2611-0418</b>
+<dl><dt>Absender</dt><dd>info@carltoneurope.ch</dd><dt>Wann</dt><dd>Nach der Annullation einer Buchung (SimpleBooking oder Rezeption).</dd></dl></div>
+<div class="mu-f"><iframe src="10-annullation/index.html" title="Annullation" loading="lazy" scrolling="no"></iframe></div>
+<button class="mu-auf" type="button" aria-expanded="false"><span>Ganze Mail</span><span>Zuklappen</span></button>
+<p class="mu-l"><a href="10-annullation/index.html" target="_blank" rel="noopener">Vorschau allein</a><a href="10-annullation/template.html" target="_blank" rel="noopener">Vorlage mit Platzhaltern</a></p></section></div><div class="mu-pf"><button type="button" data-r="-1" aria-label="Zurück">‹</button><button type="button" data-r="1" aria-label="Weiter">›</button></div></main>
+<p class="mu-fuss">Vorlagen zum Entwurf von Robert Reff, Tasty Studios, Hamburg · Stand 15.10.2026. Nur über diesen Link erreichbar, in keiner Suchmaschine. Fotos, Zeichen und Angaben gehören dem Carlton-Europe. <a href="../werkbank/impressum.html">Impressum und Datenschutz</a></p>
+<script>(function(){var g=document.querySelector('.mu-g');document.querySelectorAll('.mu-pf button').forEach(function(b){b.addEventListener('click',function(){var k=g.querySelector('.mu-k');g.scrollBy({left:(+b.dataset.r)*(k.getBoundingClientRect().width+parseFloat(getComputedStyle(g).columnGap||32)),behavior:'smooth'})})});
+document.querySelectorAll('.mu-auf').forEach(function(b){b.addEventListener('click',function(){var k=b.closest('.mu-k'),a=k.classList.toggle('auf');b.setAttribute('aria-expanded',a);if(!a)k.scrollIntoView({block:'nearest'})})});})();</script>
+<script>document.querySelectorAll('.mu-k iframe').forEach(function(f){function h(){try{f.style.height=f.contentDocument.documentElement.scrollHeight+'px'}catch(x){}}f.addEventListener('load',function(){h();setTimeout(h,600)});});</script>
+<script src="../maison/zur-werkbank.js" defer></script>
+<script src="/assets/js/auftritt.js?v=406" defer></script>
+</body></html>

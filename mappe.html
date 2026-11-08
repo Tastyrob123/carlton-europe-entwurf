@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de-CH" class="kein-vorhang" data-buchung="https://www.simplebooking.it/ibe2/hotel/4401">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ihre Zimmermappe · Carlton-Europe Interlaken</title>
+<meta name="description" content="Die Rezeption auf Ihrem Handy: Frühstück, Sauna, Zimmerservice, Wäsche, Taxi, Ausflüge.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#06142b">
+<link rel="icon" href="assets/logo/favicon.ico">
+<link rel="preload" href="assets/fonts/libre-baskerville-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InstrumentSans-normal-400_600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/main.css?v=406">
+<link rel="stylesheet" href="assets/css/gast.css?v=406">
+<link rel="preload" as="image" href="assets/img/k/wellness-2.webp">
+<link rel="preload" as="image" href="assets/img/k/z-superior.webp">
+<link rel="preload" as="image" href="assets/img/k/brot.webp">
+<link rel="preload" as="image" href="assets/img/k/herbst.webp">
+<link rel="preload" as="image" href="assets/img/k/z-signature-bad.webp">
+<link rel="preload" as="image" href="assets/img/k/haus-abend-eingang.webp">
+<style>
+.mappe{min-height:100svh;background:var(--nacht) url('assets/img/tapete-navy.webp') center/520px;padding:max(18px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom))}
+.mappe__kopf{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);padding:10px 0 18px}
+.mappe__kopf svg{width:44px;height:auto}
+.mappe__kopf b{font-family:var(--serif);font-weight:400;font-size:18px;letter-spacing:.02em;color:var(--creme)}
+.mappe__kopf span{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.mappe__fuss{text-align:center;font-size:12px;color:var(--creme);opacity:.7;padding:16px 0 0}
+.mappe__fuss a{text-decoration:underline}
+/* Die Mappe füllt genau den Bildschirm: Kopf, Gespräch (rollt), Eingabe unten */
+html,body.mappe{height:100%}
+body.mappe{display:flex;flex-direction:column;height:100svh;overflow:hidden}
+.mappe main{flex:1;min-height:0;display:flex;flex-direction:column}
+.mappe .gast--seite{flex:1;min-height:0!important;height:auto;width:100%;display:flex;flex-direction:column}
+.mappe .gast--seite .gast__lauf{min-height:0!important;flex:1}
+.mappe__kopf,.mappe__fuss{flex:none}
+/* Schönere Mappe (18.10.2026 20:33): Hausbild, Karte nur so hoch wie das Gespräch, Vorschläge als Kacheln mit Zeichen */
+.mappe__bild{position:relative;flex:1 1 200px;min-height:0;margin:0 0 14px;border-radius:20px;overflow:hidden;background:#0b1f40;box-shadow:0 0 0 1px rgba(220,198,143,.35),0 30px 50px -30px rgba(0,0,0,.9)}
+.mappe__bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.mappe__bild figcaption{position:absolute;left:12px;right:12px;bottom:12px;display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-radius:12px;background:rgba(6,20,43,.86);box-shadow:inset 0 0 0 1px rgba(220,198,143,.35)}
+.mappe__bild figcaption b{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.2;color:#fbf6ea}
+.mappe__bild figcaption em{color:var(--gold)}
+.mappe__bild figcaption span{font-size:12px;letter-spacing:.06em;color:rgba(251,246,234,.72)}
+.mappe main{flex:0 1 auto}
+.mappe .gast--seite{flex:0 1 auto;max-height:100%}
+.mappe .gast--seite .gast__lauf{flex:0 1 auto}
+.mappe .gast__vor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:2px}
+body.mappe .gast__vor button{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0;min-height:96px;padding:14px 14px 13px;border-radius:14px;text-align:left;
+  background:linear-gradient(180deg,#fffdf7,#f7f0e1);box-shadow:inset 0 0 0 1px rgba(184,152,80,.32),0 1px 0 #fff,0 14px 22px -18px rgba(11,31,64,.55);transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s}
+body.mappe .gast__vor button:hover{background:linear-gradient(180deg,#fffdf7,#f7f0e1);transform:translateY(-2px);box-shadow:inset 0 0 0 1px rgba(184,152,80,.5),0 1px 0 #fff,0 18px 26px -18px rgba(11,31,64,.6)}
+body.mappe .gast__vor .gast__vi{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(180deg,#183463,#0b1f40);box-shadow:inset 0 0 0 1px rgba(220,198,143,.45)}
+body.mappe .gast__vor .gast__vi svg{width:19px;height:19px;stroke:var(--gold);stroke-width:1.35;fill:none;stroke-linecap:round;stroke-linejoin:round}
+body.mappe .gast__vor small{margin-top:11px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8a7545}
+body.mappe .gast__vor b{margin-top:3px;font-family:var(--serif);font-weight:400;font-size:15px;line-height:1.3;color:#0b1f40}
+body.mappe .gast__vor button>svg{display:none}
+@media (max-width:899px){
+  .mappe__bild{flex:1 1 120px;min-height:96px}
+  .mappe__bild figcaption{left:10px;right:auto;bottom:10px;padding:8px 13px}
+  .mappe__bild figcaption b{font-size:16px}
+  .mappe__bild figcaption span{font-size:11px}
+  .mappe__bild{flex-basis:96px;min-height:84px}
+  .mappe .gast__vor{gap:8px}
+  body.mappe .gast__vor button{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:8px;align-items:center;align-content:start;min-height:0;padding:10px 11px 11px}
+  body.mappe .gast__vor .gast__vi{width:24px;height:24px}
+  body.mappe .gast__vor .gast__vi svg{width:13px;height:13px}
+  body.mappe .gast__vor small{margin:0;font-size:9px;letter-spacing:.14em}
+  body.mappe .gast__vor b{grid-column:1 / 3;margin-top:7px;font-size:14px;line-height:1.25;overflow-wrap:normal;word-break:normal;hyphens:manual}
+}
+@media (min-width:900px){
+  body.mappe{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,500px);grid-template-rows:auto minmax(0,1fr) auto;column-gap:32px;padding:28px 32px}
+  .mappe__bild{grid-column:1;grid-row:1 / 4;margin:0;border-radius:24px}
+  .mappe__bild figcaption{left:24px;right:auto;bottom:24px;padding:18px 24px}
+  .mappe__bild figcaption b{font-size:26px}
+  .mappe__kopf{grid-column:2;grid-row:1;justify-content:flex-start;padding:4px 0 18px}
+  .mappe main{grid-column:2;grid-row:2;align-self:center;max-height:100%}
+  .mappe__fuss{grid-column:2;grid-row:3;text-align:left}
+}
+/* Kacheln mit echtem Foto oben (Robert 18.10.2026 23:48): Foto, darunter Zeichen, Bereich und Frage; am Laptop drei Spalten in breiterer Mappe */
+body.mappe .gast__vor button{padding:0;overflow:hidden;display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:8px;align-items:center;align-content:start}
+body.mappe .gast__vf{grid-column:1 / 3;display:block;aspect-ratio:16/10;overflow:hidden;background:#e8dbbf}
+body.mappe .gast__vf img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+body.mappe .gast__vor button:hover .gast__vf img{transform:scale(1.04)}
+body.mappe .gast__vor .gast__vi{width:24px;height:24px;margin:10px 0 0 12px}
+body.mappe .gast__vor .gast__vi svg{width:13px;height:13px}
+body.mappe .gast__vor small{margin:10px 12px 0 0}
+body.mappe .gast__vor b{grid-column:1 / 3;margin:6px 12px 12px;font-size:14.5px;line-height:1.25;overflow-wrap:normal;word-break:normal;hyphens:manual}
+@media (min-width:900px){
+  body.mappe{grid-template-columns:minmax(0,1fr) minmax(460px,640px)}
+  .mappe .gast__vor{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:899px){
+  .mappe__bild{display:none}
+  body.mappe .gast__vf{aspect-ratio:5/2}
+  body.mappe .gast__vor .gast__vi,body.mappe .gast__vor small{display:none}
+  body.mappe .gast__vor b{font-size:13.5px;margin:8px 10px 10px}
+}
+/* Im Handy der Vorführseite: Platz für die Kamera-Insel */
+.im-rahmen body.mappe{padding-top:50px}
+</style>
+<script>if(window.self!==window.top)document.documentElement.classList.add('im-rahmen')</script>
+<script src="/besuch.js?v=3c4c57a56e" defer></script><script src="/verweil.js?v=5881fd455d" defer></script></head>
+<body class="mappe">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="ce"><path  d="M170.5,0.6c5.6,0,11.1,0,16.7,0c2.1,0,4.2,0.2,6.2,0.9c3.3,1.1,3.9,3.4,1.6,6c-1.8,2-4.1,3.5-6.4,5
+		c-4.1,2.5-8.4,4.7-12.6,7c-1.7,0.9-3.4,1.8-5,2.9c-0.5,0.4-1.1,0.7-1.5,1.2c-0.3,0.2-0.5,0.6-0.3,1c0.2,0.3,0.6,0.5,0.9,0.4
+		c0.6-0.2,1.2-0.3,1.8-0.6c1.8-0.7,3.5-1.4,5.4-1.7c2.8-0.4,5.5-0.1,8.1,1.3c1.7,1,3,2.4,3.1,4.5c0.1,1.6-0.2,3.1-1.3,4.4
+		c-0.5,0.6-1.2,1.1-2,1.3c-0.3,0.1-0.6,0.2-0.5-0.4c0.1-1.2-0.3-1.7-1.6-1.8c-1.3-0.1-2.6,0.1-3.8,0.4c-2.3,0.6-4.7,1.3-7,1.7
+		c-1.6,0.3-3.2,0.4-4.8-0.1c-3.9-1.3-6-5.7-3.5-9.4c1.4-2.2,3.3-3.8,5.4-5.4c2.6-2.1,5.5-3.8,8.2-5.8c1.3-0.9,2.6-1.8,3.5-3.1
+		c0.9-1.2,0.6-2.6-0.6-3.5c-0.5-0.3-1.1-0.5-1.7-0.7c-1-0.3-2.1-0.3-3.1-0.4c-2.2-0.2-4.4-0.1-6.6,0.2c-2.6,0.4-3.8,1.8-3.9,4.5
+		c0,2.8-0.1,5.6,0,8.4c0,1.1-0.3,1.8-1.1,2.6c-1.9,1.8-3.2,3.9-3.3,6.6c-0.1,1.6,0.4,2.9,1.3,4.2c0.7,1,1.5,1.8,2.4,2.5
+		c0.5,0.4,0.7,0.8,0.7,1.4c0,4,0,7.9,0,11.9c0,3,1.2,4.8,4,6c2,0.8,4.1,1.1,6.3,1.2c2.7,0.2,5.3,0.3,8,0.2c1.9-0.1,3.9-0.1,5.7-0.7
+		c2-0.6,3.5-1.6,4.2-3.7c0.2-0.6,0.5-0.5,1-0.3c1.8,0.9,3,2.3,3.8,4.1c0.8,2,1,4.1,0.4,6.3c-0.7,2.7-2.4,4.4-4.9,5.5
+		c-2.6,1.1-5.3,1.4-8,1.3c-3.4-0.1-6.8-0.3-10.3-0.5c-5.5-0.3-11,0.1-16.4,0.3c-2.6,0.1-5.2,0.3-7.8,0.1c-2.1-0.2-4.2-0.8-6-2
+		c-1.9-1.2-2-2.4-0.2-3.9c0.9-0.8,2-1.3,3.1-1.9c1.3-0.8,2.6-1.5,3.8-2.4c1.1-0.9,1.6-1.9,1.6-3.3c0-13.1,0-26.1,0-39.2
+		c0-0.3,0-0.6,0-1c0-2-0.8-3.5-2.5-4.6c-1.2-0.7-2.4-1.5-3.6-2.2c-0.8-0.5-1.5-0.9-2.2-1.5c-1.2-0.9-1.2-2.1,0-3.1
+		c0.7-0.6,1.5-0.9,2.4-1.2c2.7-0.8,5.6-1,8.4-1C160.5,0.5,165.5,0.5,170.5,0.6L170.5,0.6z"/><path  d="M96,28.3c-0.1,6.8,1.7,12.5,5.7,17.3c4,4.8,9.1,7.8,15.2,8.8c4.5,0.7,8.9,0.3,13.2-1.4
+		c3.2-1.3,5.7-3.4,6.8-6.8c0.2-0.7,0.6-0.7,1.1-0.5c1.3,0.5,2.2,1.5,2.7,2.8c2,5.1,1.1,10.5-4.1,14.3c-2.9,2.1-6.2,3.3-9.6,4
+		c-6.2,1.3-12.3,1.5-18.4-0.2c-9.7-2.8-16-9.1-19.4-18.5c-1.9-5.3-2.3-10.8-1.8-16.4c0.4-5.2,1.6-10.2,3.9-14.9
+		c3.1-6.4,7.7-11.4,14.2-14.5c4.7-2.3,9.7-2.7,14.9-2.1c3.4,0.4,6.7,1.3,9.7,3c3.5,2,6.1,4.7,7.1,8.8c0.8,3.4,0.6,6.7-1.3,9.8
+		c-2,3.3-5,4.8-8.6,5.4c-2.4,0.4-4.7,0.3-7-0.4c-4.4-1.4-7.1-5.5-7.1-9.4c0-0.6-0.1-1.1-0.3-1.7c-0.2-0.5-0.4-0.9-0.9-1.1
+		c-0.5-0.3-1.1-0.4-1.6-0.1c-0.5,0.3-0.5,0.8-0.4,1.3c0.1,1.1,0,1.4-1.1,1.7c-1.6,0.4-3.1-0.1-3.8-1.1c-0.9-1.3-0.8-3.5,0.1-4.8
+		c1.1-1.5,2.6-2.2,4.4-2.2c2-0.1,3.7,0.7,5.1,2.1c0.8,0.8,1.5,1.6,2.2,2.4c1.1,1.1,2.5,1.7,4.2,1.5c2.1-0.2,3.8-1.9,4-4
+		c0.2-2.6-1-4.5-3.3-5.7c-2.3-1.2-4.7-1.4-7.2-1.3c-5.9,0.2-10.3,3-13.7,7.7c-2.5,3.6-3.8,7.6-4.5,11.9C96.1,25.6,96,27.2,96,28.3"
+		/></g></defs></svg>
+<header class="mappe__kopf"><svg class="" viewBox="87 0 112 68" aria-hidden="true" fill="currentColor"><use href="#ce"/></svg><div><span>Ihre Zimmermappe</span><b>Carlton-Europe · Interlaken</b></div></header>
+<figure class="mappe__bild"><img src="assets/img/haus-abend-eingang-l.webp" srcset="assets/img/haus-abend-eingang-s.webp 900w, assets/img/haus-abend-eingang-l.webp 2000w" sizes="(min-width:900px) 55vw, 100vw" width="2000" height="1333" alt="Eingang des Carlton-Europe am Abend, dahinter die Berge" decoding="async" fetchpriority="high"><figcaption><b>Willkommen im <em>Carlton-Europe.</em></b><span>Höheweg 92–94 · Interlaken</span></figcaption></figure>
+<main data-mappe></main>
+<p class="mappe__fuss">Rezeption täglich 7 bis 24 Uhr · <a href="tel:+41338260160">+41 33 826 01 60</a> · <a href="index.html">Zur Website</a></p>
+<script src="assets/js/gast.js?v=406" defer></script>
+<script src="/assets/js/auftritt.js?v=406" defer></script>
+</body>
+</html>
