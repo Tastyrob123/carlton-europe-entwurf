@@ -4,7 +4,7 @@
    WEGE biegt Umleitungen um, die Vercel auf dem Server gemacht hat (z. B. /_werkzeuge/carte/ → /werkzeuge/carte/). */
 (function () {
   'use strict';
-  var KARTE = window.__DEMO_KARTE || {}, WEGE = window.__DEMO_WEGE || [], LS = null;
+  var KARTE = window.__DEMO_KARTE || {}, WEGE = window.__DEMO_WEGE || [], WEGE_RE = (window.__DEMO_WEGE_RE || []).map(function (w) { return [new RegExp(w[0]), w[1]]; }), LS = null;
   try { LS = window.localStorage; } catch (e) {}
   var ORIGIN = location.origin, BASE = ORIGIN + '/';
   var FLUECHTIG = /^(t|_|cb|ts|zeit|nocache|r|rnd|stamp)$/;
@@ -16,6 +16,7 @@
     return a.length ? '?' + a.map(function (x) { return encodeURIComponent(x[0]) + '=' + encodeURIComponent(x[1]); }).join('&') : '';
   }
   function umbiegen(pfad) {
+    for (var j = 0; j < WEGE_RE.length; j++) { if (WEGE_RE[j][0].test(pfad)) return pfad.replace(WEGE_RE[j][0], WEGE_RE[j][1]); }
     for (var i = 0; i < WEGE.length; i++) { var w = WEGE[i]; if (pfad.indexOf(w[0]) === 0) return w[1] + pfad.slice(w[0].length); }
     return pfad;
   }
@@ -113,11 +114,25 @@
     var d = Object.getOwnPropertyDescriptor(K.prototype, z[1]); if (!d || !d.set) return;
     Object.defineProperty(K.prototype, z[1], { configurable: true, enumerable: d.enumerable, get: d.get, set: function (v) { d.set.call(this, brauchts(v) ? ziel(v) : v); } });
   });
+  function satz(v) { return typeof v !== 'string' ? v : v.split(',').map(function (c) { var t = c.trim().split(/\s+/); return (brauchts(t[0]) ? ziel(t[0]) : t[0]) + (t[1] ? ' ' + t[1] : ''); }).join(', '); }
   var setA = Element.prototype.setAttribute;
   Element.prototype.setAttribute = function (n, v) {
     if ((n === 'src' || n === 'href' || n === 'poster') && brauchts(v)) v = ziel(v);
+    if (n === 'srcset' || n === 'imagesrcset') v = satz(v);
     return setA.call(this, n, v);
   };
+  [['HTMLImageElement', 'srcset'], ['HTMLSourceElement', 'srcset']].forEach(function (z) {
+    var K = window[z[0]]; if (!K) return;
+    var d = Object.getOwnPropertyDescriptor(K.prototype, z[1]); if (!d || !d.set) return;
+    Object.defineProperty(K.prototype, z[1], { configurable: true, enumerable: d.enumerable, get: d.get, set: function (v) { d.set.call(this, satz(v)); } });
+  });
+  var stP = CSSStyleDeclaration.prototype, setP = stP.setProperty;
+  function bildUrl(v) { return typeof v !== 'string' ? v : v.replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g, function (g, q, u) { return brauchts(u) ? 'url(' + q + ziel(u) + q + ')' : g; }); }
+  stP.setProperty = function (n, v, p) { return setP.call(this, n, bildUrl(v), p); };
+  ['backgroundImage', 'background'].forEach(function (k) {
+    var d = Object.getOwnPropertyDescriptor(stP, k); if (!d || !d.set) return;
+    Object.defineProperty(stP, k, { configurable: true, enumerable: d.enumerable, get: d.get, set: function (v) { d.set.call(this, bildUrl(v)); } });
+  });
   var ATTR = ['src', 'href', 'poster', 'data-src'];
   function biege(el) {
     if (!el || el.nodeType !== 1) return;
