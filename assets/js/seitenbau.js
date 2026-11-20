@@ -61,7 +61,12 @@
     function hole() {
       if (!window.fetch) { leer(); return; }
       var welcher = bf;
-      fetch(WURZEL + 'api/dienste?was=zuege&bf=' + welcher).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { if (welcher === bf) male(d); }).catch(function () { if (welcher === bf) leer(); });
+      var direkt = function () {   // Online ohne eigenen Dienst (GitHub Pages, Prüfung 20.11.2026): Abfahrten direkt von transport.opendata.ch (frei, ohne Schlüssel)
+        return fetch('https://transport.opendata.ch/v1/stationboard?limit=12&station=' + encodeURIComponent(welcher === 'west' ? 'Interlaken West' : 'Interlaken Ost')).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (j) {
+          return { zuege: (j.stationboard || []).map(function (x) { var st = x.stop || {}; return { zeit: st.departure, nach: x.to, plus: st.delay || 0, linie: [x.category, x.number].filter(Boolean).join(' '), gleis: st.platform || '' }; }).filter(function (x) { return x.zeit; }) };
+        });
+      };
+      (/(^|\.)tastystudios\.ch$|\.github\.io$/.test(location.hostname) ? direkt() : fetch(WURZEL + 'api/dienste?was=zuege&bf=' + welcher).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(direkt)).then(function (d) { if (welcher === bf) male(d); }).catch(function () { if (welcher === bf) leer(); });
     }
     $$('[data-bf]', box).forEach(function (b) {
       b.addEventListener('click', function () {

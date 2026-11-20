@@ -1809,3 +1809,6 @@ html:not(#a):not(#b) #pakete .pk9-wrap[data-r],html:not(#a):not(#b) #pakete .pk9
 
 /* Prüfung 20.11.2026: Am Handy ragte die Beschriftung «Bahnhof Interlaken Ost» über den Rand der Karte; schmal bricht sie jetzt um. */
 @media (max-width:700px){html:not(#q1) .pkw--ort{white-space:normal;width:34%;line-height:1.35}}
+
+/* Prüfung 20.11.2026: Der Stempel auf «Hunde» (EN/FR) machte die Seite am Handy beim Einfliegen 10 px breiter als den Bildschirm; der Abschnitt schneidet seitlich jetzt ab. */
+html:not(#q1) section:has(.hd-stempel){overflow-x:clip}
