@@ -983,7 +983,8 @@ async function probe() {
   sag('Probe-PDF wird gedruckt', 'Einen Moment.');
   try {
     const r = await api('probe', { z: Z });
-    sag('Probe-PDF fertig', `${r.seiten} Seiten, ${r.art === 'entwurf' ? 'aus dem Entwurf' : 'wie veröffentlicht'}.${r.warn && r.warn.length ? ' ' + r.warn[0] : ''} Die echte PDF bleibt unverändert.`, [{ t: 'Probe öffnen', href: r.url }]);
+    if (r.demo || r.seiten == null) { const k = LISTE.find(x => x.ziel === Z) || {}; r.seiten = r.seiten != null ? r.seiten : k.seiten; r.url = r.url || PDF_LIVE(Z); r.art = r.art || 'live'; }   // Vorführung online (Prüfung 20.11.2026): ohne Server die veröffentlichte PDF
+    sag('Probe-PDF fertig', `${r.seiten} Seiten, ${r.art === 'entwurf' ? 'aus dem Entwurf' : 'wie veröffentlicht'}.${r.warn && r.warn.length ? ' ' + r.warn[0] : ''} Die echte PDF bleibt unverändert.`, r.url ? [{ t: 'Probe öffnen', href: r.url }] : []);
   } catch (e) { fehlerSagen('Keine Probe-PDF', e); }
 }
 async function veroeffentlichen() {
