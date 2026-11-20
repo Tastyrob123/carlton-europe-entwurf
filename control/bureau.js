@@ -1,6 +1,6 @@
 /* Jede Seite öffnet oben (Robert 18.10.2026 18:30: «… die Links oben die Seite zeigen»): der Browser stellt beim Neuladen keine alte Stelle her */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-/* Le Bureau · Carlton-Europe (16.10.2026). Nachbau von Le Bureau des Grand Beau-Rivage (studio/studio.js dort, nur gelesen): jede Funktion und jeder
+/* Website bearbeiten · Carlton-Europe (16.10.2026). Nachbau von «Website bearbeiten» des Grand Beau-Rivage (studio/studio.js dort, nur gelesen): jede Funktion und jeder
    Handgriff gleich, das Kleid aus dem Carlton (bureau.css). Server-Teil: studio_bureau.py (Wege /control/api/b/…) über studio.py.
    Dazu, was nur das Carlton hat (Listen des Hauses, Karte & Wein der Website, Menü & Seiten, Bilder, Eingang, Zahlen …): dieselben Ansichten
    wie bisher, eingebettet aus alt.html (control/studio.js).
@@ -15,7 +15,7 @@ const ZU = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3
 const LUPE = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.5 3.5"/></svg>';
 const SPR = [['', 'Deutsch'], ['en', 'English'], ['fr', 'Français']];
 const SPNAME = { en: 'Englisch', fr: 'Französisch' };
-/* La Carte läuft am Rechner auf einem eigenen Server (Port 8932, Chat carlton-carte); online unter /_werkzeuge/carte/ */
+/* Karten & Preislisten läuft am Rechner auf einem eigenen Server (Port 8932, Chat carlton-carte); online unter /_werkzeuge/carte/ */
 const CARTE = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? `http://${location.hostname}:8932/_werkzeuge/carte/` : '/_werkzeuge/carte/';
 const ZAHLWORT = { 1: 'Eine', 2: 'Zwei', 3: 'Drei', 4: 'Vier', 5: 'Fünf', 6: 'Sechs', 7: 'Sieben', 8: 'Acht' };
 /* Listen des Hauses je Bereich (nur Carlton): stehen im Reiter «Listen» des Bereichs, bearbeitet in der eingebetteten Ansicht aus alt.html */
@@ -42,7 +42,7 @@ async function api(was, daten) {
   try {
     r = await fetch('/control/api/b/' + was, daten === undefined ? { cache: 'no-store', credentials: 'same-origin' } : { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-Studio': '1' }, body: JSON.stringify(daten) });
   } catch (e) {
-    throw new Error('VERBINDUNG · Keine Verbindung zu Le Bureau. Ihre Eingaben sind noch da: Verbindung prüfen und noch einmal speichern.');
+    throw new Error('VERBINDUNG · Keine Verbindung zu «Website bearbeiten». Ihre Eingaben sind noch da: Verbindung prüfen und noch einmal speichern.');
   }
   let d = {};
   try { d = await r.json(); } catch (e) { throw new Error('SERVER · Antwort nicht lesbar (' + r.status + ').'); }
@@ -95,7 +95,7 @@ function rand() {
       <p>Für alle Seiten</p>
       ${nw('angaben', 'Angaben des Hauses')}${nw('zahlen', 'Zeiten & Preise')}${nw('hinweis', 'Hinweis für Gäste')}${nw('google', 'Google-Texte')}${nw('sprachen', 'Sprachen')}${nw('x:menue', 'Menü & Seiten')}${nw('x:bilder', 'Bilder')}
       <p>Karten</p>
-      ${nw('karten', 'La Carte', 0, `<em>${u.karten && u.karten.karten ? u.karten.karten.filter(k => k.entwurf).length ? 'Entwurf' : u.karten.karten.length ? u.karten.karten.length + ' Karten' : '' : ''}</em>`)}${nw('x:karte', 'Karte & Wein', 0, '<em>Website</em>')}
+      ${nw('karten', 'Karten & Preislisten', 0, `<em>${u.karten && u.karten.karten ? u.karten.karten.filter(k => k.entwurf).length ? 'Entwurf' : u.karten.karten.length ? u.karten.karten.length + ' Karten' : '' : ''}</em>`)}${nw('x:karte', 'Karte & Wein', 0, '<em>Website</em>')}
       <p>Im Betrieb</p>
       ${nw('x:eingang', 'Eingang', u.eingang_neu || 0)}${nw('x:gefragt', 'Das wurde gefragt')}${nw('x:zahlen', 'Zahlen')}${nw('x:anfragen', 'Anfragen beantworten')}
       <p>Entwurf</p>
@@ -186,7 +186,7 @@ function kopf(mono, titel, satz, knoepfe = '', knapp = false) {
   if (knapp) return `<header class="titel titel--knapp"${kba}><div>${zier.replace('<i></i>' + ZEICHEN, ZEICHEN)}<h1>${titel}</h1>${satz ? `<p class="satz">${satz}</p>` : ''}</div>${knoepfe ? `<div class="titel__kn">${knoepfe}</div>` : ''}</header>`;
   return `<header class="titel"${kba}>${zier}<h1>${titel}</h1>${satz ? `<p class="satz">${satz}</p>` : ''}${knoepfe ? `<div class="titel__kn">${knoepfe}</div>` : ''}</header>`;
 }
-const TITEL = { start: 'Übersicht', angaben: 'Angaben des Hauses', zahlen: 'Zeiten & Preise', karten: 'La Carte', hinweis: 'Hinweis für Gäste', google: 'Google-Texte', sprachen: 'Sprachen', entwurf: 'Entwurf & Vergleich', verlauf: 'Frühere Fassungen',
+const TITEL = { start: 'Übersicht', angaben: 'Angaben des Hauses', zahlen: 'Zeiten & Preise', karten: 'Karten & Preislisten', hinweis: 'Hinweis für Gäste', google: 'Google-Texte', sprachen: 'Sprachen', entwurf: 'Entwurf & Vergleich', verlauf: 'Frühere Fassungen',
   'x:menue': 'Menü & Seiten', 'x:bilder': 'Bilder', 'x:karte': 'Karte & Wein', 'x:eingang': 'Eingang', 'x:gefragt': 'Das wurde gefragt', 'x:zahlen': 'Zahlen', 'x:anfragen': 'Anfragen beantworten', 'x:zugang': 'Zugang', 'x:kontrolle': 'Kontrolle' };
 const SYM = {
   pruef: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 2.8 4v3.6c0 3.2 2.2 5.6 5.2 6.6 3-1 5.2-3.4 5.2-6.6V4z"/><path d="m5.6 8 1.7 1.7 3.2-3.4"/></svg>',
@@ -216,13 +216,13 @@ const IC = {
 const ic = k => `<svg viewBox="0 0 16 16" aria-hidden="true">${IC[k] || IC.text}</svg>`;
 function kopfLeiste() {
   const b = S.ansicht === 'bereich' ? bereich() : null;
-  const t = b ? b.name : (TITEL[S.ansicht] || 'Le Bureau');
+  const t = b ? b.name : (TITEL[S.ansicht] || 'Website bearbeiten');
   const u = S.ue, z = u && u.zuletzt;
   $('#kopf').innerHTML = `
-    <button class="kopf__marke" type="button" data-gehe="start" aria-label="Zur Übersicht">${ZEICHEN}<span><b>Le Bureau</b><small>Website · Carlton-Europe</small></span></button>
+    <button class="kopf__marke" type="button" data-gehe="start" aria-label="Zur Übersicht">${ZEICHEN}<span><b>Website bearbeiten</b><small>Website · Carlton-Europe</small></span></button>
     <div class="kopf__mitte"><div class="kopf__titel">${esc(t)}</div><div class="kopf__stand">${u && u.aenderungen ? u.aenderungen + ' im Entwurf' : z ? 'Veröffentlicht ' + esc(datum(z.zeit).split(',')[0]) : 'Wie gebaut'}</div></div>
     <div class="kopf__werk">
-      <a class="rund" href="/maison/" data-tip="La Maison" aria-label="Zurück zu La Maison">${ic('haus')}</a>
+      <a class="rund" href="/maison/" data-tip="Kontrollpanel" aria-label="Zurück zu «Kontrollpanel»">${ic('haus')}</a>
       <a class="rund" href="/control/pruefung.html" target="_blank" rel="noopener" data-tip="Prüfung" aria-label="Prüfung">${SYM.pruef}</a>
       <a class="rund" href="/control/anleitung/" target="_blank" rel="noopener" data-tip="Anleitung" aria-label="Anleitung">${SYM.buch}</a>
       <span class="kopf__trenn"></span>
@@ -257,16 +257,16 @@ async function zeichne(still = false) {
 const EXTRA = {
   menue: ['Für alle Seiten', 'Menü <em>& Seiten.</em>', 'Das Hauptmenü oben auf jeder Seite und die Seiten, die das Haus selbst anlegt: mit Foto, Einleitung und Abschnitten, auf Wunsch im Menü.'],
   bilder: ['Für alle Seiten', 'Die <em>Bilder.</em>', 'Jedes Foto der Website an einem Ort: tauschen, überall wo es steht, und die Beschreibung für Blinde und Google.'],
-  karte: ['Karten', 'Karte <em>& Wein.</em>', 'Die Gerichte, Getränke und Weine auf der Seite «Essen & Trinken», mit eigenen Regionen in der Weinkarte. Die gedruckten Karten pflegt La Carte.'],
+  karte: ['Karten', 'Karte <em>& Wein.</em>', 'Die Gerichte, Getränke und Weine auf der Seite «Essen & Trinken», mit eigenen Regionen in der Weinkarte. Die gedruckten Karten pflegt Karten & Preislisten.'],
   eingang: ['Im Betrieb', 'Der <em>Eingang.</em>', 'Anfragen, Bestellungen und Bewerbungen aus den Formularen der Website, wenn sie hier statt im Mailprogramm ankommen sollen.'],
   gefragt: ['Im Betrieb', 'Das wurde <em>gefragt.</em>', 'Was Gäste die Rezeption im Chat fragen, und wo eine Antwort des Hauses fehlt.'],
   zahlen: ['Im Betrieb', 'Die <em>Zahlen.</em>', 'Was Gäste auf der Website anklicken: Zimmer, Packages, Anfragen, Länder und Sprachen. Ohne Kekse, ohne Namen.'],
   anfragen: ['Im Betrieb', 'Anfragen <em>beantworten.</em>', 'Eine Antwort auf eine Anfrage vorbereiten, im Ton des Hauses.'],
-  zugang: ['Sicher', 'Ihr <em>Zugang.</em>', 'Passwort und Anmeldung. Bei der Auslieferung an das Haus wird Le Bureau mit Anmeldung und Passwort geschützt.'],
-  kontrolle: ['Sicher', 'Die <em>Kontrolle.</em>', 'Le Bureau prüft sich selbst: Browser, Server, Daten, Bau der Seite, Fotos, Unterlagen, Sprachen. Jeder Punkt sagt, was zu tun ist.']
+  zugang: ['Sicher', 'Ihr <em>Zugang.</em>', 'Passwort und Anmeldung. Bei der Auslieferung an das Haus wird Website bearbeiten mit Anmeldung und Passwort geschützt.'],
+  kontrolle: ['Sicher', 'Die <em>Kontrolle.</em>', 'Website bearbeiten prüft sich selbst: Browser, Server, Daten, Bau der Seite, Fotos, Unterlagen, Sprachen. Jeder Punkt sagt, was zu tun ist.']
 };
 function zeichneExtra(name, listen) {
-  const x = EXTRA[name] || ['Le Bureau', esc(name), ''];
+  const x = EXTRA[name] || ['Website bearbeiten', esc(name), ''];
   const ziel = listen ? `/control/alt.html?eingebettet=1&nur=listen#/${listen}` : `/control/alt.html?eingebettet=1#/${name}`;
   const html = `<div class="einbett"><iframe id="ein-f" title="${esc(TITEL['x:' + name] || name)}" src="${ziel}"></iframe><div class="lade-schleier">Wird geladen …</div></div>`;
   if (listen) return html;
@@ -299,12 +299,12 @@ function start() {
     ['zahlen', 'Preis oder Öffnungszeit', 'Alle Zeiten und Preise der Website an einem Ort.', 'uhr', 'tisch-gedeckt'],
     ['b:pakete', 'Angebot ausblenden', 'Abgelaufenes Package oder Fest von der Seite nehmen.', 'aus', 'herbst-park'],
     ['b:zimmer', 'Foto tauschen', 'Ein Foto anklicken, aus den Fotos des Hauses wählen oder hochladen.', 'foto', 'z-superior'],
-    ['karten', 'Gericht oder Preis auf der Karte', 'Die Karten des Hauses pflegt La Carte, mit PDF.', 'karte', 'keller-flaschen'],
+    ['karten', 'Gericht oder Preis auf der Karte', 'Die Karten des Hauses pflegt Karten & Preislisten, mit PDF.', 'karte', 'keller-flaschen'],
     ['hinweis', 'Hinweis für Gäste', 'Ein Satz oben auf jeder Seite, mit Zeitraum.', 'hinweis', 'haus-nacht'],
     ['b:jobs', 'Stelle besetzt', 'Stelle ausblenden oder neu beschreiben.', 'karriere', 'team'],
     ['angaben', 'Telefon oder E-Mail', 'Einmal ändern, auf allen Seiten in allen Sprachen.', 'tel', 'reception']];
   const mc = (u.karten && u.karten.karten) || [];
-  return kopf('Le Bureau · Carlton-Europe Interlaken', `${gruss} <em>Was ändern wir heute?</em>`,
+  return kopf('Website bearbeiten · Carlton-Europe Interlaken', `${gruss} <em>Was ändern wir heute?</em>`,
     `Hier pflegen Sie die Website des Hauses: jeden Text, jedes Foto, jede Angabe. Alles wartet zuerst im Entwurf. Auf die Website kommt es erst, wenn Sie veröffentlichen, und jeder frühere Stand lässt sich zurückholen.`,
     `<a class="kn kn--linie" href="/control/anleitung/" target="_blank" rel="noopener">Anleitung<i>${PF}</i></a>`) +
     `<div class="lage platte">
@@ -389,7 +389,7 @@ async function zeichneBereich(still) {
     return;
   }
   S.vfKey = key;
-  const extra = S.bereich === 'genuss' ? `<button class="kn kn--linie kn--klein" type="button" data-gehe="karten">Karten in La Carte<i>${PF}</i></button>` : '';
+  const extra = S.bereich === 'genuss' ? `<button class="kn kn--linie kn--klein" type="button" data-gehe="karten">Karten in «Karten & Preislisten»<i>${PF}</i></button>` : '';
   $('#ansicht').innerHTML = kopf('Bereich · ' + esc(b.name), esc(b.name).replace(/^(\S+)(.*)$/, (m, a, c) => c ? `${a}<em>${c}</em>` : `<em>${a}</em>`),
     esc(b.satz) + ' Klicken Sie in der Seite auf einen Text oder ein Foto, oder wählen Sie links.', extra, true) +
     (reiter ? `<div class="reiter">${reiter}<span class="leise">${b.seiten.length} Seiten</span></div>` : '') +
@@ -446,9 +446,9 @@ function verbindeZeigen() {
   $$('[data-zeigen]').forEach(x => x.onclick = () => { const [h, n] = x.dataset.zeigen.split('|'); vormerken(`aus|${S.seite}|${h}|${n}`, { art: 'aus', seite: S.seite, h, n: +n, an: false }); speichern(); });
 }
 function gruppeHtml(g, gi) {
-  if (g.mc) return `<details class="gr gr--mc" data-g="${gi}"><summary><b>${esc(g.titel || 'Karte')}</b><small>La Carte</small></summary>
-    <div class="ed" style="border-top:0"><p style="margin:0 0 10px">Gerichte, Preise und Weine dieser Karte kommen aus La Carte, zusammen mit der PDF und allen Sprachen. Dort ändern, dann stimmt alles überein.</p>
-    <a class="kn kn--linie kn--klein" href="${CARTE}" target="_blank" rel="noopener">La Carte öffnen<i>${PF}</i></a></div></details>`;
+  if (g.mc) return `<details class="gr gr--mc" data-g="${gi}"><summary><b>${esc(g.titel || 'Karte')}</b><small>Karten & Preislisten</small></summary>
+    <div class="ed" style="border-top:0"><p style="margin:0 0 10px">Gerichte, Preise und Weine dieser Karte kommen aus «Karten & Preislisten», zusammen mit der PDF und allen Sprachen. Dort ändern, dann stimmt alles überein.</p>
+    <a class="kn kn--linie kn--klein" href="${CARTE}" target="_blank" rel="noopener">Karten & Preislisten öffnen<i>${PF}</i></a></div></details>`;
   const geaendert = g.stellen.some(s => s.neu !== undefined) || g.fotos.some(f => f.neu || f.alt_neu);
   const offen = gi < 2 || geaendert || (S.offenGr && S.offenGr.has(String(gi)));
   return `<details class="gr${g.aus ? ' ist-aus' : ''}" ${offen ? 'open' : ''} data-g="${gi}"${offen ? '' : ' data-leer'}><summary><b>${esc(g.titel || 'Abschnitt')}</b><small>${g.stellen.length} Text${g.stellen.length === 1 ? '' : 'e'}${g.fotos.length ? ' · ' + g.fotos.length + ' Foto' + (g.fotos.length > 1 ? 's' : '') : ''}</small></summary>
@@ -497,7 +497,7 @@ function senden(d) { const f = $('#vf'); if (f && f.contentWindow) f.contentWind
 function oeffneStelle(h, n, zeigen, bloecke) {
   const s = stelleVon(h, n);
   if (!s) return;
-  if (s.mc) { quit('Diese Karte pflegt La Carte', 'Gerichte, Preise und Weine dort ändern: dann stimmen PDF, Website und alle Sprachen überein.', [['La Carte öffnen', () => window.open(CARTE, '_blank')]], false, 8000); return; }
+  if (s.mc) { quit('Diese Karte pflegt Karten & Preislisten', 'Gerichte, Preise und Weine dort ändern: dann stimmen PDF, Website und alle Sprachen überein.', [['Karten & Preislisten öffnen', () => window.open(CARTE, '_blank')]], false, 8000); return; }
   if (s.q && s.q.length) return oeffneAngabe(s, h, n, zeigen);   // Carlton: die Stelle zeigt eine Angabe oder einen Listeneintrag des Hauses
   S.wahl = { h, n };
   $$('.ed').forEach(x => x.remove());
@@ -616,7 +616,7 @@ window.addEventListener('message', ev => {
 
 /* ---------- Foto tauschen ---------- */
 async function bildFenster(b, n, bloecke) {
-  for (const g of S.verz.gruppen) for (const f of g.fotos) if (f.b === b && f.n === n && f.mc) { quit('Dieses Foto gehört zur Karte', 'Die Fotos der Gerichte ordnet La Carte zu.', [], false, 6000); return; }
+  for (const g of S.verz.gruppen) for (const f of g.fotos) if (f.b === b && f.n === n && f.mc) { quit('Dieses Foto gehört zur Karte', 'Die Fotos der Gerichte ordnet Karten & Preislisten zu.', [], false, 6000); return; }
   if (!S.bilder) S.bilder = (await api('bilder')).bilder;
   let f0 = null;
   for (const g of S.verz.gruppen) for (const f of g.fotos) if (f.b === b && f.n === n) f0 = f;
@@ -795,7 +795,7 @@ function ersetzeText(html, alt, neu) {
   return h;
 }
 
-/* ---------- Karten (La Carte) ---------- */
+/* ---------- Karten (Karten & Preislisten) ---------- */
 function karten() {
   const mc = (S.ue.karten && S.ue.karten.karten) || [];
   return kopf('Karten', 'La <em>Carte.</em>', 'Die Karten des Hauses pflegt La Carte: Speisekarte, Wein- und Getränkekarte, Snack- und Hundekarte, Bankettmenüs und das Mittagsmenü, mit neuer PDF auf Knopfdruck. Darum steht hier nichts doppelt. Die Gerichte und Weine auf der Seite «Essen & Trinken» pflegen Sie unter «Karte & Wein».',
@@ -807,14 +807,14 @@ function karten() {
     }).join('')}</div>
     <h2 class="zw">So läuft <em>eine Preisänderung</em></h2>
     <div class="ablauf">${[
-      ['preis', 'Ändern', 'In La Carte die Karte wählen, das Gericht anklicken, den Preis ändern. Gespeichert wird in den Entwurf.'],
+      ['preis', 'Ändern', 'In «Karten & Preislisten» die Karte wählen, das Gericht anklicken, den Preis ändern. Gespeichert wird in den Entwurf.'],
       ['welt', 'Veröffentlichen', 'Neue PDF und die Unterlagen-Seite, geprüft Wort für Wort gegen die Daten, in einem Durchgang. Ein bis zwei Minuten.'],
       ['sprache', 'Übersetzen', 'Neue Gerichte stehen auf den fremdsprachigen Seiten deutsch, bis sie übersetzt sind.'],
-      ['zurueck', 'Zurückholen', 'Jede frühere Fassung holt La Carte unter «Frühere Fassungen» zurück.']].map(([k, t, x], i) => `<div class="ab" style="--i:${i}"><i class="ab__z">${ic(k)}</i><span class="mono">Schritt ${i + 1}</span><b>${t}</b><p>${x}</p></div>`).join('')}</div>
+      ['zurueck', 'Zurückholen', 'Jede frühere Fassung holt Karten & Preislisten unter «Frühere Fassungen» zurück.']].map(([k, t, x], i) => `<div class="ab" style="--i:${i}"><i class="ab__z">${ic(k)}</i><span class="mono">Schritt ${i + 1}</span><b>${t}</b><p>${x}</p></div>`).join('')}</div>
     <div class="karte ablauf__fuss"><p class="leise" style="margin:0">Texte rund um die Karten (Öffnungszeiten, Stimmung, Fotos der Lokale) ändern Sie hier im Bureau unter <button class="link" type="button" data-gehe="b:genuss">Restaurant & Bar</button>, die Gerichte und Weine der Website unter <button class="link" type="button" data-gehe="x:karte">Karte & Wein</button>.</p></div>`;
 }
 
-/* Endprüfung 19.10.2026 (B): Antwortet La Carte dem Bureau nicht direkt, holt das Bureau ihren Stand selbst; nie ein Serverfehler in der Ansicht */
+/* Endprüfung 19.10.2026 (B): Antwortet Karten & Preislisten dem Bureau nicht direkt, holt das Bureau ihren Stand selbst; nie ein Serverfehler in der Ansicht */
 async function ueberblick() {
   const u = await api('ueberblick');
   if (u && u.karten && u.karten.fehler) {
@@ -1040,7 +1040,7 @@ function fensterZu() { $('#fenster').hidden = true; $('#fenster').innerHTML = ''
     window.bureauMerk && window.bureauMerk('Start: ' + (e.message || e));
     return;
   }
-  /* Aus La Maison geöffnet: immer auf der Übersicht anfangen (Robert 16.10.2026), beim Neuladen bleibt die letzte Ansicht */
+  /* Aus «Kontrollpanel» geöffnet: immer auf der Übersicht anfangen (Robert 16.10.2026), beim Neuladen bleibt die letzte Ansicht */
   if ((/\/maison\/?(index\.html)?([?#].*)?$/.test(document.referrer) && ((performance.getEntriesByType('navigation')[0] || {}).type !== 'reload'))) try { localStorage.removeItem('bureau-ansicht'); } catch (e) { /* privat */ }
   else try { const m = JSON.parse(localStorage.getItem('bureau-ansicht') || 'null'); if (m) { S.ansicht = m.a || 'start'; S.bereich = m.b || ''; S.seite = m.s || ''; } } catch (e) { /* privat */ }
   if (S.ansicht === 'bereich' && !S.ue.bereiche.some(b => b.key === S.bereich)) S.ansicht = 'start';

@@ -1,4 +1,4 @@
-/* La Carte · Carlton-Europe: Kopie von control/zur-werkbank.js (Le Bureau, dort aus dem Grand Beau-Rivage übernommen, 16.10.2026), Schlüssel des Hauses «ce-wb».
+/* Karten & Preislisten · Carlton-Europe: Kopie von control/zur-werkbank.js (Website bearbeiten, dort aus dem Grand Beau-Rivage übernommen, 16.10.2026), Schlüssel des Hauses «ce-wb».
    Einzige Änderung: die Wurzel des Hauses wird auch aus _werkzeuge/carte/zur-werkbank.js erkannt. */
 /* «Zur Werkbank» (Robert 12.10.2026): ein Knopf unten links auf jeder Seite, die man aus der Werkbank heraus öffnet.
    Eine Datei für alle Seiten, sie bringt Aussehen und Verhalten selbst mit (eigener Schattenbaum, kein Stylesheet der Seite greift hinein).
@@ -6,7 +6,7 @@
    In der Werkbank selbst (werkbank/, werkbank/en/ …) zeigt sie nichts, sondern hängt an jeden Link, der hinausführt, die Herkunft:
    ?wb=<Sprache>.<Abschnitt>. Die Zielseite merkt sich das für die Sitzung (sessionStorage «ce-wb»), nimmt den Zusatz wieder aus der Adresse
    und zeigt den Knopf, auch über alle weiteren Klicks. Ohne diese Herkunft erscheint nichts: ein Gast des Hauses sieht den Knopf nie.
-   Eingebettet (Laptop der Werkbank, Vorschau in Le Bureau) erscheint er auch nicht.
+   Eingebettet (Laptop der Werkbank, Vorschau in «Website bearbeiten») erscheint er auch nicht.
 
    Verhalten wie die Sprachleiste unten links: weg beim Hinunterscrollen, zurück beim Hochscrollen, nur transform und opacity.
    Auf den Seiten der Website folgt er der Leiste oben (Klasse «weg» an .nav), sonst zählt er selbst (auch in Werkzeugen, die innen scrollen).
@@ -15,7 +15,7 @@
    data-z="…" hebt ihn über Flächen der Seite, die selbst weit oben liegen (Chat der Zimmermappe).
 
    Einbinden: <script src="…/assets/js/zur-werkbank.js" defer></script>   (zur_werkbank.py trägt das überall ein)
-   Auf fremder Adresse (L’Imprimerie): data-fremd am Skript-Tag, die Werkbank-Adresse kommt dann aus dem Link (wbo). */
+   Auf fremder Adresse (Drucksachen & Feed): data-fremd am Skript-Tag, die Werkbank-Adresse kommt dann aus dem Link (wbo). */
 /* Bild noch einmal holen (14.10.2026): Bleibt ein Bild beim ersten Versuch aus (kurzer Aussetzer der Leitung oder des Netzes von Vercel beim
    Umschalten einer Auslieferung), holt die Seite es einmal nach 1,5 s mit einem Zusatz an der Adresse neu, damit der Browser nicht die
    gescheiterte Antwort wiederverwendet. Gilt für jedes <img> der Seite, läuft nur einmal je Bild. */
@@ -37,8 +37,8 @@
   window.addEventListener('load', nachsehen);
 })();
 
-/* Besuche: die Zählung des Rivage (tasty-besuche, nur auf dessen Online-Adresse) gehört nicht in Le Bureau des Carlton und ist hier
-   herausgenommen (Prüfung 16.10.2026). Besuche der Website zählt Le Registre. */
+/* Besuche: die Zählung des Rivage (tasty-besuche, nur auf dessen Online-Adresse) gehört nicht in «Website bearbeiten» des Carlton und ist hier
+   herausgenommen (Prüfung 16.10.2026). Besuche der Website zählt Besucher. */
 
 (function () {
   'use strict';
@@ -48,7 +48,7 @@
   var TEXT = { de: 'Alles auf einen Blick', en: 'Everything at a glance', fr: 'Tout en un coup d’œil',   /* 17.10.2026: für das Haus heisst die Werkbank so */
                 zh: '前往工作台', ko: '작업대로', ar: 'إلى منضدة العمل' };
   var OHNE_SPRACHE = /^(control|_werkzeuge|studio|mission-control|reception|marke|maison|imprimerie|mails|werkbank\/anleitung)\/|^mappe/;   // gibt es nur deutsch: Sprache der Werkbank gilt
-  var FREMD_ZIEL = /^https:\/\/drucksachen-studio\.vercel\.app$|^https:\/\/[a-z0-9-]+-analyse\.tastystudios\.ch$|^http:\/\/(127\.0\.0\.1|localhost):8963$/;   // L’Imprimerie auf eigener Adresse
+  var FREMD_ZIEL = /^https:\/\/drucksachen-studio\.vercel\.app$|^https:\/\/[a-z0-9-]+-analyse\.tastystudios\.ch$|^http:\/\/(127\.0\.0\.1|localhost):8963$/;   // Drucksachen & Feed auf eigener Adresse
   var HERKUNFT = /^https:\/\/[a-z0-9-]+\.vercel\.app$|^https:\/\/[a-z0-9-]+\.tastystudios\.ch$|^http:\/\/(127\.0\.0\.1|localhost):\d{2,5}$/;   // seit 18.10.2026 auch die eigenen Adressen   // von wo eine Werkbank herkommen darf
   var SCHL = 'ce-wb';
 
@@ -164,7 +164,7 @@
     [['position', 'fixed'], ['z-index', String(parseInt(tag && tag.getAttribute('data-z'), 10) || 61)], ['left', 'clamp(14px,2vw,32px)'], ['bottom', 'clamp(14px,2vw,32px)'],
      ['top', 'auto'], ['right', 'auto'], ['width', 'auto'], ['height', 'auto'], ['margin', '0'], ['padding', '0'], ['border', '0'], ['background', 'none'], ['float', 'none'],
      ['visibility', 'visible'], ['filter', 'none'], ['clip-path', 'none'], ['direction', 'ltr'], ['line-height', 'normal'],
-     /* Regeln der Seite, die jedes Kind von body hereinschweben lassen (L’Imprimerie: Animation «auf»), dürfen den Knopf nicht festhalten:
+     /* Regeln der Seite, die jedes Kind von body hereinschweben lassen (Drucksachen & Feed: Animation «auf»), dürfen den Knopf nicht festhalten:
         in Safari überstimmt eine zu Ende gelaufene Animation sonst Deckkraft und Lage */
      ['animation', 'none'], ['translate', 'none'], ['rotate', 'none'], ['scale', 'none'], ['mask', 'none'], ['mix-blend-mode', 'normal'],
      ['max-width', 'none'], ['min-width', '0'], ['max-height', 'none'], ['min-height', '0'], ['overflow', 'visible'], ['box-shadow', 'none'], ['outline', '0'],
@@ -242,7 +242,7 @@
         var o;
         if (c.position === 'fixed' && c.bottom !== 'auto') o = parseFloat(c.bottom) + el.offsetHeight;
         else if (c.position === 'fixed' || c.position === 'sticky') o = r.bottom > H - unten - hoehe ? H - r.top : 0;
-        else {   // Inhalt, der mitscrollt (Eingabefeld der Zimmermappe, erste Tür von La Maison): zählt, solange er gerade in der Zeile des Knopfs steht
+        else {   // Inhalt, der mitscrollt (Eingabefeld der Zimmermappe, erste Tür von «Kontrollpanel»): zählt, solange er gerade in der Zeile des Knopfs steht
           lebend = true;
           o = r.bottom > H - unten - hoehe && r.top < H - unten ? H - r.top : 0;
           if (o > H * 0.4) o = 0;

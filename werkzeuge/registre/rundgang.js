@@ -1,12 +1,12 @@
-/* Kurzer Rundgang durch Le Registre · Carlton-Europe (Vorlage: assets/js/rundgang.js des Grand Beau-Rivage, Robert 16.10.2026: «einmal ganz kurz zeigen, hier kannst du das machen,
+/* Kurzer Rundgang durch Besucher · Carlton-Europe (Vorlage: assets/js/rundgang.js des Grand Beau-Rivage, Robert 16.10.2026: «einmal ganz kurz zeigen, hier kannst du das machen,
    da das, damit man weiss, wo man gelandet ist»). Ein Lichtkegel liegt auf dem echten Bedienelement, daneben eine Karte mit zwei, drei Sätzen.
    Kein Start von selbst: unten rechts erscheint ein Schild «Kurzer Rundgang» (fünf Sekunden, die Maus darauf hält es), dann zieht es sich zurück.
    Wieder aufrufen: «Kurzer Rundgang» im Rand oder ?rundgang (startet direkt). Automatische Prüfungen (navigator.webdriver) und eingebettete Ansichten sehen nichts. */
 (function () {
   var Q = new URLSearchParams(location.search), ERZWINGEN = Q.has('rundgang');
   if (window.self !== window.top && !ERZWINGEN) return;
-  var G = { name: 'Le Registre', schritte: [
-    { ziel: ['#ansicht .buehne'], titel: 'Das ist Le Registre',
+  var G = { name: 'Besucher', schritte: [
+    { ziel: ['#ansicht .buehne'], titel: 'Das ist Besucher',
       text: 'Hier sehen Sie, wer Ihre Website besucht: woher die Gäste kommen, was sie interessiert und wie viele weiter zur Buchung gehen.' },
     { ziel: ['#rand .rand__nav', '#rand .rand__auf'], titel: 'Acht Ansichten',
       text: 'Besuche und Herkunft, Zeit und Verlauf, Seiten und Zur Buchung, dazu «So wird gezählt». Ein Klick wechselt, der Zeitraum gilt überall.' },

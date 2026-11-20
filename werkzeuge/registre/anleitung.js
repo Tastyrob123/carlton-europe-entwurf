@@ -1,4 +1,4 @@
-/* Anleitung Le Registre: Bild gross mit Klick, Esc schliesst (eigene Datei: online laufen eingebettete Skripte ohne Prüfsumme nicht). */
+/* Anleitung Besucher: Bild gross mit Klick, Esc schliesst (eigene Datei: online laufen eingebettete Skripte ohne Prüfsumme nicht). */
 (function () {
   var g = document.getElementById('gross'), im = g.querySelector('img');
   function zu() { g.hidden = true; }

@@ -1,6 +1,6 @@
 /* Jede Seite öffnet oben (Robert 18.10.2026 18:30: «… die Links oben die Seite zeigen»): der Browser stellt beim Neuladen keine alte Stelle her */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-/* La Carte · Carlton-Europe — Bedienung (15.10.2026). Aufbau wie La Carte des Grand Beau-Rivage (mc.js): zwei Wege «Einfach» (Liste und Fenster) und
+/* Karten & Preislisten · Carlton-Europe — Bedienung (15.10.2026). Aufbau wie Karten & Preislisten des Grand Beau-Rivage (mc.js): zwei Wege «Einfach» (Liste und Fenster) und
    «Fortgeschritten» (direkt in der Karte schreiben), jede Änderung zuerst als Entwurf, Veröffentlichen druckt PDF und prüft sie gegen die Daten.
    Satz und Vorschau: satz/satz.js, Vorschau im Rahmen blatt.html. Server: carte.py über serve.py. Ohne Bibliothek.
    Kein Auswahlfeld des Betriebssystems: Auswahl als Knöpfe, Schalter als eigene Schalter, Woche mit Pfeilen statt Kalender des Browsers. */
@@ -23,7 +23,7 @@ const SYM = {
 const CE = '<svg class="ce" viewBox="150 0 60 42" aria-hidden="true"></svg>';
 const FOTO = { speisekarte: 'beizli', 'wein-und-getraenkekarte': 'keller-wein', snackkarte: 'dach-tisch', hundespeisekarte: 'hunde', bankettmenus: 'saal-hr', mittag: 'beizli-2' };
 const ROLLEN = { kueche: 'Küche', service: 'Service', direktion: 'Direktion' };
-/* Die Website und die anderen Werkzeuge des Hauses: lokal auf dem Server der Website (8912), online auf derselben Adresse wie La Carte */
+/* Die Website und die anderen Werkzeuge des Hauses: lokal auf dem Server der Website (8912), online auf derselben Adresse wie Karten & Preislisten */
 const HAUS = location.port === '8932' ? location.protocol + '//' + location.hostname + ':8912/' : '/';
 /* Online (GitHub Pages, Prüfung 20.11.2026): ohne Server gibt es kein api/pdf; die veröffentlichten PDFs liegen auf der Website unter assets/pdf/. Die Tageskarte hat dort keine PDF. */
 const PDF_WEB = ['speisekarte', 'wein-und-getraenkekarte', 'snackkarte', 'hundespeisekarte', 'bankettmenus'];
@@ -206,9 +206,9 @@ function oben() {
   const LISTEI = '<svg viewBox="0 0 16 16"><path d="M3 4h10M3 8h10M3 12h6"/></svg>';
   const HAUSI = '<svg viewBox="0 0 16 16"><path d="M2.6 7.4 8 2.8l5.4 4.6"/><path d="M4 6.4v6.8h8V6.4M6.6 13.2V9.6h2.8v3.6"/></svg>';
   const PULT = '<svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="8.5" rx="1.4"/><path d="M5.5 14h5M8 11.5V14"/></svg>';
-  el.innerHTML = `<a class="oben__marke" href="/_werkzeuge/carte/"><img class="ecke__ce" src="../../assets/img/ce-gold-320.webp" alt="" width="320" height="206" decoding="async"><span><b>La Carte</b><small>Karten · Carlton-Europe</small></span></a>
-    <div class="oben__mitte"><div class="oben__titel">${h(k.name || 'La Carte')}</div><div class="oben__stand">${OFFEN ? 'Nicht gespeichert' : g ? 'Entwurf wartet' : k.pdf_zeit ? 'PDF vom ' + h(k.pdf_zeit) : 'Website zeigt die PDF des Hauses'}</div></div>
-    <div class="oben__werk"><a class="rund" href="${HAUS}maison/" data-tip="La Maison" aria-label="Zurück zu La Maison" title="La Maison">${HAUSI}</a><a class="rund" href="/_werkzeuge/carte/anleitung.html" target="_blank" rel="noopener" data-tip="Anleitung" aria-label="Anleitung" title="Anleitung">${BUCH}</a><a class="rund" href="${HAUS}control/" target="_blank" rel="noopener" data-tip="Le Bureau" aria-label="Le Bureau" title="Le Bureau">${PULT}</a><button class="rund" type="button" data-akt="protokoll" data-tip="Protokoll" aria-label="Protokoll" title="Protokoll">${LISTEI}</button>
+  el.innerHTML = `<a class="oben__marke" href="/_werkzeuge/carte/"><img class="ecke__ce" src="../../assets/img/ce-gold-320.webp" alt="" width="320" height="206" decoding="async"><span><b>Karten & Preislisten</b><small>Karten · Carlton-Europe</small></span></a>
+    <div class="oben__mitte"><div class="oben__titel">${h(k.name || 'Karten & Preislisten')}</div><div class="oben__stand">${OFFEN ? 'Nicht gespeichert' : g ? 'Entwurf wartet' : k.pdf_zeit ? 'PDF vom ' + h(k.pdf_zeit) : 'Website zeigt die PDF des Hauses'}</div></div>
+    <div class="oben__werk"><a class="rund" href="${HAUS}maison/" data-tip="Kontrollpanel" aria-label="Zurück zu «Kontrollpanel»" title="Kontrollpanel">${HAUSI}</a><a class="rund" href="/_werkzeuge/carte/anleitung.html" target="_blank" rel="noopener" data-tip="Anleitung" aria-label="Anleitung" title="Anleitung">${BUCH}</a><a class="rund" href="${HAUS}control/" target="_blank" rel="noopener" data-tip="Website bearbeiten" aria-label="Website bearbeiten" title="Website bearbeiten">${PULT}</a><button class="rund" type="button" data-akt="protokoll" data-tip="Protokoll" aria-label="Protokoll" title="Protokoll">${LISTEI}</button>
       <button class="zustand${STATUS_ROT ? ' rot' : ''}" type="button" data-akt="gesund"><span>${STATUS_ROT ? 'Prüfen' : 'Alles in Ordnung'}</span></button>
       <span class="oben__trenn"></span>
       <a class="kn kn--klein kn--gold oben__web" href="${HAUS}${SEITE_DER_KARTE[Z] || 'essen-trinken.html'}" target="_blank" rel="noopener">Website ansehen<i>${WELT}</i></a></div>`;
@@ -314,7 +314,7 @@ function liste() {
 
 // ---------------------------------------------------------------- Vorschau (Rahmen blatt.html)
 /* Ansicht «Website» (wie GBR): die Seite der Website, auf der diese Karte hängt; die Stelle mit der PDF blinkt. Die Website ist abgenommen,
-   La Carte ändert sie nur mit dem Anschluss (PDF), deshalb zeigt die Ansicht die Seite, wie sie heute ist. */
+   Karten & Preislisten ändert sie nur mit dem Anschluss (PDF), deshalb zeigt die Ansicht die Seite, wie sie heute ist. */
 function website() {
   const an = ANSICHT === 'website';
   $('#vf').hidden = an; $('#web').hidden = !an;
@@ -402,7 +402,7 @@ function waehleAusVorschau(pfad) {   // aus der Karte: Liste links springt hin, 
   const r = markiere(np); if (!r) return;
   blitzRechts(np, linksMitte(r));
 }
-/* ---------------------------------------------------------------- Freie Anordnung und Gestalten (Fortgeschritten), 1:1 nach La Carte des Grand Beau-Rivage
+/* ---------------------------------------------------------------- Freie Anordnung und Gestalten (Fortgeschritten), 1:1 nach «Karten & Preislisten» des Grand Beau-Rivage
    (anordnen.js, 15./16.10.2026). Gewählt, gezogen und gezeigt wird in der Vorschau (blatt.js, ANR); hier liegen die Daten, der Verlauf für ⌘Z / ⌘⇧Z
    und die Seitenleiste «Gestalten» rechts (öffnet beim Wählen, × oder Esc schliesst, nie über der Karte).
    Wo die lage steht: Eintrag (Pfad «seiten.…») → n.lage, seine Linie («…:lin») → n.lage.lin; Bankett-Zeile → u.lage; Teile der Seite
@@ -462,7 +462,7 @@ function entf(id) {   // Entf: Einträge gehen von der Karte (wie «Ausblenden»
 }
 function abwaehlen() { WAHLID = null; WAHLINFO = null; GST_OFFEN = false; seitenleiste(); const f = $('#vf'); if (f && f.contentWindow) f.contentWindow.postMessage({ carte: 'abwaehlen' }, location.origin); }
 
-/* Seitenleiste «Gestalten» (GBR: «Schriftarten, Schriftgrösse und Textart ändern … so ein kleines Side-Menü»), Begriffe wie in L’Imprimerie */
+/* Seitenleiste «Gestalten» (GBR: «Schriftarten, Schriftgrösse und Textart ändern … so ein kleines Side-Menü»), Begriffe wie in «Drucksachen & Feed» */
 const SCHRIFTEN = [['baskerville', 'Baskerville'], ['instrument', 'Instrument Sans'], ['mono', 'DM Mono'], ['montserrat', 'Montserrat']];
 const TEXTART = [['normal', 'Normal'], ['kursiv', 'Kursiv'], ['versal', 'Versalien'], ['medium', 'Medium']];
 const AUSR = [['links', 'Links'], ['mitte', 'Mitte'], ['rechts', 'Rechts']];
@@ -908,7 +908,7 @@ function vglFenster() {
 async function verlaufFenster() {
   let l = [];
   try { l = (await api('verlauf?z=' + Z)).liste; } catch (e) { return fehlerSagen('Verlauf nicht lesbar', e); }
-  fenster(`<h2>Frühere <em>Fassungen.</em></h2><p class="satz">Jede veröffentlichte Fassung bleibt aufbewahrt, dazu jeder verworfene Entwurf und der Stand, mit dem La Carte begonnen hat. Eine Fassung zurückholen legt sie in den Entwurf; die PDF ändert sich erst beim Veröffentlichen. Zurückholen darf die Direktion.</p>
+  fenster(`<h2>Frühere <em>Fassungen.</em></h2><p class="satz">Jede veröffentlichte Fassung bleibt aufbewahrt, dazu jeder verworfene Entwurf und der Stand, mit dem Karten & Preislisten begonnen hat. Eine Fassung zurückholen legt sie in den Entwurf; die PDF ändert sich erst beim Veröffentlichen. Zurückholen darf die Direktion.</p>
     <div class="verlauf"><div class="verlauf__z"><div><b>Ursprünglicher Stand</b><br><span class="mono">so, wie die Karte eingelesen wurde</span></div><div><button class="kn kn--klein kn--hell" type="button" data-d="grundstand">In den Entwurf holen</button></div></div>
     ${l.map(x => `<div class="verlauf__z"><div><b>${x.art === 'verworfen' ? 'Verworfener Entwurf' : 'Veröffentlicht'}</b><br><span class="mono">${h(x.zeit)}${x.wer ? ' · ' + h(x.wer) : ''}</span></div><div>${x.pdf ? `<a class="kn kn--klein kn--hell" href="${API}pdf?z=${Z}&q=live" style="display:none"></a>` : ''}<button class="kn kn--klein kn--hell" type="button" data-d="${h(x.datei)}">In den Entwurf holen</button></div></div>`).join('') || '<p style="margin-top:10px">Noch keine früheren Fassungen. Die erste entsteht beim ersten Veröffentlichen.</p>'}</div>
     <div class="fenster__kn"><button class="kn kn--hell" type="button" data-zu>Schliessen</button></div>`);
@@ -962,15 +962,15 @@ async function gesundFenster() {
   const z = (t, ok) => `<div><span>${h(t)}</span><b class="${ok ? 'ja' : 'nein'}">${ok ? 'in Ordnung' : 'fehlt'}</b></div>`;
   const W = { node: 'Druck der PDF', playwright: 'Druckprogramm', pdftotext: 'Prüfung der PDF', speicher: 'Speicher', druck: 'Druck der PDF', pdfpruefung: 'Prüfung der PDF' };
   const bf = (g.browserfehler || [])[0];
-  fenster(`<h2>Ist alles <em>in Ordnung?</em></h2><p class="satz">Der Zustand von La Carte, direkt vom Server gelesen.${g.vorfuehrung ? ' Vorführ-Betrieb: Gespeichertes hält nicht.' : ''}</p><div class="gesund">${Object.entries(g.karten).map(([k, ok]) => z('Daten ' + ((LISTE.find(x => x.ziel === k) || {}).name || k), ok)).join('')}${Object.entries(g.werkzeug).map(([k, ok]) => z(W[k] || k, ok)).join('')}
-    <div><span>Speicher von La Carte</span><b>${g.speicher_mb} MB</b></div><div><span>Läuft seit</span><b>${Math.round(g.seit / 60)} Min.</b></div>${g.fehler.length ? `<div><span>Letzter Fehler im Server</span><b class="nein">${h(g.fehler[g.fehler.length - 1].slice(0, 160))}</b></div>` : ''}${bf ? `<div><span>Letzter Fehler im Browser</span><b class="nein">${h(bf.zeit + ' · ' + bf.text.slice(0, 120))}</b></div>` : ''}</div>
+  fenster(`<h2>Ist alles <em>in Ordnung?</em></h2><p class="satz">Der Zustand von «Karten & Preislisten», direkt vom Server gelesen.${g.vorfuehrung ? ' Vorführ-Betrieb: Gespeichertes hält nicht.' : ''}</p><div class="gesund">${Object.entries(g.karten).map(([k, ok]) => z('Daten ' + ((LISTE.find(x => x.ziel === k) || {}).name || k), ok)).join('')}${Object.entries(g.werkzeug).map(([k, ok]) => z(W[k] || k, ok)).join('')}
+    <div><span>Speicher von «Karten & Preislisten»</span><b>${g.speicher_mb} MB</b></div><div><span>Läuft seit</span><b>${Math.round(g.seit / 60)} Min.</b></div>${g.fehler.length ? `<div><span>Letzter Fehler im Server</span><b class="nein">${h(g.fehler[g.fehler.length - 1].slice(0, 160))}</b></div>` : ''}${bf ? `<div><span>Letzter Fehler im Browser</span><b class="nein">${h(bf.zeit + ' · ' + bf.text.slice(0, 120))}</b></div>` : ''}</div>
     <div class="fenster__kn"><button class="kn kn--hell" type="button" data-zu>Schliessen</button><a class="kn" href="/_werkzeuge/carte/pruefung.html" target="_blank" rel="noopener">Prüfung öffnen<i>${PF}</i></a></div>`);
 }
 async function einstFenster() {
   const s = (await api('status')).einstellungen; EINST = s;
   if (s.demo) return fenster(`<h2>Anschluss an die <em>Website.</em></h2><p class="satz"><b>Demo.</b> In der Demo arbeitet die Karte für sich: «Veröffentlichen» setzt die Karte und ihre PDF hier im Werkzeug, die Website bleibt, wie sie ist. Mit dem Auftrag wird der Anschluss eingeschaltet; dann erscheinen veröffentlichte Karten auch auf der Website.</p>
     <div class="fenster__kn"><button class="kn kn--hell" type="button" data-zu>Schliessen</button></div>`);   // Querprüfung 21.10.2026: Demo-Sperre
-  fenster(`<h2>Anschluss an die <em>Website.</em></h2><p class="satz">Die Website des Hauses verweist auf ihre eigene PDF der Karte. Solange der Anschluss aus ist, bleibt sie dabei und La Carte arbeitet für sich. Mit Anschluss kopiert «Veröffentlichen» die neue PDF auf die Website; die vorige PDF wird vorher gesichert. Das Mittagsmenü hat keinen Anschluss. Nur die Direktion darf das ändern.</p>
+  fenster(`<h2>Anschluss an die <em>Website.</em></h2><p class="satz">Die Website des Hauses verweist auf ihre eigene PDF der Karte. Solange der Anschluss aus ist, bleibt sie dabei und Karten & Preislisten arbeitet für sich. Mit Anschluss kopiert «Veröffentlichen» die neue PDF auf die Website; die vorige PDF wird vorher gesichert. Das Mittagsmenü hat keinen Anschluss. Nur die Direktion darf das ändern.</p>
     <div class="felder" style="margin-top:20px"><div class="feld"><span class="schalter" role="switch" tabindex="0" aria-checked="${!!s.anschluss_pdf}" id="e-a"><b></b>Veröffentlichte PDF auf die Website übernehmen</span></div></div>
     <div class="fenster__kn"><button class="kn kn--hell" type="button" data-zu>Schliessen</button><button class="kn" type="button" id="e-ok">Speichern<i>${PF}</i></button></div>`);
   const sw = $('#e-a'); const um = () => sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') !== 'true'); sw.addEventListener('click', um); sw.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); um(); } });
@@ -1129,7 +1129,7 @@ window.addEventListener('beforeunload', ev => { if (OFFEN) { ev.preventDefault()
     LISTE.forEach(k => { if (k.ziel !== z) vorab(k.ziel); });
     api('gesund').then(g => { STATUS_ROT = !g.ok; oben(); }).catch(() => { STATUS_ROT = true; oben(); });
   } catch (e) {
-    document.body.innerHTML = `<div style="min-height:100vh;display:grid;place-items:center;padding:24px;background:#06142b;color:#f4ecdc;font-family:system-ui,sans-serif;text-align:center"><div><p style="font-size:1.4rem;margin:0 0 10px">La Carte startet nicht.</p><p style="margin:0 0 22px;color:rgba(244,236,220,.7)">${h(e.message)}</p><a href="/_werkzeuge/carte/pruefung.html" style="display:inline-block;padding:12px 22px;border-radius:99px;background:#f4ecdc;color:#06142b;text-decoration:none;font-weight:600">Prüfung öffnen</a></div></div>`;
+    document.body.innerHTML = `<div style="min-height:100vh;display:grid;place-items:center;padding:24px;background:#06142b;color:#f4ecdc;font-family:system-ui,sans-serif;text-align:center"><div><p style="font-size:1.4rem;margin:0 0 10px">Karten & Preislisten startet nicht.</p><p style="margin:0 0 22px;color:rgba(244,236,220,.7)">${h(e.message)}</p><a href="/_werkzeuge/carte/pruefung.html" style="display:inline-block;padding:12px 22px;border-radius:99px;background:#f4ecdc;color:#06142b;text-decoration:none;font-weight:600">Prüfung öffnen</a></div></div>`;
     if (window.carteMerk) window.carteMerk('Start: ' + e.message);
   }
 })();

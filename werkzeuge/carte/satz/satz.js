@@ -1,4 +1,4 @@
-/* La Carte · Carlton-Europe — Satz der Karten (15.10.2026).
+/* Karten & Preislisten · Carlton-Europe — Satz der Karten (15.10.2026).
    Eine Datei für drei Stellen: die Vorschau im Werkzeug, die Druckseite (PDF) und die Prüfung im Rundlauf (node).
    Die Bausteine sind die des Hauses (pdf/fluss.py und die eigenen Helfer jeder Karte in pdf/dok/), Zeichen für Zeichen übertragen:
    aus denselben Daten entsteht dasselbe HTML wie im Satz des Projekts (geprüft mit pruefe.py rund). Die Bankettmenüs setzt
@@ -36,7 +36,7 @@
     v = v.replace(/Carlton-Europe(-[\p{L}\p{N}_]+)?/gu, function (m) { return '<span class="nw">' + m + '</span>'; });
     return v.split('~').join('\u00a0').split(' | ').join('<br>');
   }
-  /* Freie Anordnung und Gestalten (Fortgeschritten), wie La Carte des Grand Beau-Rivage (karte.js lageStil/gestalt, 15./16.10.2026):
+  /* Freie Anordnung und Gestalten (Fortgeschritten), wie Karten & Preislisten des Grand Beau-Rivage (karte.js lageStil/gestalt, 15./16.10.2026):
      lage = { x, y (mm), s (Faktor) · f Schrift · t Schriftgrösse (Faktor) · a Textart · c Farbe · al Ausrichtung · z Zeilenabstand ·
      mt, mb Abstand davor/danach (mm) · aus · lin {x, y, b Länge, d Stärke, c, aus} } an einem Eintrag; an der Seite: logo, kopf, zeichen, fuss, band {h}.
      Verschoben wird per transform (Ursprung oben links), der Satz bleibt. Ohne lage ist das HTML Zeichen für Zeichen das alte (pruefe.py rund). */
@@ -325,7 +325,7 @@
     return aus;
   }
 
-  /* ---------------------------------------------------------------- Mittagsmenü (neu, nach dem Mittagsmenü in La Carte des Grand Beau-Rivage)
+  /* ---------------------------------------------------------------- Mittagsmenü (neu, nach dem Mittagsmenü in «Karten & Preislisten» des Grand Beau-Rivage)
      Robert 14.10.2026: je Tag eine eigene Tageskarte, Gänge fest (Salat oder Suppe · Vegetarisch, Fleisch, Fisch · ein Dessert), alles mittig,
      zwischen den Gängen ein kurzer Goldstrich statt einer Linie über die Breite. Gesetzt mit den Bausteinen des Hauses (fluss). */
   var TAGE = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];

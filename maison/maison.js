@@ -11,7 +11,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   /* Gruss und Datum */
   var h = new Date().getHours();
-  /* Im Laptop der Werkbank lädt La Maison mit ?gruss=tag: derselbe Gruss wie im Standbild dort, damit beim Öffnen kein Wort wechselt (12.10.2026) */
+  /* Im Laptop der Werkbank lädt Kontrollpanel mit ?gruss=tag: derselbe Gruss wie im Standbild dort, damit beim Öffnen kein Wort wechselt (12.10.2026) */
   var fest = { morgen: 8, tag: 13, abend: 20 }[(/[?&]gruss=(morgen|tag|abend)/.exec(location.search) || [])[1]]; if (fest) h = fest;
   $('#gruss').textContent = h >= 5 && h < 11 ? 'Guten Morgen.' : h >= 11 && h < 18 ? 'Guten Tag.' : 'Guten Abend.';
   $('#datum').textContent = new Date().toLocaleDateString('de-CH', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
@@ -52,11 +52,11 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   });
   /* Auftritte: im Blickfeld, nicht darunter */
   var alle = $$('[data-r]');
-  /* Kommt ein Stück an, lädt es seine Bilder sofort (16.10.2026, Prüfung: der Safari-Kern am Handy holte den Bildschirm «Bildarchiv» von Le Livre
+  /* Kommt ein Stück an, lädt es seine Bilder sofort (16.10.2026, Prüfung: der Safari-Kern am Handy holte den Bildschirm «Bildarchiv» von «Markenbuch»
      nie, obwohl er im Bild stand; loading=lazy wird dann auf eager gestellt) */
   var wecke = function (el) { (el.tagName === 'IMG' ? [el] : $$('img[loading="lazy"]', el)).forEach(function (i) { if (!i.complete || !i.naturalWidth) i.loading = 'eager'; }); };
   var an = function (el) { el.classList.add('da'); wecke(el); };
-  /* Robert 18.10.2026 22:09 «die bilder in maison laden nicht»: beim Sprung über die Leiste holte der Safari-Kern den grossen Bildschirm (Le Registre)
+  /* Robert 18.10.2026 22:09 «die bilder in maison laden nicht»: beim Sprung über die Leiste holte der Safari-Kern den grossen Bildschirm (Besucher)
      auch nach Sekunden nicht. Jedes Bild lädt jetzt schon anderthalb Bildschirme vor dem Rand, nicht erst, wenn sein Stück auftritt. */
   if ('IntersectionObserver' in window) {
     var vio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { wecke(e.target); vio.unobserve(e.target); } }); }, { rootMargin: '150% 0px 150% 0px' });
@@ -109,23 +109,23 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   /* Stand-Wege als Daten in der Seite (<script type="application/json" id="maison-wege">, gesetzt von bau.py), kein eingebettetes Skript (CSP online) */
   var WEGE = {}; try { WEGE = JSON.parse($('#maison-wege').textContent) || {}; } catch (e) { /* ohne Wege: jede Zeile ohne Zahl */ }
-  /* Ein Weg oder eine Liste: antwortet der erste nicht, gilt der nächste (online: Le Registre über /api/registre, Ersatz die Beispielwerte) */
+  /* Ein Weg oder eine Liste: antwortet der erste nicht, gilt der nächste (online: Besucher über /api/registre, Ersatz die Beispielwerte) */
   var hole = function (k) {
     var w = [].concat(WEGE[k] || []);
     var weiter = function (i) { return i >= w.length ? Promise.reject() : fetch(w[i], { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).catch(function () { return weiter(i + 1); }); };
     return weiter(0);
   };
-  /* Stand: Le Bureau */
+  /* Stand: Website bearbeiten */
   hole('bureau').then(function (u) {
     var a = Math.max(0, parseInt(u.aenderungen, 10) || 0), z = u.zuletzt;   /* nur als Zahl in die Seite (16.10.2026) */
     if (u.bereiche && u.bereiche.length) zahl('bereiche', u.bereiche.length);
     if (parseInt(u.seiten, 10) > 0) zahl('seiten', parseInt(u.seiten, 10));
     var zd = z && z.zeit ? new Date(String(z.zeit).replace(' ', 'T')) : null, zul = zd && !isNaN(zd) ? tag(zd) : '';
     setze('bureau-kurz', a ? '<b>' + a + ' im Entwurf</b>' : (zul ? 'Veröffentlicht ' + esc(zul) : 'Nichts offen'));
-    setze('bureau', (a ? '<b>' + a + ' Änderung' + (a > 1 ? 'en' : '') + ' im Entwurf.</b> ' : 'Alles ist veröffentlicht. ') + (zul ? 'Zuletzt veröffentlicht am ' + esc(zul) + '.' : ''));   // wie Le Bureau, ohne «Noch nichts» (Endprüfung 19.10.2026, M)
+    setze('bureau', (a ? '<b>' + a + ' Änderung' + (a > 1 ? 'en' : '') + ' im Entwurf.</b> ' : 'Alles ist veröffentlicht. ') + (zul ? 'Zuletzt veröffentlicht am ' + esc(zul) + '.' : ''));   // wie Website bearbeiten, ohne «Noch nichts» (Endprüfung 19.10.2026, M)
   }).catch(function () { setze('bureau-kurz', 'Website des Hauses'); setze('bureau', 'Der Stand ist gerade nicht abrufbar.'); });
 
-  /* Stand: La Carte */
+  /* Stand: Karten & Preislisten */
   hole('carte').then(function (d) {
     var k = d.karten || [], e = k.filter(function (x) { return x.entwurf; }).length;
     var sortier = function (s) { var m = String(s).match(/(\d+)\.(\d+)\.(\d+)\s+(\d+):(\d+)/); return m ? m[3] + m[2] + m[1] + m[4] + m[5] : ''; };
@@ -137,7 +137,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     setze('carte-kurz', e ? '<b>' + e + ' im Entwurf</b>' : k.length + ' Karten, alle veröffentlicht');
   }).catch(function () { setze('carte-kurz', 'Speise-, Wein- und Snackkarte'); });
 
-  /* Stand: La Réception (Eingang und Fragen aus dem Chat) */
+  /* Stand: Anfragen & Chat (Eingang und Fragen aus dem Chat) */
   hole('reception').then(function (r) {
     var u = {}; ['anfragen_neu', 'anfragen_offen', 'ohne_antwort', 'fragen_gesamt'].forEach(function (k) { u[k] = Math.max(0, parseInt(r[k], 10) || 0); });   /* nur Zahlen (16.10.2026) */
     var teile = [];
@@ -149,7 +149,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     setze('reception', teile.length ? kurz : 'Nichts offen · ' + u.fragen_gesamt + (u.fragen_gesamt === 1 ? ' Frage' : ' Fragen') + ' bisher');
   }).catch(function () { setze('reception-kurz', 'Rezeption im Chat'); setze('reception', '&nbsp;'); });
 
-  /* Stand: Le Livre (aus marke/livre.json, gebaut von _werkbank/livre_bau.py: gezählte Fotos und Dateien) */
+  /* Stand: Markenbuch (aus marke/livre.json, gebaut von _werkbank/livre_bau.py: gezählte Fotos und Dateien) */
   hole('livre').then(function (d) {
     var s = d.stand || {};
     setze('livre-kurz', esc(s.fotos) + ' Fotos · ' + esc(s.dateien) + ' Dateien');
@@ -157,8 +157,8 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     setze('livre', esc(s.fotos) + ' Fotos in fertigen Grössen, davon ' + esc(s.ki) + ' mit KI erzeugt und ' + esc(s.ue) + ' nachgeschärft, alle gekennzeichnet. ' + esc(s.dateien) + ' Dateien für Agenturen und Druckereien, dazu die Markenprüfung.');
   }).catch(function () { setze('livre-kurz', 'Fotos, Dateien, Markenprüfung'); });
 
-  /* Le Registre: sechs Werte der Zählung ohne Cookies (registre.py über /api/registre). Vorführ-Betrieb (Robert 14.10.2026): hier stehen die Beispielwerte,
-     als Beispiel beschriftet; die echten Besuche zeigt La Maison erst, wenn das Haus in Betrieb geht (dann &beispiel=1 streichen). */
+  /* Besucher: sechs Werte der Zählung ohne Cookies (registre.py über /api/registre). Vorführ-Betrieb (Robert 14.10.2026): hier stehen die Beispielwerte,
+     als Beispiel beschriftet; die echten Besuche zeigt Kontrollpanel erst, wenn das Haus in Betrieb geht (dann &beispiel=1 streichen). */
   if ($('#registre')) hole('registre').then(function (m) {
     var n = function (x) { return Number(x || 0).toLocaleString('de-CH'); };
     var datum = function (iso) { var t = String(iso || '').split('-'); return t.length === 3 ? t[2] + '.' + t[1] + '.' + t[0] : ''; };

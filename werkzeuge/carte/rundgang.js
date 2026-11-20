@@ -1,12 +1,12 @@
-/* Kurzer Rundgang durch La Carte · Carlton-Europe (Vorlage: assets/js/rundgang.js des Grand Beau-Rivage, data-werkzeug="carte"; Form wie Le Registre des Carlton, 16.10.2026).
+/* Kurzer Rundgang durch Karten & Preislisten · Carlton-Europe (Vorlage: assets/js/rundgang.js des Grand Beau-Rivage, data-werkzeug="carte"; Form wie Besucher des Carlton, 16.10.2026).
    Robert 16.10.2026: «einmal ganz kurz zeigen, hier kannst du das machen, da das, damit man weiss, wo man gelandet ist». Ein Lichtkegel liegt auf dem echten Bedienelement, daneben eine Karte mit zwei, drei Sätzen.
    Kein Start von selbst: unten rechts erscheint ein Schild «Kurzer Rundgang» (fünf Sekunden, die Maus darauf hält es), dann zieht es sich zurück.
    Wieder aufrufen: «Kurzer Rundgang» im Rand oder ?rundgang (startet direkt). Automatische Prüfungen (navigator.webdriver) und eingebettete Ansichten sehen nichts. */
 (function () {
   var Q = new URLSearchParams(location.search), ERZWINGEN = Q.has('rundgang');
   if (window.self !== window.top && !ERZWINGEN) return;
-  var G = { name: 'La Carte', schritte: [
-    { ziel: ['#kopf'], titel: 'Das ist La Carte',
+  var G = { name: 'Karten & Preislisten', schritte: [
+    { ziel: ['#kopf'], titel: 'Das ist Karten & Preislisten',
       text: 'Die Speise-, Getränke-, Snack-, Hunde- und Bankettkarten des Hauses und das Mittagsmenü an einem Ort. Ein neues Gericht, ein anderer Preis, ein Wein ist aus: das ändern Sie hier selbst.' },
     { ziel: ['#rand .karten', '#rand'], titel: 'Alle Karten des Hauses',
       text: 'Restaurant und Bar, die Hunde, Feiern und Tagen und das Mittagsmenü, jede Karte für sich.' },

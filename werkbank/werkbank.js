@@ -107,7 +107,7 @@
     var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
     /* Endprüfung 19.10.2026: beim Zurück stellte der Browser selbst eine falsche Höhe her (5181 statt 28549), weil die Seite beim Zurückholen
        noch nicht ganz gebaut ist. Die Werkbank stellt die Stelle deshalb immer selbst her, aus der beim Verlassen gemerkten Höhe. */
-    if (y < 0 && nav.type === 'back_forward') { try { var g = sessionStorage.getItem('ce-wb-y'); if (g !== null) y = +g; } catch (e) {} }
+    /* Zurück/Vor im Browser macht der Rücksprung (ruecksprung.js, am Inhalt ausgerichtet), hier nur ?y= vom Knopf (Robert 1.11.2026) */
     if (!(y > 0)) return;
     if (m) try { history.replaceState(history.state, '', location.pathname + location.search.replace(/([?&])y=\d+(&|$)/, function (x, a, b) { return b ? a : ''; }) + location.hash); } catch (e) {}
     var stil = doc.createElement('style');
@@ -457,7 +457,7 @@
   })();
 })();
 /* «Alles auf einen Blick» als Knopf zurück (Robert 18.10.2026 ~23:00): auf jeder Seite, die werkbank.js lädt, auch das gemeinsame Skript
-   zur-werkbank.js (dasselbe wie in La Maison und den Werkzeugen). In der Werkbank hängt es die Herkunft samt Höhe an die Links, sonst zeigt es den Knopf. */
+   zur-werkbank.js (dasselbe wie in «Kontrollpanel» und den Werkzeugen). In der Werkbank hängt es die Herkunft samt Höhe an die Links, sonst zeigt es den Knopf. */
 (function () {
   if (document.querySelector('script[src*="zur-werkbank.js"]')) return;
   var me = document.querySelector('script[src*="werkbank.js"]'); if (!me) return;

@@ -1,8 +1,8 @@
-/* Le Bureau (bis 15.10.2026 «Carlton Control»). Das Werkzeug, mit dem das Haus die Website pflegt. Ohne Bibliothek. Vorbild: Studio von Salt & Silver, in Farben und Schrift des Hauses. */
+/* Website bearbeiten (bis 15.10.2026 «Carlton Control»). Das Werkzeug, mit dem das Haus die Website pflegt. Ohne Bibliothek. Vorbild: Studio von Salt & Silver, in Farben und Schrift des Hauses. */
 (() => {
 'use strict';
 window.CE_LAEUFT = true;  // sagt dem Notausgang in index.html, dass das Skript geladen ist
-// Eingebettet in Le Bureau (control/index.html, bureau.js, 16.10.2026): ohne Kopf, Rand und Leiste; nur=listen zeigt im Bereich nur die Listen
+// Eingebettet in «Website bearbeiten» (control/index.html, bureau.js, 16.10.2026): ohne Kopf, Rand und Leiste; nur=listen zeigt im Bereich nur die Listen
 const EIN = new URLSearchParams(location.search).has('eingebettet'), NUR = new URLSearchParams(location.search).get('nur') || '';
 if (EIN) document.documentElement.classList.add('eingebettet');
 const melden = () => { if (EIN && window.parent !== window) window.parent.postMessage({ bureau: 'geaendert' }, '*'); };
@@ -33,7 +33,7 @@ const SYM = {
   korb: '<svg viewBox="0 0 14 14"><path d="M2.5 4h9M5.5 4V2.5h3V4M3.5 4l.6 7.5h5.8L10.5 4"/></svg>',
   rechner: '<svg viewBox="0 0 16 14"><rect x="1.5" y="1.5" width="13" height="8.5" rx="1.4"/><path d="M5.5 12.5h5"/></svg>', handy: '<svg viewBox="0 0 14 16"><rect x="3.5" y="1.5" width="7" height="13" rx="1.6"/></svg>',
 };
-// Menü in Gruppen wie am Grand Beau-Rivage (Le Bureau, 15.10.2026): ['g', Titel] beginnt eine Gruppe
+// Menü in Gruppen wie am Grand Beau-Rivage (Website bearbeiten, 15.10.2026): ['g', Titel] beginnt eine Gruppe
 const NAV = [['uebersicht', 'Übersicht', 'haus'],
   ['g', 'Die Website'], ['start', 'Startseite', 'stern'], ['zimmer', 'Zimmer & Suiten', 'bett'], ['apartments', 'Apartments', 'schluessel'], ['genuss', 'Restaurant & Bar', 'glas'], ['karte', 'Karte & Wein', 'karte'],
   ['saele', 'Tagen & Feiern', 'saal'], ['pakete', 'Packages', 'geschenk'], ['events', 'Veranstaltungen', 'stern'], ['wellness', 'Wellness & Aktiv', 'blatt'], ['aufenthalt', 'Ihr Aufenthalt', 'schluessel'], ['haus', 'Haus & Region', 'turm'], ['jobs', 'Jobs', 'person'],
@@ -74,7 +74,7 @@ let ZS = null, W = null, V = null, OFFEN = false, PROBE = false;
 async function api(was, daten, roh) {
   const o = daten === undefined ? {} : { method: 'POST', headers: roh ? { 'X-Studio': '1' } : { 'X-Studio': '1', 'Content-Type': 'application/json' }, body: roh ? daten : JSON.stringify(daten) };
   let r;
-  try { r = await fetch('/control/api/' + was, o); } catch (e) { throw new Error('Keine Verbindung zu Le Bureau. Läuft der Server? Die Prüfung unter «Kontrolle» sagt es.'); }
+  try { r = await fetch('/control/api/' + was, o); } catch (e) { throw new Error('Keine Verbindung zu «Website bearbeiten». Läuft der Server? Die Prüfung unter «Kontrolle» sagt es.'); }
   const j = await r.json().catch(() => ({}));
   if (r.status === 401 && was !== 'status') { tor('an'); throw new Error(j.fehler || 'Bitte anmelden.'); }
   if (!r.ok) throw new Error(j.fehler || (r.status >= 500 ? 'Der Server hat einen Fehler gemeldet (' + r.status + '). Unter «Kontrolle» steht das Protokoll.' : 'Das hat nicht geklappt.'));
@@ -169,7 +169,7 @@ function rand() {
   $('#rand').innerHTML = `<nav aria-label="Bereiche">${NAV.map(p => p[0] === 'g' ? `<p class="rand__g">${h(p[1])}</p>` : `<a href="#/${p[0]}" class="${an === p[0] ? 'an' : ''}">${ZE(p[2])}<span>${p[1]}</span>${zahl(p[0])}</a>`).join('')}</nav>
   <div class="rand__fuss"><a href="/control/pruefung.html" target="_blank" rel="noopener">Prüfseite ${PF}</a>${OFFEN || PROBE ? '' : '<button type="button" data-akt="abmelden">Abmelden</button>'}</div>`;
   const nav = NAVP.find(p => p[0] === an), stand = n ? mal(n, 'Änderung', 'Änderungen') + ' im Entwurf' : 'Alles veröffentlicht';
-  $('#kopfl').innerHTML = `<a class="kopfl__marke" href="#/uebersicht">${CE}<span><b>Le Bureau</b><small>Website · Carlton-Europe</small></span></a>
+  $('#kopfl').innerHTML = `<a class="kopfl__marke" href="#/uebersicht">${CE}<span><b>Website bearbeiten</b><small>Website · Carlton-Europe</small></span></a>
     <div class="kopfl__mitte"><b>${h(datei ? ((seiteVon(datei) || {}).name || datei) : nav ? nav[1] : 'Seite')}</b><small>${h(datei && nav ? nav[1] + ' · ' + stand : stand)}</small></div>
     <div class="kopfl__r"><a class="rund rund--hell" href="#/kontrolle" title="Kontrolle" aria-label="Kontrolle">${ZE('schild')}</a><a class="rund rund--hell" href="#/verlauf" title="Frühere Fassungen" aria-label="Frühere Fassungen">${ZE('zeit')}</a>
     <a class="kn kn--klein kn--gold" href="/index.html" target="_blank" rel="noopener">Website ansehen<i>${PF}</i></a></div>`;
@@ -189,7 +189,7 @@ function kopfBild(name) {
 }
 function kopf(titel, text, rechts = '') {
   const name = (location.hash.split('/')[1] || 'uebersicht'), nav = NAVP.find(p => p[0] === (NAVBEREICH[name] || name)), bild = kopfBild(name);
-  const zeile = LISTEN[name] ? `Bereich · ${nav ? nav[1] : ''}` : name === 'uebersicht' ? 'Le Bureau · Carlton-Europe' : `Le Bureau · ${nav ? nav[1] : ''}`;
+  const zeile = LISTEN[name] ? `Bereich · ${nav ? nav[1] : ''}` : name === 'uebersicht' ? 'Website bearbeiten · Carlton-Europe' : `Website bearbeiten · ${nav ? nav[1] : ''}`;
   return `<header class="kopfz buehne">${bild ? `<div class="buehne__foto" aria-hidden="true"><img src="${bildadr(bild, 'l')}" onerror="this.onerror=null;this.src='${bildadr(bild)}'" alt=""></div>` : ''}
     <div class="buehne__t"><p class="bzeile">${CE}<span>${h(zeile)}</span></p><h1><span class="bu-z">${titel}</span></h1>${text ? `<p class="buehne__satz">${text}</p>` : ''}${rechts ? `<div class="kopfz__r">${rechts}</div>` : ''}</div></header>`;
 }
@@ -209,12 +209,12 @@ function zeige(halte) {
   } catch (e) {
     // Eine Ansicht, die nicht aufgeht, reisst nicht das ganze Werkzeug mit: Grund zeigen, Weg zur Kontrolle, die anderen Bereiche bleiben erreichbar
     fehlerMerken('Ansicht ' + name, e.message);
-    sicht.innerHTML = `<div class="in">${kopf('Diese Ansicht lässt sich <em>nicht aufbauen.</em>', 'Le Bureau hat hier einen Fehler gefunden. Die anderen Bereiche bleiben erreichbar; die Kontrolle sagt, woran es liegt.')}
+    sicht.innerHTML = `<div class="in">${kopf('Diese Ansicht lässt sich <em>nicht aufbauen.</em>', 'Website bearbeiten hat hier einen Fehler gefunden. Die anderen Bereiche bleiben erreichbar; die Kontrolle sagt, woran es liegt.')}
       <section class="blatt" style="max-width:760px"><p class="hinweis"><b>${h(nav ? nav[1] : name)}:</b> ${h(e.message)}</p>
       ${ZS.fehler ? `<p class="hinweis" style="margin-top:12px"><b>Der Entwurf lässt sich gerade nicht bauen:</b> ${h(ZS.fehler)}</p>` : ''}
       <div class="fenster__kn" style="justify-content:flex-start"><a class="kn" href="#/kontrolle">Zur Kontrolle<i>${PF}</i></a><a class="kn kn--linie" href="/control/pruefung.html">Prüfseite öffnen</a><button class="kn kn--linie" type="button" data-akt="neu-laden">Neu laden</button></div></section></div>`;
   }
-  document.title = (nav ? nav[1] + ' · ' : '') + 'Le Bureau · Carlton-Europe';
+  document.title = (nav ? nav[1] + ' · ' : '') + 'Website bearbeiten · Carlton-Europe';
   rand();
   auftritt(halte === true);
 }
@@ -1014,7 +1014,7 @@ function seitenReihe(dateien) {
 function listenAnsicht(name) {
   const a = LISTEN[name], nav = NAVP.find(p => p[0] === (NAVBEREICH[name] || name));
   const felder = (a.felder || []).filter(p => ZS.felder[p]);
-  if (NUR === 'listen') {   // in Le Bureau: nur die Listen des Bereichs
+  if (NUR === 'listen') {   // in «Website bearbeiten»: nur die Listen des Bereichs
     sicht.innerHTML = `<div class="in in--nur">${a.keys.map(listeBlatt).join('') || '<p class="hinweis">In diesem Bereich gibt es keine Liste.</p>'}</div>`;
     sicht.querySelector('.in').addEventListener('click', listenKlick);
     return;
@@ -1403,7 +1403,7 @@ async function gefragtS(filter) {
   } catch (e) {
     // Oberchef 17.10.2026: /api/fragen ist ohne Schlüssel gesperrt (401); in der Vorschau bleiben die Fragen geschützt
     if (String(e && e.message) === '401') { $('.in', sicht).innerHTML = kopf('Das wurde <em>gefragt.</em>', '') + `<div class="leerbild">${CE}<b>Geschützt.</b><p>In dieser Vorschau bleiben die Fragen der Gäste geschützt und werden hier nicht angezeigt.</p></div>`; return; }
-    $('.in', sicht).innerHTML = kopf('Das wurde <em>gefragt.</em>', '') + `<div class="leerbild">${CE}<b>Nur online.</b><p>Die Gästefragen liegen im Speicher der Online-Fassung. Öffnen Sie Le Bureau unter carlton.tastystudios.ch/control/.</p></div>`;
+    $('.in', sicht).innerHTML = kopf('Das wurde <em>gefragt.</em>', '') + `<div class="leerbild">${CE}<b>Nur online.</b><p>Die Gästefragen liegen im Speicher der Online-Fassung. Öffnen Sie Website bearbeiten unter carlton.tastystudios.ch/control/.</p></div>`;
     return;
   }
   const alle = FRAGEN, luecken = alle.filter(x => !x.belegt && !x.erledigt);
@@ -1488,7 +1488,7 @@ async function zahlenS() {
 
 // ---------------------------------------------------------------- Anfragen beantworten: Entwurf einer Antwort-Mail aus den Unterlagen des Hauses
 // Die Mail des Gastes einfügen, der Assistent schreibt den Entwurf (Preise und Leistungen nur aus Website und Unterlagen), das Team liest, ändert
-// und schickt selbst. Le Bureau verschickt nichts.
+// und schickt selbst. Website bearbeiten verschickt nichts.
 let ENTWURF_A = null;
 function anfragenS() {
   sicht.innerHTML = `<div class="in">${kopf('Anfragen <em>beantworten.</em>', 'Gruppen, Hochzeiten, Seminare, Bankette: Fügen Sie die Anfrage ein, der Assistent schreibt einen Entwurf im Ton des Hauses, mit Preisen und Leistungen aus Website und Unterlagen. Sie lesen, ändern und schicken selbst. Hier wird nichts verschickt.')}
@@ -1655,7 +1655,7 @@ function verlauf() {
   const vs = ZS.verlauf;
   sicht.innerHTML = `<div class="in">${kopf('Der <em>Verlauf.</em>', vs.length ? 'Jede Veröffentlichung wird aufgehoben. Holen Sie einen früheren Stand zurück, liegt er zuerst als Entwurf bereit. Sie prüfen ihn und veröffentlichen dann.' : '')}
     ${vs.length ? `<ol class="lauf">${vs.map((v, i) => `<li><div class="blatt"><div><time>${v.anfang ? 'Ursprünglicher Stand' : datum(v.zeit)}</time>
-      <p>${v.anfang ? 'So war die Website, bevor in Le Bureau zum ersten Mal etwas geändert wurde.' : (v.notiz ? `<b>${h(v.notiz)}</b> · ` : '') + h(v.punkte.slice(0, 6).join(' · ')) + (v.punkte.length > 6 ? ` und ${v.punkte.length - 6} weitere` : '')}</p></div>
+      <p>${v.anfang ? 'So war die Website, bevor in «Website bearbeiten» zum ersten Mal etwas geändert wurde.' : (v.notiz ? `<b>${h(v.notiz)}</b> · ` : '') + h(v.punkte.slice(0, 6).join(' · ')) + (v.punkte.length > 6 ? ` und ${v.punkte.length - 6} weitere` : '')}</p></div>
       ${i === 0 ? '<span class="mono leise">Das ist der Stand der Website</span>' : `<button class="kn kn--klein kn--linie" type="button" data-id="${h(v.id)}">Diesen Stand zurückholen</button>`}</div></li>`).join('')}</ol>`
     : `<div class="leerbild">${CE}<b>Noch nichts veröffentlicht.</b><p>Sobald Sie zum ersten Mal etwas veröffentlichen, finden Sie hier jeden Stand der Website und können ihn zurückholen.</p></div>`}</div>`;
   sicht.querySelector('.in').addEventListener('click', ev => {
@@ -1671,15 +1671,15 @@ function verlauf() {
 function zugang() {
   if (PROBE) {
     sicht.innerHTML = `<div class="in">${kopf('Ihr <em>Zugang.</em>', 'Die Probe-Fassung braucht kein Passwort. Jeder Besucher arbeitet in seiner eigenen Kopie, die echte Website bleibt, wie sie ist.')}
-      <section class="blatt" style="max-width:640px"><h3>Im echten Le Bureau</h3><p style="margin-top:12px;color:rgba(12,21,38,.7)">Dort legen Sie beim ersten Öffnen Ihr eigenes Passwort fest und können es hier jederzeit ändern. Nach zwölf Stunden meldet es Sie von selbst ab.</p></section></div>`;
+      <section class="blatt" style="max-width:640px"><h3>Im echten Website bearbeiten</h3><p style="margin-top:12px;color:rgba(12,21,38,.7)">Dort legen Sie beim ersten Öffnen Ihr eigenes Passwort fest und können es hier jederzeit ändern. Nach zwölf Stunden meldet es Sie von selbst ab.</p></section></div>`;
     return;
   }
   if (OFFEN) {
-    sicht.innerHTML = `<div class="in">${kopf('Ihr <em>Zugang.</em>', 'Le Bureau ist gerade ohne Passwort offen. Sobald Sie wirklich damit arbeiten, wird der Schutz eingeschaltet; Ihr Passwort bleibt dafür gespeichert.')}
+    sicht.innerHTML = `<div class="in">${kopf('Ihr <em>Zugang.</em>', 'Website bearbeiten ist gerade ohne Passwort offen. Sobald Sie wirklich damit arbeiten, wird der Schutz eingeschaltet; Ihr Passwort bleibt dafür gespeichert.')}
       <section class="blatt" style="max-width:640px"><h3>Offen</h3><p style="margin-top:12px;color:rgba(12,21,38,.7)">Jeder, der die Adresse kennt, kann gerade ändern und veröffentlichen. Zum Einschalten des Schutzes sagen Sie Robert Bescheid.</p></section></div>`;
     return;
   }
-  sicht.innerHTML = `<div class="in">${kopf('Ihr <em>Zugang.</em>', 'Le Bureau ist mit einem Passwort geschützt. Nach zwölf Stunden meldet es Sie von selbst ab.')}
+  sicht.innerHTML = `<div class="in">${kopf('Ihr <em>Zugang.</em>', 'Website bearbeiten ist mit einem Passwort geschützt. Nach zwölf Stunden meldet es Sie von selbst ab.')}
     <div class="raster r-2"><section class="blatt"><h3>Passwort ändern</h3><form id="z-form" style="display:grid;gap:14px;margin-top:18px" autocomplete="off">
       <label class="feld"><span>Bisheriges Passwort</span><input type="password" name="alt" autocomplete="current-password" required></label>
       <label class="feld"><span>Neues Passwort</span><input type="password" name="neu" autocomplete="new-password" required minlength="10"><small>Mindestens 10 Zeichen</small></label>
@@ -1697,11 +1697,11 @@ function zugang() {
 }
 
 // ---------------------------------------------------------------- Kontrolle: die Prüfseite, eingebettet. Sie ist eine eigene Datei ohne Teile dieses Skripts,
-// damit sie auch dann läuft, wenn Le Bureau selbst nicht mehr lädt (dann direkt /control/pruefung.html öffnen).
+// damit sie auch dann läuft, wenn Website bearbeiten selbst nicht mehr lädt (dann direkt /control/pruefung.html öffnen).
 function kontrolleS() {
-  sicht.innerHTML = `<div class="in in--kontrolle">${kopf('Die <em>Kontrolle.</em>', 'Le Bureau prüft sich selbst: Browser, Server, Daten, Bau der Seite, Fotos, Unterlagen, Sprachen. Jeder Punkt nennt in Alltagssprache, was zu tun ist. Darunter steht das Lexikon mit jeder bekannten Fehlerquelle.',
+  sicht.innerHTML = `<div class="in in--kontrolle">${kopf('Die <em>Kontrolle.</em>', 'Website bearbeiten prüft sich selbst: Browser, Server, Daten, Bau der Seite, Fotos, Unterlagen, Sprachen. Jeder Punkt nennt in Alltagssprache, was zu tun ist. Darunter steht das Lexikon mit jeder bekannten Fehlerquelle.',
       `<a class="kn kn--linie" href="/control/pruefung.html" target="_blank" rel="noopener">Prüfseite in neuem Fenster</a>`)}
-    <p class="hinweis" style="margin:-20px 0 18px">Die Prüfseite läuft auch, wenn der Rest von Le Bureau nicht mehr aufgeht: dann direkt <b>/control/pruefung.html</b> aufrufen oder den Weg über die Anmeldung nehmen.</p>
+    <p class="hinweis" style="margin:-20px 0 18px">Die Prüfseite läuft auch, wenn der Rest von «Website bearbeiten» nicht mehr aufgeht: dann direkt <b>/control/pruefung.html</b> aufrufen oder den Weg über die Anmeldung nehmen.</p>
     <iframe class="kontrolle" id="k-rahmen" src="/control/pruefung.html?eingebettet=1" title="Prüfung"></iframe></div>`;
   const fr = $('#k-rahmen');
   const hoch = () => { if (!fr.isConnected) return; try { const d = fr.contentDocument; if (d && d.body) fr.style.height = Math.max(600, d.documentElement.scrollHeight + 24) + 'px'; } catch (e) {} };
@@ -1774,7 +1774,7 @@ document.addEventListener('click', async ev => {
     t.hidden = false;
     t.innerHTML = `<div class="tor__k"><div class="tor__ce">${CE}</div><h1>Carlton <em>Control.</em></h1><p>${h(e.message)}</p>
       <form><a class="kn kn--breit" href="/control/pruefung.html">Zur Prüfung<i>${PF}</i></a><button class="kn kn--breit kn--linie" type="button" data-akt="neu-laden">Noch einmal versuchen</button></form>
-      <p class="tor__f">Die Prüfung läuft ohne den Rest von Le Bureau und sagt, woran es liegt.</p></div>`;
+      <p class="tor__f">Die Prüfung läuft ohne den Rest von «Website bearbeiten» und sagt, woran es liegt.</p></div>`;
   }
 })();
 })();

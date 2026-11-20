@@ -1,7 +1,7 @@
-/* Le Bureau · Carlton-Europe: übernommen aus dem Grand Beau-Rivage (studio/buehne.js dort, 16.10.2026); Fotos des Carlton (-l). */
-/* Bühne für die Köpfe der Werkzeuge (Robert 15.10.2026: «Heroes richtig schön, geil, luxuriös, edel», Vorbild Le Bureau des Carlton).
+/* Website bearbeiten · Carlton-Europe: übernommen aus dem Grand Beau-Rivage (studio/buehne.js dort, 16.10.2026); Fotos des Carlton (-l). */
+/* Bühne für die Köpfe der Werkzeuge (Robert 15.10.2026: «Heroes richtig schön, geil, luxuriös, edel», Vorbild Website bearbeiten des Carlton).
    Jeder <header class="titel"> wird zur blauen Bühne mit einem Foto des Hauses rechts. Das Foto steht in data-kb am Kopf,
-   sonst nimmt die Bühne das Foto des Werkzeugs. Gilt für Le Bureau, Le Registre, La Réception und Le Livre (alle auf studio.css). */
+   sonst nimmt die Bühne das Foto des Werkzeugs. Gilt für «Website bearbeiten», Besucher, Anfragen & Chat und Markenbuch (alle auf studio.css). */
 (function () {
   var FOTO = { bu: 'haus-tag2', rg: 'halle', re: 'reception', li: 'fassade-carlton' };
   var b = document.body, art = ['rg', 're', 'li'].filter(function (k) { return b.classList.contains(k); })[0] || 'bu';
@@ -17,7 +17,7 @@
     im.src = basis + k + '-l.webp';
     f.appendChild(im); h.insertBefore(f, h.firstChild);
   }
-  /* Auftritt wie Le Livre beim Öffnen (Robert 15.10.2026: «wenn ich von der Maison in die anderen Seiten navigiere, bauen sie sich einfach so auf»):
+  /* Auftritt wie Markenbuch beim Öffnen (Robert 15.10.2026: «wenn ich von der Maison in die anderen Seiten navigiere, bauen sie sich einfach so auf»):
      mit jedem neuen Kopf (neue Ansicht) federn Bühne, Blätter und Kacheln nacheinander herein. Nur transform und opacity, einmal je Ansicht.
      Was schon ein eigenes Schweben hat (data-r, data-sw), bleibt unberührt. */
   var KACHELN = '.lage,.lg,.ag,.bk,.kt,.ab,.mck,.ue-weg__s,.vl,.ae,.karte,.fr,.kh,.re-gr,.rg-zahlen,.rg-tafel,.rg-block,.li-k,.mini-w,.wahl2,.reiter,.filter,.leer-hinweis'   // Vorschau-Rahmen bleiben ruhig: jede Bewegung darüber lässt Safari die ganze Seite neu zeichnen;

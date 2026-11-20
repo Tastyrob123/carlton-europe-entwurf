@@ -1,6 +1,6 @@
 /* Jede Seite öffnet oben (Robert 18.10.2026 18:30: «… die Links oben die Seite zeigen»): der Browser stellt beim Neuladen keine alte Stelle her */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-/* Le Livre · Carlton-Europe. Die Marke des Hauses zum Arbeiten (Nachbau von Le Livre des Grand Beau-Rivage, dort nur gelesen): Bildarchiv mit fertigen Grössen,
+/* Markenbuch · Carlton-Europe. Die Marke des Hauses zum Arbeiten (Nachbau von «Markenbuch» des Grand Beau-Rivage, dort nur gelesen): Bildarchiv mit fertigen Grössen,
    Dateien (Zeichen, Logo, Wortmarke, Tapete, Farben, Schriften), Markenprüfung für Entwürfe, das Markenbuch (../../marke/) als Kapitel. Daten: ../../marke/livre.json
    (gebaut von _werkbank/marke_livre.py), Downloads und Prüfung über den Server-Teil livre.py (server.py, api/…). Oberfläche in drei Sprachen (wie die Website).
    Gespeichert wird nichts, ausser «Ergebnis sichern» legt auf Wunsch eine Datei auf diesem Rechner ab. Nur im Carlton: Vorher/Nachher bei den nachgeschärften Fotos. */
@@ -22,7 +22,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const PF = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg>';
-const IMPRIMERIE = '../imprimerie/';   // immer relativ, nie nach Port (F18, Prüfung 16.10.2026): L’Imprimerie liegt lokal (_werkzeuge/imprimerie/) und online (werkzeuge/imprimerie/) neben Le Livre
+const IMPRIMERIE = '../imprimerie/';   // immer relativ, nie nach Port (F18, Prüfung 16.10.2026): Drucksachen & Feed liegt lokal (_werkzeuge/imprimerie/) und online (werkzeuge/imprimerie/) neben Markenbuch
 const PU = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M3.8 7 8 11.2 12.2 7M3 14h10"/></svg>';
 const PO = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 12V3M3.8 7 8 2.8 12.2 7M3 14h10"/></svg>';
 const ZU = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13"/></svg>';
@@ -39,12 +39,12 @@ const SPRACHEN = [['de', 'DE', 'Deutsch'], ['en', 'EN', 'English'], ['fr', 'FR',
 const T = {
 de: {
   unter: 'Marke · Carlton-Europe', start: 'Übersicht', arbeiten: 'Arbeiten', nachschlagen: 'Nachschlagen', bilder: 'Bildarchiv', dateien: 'Logo & Dateien', pruefung: 'Markenprüfung', buch: 'Markenbuch',
-  anleitung: 'Anleitung', maison: 'La Maison', website: 'Website ansehen', sprache: 'Sprache',
+  anleitung: 'Anleitung', maison: 'Kontrollpanel', website: 'Website ansehen', sprache: 'Sprache',
   morgen: 'Guten Morgen.', tag: 'Guten Tag.', abend: 'Guten Abend.', frage: 'Was brauchen Sie heute?',
-  start_satz: 'Le Livre ist die Marke des Hauses zum Arbeiten: alle Fotos in fertigen Grössen für Instagram, Website und Druck, Zeichen, Logo, Tapete und Farben als Dateien, und eine Prüfung für Entwürfe von Agenturen und aus dem Haus.',
+  start_satz: 'Markenbuch ist die Marke des Hauses zum Arbeiten: alle Fotos in fertigen Grössen für Instagram, Website und Druck, Zeichen, Logo, Tapete und Farben als Dateien, und eine Prüfung für Entwürfe von Agenturen und aus dem Haus.',
   k_bilder: 'Alle Fotos des Hauses, nach Bereich, Saison und Format. Jedes Foto als Beitrag, Story, für die Website oder den Druck.',
   k_dateien: 'Zeichen, Logo und Wortmarke für helle und dunkle Flächen, die Tapete und die Farbwerte zum Kopieren.',
-  k_pruefung: 'Ein Entwurf als Bild oder PDF. Le Livre sagt, was zum Haus passt und was nicht, Punkt für Punkt.',
+  k_pruefung: 'Ein Entwurf als Bild oder PDF. Markenbuch sagt, was zum Haus passt und was nicht, Punkt für Punkt.',
   k_buch: 'Zeichen, Farben und ihre Herkunft, Schriften, Tapete und die Regeln, nach denen alles gestaltet ist.',
   oeffnen: 'Öffnen', lesen: 'Lesen',
   ue_kurz: 'nachgeschärft', z_haus: 'Fotos des Hauses', z_frei: 'frei lizenziert', z_ki: 'mit KI erzeugt', z_partner: 'von Partnern', z_dateien: 'Dateien',
@@ -56,7 +56,7 @@ de: {
   b_zimmer: 'Zimmer', b_essen: 'Essen & Trinken', b_dach: 'Dachterrasse', b_halle: 'Halle & Bar', b_garten: 'Wellness & Garten', b_saele: 'Säle', b_feiern: 'Feiern', b_team: 'Team', b_region: 'Region', b_haus: 'Haus',
   s_sommer: 'Sommer', s_winter: 'Winter', s_jahr: 'Ganzjährig', f_hoch: 'Hochformat', f_quer: 'Querformat', f_quadrat: 'Quadrat',
   h_haus: 'Fotos des Hauses', h_frei: 'Frei lizenziert', h_ki: 'Mit KI erzeugt', h_partner: 'Von Partnern',
-  im_titel: 'In L’Imprimerie gestalten', im_beitrag: 'Als Instagram-Beitrag', im_story: 'Als Story', im_satz: 'Öffnet L’Imprimerie mit diesem Foto und Ihrem Ausschnitt, fünf Entwürfe zur Wahl.',
+  im_titel: 'In «Drucksachen & Feed» gestalten', im_beitrag: 'Als Instagram-Beitrag', im_story: 'Als Story', im_satz: 'Öffnet Drucksachen & Feed mit diesem Foto und Ihrem Ausschnitt, fünf Entwürfe zur Wahl.',
   treffer: '{0} von {1} Fotos', keine: 'Kein Foto passt. Ein Filter weniger hilft.', mehr: 'Mehr zeigen', zuruecksetzen: 'Filter zurücksetzen',
   ki: 'KI', ki_lang: 'Mit KI erzeugt', ki_satz: 'Dieses Bild ist mit KI erzeugt und zeigt kein echtes Gericht, Getränk oder Kissen des Hauses. Für Werbung nur mit diesem Hinweis oder nach einem echten Foto.',
   partner_satz: 'Dieses Foto stammt vom Partnerbetrieb. Für Werbung des Hauses vorher dessen Einverständnis holen.',
@@ -64,7 +64,7 @@ de: {
   quelle: 'Quelle', original: 'Original', laden: 'Laden', grossen: 'Grössen', ausschnitt: 'Ausschnitt: das Feld im Bild ziehen.',
   g_instagram: 'Instagram-Beitrag', g_story: 'Story', g_web: 'Website', g_druck: 'Druck',
   i_instagram: '1080 × 1350, JPG', i_story: '1080 × 1920, JPG', i_web: 'längste Seite 2000 px, JPG', i_druck: 'volle Auflösung, {0} × {1}, JPG', i_druck_web: 'in Website-Grösse (Original nicht hinterlegt), JPG',
-  ohne_server: 'Fertige Grössen brauchen den Server-Teil von Le Livre (server.py). Ohne ihn lädt der Knopf das Foto in Website-Grösse.',
+  ohne_server: 'Fertige Grössen brauchen den Server-Teil von «Markenbuch» (server.py). Ohne ihn lädt der Knopf das Foto in Website-Grösse.',
   vn_vorher: 'Vorher', vn_nachher: 'Nachher', vn_schieber: 'Schieber', vn_t_vorher: 'Vorher · so geliefert', vn_t_nachher: 'Nachher · nachgeschärft', vn_t_schieber: 'Vorher links · nachher rechts',
   vn_hilfe: 'Mit «Vorher» sehen Sie das Foto, wie das Haus es geliefert hat.', vn_orig: 'Original laden',
   d_titel: 'Logo & Dateien', d_satz: 'Alles, was eine Agentur oder eine Druckerei braucht. SVG bleibt in jeder Grösse scharf, PNG hat einen durchsichtigen Grund.',
@@ -88,19 +88,19 @@ de: {
   u_passt: 'passt', u_achten: 'achten', u_passt_nicht: 'passt nicht',
   ber: { farben: 'Farben', schrift: 'Schrift', zeichen: 'Zeichen', abstand: 'Abstand', bild: 'Bild', ton: 'Ton' },
   p_ki_fehler: 'Die Beurteilung durch Claude war gerade nicht möglich ({0}). Die Messung der Farben steht unten.', p_fehler: 'Die Prüfung ging nicht durch',
-  p_seiten: '{0} Seiten, geprüft die ersten {1}', p_text: 'Gelesener Text', fehler_verb: 'Der Server-Teil von Le Livre antwortet nicht. Läuft server.py?',
+  p_seiten: '{0} Seiten, geprüft die ersten {1}', p_text: 'Gelesener Text', fehler_verb: 'Der Server-Teil von «Markenbuch» antwortet nicht. Läuft server.py?',
   schliessen: 'Schliessen', fehler_json: 'livre.json fehlt.',
   p_typ: 'Diese Datei ist kein Bild und keine PDF. Erlaubt sind JPG, PNG, WebP und PDF.', p_gross: 'Die Datei ist grösser als 30 MB.', p_pdf_online: 'Online geht eine PDF bis 3 MB. Bitte kleiner speichern oder die erste Seite als Bild prüfen.', p_offline: 'Keine Verbindung. Der Entwurf bleibt gewählt, bitte noch einmal prüfen, sobald das Netz wieder da ist.', fehler_code: 'Der Server antwortete mit Fehler {0}.',
-  tuer_t: 'Le Livre startet nicht.', tuer_neu: 'Neu laden', tuer_hilfe: 'Hilft das nicht: die Anleitung öffnen oder Tasty Studios Bescheid geben.'
+  tuer_t: 'Markenbuch startet nicht.', tuer_neu: 'Neu laden', tuer_hilfe: 'Hilft das nicht: die Anleitung öffnen oder Tasty Studios Bescheid geben.'
 },
 en: {
   unter: 'Brand · Carlton-Europe', start: 'Overview', arbeiten: 'Work', nachschlagen: 'Reference', bilder: 'Photo archive', dateien: 'Logo & files', pruefung: 'Brand check', buch: 'Brand book',
-  anleitung: 'Guide', maison: 'La Maison', website: 'View website', sprache: 'Language',
+  anleitung: 'Guide', maison: 'Kontrollpanel', website: 'View website', sprache: 'Language',
   morgen: 'Good morning.', tag: 'Good afternoon.', abend: 'Good evening.', frage: 'What do you need today?',
-  start_satz: 'Le Livre is the hotel’s brand to work with: every photo in ready-made sizes for Instagram, the website and print, monogram, logo, wallpaper and colours as files, and a check for drafts from agencies and from within the hotel.',
+  start_satz: 'Markenbuch is the hotel’s brand to work with: every photo in ready-made sizes for Instagram, the website and print, monogram, logo, wallpaper and colours as files, and a check for drafts from agencies and from within the hotel.',
   k_bilder: 'All photos of the hotel, by area, season and format. Every photo as a post, a story, for the website or for print.',
   k_dateien: 'Monogram, logo and wordmark for light and dark surfaces, the wallpaper and the colour values to copy.',
-  k_pruefung: 'A draft as an image or PDF. Le Livre says what suits the hotel and what does not, point by point.',
+  k_pruefung: 'A draft as an image or PDF. Markenbuch says what suits the hotel and what does not, point by point.',
   k_buch: 'Monogram, colours and where they come from, typefaces, wallpaper and the rules behind every design.',
   oeffnen: 'Open', lesen: 'Read',
   ue_kurz: 'sharpened', z_haus: 'photos of the hotel', z_frei: 'freely licensed', z_ki: 'created with AI', z_partner: 'from partners', z_dateien: 'files',
@@ -112,7 +112,7 @@ en: {
   b_zimmer: 'Rooms', b_essen: 'Food & drink', b_dach: 'Roof terrace', b_halle: 'Lobby & bar', b_garten: 'Wellness & garden', b_saele: 'Halls', b_feiern: 'Celebrations', b_team: 'Team', b_region: 'Region', b_haus: 'Hotel',
   s_sommer: 'Summer', s_winter: 'Winter', s_jahr: 'All year', f_hoch: 'Portrait', f_quer: 'Landscape', f_quadrat: 'Square',
   h_haus: 'Photos of the hotel', h_frei: 'Freely licensed', h_ki: 'Created with AI', h_partner: 'From partners',
-  im_titel: 'Design in L’Imprimerie', im_beitrag: 'As Instagram post', im_story: 'As story', im_satz: 'Opens L’Imprimerie with this photo and your crop, five drafts to choose from.',
+  im_titel: 'Design in «Drucksachen & Feed»', im_beitrag: 'As Instagram post', im_story: 'As story', im_satz: 'Opens Drucksachen & Feed with this photo and your crop, five drafts to choose from.',
   treffer: '{0} of {1} photos', keine: 'No photo matches. Try one filter less.', mehr: 'Show more', zuruecksetzen: 'Reset filters',
   ki: 'AI', ki_lang: 'Created with AI', ki_satz: 'This image was created with AI and does not show a real dish, drink or pillow of the hotel. Use it in advertising only with this note, or replace it with a real photo.',
   partner_satz: 'This photo comes from the partner business. Get their consent before using it in the hotel’s advertising.',
@@ -120,7 +120,7 @@ en: {
   quelle: 'Source', original: 'Original', laden: 'Download', grossen: 'Sizes', ausschnitt: 'Crop: drag the frame in the picture.',
   g_instagram: 'Instagram post', g_story: 'Story', g_web: 'Website', g_druck: 'Print',
   i_instagram: '1080 × 1350, JPG', i_story: '1080 × 1920, JPG', i_web: 'longest side 2000 px, JPG', i_druck: 'full resolution, {0} × {1}, JPG', i_druck_web: 'website size (original not on file), JPG',
-  ohne_server: 'Ready-made sizes need the server part of Le Livre (server.py). Without it the button downloads the photo in website size.',
+  ohne_server: 'Ready-made sizes need the server part of Markenbuch (server.py). Without it the button downloads the photo in website size.',
   vn_vorher: 'Before', vn_nachher: 'After', vn_schieber: 'Slider', vn_t_vorher: 'Before · as delivered', vn_t_nachher: 'After · sharpened', vn_t_schieber: 'Before left · after right',
   vn_hilfe: 'With «Before» you see the photo as the hotel delivered it.', vn_orig: 'Download original',
   d_titel: 'Logo & files', d_satz: 'Everything an agency or a printer needs. SVG stays sharp at any size, PNG has a transparent background.',
@@ -144,19 +144,19 @@ en: {
   u_passt: 'fits', u_achten: 'check', u_passt_nicht: 'does not fit',
   ber: { farben: 'Colours', schrift: 'Type', zeichen: 'Monogram', abstand: 'Spacing', bild: 'Image', ton: 'Tone' },
   p_ki_fehler: 'Claude’s assessment was not possible just now ({0}). The colour measurement is below.', p_fehler: 'The check did not go through',
-  p_seiten: '{0} pages, the first {1} checked', p_text: 'Text read', fehler_verb: 'The server part of Le Livre is not answering. Is server.py running?',
+  p_seiten: '{0} pages, the first {1} checked', p_text: 'Text read', fehler_verb: 'The server part of Markenbuch is not answering. Is server.py running?',
   schliessen: 'Close', fehler_json: 'livre.json is missing.',
   p_typ: 'This file is neither an image nor a PDF. Allowed are JPG, PNG, WebP and PDF.', p_gross: 'The file is larger than 30 MB.', p_pdf_online: 'Online, a PDF can be up to 3 MB. Please save it smaller or check the first page as an image.', p_offline: 'No connection. The draft stays selected; please check again once the network is back.', fehler_code: 'The server answered with error {0}.',
-  tuer_t: 'Le Livre does not start.', tuer_neu: 'Reload', tuer_hilfe: 'If that does not help: open the guide or let Tasty Studios know.'
+  tuer_t: 'Markenbuch does not start.', tuer_neu: 'Reload', tuer_hilfe: 'If that does not help: open the guide or let Tasty Studios know.'
 },
 fr: {
   unter: 'Marque · Carlton-Europe', start: 'Aperçu', arbeiten: 'Travailler', nachschlagen: 'Consulter', bilder: 'Photothèque', dateien: 'Logo & fichiers', pruefung: 'Contrôle de marque', buch: 'Charte',
-  anleitung: 'Guide', maison: 'La Maison', website: 'Voir le site', sprache: 'Langue',
+  anleitung: 'Guide', maison: 'Kontrollpanel', website: 'Voir le site', sprache: 'Langue',
   morgen: 'Bonjour.', tag: 'Bonjour.', abend: 'Bonsoir.', frage: 'De quoi avez-vous besoin aujourd’hui ?',
-  start_satz: 'Le Livre est la marque de l’hôtel pour travailler : toutes les photos en formats prêts pour Instagram, le site et l’impression, le monogramme, le logo, la tapisserie et les couleurs en fichiers, et un contrôle des projets d’agences et de l’hôtel.',
+  start_satz: 'Markenbuch est la marque de l’hôtel pour travailler : toutes les photos en formats prêts pour Instagram, le site et l’impression, le monogramme, le logo, la tapisserie et les couleurs en fichiers, et un contrôle des projets d’agences et de l’hôtel.',
   k_bilder: 'Toutes les photos de l’hôtel, par espace, saison et format. Chaque photo en publication, en story, pour le site ou l’impression.',
   k_dateien: 'Monogramme, logo et logotype pour fonds clairs et foncés, la tapisserie et les valeurs de couleur à copier.',
-  k_pruefung: 'Un projet en image ou en PDF. Le Livre indique ce qui convient à l’hôtel et ce qui ne convient pas, point par point.',
+  k_pruefung: 'Un projet en image ou en PDF. Markenbuch indique ce qui convient à l’hôtel et ce qui ne convient pas, point par point.',
   k_buch: 'Monogramme, couleurs et leur origine, typographies, tapisserie et les règles de toute création.',
   oeffnen: 'Ouvrir', lesen: 'Lire',
   ue_kurz: 'retouchées', z_haus: 'photos de l’hôtel', z_frei: 'sous licence libre', z_ki: 'créées par IA', z_partner: 'de partenaires', z_dateien: 'fichiers',
@@ -168,7 +168,7 @@ fr: {
   b_zimmer: 'Chambres', b_essen: 'Restauration', b_dach: 'Toit-terrasse', b_halle: 'Hall & bar', b_garten: 'Bien-être & jardin', b_saele: 'Salles', b_feiern: 'Fêtes', b_team: 'Équipe', b_region: 'Région', b_haus: 'Hôtel',
   s_sommer: 'Été', s_winter: 'Hiver', s_jahr: 'Toute l’année', f_hoch: 'Portrait', f_quer: 'Paysage', f_quadrat: 'Carré',
   h_haus: 'Photos de l’hôtel', h_frei: 'Licence libre', h_ki: 'Créées par IA', h_partner: 'De partenaires',
-  im_titel: 'Mettre en forme dans L’Imprimerie', im_beitrag: 'En publication Instagram', im_story: 'En story', im_satz: 'Ouvre L’Imprimerie avec cette photo et votre cadrage, cinq projets au choix.',
+  im_titel: 'Mettre en forme dans Drucksachen & Feed', im_beitrag: 'En publication Instagram', im_story: 'En story', im_satz: 'Ouvre Drucksachen & Feed avec cette photo et votre cadrage, cinq projets au choix.',
   treffer: '{0} sur {1} photos', keine: 'Aucune photo ne correspond. Un filtre de moins aidera.', mehr: 'Afficher plus', zuruecksetzen: 'Réinitialiser les filtres',
   ki: 'IA', ki_lang: 'Créée par IA', ki_satz: 'Cette image a été créée par IA et ne montre pas un vrai plat, une vraie boisson ou un vrai oreiller de l’hôtel. En publicité, seulement avec cette mention ou remplacée par une vraie photo.',
   partner_satz: 'Cette photo vient de l’établissement partenaire. Pour la publicité de l’hôtel, demandez d’abord son accord.',
@@ -203,7 +203,7 @@ fr: {
   p_seiten: '{0} pages, les {1} premières contrôlées', p_text: 'Texte lu', fehler_verb: 'La partie serveur du Livre ne répond pas. server.py est-il lancé ?',
   schliessen: 'Fermer', fehler_json: 'livre.json est introuvable.',
   p_typ: 'Ce fichier n’est ni une image ni un PDF. Sont acceptés JPG, PNG, WebP et PDF.', p_gross: 'Le fichier dépasse 30 Mo.', p_pdf_online: 'En ligne, un PDF peut peser jusqu’à 3 Mo. Merci de l’enregistrer plus léger ou de contrôler la première page comme image.', p_offline: 'Pas de connexion. Le projet reste sélectionné ; contrôlez à nouveau dès que le réseau est revenu.', fehler_code: 'Le serveur a répondu avec l’erreur {0}.',
-  tuer_t: 'Le Livre ne démarre pas.', tuer_neu: 'Recharger', tuer_hilfe: 'Si cela ne suffit pas : ouvrir le guide ou prévenir Tasty Studios.'
+  tuer_t: 'Markenbuch ne démarre pas.', tuer_neu: 'Recharger', tuer_hilfe: 'Si cela ne suffit pas : ouvrir le guide ou prévenir Tasty Studios.'
 }
 };
 let SP = (() => { try { const q = new URLSearchParams(location.search).get('sprache'); if (q && T[q]) return q; const m = localStorage.getItem('livre-sprache'); return m && T[m] ? m : 'de'; } catch (e) { return 'de'; } })();
@@ -223,7 +223,7 @@ function kopf() {
   const st = S.d ? t('stand', zahl(S.d.stand.fotos), zahl(S.d.stand.dateien)) : '';
   const akt = SPRACHEN.find(x => x[0] === SP);
   $('#kopf').innerHTML = `
-    <button class="kopf__marke" type="button" data-gehe="start" aria-label="${esc(t('start'))}"><span class="li-z">${ZEICHEN}</span><span><b>Le Livre</b><small>${esc(t('unter'))}</small></span></button>
+    <button class="kopf__marke" type="button" data-gehe="start" aria-label="${esc(t('start'))}"><span class="li-z">${ZEICHEN}</span><span><b>Markenbuch</b><small>${esc(t('unter'))}</small></span></button>
     <div class="kopf__mitte"><div class="kopf__titel">${esc(titel)}</div><div class="kopf__stand">${esc(st)}</div></div>
     <div class="kopf__werk">
       <div class="li-sp"><button class="li-sp__k" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="${esc(t('sprache'))}">${esc(akt[1])}<i>${PFEIL}</i></button>
@@ -243,8 +243,8 @@ document.addEventListener('click', () => { const sp = $('.li-sp'); if (sp) { sp.
 function rand() {
   const nw = (key, name, zahl = '') => `<button class="nw" type="button" data-gehe="${key}" ${S.ansicht === key ? 'aria-current="true"' : ''}><span>${esc(name)}</span>${zahl ? `<em>${esc(zahl)}</em>` : ''}</button>`;
   $('#rand').innerHTML = `
-    <button class="rand__auf" type="button" aria-expanded="false">Le Livre<i></i></button>
-    <nav class="nav" aria-label="Le Livre">
+    <button class="rand__auf" type="button" aria-expanded="false">Markenbuch<i></i></button>
+    <nav class="nav" aria-label="Markenbuch">
       ${nw('start', t('start'))}
       <p>${esc(t('arbeiten'))}</p>
       ${nw('bilder', t('bilder'), S.d ? zahl(S.d.stand.fotos) : '')}${nw('dateien', t('dateien'), S.d ? zahl(S.d.stand.dateien) : '')}${nw('pruefung', t('pruefung'))}
@@ -316,7 +316,7 @@ function start() {
   const karte = (ziel, mono, name, satz, inhalt, i) => `<button class="li-k" type="button" data-gehe="${ziel}" data-r style="--i:${i}">
       <span class="li-k__b">${inhalt}</span>
       <span class="li-k__n"><small>${esc(mono)}</small><b>${esc(name)}</b><span>${esc(satz)}</span><i class="li-k__p">${PF}</i></span></button>`;
-  return `${titel('start', 'Le Livre · Carlton-Europe', [gruss, t('frage')], t('start_satz'), '', [[zahl(st.fotos), t('bilder')], [zahl(st.dateien), t('z_dateien')], ['ΔE', t('pruefung')]])}
+  return `${titel('start', 'Markenbuch · Carlton-Europe', [gruss, t('frage')], t('start_satz'), '', [[zahl(st.fotos), t('bilder')], [zahl(st.dateien), t('z_dateien')], ['ΔE', t('pruefung')]])}
     <div class="li-karten">
       ${karte('bilder', zahl(st.fotos), t('bilder'), t('k_bilder'), `<span class="li-stapel"><img src="${bild('dach-sommer-s')}" alt="" decoding="async"><img src="${bild('kaminbar-s')}" alt="" decoding="async"><img src="${bild('z-superior-s')}" alt="" decoding="async"></span>`, 0)}
       ${karte('dateien', zahl(st.dateien), t('dateien'), t('k_dateien'), `<span class="li-logo tapete-d"><img src="${DAT}logo-dunkel.svg" alt="" decoding="async"></span>`, 1)}
@@ -668,7 +668,7 @@ function ergebnis(j, ziel) {
 }
 function alsText(j) {
   const m = j.messung, k = j.ki || {};
-  const z = [`Le Livre · ${t('pruefung')} · ${j.name}`, ''];
+  const z = [`Markenbuch · ${t('pruefung')} · ${j.name}`, ''];
   if (k.gesamt) z.push(k.gesamt, '');
   (k.punkte || []).forEach(p => z.push(`· ${(t('ber')[p.bereich]) || p.bereich} – ${t('u_' + p.urteil) || p.urteil}: ${p.titel}. ${p.text}`));
   z.push('', t('p_farben') + ':');
@@ -678,9 +678,9 @@ function alsText(j) {
 }
 function sichere(j) {
   // nur auf ausdrücklichen Wunsch: eine Datei auf diesem Rechner, nichts auf dem Server
-  const html = `<!doctype html><meta charset="utf-8"><title>Le Livre · ${esc(j.name)}</title><body style="font:15px/1.6 system-ui;max-width:820px;margin:40px auto;color:#0c1526;background:#f4ecdc;padding:0 20px">
+  const html = `<!doctype html><meta charset="utf-8"><title>Markenbuch · ${esc(j.name)}</title><body style="font:15px/1.6 system-ui;max-width:820px;margin:40px auto;color:#0c1526;background:#f4ecdc;padding:0 20px">
     <h1 style="font:400 34px Georgia,serif">${esc(t('pruefung'))}: ${esc(j.name)}</h1><img src="${j.vorschau}" style="max-width:360px;border-radius:12px"><pre style="white-space:pre-wrap;font:14px/1.6 system-ui">${esc(alsText(j))}</pre>
-    <p style="color:#8a7545;font-size:12px">Le Livre · Carlton-Europe Interlaken · ${new Date().toLocaleString(SP === 'de' ? 'de-CH' : SP)}</p></body>`;
+    <p style="color:#8a7545;font-size:12px">Markenbuch · Carlton-Europe Interlaken · ${new Date().toLocaleString(SP === 'de' ? 'de-CH' : SP)}</p></body>`;
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
   a.download = 'le-livre-pruefung-' + j.name.replace(/\.[a-z0-9]+$/i, '').replace(/[^a-z0-9äöü_-]+/gi, '-').toLowerCase() + '.html';
@@ -706,7 +706,7 @@ function melde(text, fehl = false) {
 }
 
 /* ---------------------------------------------------------------- Start */
-/* Startfehler-Tür (R04, Prüfung 16.10.2026): statt einer leeren Fläche sagt Le Livre, dass und warum es nicht startet. */
+/* Startfehler-Tür (R04, Prüfung 16.10.2026): statt einer leeren Fläche sagt Markenbuch, dass und warum es nicht startet. */
 function startfehler(grund) {
   $('#ansicht').innerHTML = `<div class="platte li-tuer" role="alert"><span class="li-tuer__z">${ZEICHEN}</span><h1>${esc(t('tuer_t'))}</h1>
     <p class="li-tuer__g">${esc(grund)}</p><p>${esc(t('tuer_hilfe'))}</p>
@@ -735,7 +735,7 @@ function bereit(ansicht) {
       if (!S.d || !Array.isArray(S.d.fotos) || !S.d.stand) throw new Error('Form');
     } catch (e) { return startfehler(t('fehler_json') + ' (' + (e.message === 'Failed to fetch' ? 'offline' : e.message) + ')'); }
     const h = location.hash.slice(1);
-    try { S.ansicht = ['start', 'bilder', 'dateien', 'pruefung'].includes(h) ? h : ((/\/maison\/?(index\.html)?([?#].*)?$/.test(document.referrer) && ((performance.getEntriesByType('navigation')[0] || {}).type !== 'reload')) ? (localStorage.removeItem('livre-ansicht'), 'start') : localStorage.getItem('livre-ansicht') || 'start'); }   /* Aus La Maison geöffnet: immer auf der Übersicht anfangen, beim Neuladen bleibt die letzte Ansicht */ catch (e) { S.ansicht = 'start'; }
+    try { S.ansicht = ['start', 'bilder', 'dateien', 'pruefung'].includes(h) ? h : ((/\/maison\/?(index\.html)?([?#].*)?$/.test(document.referrer) && ((performance.getEntriesByType('navigation')[0] || {}).type !== 'reload')) ? (localStorage.removeItem('livre-ansicht'), 'start') : localStorage.getItem('livre-ansicht') || 'start'); }   /* Aus «Kontrollpanel» geöffnet: immer auf der Übersicht anfangen, beim Neuladen bleibt die letzte Ansicht */ catch (e) { S.ansicht = 'start'; }
     await bereit(S.ansicht);
     kopf(); rand(); leiste(); zeichne();
   } catch (e) { return startfehler(String(e && e.message || e).slice(0, 200)); }

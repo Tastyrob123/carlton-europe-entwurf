@@ -1,9 +1,9 @@
-/* La Réception · Carlton-Europe: übernommen aus control/rundgang.js (Le Bureau), dort aus dem Grand Beau-Rivage (assets/js/rundgang.js dort, 16.10.2026), Schlüssel des Hauses «rundgang-ce-…». */
+/* Anfragen & Chat · Carlton-Europe: übernommen aus control/rundgang.js (Website bearbeiten), dort aus dem Grand Beau-Rivage (assets/js/rundgang.js dort, 16.10.2026), Schlüssel des Hauses «rundgang-ce-…». */
 /* Kurzer Rundgang beim ersten Öffnen eines Werkzeugs (Robert 16.10.2026: «einmal ganz kurz zeigen, hier kannst du das machen,
    da das, damit man weiss, wo man gelandet ist»). Ein Lichtkegel liegt auf dem echten Bedienelement, daneben eine Karte mit
    zwei, drei Sätzen. Je Werkzeug und Browser einmal; wieder aufrufen über «Kurzer Rundgang» im Rand oder ?rundgang.
    Einbinden: <script src="../assets/js/rundgang.js?v=1" defer data-werkzeug="bureau"></script>
-   L’Imprimerie hat ihre eigene Begrüssung mit Führung (fuehrung.js im Drucksachen-Studio) und braucht diese Datei nicht.
+   Drucksachen & Feed hat ihre eigene Begrüssung mit Führung (fuehrung.js im Drucksachen-Studio) und braucht diese Datei nicht.
    Automatische Prüfungen (navigator.webdriver) und eingebettete Ansichten (Werkbank, Bildschirm-Aufnahmen) sehen nichts. */
 (function () {
   var S = document.currentScript, WZ = (S && S.dataset.werkzeug) || '';
@@ -12,11 +12,11 @@
 
   /* ziel: Liste von Wahlorten, der erste sichtbare gilt (Handy hat andere Flächen). */
   var GAENGE = {
-    maison: { name: 'La Maison', schritte: [
-      { ziel: ['.m-f5__gruss', '#oben'], oben: true, titel: 'Das ist La Maison',
+    maison: { name: 'Kontrollpanel', schritte: [
+      { ziel: ['.m-f5__gruss', '#oben'], oben: true, titel: 'Das ist Kontrollpanel',
         text: 'Der Eingang zu allen Werkzeugen des Hauses. Von hier aus pflegen Sie Website, Karten, Drucksachen, den Chat und die Marke selbst.' },
       { ziel: ['.m-f5__k:first-child .m-f5__t', '.m-f5__k:first-child'], titel: 'Jedes Bild ist ein Werkzeug',
-        text: 'Le Bureau, La Carte, L’Imprimerie, La Réception, Le Livre. Darunter steht, was dort gerade ansteht. Ein Klick öffnet es.' },
+        text: 'Website bearbeiten, Karten & Preislisten, Drucksachen & Feed, Anfragen & Chat, Markenbuch. Darunter steht, was dort gerade ansteht. Ein Klick öffnet es.' },
       { ziel: ['.m-f5__zeile'], titel: 'Heute auf der Website',
         text: 'Wie viele Gäste heute auf der Website waren und wie viele weiter zur Buchung gingen.' },
       { ziel: ['.m-insel', '.m-oben'], oben: true, titel: 'Immer erreichbar',
@@ -24,8 +24,8 @@
       { ziel: ['#bureau .m-kopf', '#bureau'], titel: 'Jedes Werkzeug stellt sich vor',
         text: 'Weiter unten zeigt jeder Abschnitt, was ein Werkzeug für das Haus tut, mit Bildern aus dem Werkzeug selbst.' }
     ] },
-    bureau: { name: 'Le Bureau', schritte: [
-      { ziel: ['#ansicht .titel'], titel: 'Das ist Le Bureau',
+    bureau: { name: 'Website bearbeiten', schritte: [
+      { ziel: ['#ansicht .titel'], titel: 'Das ist Website bearbeiten',
         text: 'Ihre Website zum Selbstpflegen. Texte, Fotos, Preise, Öffnungszeiten, Angebote: alles, was Gäste online sehen, ändern Sie hier, ohne Agentur und ohne Programmierer.' },
       { ziel: ['#rand .nav', '#rand'], titel: 'Jede Seite Ihrer Website',
         text: 'Zimmer, Restaurant und Bar, Wellness, Feiern, Angebote, Region: jede Seite einzeln, in allen drei Sprachen.' },
@@ -34,8 +34,8 @@
       { ziel: ['#leiste'], titel: 'Nichts geht aus Versehen online',
         text: 'Sie arbeiten in Ruhe, die Website ändert sich erst, wenn Sie es wollen. Jeder frühere Stand lässt sich zurückholen.' }
     ] },
-    carte: { name: 'La Carte', schritte: [
-      { ziel: ['#kopf'], titel: 'Das ist La Carte',
+    carte: { name: 'Karten & Preislisten', schritte: [
+      { ziel: ['#kopf'], titel: 'Das ist Karten & Preislisten',
         text: 'Die Speise-, Getränke- und Weinkarten des Hauses an einem Ort. Ein neues Gericht, ein anderer Preis, ein Wein ist aus: das ändern Sie hier selbst.' },
       { ziel: ['#rand .karten', '#rand'], titel: 'Alle Karten des Hauses',
         text: 'Die Restaurants, die Bar, die Weinkarte und das Mittagsmenü, jede Karte für sich.' },
@@ -44,8 +44,8 @@
       { ziel: ['#rand .modus'], titel: 'Für jeden im Team',
         text: 'Einfach wie eine Liste, oder frei gestaltet direkt auf der Karte.' }
     ] },
-    reception: { name: 'La Réception', schritte: [
-      { ziel: ['#ansicht .titel'], titel: 'Das ist La Réception',
+    reception: { name: 'Anfragen & Chat', schritte: [
+      { ziel: ['#ansicht .titel'], titel: 'Das ist Anfragen & Chat',
         text: 'Auf Ihrer Website beantwortet ein Chat die Fragen der Gäste, Tag und Nacht und in ihrer Sprache. Hier sehen Sie, was dabei für das Haus herauskommt.' },
       { ziel: ['#ansicht .re-spalte'], titel: 'Anfragen, die direkt bei Ihnen landen',
         text: 'Wer im Chat einen Tisch, ein Zimmer oder eine Feier anfragt, steht hier mit allen Angaben. Die Antwort ist als Brief schon vorbereitet.' },
@@ -64,8 +64,8 @@
       { ziel: ['#ansicht .wi-probe'], titel: 'Vorher ausprobieren',
         text: 'Fragen Sie wie ein Gast und sehen Sie, was der Chat antworten würde.' }
     ] },
-    livre: { name: 'Le Livre', schritte: [
-      { ziel: ['#ansicht .titel'], titel: 'Das ist Le Livre',
+    livre: { name: 'Markenbuch', schritte: [
+      { ziel: ['#ansicht .titel'], titel: 'Das ist Markenbuch',
         text: 'Die Marke des Hauses zum Arbeiten. Alles, was Team, Agenturen und Druckereien vom Carlton-Europe brauchen, an einem Ort.' },
       { ziel: ['#ansicht .li-karten'], titel: 'Fotos, Logo, Prüfung',
         text: 'Jedes Foto in der richtigen Grösse für Instagram, Website oder Druck, das Logo für jede Fläche und eine Prüfung, ob ein Entwurf zum Haus passt.' },
@@ -74,8 +74,8 @@
       { ziel: ['#leiste'], titel: 'Weitergeben mit einem Klick',
         text: 'Alle Dateien als ein Paket, die Bildrechte gleich dabei.' }
     ] },
-    registre: { name: 'Le Registre', schritte: [
-      { ziel: ['#ansicht .titel'], titel: 'Das ist Le Registre',
+    registre: { name: 'Besucher', schritte: [
+      { ziel: ['#ansicht .titel'], titel: 'Das ist Besucher',
         text: 'Hier sehen Sie, wer Ihre Website besucht: woher die Gäste kommen, was sie interessiert und wie viele weiter zur Buchung gehen.' },
       { ziel: ['#ansicht .rg-zahlen'], titel: 'Bringt die Website Gäste?',
         text: 'Besuche, Verweildauer und Klicks zur Buchung. So sehen Sie, ob ein Angebot, eine Aktion oder ein Beitrag Gäste bringt.' },
@@ -86,8 +86,8 @@
     ] }
   };
 
-  /* La Réception: «Das weiss der Chat» bekommt seinen eigenen Rundgang, sobald man dorthin wechselt. */
-  function aktuell() { return WZ === 'reception' && (document.querySelector('#ansicht .wi-oben, #w-ein') || /^#wissen/.test(location.hash)) ? 'savoir' : WZ; }   /* La Réception merkt sich die letzte Ansicht, darum nach dem Inhalt fragen */
+  /* Anfragen & Chat: «Das weiss der Chat» bekommt seinen eigenen Rundgang, sobald man dorthin wechselt. */
+  function aktuell() { return WZ === 'reception' && (document.querySelector('#ansicht .wi-oben, #w-ein') || /^#wissen/.test(location.hash)) ? 'savoir' : WZ; }   /* Anfragen & Chat merkt sich die letzte Ansicht, darum nach dem Inhalt fragen */
   function schluessel(w) { return 'rundgang-ce-' + w; }
   function gesehen(w) { try { return localStorage.getItem(schluessel(w)) === '1'; } catch (e) { return true; } }
   function merk(w) { try { localStorage.setItem(schluessel(w), '1'); } catch (e) { } }
@@ -118,7 +118,7 @@
     '.rdg-karte .rdg-los svg{width:14px;height:14px;fill:none;stroke:#0b1f40;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}' +
     '.rdg-karte .rdg-los:hover i{transform:translateX(2px)}.rdg-karte .rdg-los i{transition:transform .2s}' +
     '.rdg-los:focus-visible,.rdg-zu:focus-visible{outline:2px solid #b89a58;outline-offset:3px}' +
-    /* Werkzeug-Stile (La Carte vergrössert Knöpfe und Schrift) dürfen die Karte nicht verändern */
+    /* Werkzeug-Stile (Karten & Preislisten vergrössert Knöpfe und Schrift) dürfen die Karte nicht verändern */
     '.rdg-karte,.rdg-karte *{box-sizing:border-box!important}' +
     '.rdg-karte p{font:15px/1.55 "Instrument Sans",system-ui,sans-serif!important;letter-spacing:0!important;text-transform:none!important}' +
     '.rdg-karte h3{font:500 27px/1.12 "Baskerville CE",Georgia,serif!important;letter-spacing:0!important;text-transform:none!important}' +

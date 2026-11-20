@@ -1,6 +1,6 @@
 /* Jede Seite öffnet oben (Robert 18.10.2026 18:30: «… die Links oben die Seite zeigen»): der Browser stellt beim Neuladen keine alte Stelle her */
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-/* Le Registre · Carlton-Europe (Tasty Studios 15.10.2026, Werkzeug 6 «Das Besucherbuch»). Das Haus sieht, wer seine Website besucht:
+/* Besucher · Carlton-Europe (Tasty Studios 15.10.2026, Werkzeug 6 «Besucher»). Das Haus sieht, wer seine Website besucht:
    woher (Land, Ort), wann (Tag, Uhrzeit, Wochentag), was (Seiten, Zeit je Seite), wie es sich entwickelt (Verlauf) und ob ein Besuch
    weiterführt (Buchungsfenster, SimpleBooking, Anruf, Mail, Chat). Nie ein Name, keine Adresse der Verbindung, kein Cookie.
    Server-Teil: registre.py über /api/registre (lokal server.py). Ohne Server-Teil liest das Werkzeug beispiel/<tage>.json und schiebt die Tage auf heute.
@@ -84,7 +84,7 @@ function schiebe(iso, tage) { const d = new Date(iso + 'T12:00:00Z'); d.setUTCDa
 async function lade() {
   const echt = !S.beispiel && SCHL;
   /* Vorführung: Beispielwerte aus den abgelegten Dateien, auf heute geschoben und genau auf jetzt gekürzt. Dieselbe Rechnung macht der Dienst
-     (registre.py ablage_heute) für La Maison, damit beide dieselben Zahlen zeigen (Prüfung 16.10.2026). Kein Aufruf an einen Dienst, den es nicht gibt. */
+     (registre.py ablage_heute) für «Kontrollpanel», damit beide dieselben Zahlen zeigen (Prüfung 16.10.2026). Kein Aufruf an einen Dienst, den es nicht gibt. */
   if (S.beispiel && !SCHL) return ablageLaden();
   let r, d = {};
   try { r = await fetch('../../api/registre?tage=' + S.tage + (S.beispiel ? '&beispiel=1' : echt ? '&k=' + SCHL : ''), { cache: 'no-store' }); }
@@ -183,14 +183,14 @@ function kuerzen(d, jetzt) {
 }
 
 /* ---------- Rahmen ---------- */
-/* Kopf: Titel und Stand der Ansicht, Anleitung, La Maison, Website ansehen (wie der Kopf des Le Registre im Grand Beau-Rivage) */
+/* Kopf: Titel und Stand der Ansicht, Anleitung, Kontrollpanel, Website ansehen (wie der Kopf des Besucher im Grand Beau-Rivage) */
 function kopfLeiste() {
   const u = S.d.summe;
   $('#kopf').innerHTML = `
-    <div class="kopf__mitte"><div class="kopf__titel">${esc(TITEL[S.ansicht] || 'Le Registre')}</div><div class="kopf__stand">${S.beispiel ? 'Beispielwerte · keine echten Besuche' : u.heute ? mal(u.heute, 'Ein Besuch heute', 'Besuche heute') : 'Heute noch kein Besuch'}</div></div>
+    <div class="kopf__mitte"><div class="kopf__titel">${esc(TITEL[S.ansicht] || 'Besucher')}</div><div class="kopf__stand">${S.beispiel ? 'Beispielwerte · keine echten Besuche' : u.heute ? mal(u.heute, 'Ein Besuch heute', 'Besuche heute') : 'Heute noch kein Besuch'}</div></div>
     <div class="kopf__werk">
       <a class="rund" href="anleitung.html" target="_blank" rel="noopener" data-tip="Anleitung" aria-label="Anleitung">${SYM.buch}</a>
-      <a class="rund" href="../../maison/" data-tip="La Maison" aria-label="La Maison">${SYM.haus}</a>
+      <a class="rund" href="../../maison/" data-tip="Kontrollpanel" aria-label="Kontrollpanel">${SYM.haus}</a>
       <span class="kopf__trenn"></span>
       <a class="kn kn--klein" href="../../index.html" target="_blank" rel="noopener">Website ansehen<i>${PF}</i></a>
     </div>`;
@@ -201,7 +201,7 @@ function rand() {
     : `<a href="#${key}" data-gehe="${key}" class="${an === key ? 'an' : ''}" ${an === key ? 'aria-current="page"' : ''}><span>${esc(name)}</span>${zahl === 'heute' && u.heute ? `<b>${n(u.heute)}</b>` : ''}</a>`).join('');
   $('#rand').innerHTML = `
     <div class="rand__kopf">
-      <a class="rand__marke" href="#start" data-gehe="start" aria-label="Le Registre, Übersicht"><img class="ecke__ce" src="../../assets/img/ce-gold-320.webp" alt="" width="320" height="206" decoding="async"><span><b>Le Registre</b><small>Besuche · Carlton-Europe</small></span></a>
+      <a class="rand__marke" href="#start" data-gehe="start" aria-label="Besucher, Übersicht"><img class="ecke__ce" src="../../assets/img/ce-gold-320.webp" alt="" width="320" height="206" decoding="async"><span><b>Besucher</b><small>Besuche · Carlton-Europe</small></span></a>
       <button class="rand__auf" type="button" aria-expanded="false" aria-controls="rand-nav">${esc(TITEL[an])}<i aria-hidden="true"></i></button>
     </div>
     <nav class="rand__nav" id="rand-nav" aria-label="Bereiche">${nav}</nav>
@@ -209,7 +209,7 @@ function rand() {
       <a href="../../index.html" target="_blank" rel="noopener">Website${PF}</a>
       <a href="#zaehlung" data-gehe="zaehlung">Was gezählt wird${PF}</a>
       <a href="anleitung.html" target="_blank" rel="noopener">Anleitung${PF}</a>
-      <a href="../../maison/">La Maison${PF}</a>
+      <a href="../../maison/">Kontrollpanel${PF}</a>
       <span class="rand__haus">Carlton-Europe · Interlaken · seit 1898</span>
     </div>`;
   $$('#rand [data-gehe]').forEach(a => a.onclick = e => { e.preventDefault(); gehe(a.dataset.gehe); });
@@ -223,7 +223,7 @@ function leiste() {
   $('#leiste').innerHTML = `
     <div class="leiste__l"><i class="leiste__z${S.beispiel ? ' bsp' : ''}" aria-hidden="true">${S.beispiel ? 'B' : n(u.heute)}</i>
       <span><b>${S.beispiel ? 'Sie sehen Beispielwerte' : u.heute ? mal(u.heute, 'Ein Besuch heute', 'Besuche heute') : 'Heute noch kein Besuch'}</b>
-      <small>${S.beispiel ? 'Erfunden, damit Sie sehen, wie Le Registre mit Besuchen aussieht.' : esc(satz)}</small></span></div>
+      <small>${S.beispiel ? 'Erfunden, damit Sie sehen, wie Besucher mit Besuchen aussieht.' : esc(satz)}</small></span></div>
     <div class="leiste__r">
       <button class="kn kn--klein kn--linie" type="button" id="l-export" title="Alle Besuche des gewählten Zeitraums als Tabelle (CSV, öffnet in Excel und Numbers)">Als Tabelle sichern<i>${SYM.laden}</i></button>
       ${S.beispiel ? (ECHT_DA && !S.ablage ? `<button class="kn kn--klein kn--hell" type="button" id="l-echt">Zu den echten Besuchen<i>${PF}</i></button>` : '')
@@ -231,7 +231,7 @@ function leiste() {
     </div>`;
   if ($('#l-geraet')) $('#l-geraet').onclick = () => {
     try {
-      if (nicht()) { localStorage.removeItem(MERK); quit('Dieses Gerät zählt wieder mit', 'Ihre Besuche der Website erscheinen wieder in Le Registre.'); }
+      if (nicht()) { localStorage.removeItem(MERK); quit('Dieses Gerät zählt wieder mit', 'Ihre Besuche der Website erscheinen wieder in «Besucher».'); }
       else { localStorage.setItem(MERK, '1'); quit('Dieses Gerät zählt nicht mehr mit', 'Gilt für diesen Browser. Auf den anderen Geräten des Teams bitte ebenfalls einmal wählen.'); }
     } catch (e) { quit('Das liess sich nicht merken', 'Dieser Browser erlaubt es nicht, die Wahl zu speichern.', true); }
     leiste();
@@ -259,7 +259,7 @@ function zeitraum() {
   return `<div class="wahl3" role="group" aria-label="Zeitraum">${k(7)}${k(30)}${k(90)}</div>`;
 }
 function hinweisBeispiel() {
-  return S.beispiel ? `<p class="bsp-band"><b>Beispielwerte.</b> Diese Zahlen sind erfunden und zeigen, wie Le Registre mit Besuchen aussieht. Echte Besuche erscheinen hier, sobald die Website zählt.</p>` : '';
+  return S.beispiel ? `<p class="bsp-band"><b>Beispielwerte.</b> Diese Zahlen sind erfunden und zeigen, wie Besucher mit Besuchen aussieht. Echte Besuche erscheinen hier, sobald die Website zählt.</p>` : '';
 }
 function gehe(ziel, wahl) {
   if (!TITEL[ziel]) ziel = 'start';
@@ -288,7 +288,7 @@ async function frisch(sagen = false) {
     if (S.wahl >= S.d.besuche.length) S.wahl = 0;
     rand(); leiste(); zeichne();
     if (sagen) quit('Neu geladen', '', false, 2500);
-  } catch (e) { quit('Le Registre ist gerade nicht abrufbar', e.message, true, 0); }
+  } catch (e) { quit('Besucher ist gerade nicht abrufbar', e.message, true, 0); }
 }
 function beispiel(an) {
   if (!an && !ECHT_DA) return;
@@ -299,7 +299,7 @@ function beispiel(an) {
 
 /* ---------- Datenexport (Website-Bau-Master 9d Punkt 21, Prüfung 16.10.2026): alle Besuche des Zeitraums als Tabelle, ohne uns ----------
    Echte Werte (mit Schlüssel): der Dienst gibt alle Besuche des Zeitraums heraus (?export=1), nicht nur die neuesten 400. Beispielwerte: was die Liste zeigt,
-   im Dateinamen und in der ersten Spalte als Beispiel gekennzeichnet. Nur Angaben, die Le Registre ohnehin zeigt: kein Name, keine Adresse, kein Kürzel. */
+   im Dateinamen und in der ersten Spalte als Beispiel gekennzeichnet. Nur Angaben, die Besucher ohnehin zeigt: kein Name, keine Adresse, kein Kürzel. */
 function zelle(x) {
   let t = String(x == null ? '' : x);
   if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;   /* keine Formeln in Excel (CSV-Einschleusung) */
@@ -377,10 +377,10 @@ function zeichne(ruhig) {
   $$('[data-filter]', el).forEach(b => b.onclick = () => { S.filter = b.dataset.filter; S.wahl = -1; S.zeige = 40; zeichne(true); });
   $$('[data-mehr]', el).forEach(b => b.onclick = () => { S.zeige += 60; zeichne(true); });
   $$('[data-raster]', el).forEach(b => b.onclick = () => { S.raster = b.dataset.raster; zeichne(); });
-  document.title = (TITEL[S.ansicht] || 'Le Registre') + ' · Le Registre · Carlton-Europe';
+  document.title = (TITEL[S.ansicht] || 'Besucher') + ' · Besucher · Carlton-Europe';
   schweben(el, ruhig);
 }
-/* Schweben (Gefühl der Carlton-Seiten, Rezeptur des Le Registre im Grand Beau-Rivage, Robert 16.10.2026: «darf nicht an den Scroll geknüpft sein, muss luxuriös
+/* Schweben (Gefühl der Carlton-Seiten, Rezeptur des Besucher im Grand Beau-Rivage, Robert 16.10.2026: «darf nicht an den Scroll geknüpft sein, muss luxuriös
    reingeschwebt kommen»): Sobald ein Blatt am unteren Rand auftaucht, schwebt es nach der Uhr an seinen Platz (.rg-da). Balken und Säulen wachsen erst, wenn ihr Blatt
    gut zur Hälfte im Bild ist (.rg-los). */
 let IO = null, IO_LOS = null;
@@ -405,7 +405,7 @@ function schweben(el, still) {
 function start() {
   const d = S.d, u = d.summe, v = d.vorher, h = new Date().getHours();
   const gruss = /[?&]gruss=tag/.test(location.search) ? 'Guten Tag.' : h >= 5 && h < 11 ? 'Guten Morgen.' : h >= 11 && h < 18 ? 'Guten Tag.' : 'Guten Abend.';
-  let aus = kopf('Le Registre · Carlton-Europe Interlaken', `${gruss} <em>Wer war zu Besuch?</em>`,
+  let aus = kopf('Besucher · Carlton-Europe Interlaken', `${gruss} <em>Wer war zu Besuch?</em>`,
     'Hier sehen Sie, wer Ihre Website besucht: woher die Gäste kommen, welche Seiten sie ansehen, wie lange sie bleiben und wie viele weiter zur Buchung gehen. Gezählt ohne Cookies, nie mit Namen.', zeitraum(), chipsStart(d)) + hinweisBeispiel();
   if (d.leer) return aus + leer();
   const viele = d.je_tag.length, schritt = viele <= 7 ? 1 : viele <= 31 ? 5 : 15;
@@ -616,7 +616,7 @@ function trichter(w) {
 }
 
 function zaehlung() {
-  return kopf('So wird gezählt', 'Was Le Registre <em>weiss und was nicht.</em>', 'Le Registre zählt so wenig wie möglich und so viel wie nötig, damit Sie sehen, was Ihre Website leistet. Nach Schweizer Datenschutzgesetz und DSGVO.') + `
+  return kopf('So wird gezählt', 'Was Besucher <em>weiss und was nicht.</em>', 'Besucher zählt so wenig wie möglich und so viel wie nötig, damit Sie sehen, was Ihre Website leistet. Nach Schweizer Datenschutzgesetz und DSGVO.') + `
   <div class="zwei">
     <section class="blatt liste-txt"><h3>Was gezählt wird</h3><ul>
       <li>Welche Seite geöffnet wurde, wann und wie lange sie im Vordergrund war</li>
@@ -627,7 +627,7 @@ function zaehlung() {
     <section class="blatt liste-txt"><h3>Was nie gezählt wird</h3><ul>
       <li>Kein Name, keine Mailadresse, nichts, was jemand eintippt</li>
       <li>Keine Adresse der Verbindung: sie hält nur am selben Tag die Seiten eines Besuchs zusammen und wird dafür unumkehrbar verschlüsselt, nie gespeichert</li>
-      <li>Kein Cookie, nichts auf dem Gerät des Gastes. Am nächsten Tag erkennt Le Registre denselben Gast nicht wieder</li>
+      <li>Kein Cookie, nichts auf dem Gerät des Gastes. Am nächsten Tag erkennt Besucher denselben Gast nicht wieder</li>
       <li>Keine Weitergabe: die Zahlen liegen nur in Ihrem Speicher, nicht bei Google oder einem anderen Dienst</li>
       <li>Keine automatischen Besucher wie Suchmaschinen-Roboter</li></ul></section>
   </div>
@@ -635,7 +635,7 @@ function zaehlung() {
     <li><b>Aufbewahrung:</b> Tagesdateien älter als 400 Tage werden gelöscht.</li>
     <li><b>Grenzen:</b> Wer Werbeblocker nutzt oder die Seite in einem anderen Fenster offen lässt, zählt womöglich nicht oder kürzer. Die Zahlen zeigen die Richtung, kein Protokoll.</li>
     <li><b>Datenschutzerklärung:</b> Die Zählung ist in der Datenschutzerklärung der Website beschrieben, sobald sie eingeschaltet wird.</li>
-    <li><b>Zugang:</b> Bei der Übergabe an das Haus wird Le Registre wie alle Werkzeuge mit Anmeldung und Passwort geschützt.</li></ul></section>`;
+    <li><b>Zugang:</b> Bei der Übergabe an das Haus wird Besucher wie alle Werkzeuge mit Anmeldung und Passwort geschützt.</li></ul></section>`;
 }
 
 /* ---------- Start ---------- */

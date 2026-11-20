@@ -1,4 +1,4 @@
-/* Bilder für die Anleitung (anleitung.html): ein Bildschirmfoto je Kapitel aus dem echten Le Livre, 1512×900 → 1200 px breit.
+/* Bilder für die Anleitung (anleitung.html): ein Bildschirmfoto je Kapitel aus dem echten Markenbuch, 1512×900 → 1200 px breit.
    node anleitung_bilder.js [basis]   (Server: python3 _werkzeuge/livre/server.py) */
 const path = require('path'), fs = require('fs');
 const PW = require(path.join(process.env.HOME, 'Desktop/Apps & Tools/Tasty Website Builder/node_modules/playwright'));

@@ -1,5 +1,5 @@
 {
- "reihen": 12,
+ "reihen": 20,
  "stuecke": [
   {
    "id": "schrift-postkarte",
@@ -261,6 +261,177 @@
    "h": 1,
    "art": "foto",
    "bild": "_quelle/roh/lhtkwj_img_2998.jpg"
+  },
+  {
+   "id": "feuerring",
+   "r": 13,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "feuerring"
+  },
+  {
+   "id": "schrift-aare",
+   "r": 13,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "ernte",
+   "r": 13,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "ernte"
+  },
+  {
+   "id": "z-suite-whirlpool",
+   "r": 14,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "z-suite-whirlpool"
+  },
+  {
+   "id": "hochzeit-stuhl",
+   "r": 14,
+   "c": 2,
+   "w": 1,
+   "h": 2,
+   "art": "foto",
+   "bild": "hochzeit-stuhl"
+  },
+  {
+   "id": "picknick",
+   "r": 14,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "picknick"
+  },
+  {
+   "id": "keller-wein",
+   "r": 15,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "keller-wein"
+  },
+  {
+   "id": "pt-asllanis-2",
+   "r": 15,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "pt-asllanis-2"
+  },
+  {
+   "id": "schrift-garten-teich",
+   "r": 16,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "apt-wohnen",
+   "r": 16,
+   "c": 2,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "apt-wohnen"
+  },
+  {
+   "id": "suite-essen",
+   "r": 17,
+   "c": 1,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "suite-essen"
+  },
+  {
+   "id": "z-classic",
+   "r": 17,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "z-classic"
+  },
+  {
+   "id": "schrift-teich-tuecher",
+   "r": 17,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "dachterrasse-panorama",
+   "r": 18,
+   "c": 1,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "_quelle/website-nachtrag/bilder/jgvyts_20230611_103622_dd_ams.jpg"
+  },
+  {
+   "id": "junior-suite-469",
+   "r": 18,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "_quelle/website-nachtrag/bilder/n639np_carlton_europe_hotel_interlaken_-_junior_suite__469.jpg"
+  },
+  {
+   "id": "zug-jungfrau",
+   "r": 19,
+   "c": 1,
+   "w": 1,
+   "h": 2,
+   "art": "foto",
+   "bild": "_quelle/roh/fhissc_ice4_interlaken_2_002.jpg"
+  },
+  {
+   "id": "schrift-johnnys",
+   "r": 19,
+   "c": 2,
+   "w": 1,
+   "h": 1,
+   "art": "html",
+   "bild": ""
+  },
+  {
+   "id": "s-jugendstil",
+   "r": 19,
+   "c": 3,
+   "w": 1,
+   "h": 1,
+   "art": "foto",
+   "bild": "s-jugendstil"
+  },
+  {
+   "id": "aktiv",
+   "r": 20,
+   "c": 2,
+   "w": 2,
+   "h": 1,
+   "art": "foto",
+   "bild": "aktiv"
   }
  ]
 }

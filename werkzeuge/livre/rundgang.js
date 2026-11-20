@@ -1,13 +1,13 @@
-/* Kurzer Rundgang durch Le Livre · Carlton-Europe (Kopie aus _werkzeuge/registre/rundgang.js, Prüfung 16.10.2026; Schild nur, solange der Rundgang in diesem Browser nicht gesehen oder weggeklickt wurde) (Vorlage: assets/js/rundgang.js des Grand Beau-Rivage, Robert 16.10.2026: «einmal ganz kurz zeigen, hier kannst du das machen,
+/* Kurzer Rundgang durch Markenbuch · Carlton-Europe (Kopie aus _werkzeuge/registre/rundgang.js, Prüfung 16.10.2026; Schild nur, solange der Rundgang in diesem Browser nicht gesehen oder weggeklickt wurde) (Vorlage: assets/js/rundgang.js des Grand Beau-Rivage, Robert 16.10.2026: «einmal ganz kurz zeigen, hier kannst du das machen,
    da das, damit man weiss, wo man gelandet ist»). Ein Lichtkegel liegt auf dem echten Bedienelement, daneben eine Karte mit zwei, drei Sätzen.
    Kein Start von selbst: unten rechts erscheint ein Schild «Kurzer Rundgang» (fünf Sekunden, die Maus darauf hält es), dann zieht es sich zurück.
    Wieder aufrufen: «Kurzer Rundgang» im Rand oder ?rundgang (startet direkt). Automatische Prüfungen (navigator.webdriver) und eingebettete Ansichten sehen nichts. */
 (function () {
   var Q = new URLSearchParams(location.search), ERZWINGEN = Q.has('rundgang');
   if (window.self !== window.top && !ERZWINGEN) return;
-  /* Drei Sprachen wie Le Livre (Prüfung 16.10.2026): gewählt wird nach <html lang>, das livre.js beim Sprachwechsel setzt */
-  var G = { name: 'Le Livre', schritte: [
-    { ziel: ['#ansicht .li-hero'], titel: { de: 'Das ist Le Livre', en: 'This is Le Livre', fr: 'Voici Le Livre' },
+  /* Drei Sprachen wie Markenbuch (Prüfung 16.10.2026): gewählt wird nach <html lang>, das livre.js beim Sprachwechsel setzt */
+  var G = { name: 'Markenbuch', schritte: [
+    { ziel: ['#ansicht .li-hero'], titel: { de: 'Das ist Markenbuch', en: 'This is Markenbuch', fr: 'Voici Markenbuch' },
       text: { de: 'Die Marke des Hauses zum Arbeiten. Alles, was Team, Agenturen und Druckereien vom Carlton-Europe brauchen, an einem Ort.',
         en: 'The hotel’s brand, ready to work with. Everything the team, agencies and printers need from the Carlton-Europe, in one place.',
         fr: 'La marque de l’hôtel, prête à l’emploi. Tout ce dont l’équipe, les agences et les imprimeurs ont besoin du Carlton-Europe, au même endroit.' } },
