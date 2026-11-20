@@ -133,6 +133,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     zahl('karten', k.length);
     zahl('entwurf', e);
     if (pdf) zahl('pdf', pdf.split(' ')[0].split('.').slice(0, 2).join('.') + '.');
+    else { var st = k.map(function (x) { return x.stand_zeit || ''; }).filter(Boolean).sort().pop(); if (st) zahl('pdf', st.slice(8, 10) + '.' + st.slice(5, 7) + '.'); }   // ohne Druckzeit: Stand der veröffentlichten Karte, wie in Karten & Preislisten (Prüfung 20.11.2026)
     setze('carte-kurz', e ? '<b>' + e + ' im Entwurf</b>' : k.length + ' Karten, alle veröffentlicht');
   }).catch(function () { setze('carte-kurz', 'Speise-, Wein- und Snackkarte'); });
 
