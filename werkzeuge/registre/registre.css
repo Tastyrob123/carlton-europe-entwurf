@@ -502,3 +502,10 @@ html:not(#q1):not(#q2):not(#q3) .besuch__b .sbild{border-radius:12px}
 @media (max-width:700px){html:not(#q1):not(#q2):not(#q3) .wahl3.wahl3--filter:has(>button:nth-child(4):last-child)>button:first-child{grid-column:auto}}   /* vier Wahlen: zwei mal zwei, keine allein */
 /* Menü-Knopf auf dem Handy: Text steht direkt im Knopf, gemessener Ausgleich (Messlauf text-mitte, 0,8 px zu hoch in Chromium und WebKit) */
 .rand__auf{padding-top:1.6px}
+
+/* Prüfung 20.11.2026 (Leerraum-Regel): Tafeln mit ungleich viel Inhalt stehen untereinander, jede so hoch wie ihr Inhalt; Namen in Ranglisten brechen um statt abgeschnitten */
+html:not(#q1):not(#q2):not(#q3) .zwei.zwei--unter{grid-template-columns:minmax(0,1fr)}
+html:not(#q1):not(#q2):not(#q3) .rang__n,html:not(#q1):not(#q2):not(#q3) .rang__n small{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:break-word}
+/* Prüfung 20.11.2026: «Alles auf einen Blick» schwebt unten über der Fläche. Text, der darunter durchläuft, blieb als loser Buchstabe neben dem Knopf stehen.
+   Ein fester Streifen in der Farbe der Fläche hält die Zeile des Knopfs frei; der Inhalt hat unten genug Luft (.in 180 px), um darüber hinaus zu laufen. */
+body:has(#zur-werkbank) .flaeche::after{content:"";display:block;position:sticky;bottom:0;height:78px;margin-top:-78px;background:var(--papier);pointer-events:none;z-index:3}

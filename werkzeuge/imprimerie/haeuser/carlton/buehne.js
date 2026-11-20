@@ -9,7 +9,7 @@
   var FOTO = { msStart: 'haus-weit', msEvents: 'silvester-saal', msAbteilungen: 'halle', msHinweise: 'treppe', msNewsletter: 'kaminbar',
     msFotos: 'dach-sommer', msMarke: 'haus-tag', msLivre: 'haus-park', msMeine: 'empfang', msFreigegeben: 'saal-hr', msNeu: 'kaminbar', weg: 'dach-pavillon', entwuerfe: 'z-signature-452' };
   /* La Maison des Carlton: lokal auf dem Server der Werkbank (8912), online unter derselben Adresse wie dieses Werkzeug */
-  var MAISON = location.port === '8964' ? 'http://localhost:8912/_werkzeuge/maison/' : '../maison/';
+  var MAISON = location.port === '8964' ? 'http://localhost:8912/_werkzeuge/maison/' : '../../maison/';
   var HAUS = '<svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>';
 
   function foto(h, src) {

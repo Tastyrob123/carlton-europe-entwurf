@@ -172,7 +172,7 @@ function rand() {
   $('#kopfl').innerHTML = `<a class="kopfl__marke" href="#/uebersicht">${CE}<span><b>Le Bureau</b><small>Website · Carlton-Europe</small></span></a>
     <div class="kopfl__mitte"><b>${h(datei ? ((seiteVon(datei) || {}).name || datei) : nav ? nav[1] : 'Seite')}</b><small>${h(datei && nav ? nav[1] + ' · ' + stand : stand)}</small></div>
     <div class="kopfl__r"><a class="rund rund--hell" href="#/kontrolle" title="Kontrolle" aria-label="Kontrolle">${ZE('schild')}</a><a class="rund rund--hell" href="#/verlauf" title="Frühere Fassungen" aria-label="Frühere Fassungen">${ZE('zeit')}</a>
-    <a class="kn kn--klein kn--gold" href="/live/index.html" target="_blank" rel="noopener">Website ansehen<i>${PF}</i></a></div>`;
+    <a class="kn kn--klein kn--gold" href="/index.html" target="_blank" rel="noopener">Website ansehen<i>${PF}</i></a></div>`;
   const aktiv = $('#rand nav a.an');
   if (aktiv && innerWidth <= 860) aktiv.scrollIntoView({ block: 'nearest', inline: 'center' });
 }
@@ -275,7 +275,7 @@ function leiste() {
   el.innerHTML = n ? `<button class="leiste__l" type="button" data-akt="lade" aria-label="Liste der Änderungen zeigen"><i class="leiste__z">${n}</i><span><b>${n === 1 ? 'Änderung' : 'Änderungen'} im Entwurf</b><small>Zuletzt: ${h(neueste.satz)}${neueste.zeit ? ' · ' + vor(neueste.zeit) : ''}</small></span></button>
     <div class="leiste__r"><button class="kn kn--klein kn--linie" type="button" data-akt="lade">Vorher, nachher</button><a class="kn kn--klein kn--linie" href="/entwurf/${W ? encodeURIComponent(W.datei) : 'index.html'}" target="_blank" rel="noopener">Entwurf ansehen</a><button class="kn kn--gold" type="button" data-akt="raus">Veröffentlichen<i>${PF}</i></button></div>`
     : `<div class="leiste__l"><i class="leiste__z ok">${HAKEN}</i><span><b>Alles veröffentlicht</b><small>${zuletzt ? 'Stand vom ' + datum(zuletzt.zeit) : 'Die Website zeigt den neuesten Stand.'}</small></span></div>
-    <div class="leiste__r"><a class="kn kn--klein kn--linie" href="/live/index.html" target="_blank" rel="noopener">Website ansehen</a></div>`;
+    <div class="leiste__r"><a class="kn kn--klein kn--linie" href="/index.html" target="_blank" rel="noopener">Website ansehen</a></div>`;
   if (letzteZahl !== null && letzteZahl !== n && n) $('.leiste__z', el).classList.add('hupf');
   letzteZahl = n;
   if (!$('#lade').hidden) lade();
@@ -1171,7 +1171,7 @@ function veroeffentlichen() {
       leiste();
       fenster(`<div class="erfolg"><i>${HAKEN}</i><h2>Veröffent<em>licht.</em></h2><p>Die Website zeigt jetzt den neuen Stand. Das ist live:</p></div>
         <ul class="quittliste ok">${cs.map(c => `<li><i>${HAKEN}</i><span>${h(c.satz)}</span></li>`).join('')}</ul>
-        <div class="fenster__kn"><a class="kn kn--linie" href="/live/index.html" target="_blank" rel="noopener">Website ansehen</a><button class="kn" type="button" data-zu>Fertig<i>${PF}</i></button></div>`);
+        <div class="fenster__kn"><a class="kn kn--linie" href="/index.html" target="_blank" rel="noopener">Website ansehen</a><button class="kn" type="button" data-zu>Fertig<i>${PF}</i></button></div>`);
       if (W) neuLaden({}); else zeige(true);
     } catch (e) { sag(e.message, true); ev.target.disabled = false; ev.target.textContent = 'Jetzt veröffentlichen'; }
   });

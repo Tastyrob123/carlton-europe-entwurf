@@ -25,6 +25,9 @@ const FOTO = { speisekarte: 'beizli', 'wein-und-getraenkekarte': 'keller-wein', 
 const ROLLEN = { kueche: 'Küche', service: 'Service', direktion: 'Direktion' };
 /* Die Website und die anderen Werkzeuge des Hauses: lokal auf dem Server der Website (8912), online auf derselben Adresse wie La Carte */
 const HAUS = location.port === '8932' ? location.protocol + '//' + location.hostname + ':8912/' : '/';
+/* Online (GitHub Pages, Prüfung 20.11.2026): ohne Server gibt es kein api/pdf; die veröffentlichten PDFs liegen auf der Website unter assets/pdf/. Die Tageskarte hat dort keine PDF. */
+const PDF_WEB = ['speisekarte', 'wein-und-getraenkekarte', 'snackkarte', 'hundespeisekarte', 'bankettmenus'];
+const PDF_LIVE = z => location.port === '8932' ? API + 'pdf?z=' + z + '&q=live' : PDF_WEB.includes(z) ? HAUS + 'assets/pdf/' + z + '.pdf' : '';
 const API = '/_werkzeuge/carte/api/';   // lokal (serve.py) und online (vercel.json → api/carte.py) derselbe Weg
 const SEITE_DER_KARTE = { speisekarte: 'essen-trinken.html', 'wein-und-getraenkekarte': 'essen-trinken.html', snackkarte: 'kaminbar.html', hundespeisekarte: 'hunde.html', bankettmenus: 'tagen-feiern.html', mittag: 'restaurant.html' };
 
@@ -218,7 +221,7 @@ function rand() {
     <p class="modus__t">${MODUS === 'einfach' ? (Z === 'mittag' ? 'Jede Woche ein Formular: je Tag Salat oder Suppe, Vegetarisch, Fleisch, Fisch und ein Dessert. Rechts steht sofort die Tageskarte.' : 'Gerichte und Getränke in einer Liste: hinzufügen, ändern, ausblenden, entfernen, verschieben. Ein Klick zeigt den Eintrag links und rechts auf derselben Höhe.') : 'Sie gestalten direkt in der Karte: jedes Element verschieben, grösser oder kleiner ziehen, jeden Text ändern, auch Überschriften, Hinweise, Logo und Band. Dazu die Daten der Karte als Text.'}</p>
     <div class="wege"><p class="kap">Wege</p>
       <button type="button" data-akt="verlauf">Frühere Fassungen <span>↺</span></button>
-      <a href="${API}pdf?z=${Z}&q=live" target="_blank" rel="noopener">Veröffentlichte PDF <span>↗</span></a>
+      ${PDF_LIVE(Z) ? `<a href="${PDF_LIVE(Z)}" target="_blank" rel="noopener">Veröffentlichte PDF <span>↗</span></a>` : ''}
       <a href="${HAUS}unterlagen/" target="_blank" rel="noopener">Unterlagen ansehen <span>↗</span></a>
       <a href="${HAUS}werkbank/" target="_blank" rel="noopener">Alles auf einen Blick <span>↗</span></a>
       <a href="${HAUS}${SEITE_DER_KARTE[Z] || 'essen-trinken.html'}" target="_blank" rel="noopener">${Z === 'hundespeisekarte' ? 'Hunde' : Z === 'bankettmenus' ? 'Feiern und Tagen' : 'Restaurant und Bar'} auf der Website <span>↗</span></a>
@@ -1001,7 +1004,7 @@ async function veroeffentlichen() {
       await lade(Z, true);
       const b = s.bericht || {};
       return fenster(`<h2>Veröffentlicht. <em>Die neue Fassung steht.</em></h2><p class="satz">${h(s.fertig)}. ${b.mass ? `Schriftmass ${Math.min(...b.mass)} bis ${Math.max(...b.mass)} %. ` : ''}${b.anschluss === 'demo' ? 'Demo: Die Website bleibt, wie sie ist; mit dem Auftrag erscheint die neue Karte dort von selbst.' : b.anschluss && b.anschluss !== 'aus' ? `Die PDF liegt auch auf der Website (${h(b.anschluss)}).` : Z === 'mittag' ? '' : 'Die Website bleibt bei ihrer PDF, solange der Anschluss aus ist.'} Die vorige Fassung liegt unter «Frühere Fassungen».</p>
-        <div class="fenster__kn"><button class="kn kn--hell" type="button" data-zu>Schliessen</button><a class="kn kn--gold" href="${API}pdf?z=${Z}&q=live" target="_blank" rel="noopener">PDF öffnen<i>${PF}</i></a></div>`);
+        <div class="fenster__kn"><button class="kn kn--hell" type="button" data-zu>Schliessen</button>${PDF_LIVE(Z) ? `<a class="kn kn--gold" href="${PDF_LIVE(Z)}" target="_blank" rel="noopener">PDF öffnen<i>${PF}</i></a>` : ''}</div>`);
     }
     if (Date.now() - t0 > 300000) { zu(); return sag('Das dauert ungewöhnlich lange', 'Bitte die Seite später neu laden.', [], true); }
   }

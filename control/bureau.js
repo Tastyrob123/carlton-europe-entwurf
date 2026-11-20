@@ -104,7 +104,7 @@ function rand() {
       ${nw('x:zugang', 'Zugang')}${nw('x:kontrolle', 'Kontrolle')}
     </nav>
     <div class="wege">
-      <a href="/live/index.html" target="_blank" rel="noopener">Website ansehen${PF}</a>
+      <a href="/index.html" target="_blank" rel="noopener">Website ansehen${PF}</a>
       <a href="/control/anleitung/" target="_blank" rel="noopener">Anleitung${PF}</a>
       <a href="/control/pruefung.html" target="_blank" rel="noopener">Prüfung${PF}</a>
     </div>`;
@@ -226,7 +226,7 @@ function kopfLeiste() {
       <a class="rund" href="/control/pruefung.html" target="_blank" rel="noopener" data-tip="Prüfung" aria-label="Prüfung">${SYM.pruef}</a>
       <a class="rund" href="/control/anleitung/" target="_blank" rel="noopener" data-tip="Anleitung" aria-label="Anleitung">${SYM.buch}</a>
       <span class="kopf__trenn"></span>
-      <a class="kn kn--klein" href="/live/index.html" target="_blank" rel="noopener">Website ansehen<i>${SYM.welt}</i></a>
+      <a class="kn kn--klein" href="/index.html" target="_blank" rel="noopener">Website ansehen<i>${SYM.welt}</i></a>
     </div>`;
   $$('#kopf [data-gehe]').forEach(x => x.onclick = () => gehe(x.dataset.gehe));
 }
@@ -309,7 +309,7 @@ function start() {
     `<a class="kn kn--linie" href="/control/anleitung/" target="_blank" rel="noopener">Anleitung<i>${PF}</i></a>`) +
     `<div class="lage platte">
       <div class="lg"><i class="lg__z">${ic('stift')}</i><span class="mono">Entwurf</span><b>${u.aenderungen ? u.aenderungen + ' Änderung' + (u.aenderungen > 1 ? 'en warten' : ' wartet') : 'Nichts offen'}</b><span>${u.aenderungen ? 'Gespeichert, noch nicht auf der Website.' : 'Was Sie speichern, sammelt sich hier.'}</span>${u.aenderungen ? '<button type="button" data-gehe="entwurf">Ansehen und veröffentlichen</button>' : ''}</div>
-      <div class="lg"><i class="lg__z">${ic('welt')}</i><span class="mono">Website</span><b>${u.zuletzt ? 'Veröffentlicht ' + datum(u.zuletzt.zeit).split(',')[0] : 'Wie gebaut'}</b><span>${u.seiten} Seiten, je in drei Sprachen.${u.zuletzt && u.zuletzt.notiz ? ' Zuletzt: ' + esc(u.zuletzt.notiz) : ''}</span><a href="/live/index.html" target="_blank" rel="noopener">Website öffnen</a></div>
+      <div class="lg"><i class="lg__z">${ic('welt')}</i><span class="mono">Website</span><b>${u.zuletzt ? 'Veröffentlicht ' + datum(u.zuletzt.zeit).split(',')[0] : 'Wie gebaut'}</b><span>${u.seiten} Seiten, je in drei Sprachen.${u.zuletzt && u.zuletzt.notiz ? ' Zuletzt: ' + esc(u.zuletzt.notiz) : ''}</span><a href="/index.html" target="_blank" rel="noopener">Website öffnen</a></div>
       <div class="lg"><i class="lg__z">${ic('karte')}</i><span class="mono">Karten</span><b>${mc.filter(k => k.entwurf).length ? mc.filter(k => k.entwurf).length + ' Karte im Entwurf' : (mc.length ? ZAHLWORT[mc.length] || mc.length : 'Die') + ' Karten aktuell'}</b><span>Speisekarte, Wein- und Getränkekarte, Snackkarte, Hundekarte, Bankettmenüs, Mittagsmenü. Gedruckt und als PDF aus einer Quelle.</span><button type="button" data-gehe="karten">Zu La Carte</button></div>
     </div>
     <h2 class="zw">Häufig <em>gebraucht</em></h2>
@@ -994,7 +994,7 @@ async function fortschritt(vorab) {   /* vorab: online kommt das Ergebnis gleich
       } else if (d.fertig) {
         k.innerHTML = `<h2>Ist <em>online.</em></h2><p class="satz">${d.fertig.zahl} Änderung${d.fertig.zahl > 1 ? 'en sind' : ' ist'} auf der Website, ${d.fertig.dateien} Seiten in drei Sprachen erneuert und geprüft.</p>
           <ol class="schritte">${(d.fertig.aenderungen || []).map(a => `<li class="fertig">${esc(a.was)} · ${esc(a.wo)}</li>`).join('')}</ol>
-          <div class="fenster__kn"><a class="kn kn--linie" href="/live/index.html" target="_blank" rel="noopener">Website ansehen<i>${PF}</i></a><button class="kn" type="button" data-zu>Fertig<i>${PF}</i></button></div>`;
+          <div class="fenster__kn"><a class="kn kn--linie" href="/index.html" target="_blank" rel="noopener">Website ansehen<i>${PF}</i></a><button class="kn" type="button" data-zu>Fertig<i>${PF}</i></button></div>`;
       }
       $$('[data-zu]', k).forEach(b => b.onclick = fensterZu);
       await frisch();
