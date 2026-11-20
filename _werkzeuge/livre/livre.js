@@ -618,6 +618,7 @@ async function pruefe() {
     const r = await fetch('api/pruefen', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: d.name, typ: daten === d.daten ? d.typ : 'image/jpeg', daten, sprache: SP }) });
     let j = {}; try { j = await r.json(); } catch (e) { /* leer */ }
     if (!r.ok) throw new Error(String(j.fehler || r.status).replace(/^[A-ZÄÖÜ]+ · /, ''));
+    if (!j.messung) { const rb = await fetch(MARKE + 'beispiel/pruefung.json'); if (!rb.ok) throw new Error(rb.status); j = await rb.json(); j.beispiel = true; }   // Vorführung online ohne Server (Prüfung 20.11.2026): die beschriftete Beispiel-Prüfung statt Stillstand
     clearInterval(uhr); li.forEach(x => { x.classList.remove('an'); x.classList.add('fertig'); });
     S.ergebnis = j;
     setTimeout(() => ergebnis(j), 380);
