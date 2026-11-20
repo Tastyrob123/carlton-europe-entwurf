@@ -939,3 +939,9 @@ h2.zw::before{content:'';flex:none;width:9px;height:9px;margin-right:4px;transfo
 /* Prüfung 20.11.2026: Unter der schwebenden Leiste unten lief Text durch und stand als halbe Zeile unter ihr. Ein Streifen in der Farbe der Seite hält den Spalt bis zum Bildrand frei. */
 body::after{content:"";position:fixed;z-index:29;bottom:0;height:52px;left:calc(var(--rand) + 14px + clamp(26px,2.8vw,50px) - 14px);right:0;background:rgb(244,239,229);pointer-events:none}
 @media (max-width:900px){body::after{left:0;height:44px}}
+
+/* Prüfung 20.11.2026: Die Punkte des «Ü» im Kopftitel wurden vom Rahmen gekappt; Luft für Ober- und Unterlängen. */
+html:not(#q1):not(#q2) .kopf__titel{line-height:1.35;padding-top:2px}
+
+/* Prüfung 20.11.2026: Die drei Spalten der Lage («Nichts offen», «Wie gebaut», «Karten aktuell») sind ungleich lang; der Inhalt steht in der Mitte der Spalte, unten bleibt kein Loch. */
+html:not(#q1):not(#q2) .ansicht-neu .lg{align-content:center}

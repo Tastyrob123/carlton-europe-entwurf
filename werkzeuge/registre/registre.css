@@ -510,3 +510,6 @@ html:not(#q1):not(#q2):not(#q3) .rang__n,html:not(#q1):not(#q2):not(#q3) .rang__
 /* Prüfung 20.11.2026: «Alles auf einen Blick» schwebt unten über der Fläche. Text, der darunter durchläuft, blieb als loser Buchstabe neben dem Knopf stehen.
    Ein fester Streifen in der Farbe der Fläche hält die Zeile des Knopfs frei; der Inhalt hat unten genug Luft (.in 180 px), um darüber hinaus zu laufen. */
 body:has(#zur-werkbank) .flaeche::after{content:"";display:block;position:sticky;bottom:0;height:78px;margin-top:-78px;background:var(--papier);pointer-events:none;z-index:3}
+
+/* Prüfung 20.11.2026: Die Punkte des «Ü» im Kopftitel wurden vom Rahmen gekappt; Luft für Ober- und Unterlängen. */
+html:not(#q1):not(#q2) .kopf__titel{line-height:1.35;padding-top:2px}

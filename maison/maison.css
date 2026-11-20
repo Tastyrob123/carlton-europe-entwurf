@@ -808,3 +808,6 @@ html:not(#q1) .m-stand-c{top:auto;height:auto}
    Unter 1920 px steht die Leiste enger (ohne den Namen neben dem Zeichen), unter 1440 px nur mit Zeichen und Namen wie bisher unter 1360 px. */
 @media (max-width:1919px){html:not(#q1) .m-insel{gap:16px}html:not(#q1) .m-insel__p{font-size:12px;letter-spacing:.08em}html:not(#q1) .m-insel__marke span{display:none}}
 @media (max-width:1439px){html:not(#q1) .m-insel__p{display:none}html:not(#q1) .m-insel__marke span{display:inline}}
+
+/* Prüfung 20.11.2026: Mit den längeren Werkzeug-Namen waren die Beschriftungen über den Bildschirmen abgeschnitten; enger gesetzt und umbrechend. */
+html:not(#q1):not(#q2) .m-schirm__leiste{height:auto;min-height:28px;padding:5px 12px}html:not(#q1):not(#q2) .m-schirm__leiste span{letter-spacing:.08em;white-space:normal;text-align:center;line-height:1.3}
