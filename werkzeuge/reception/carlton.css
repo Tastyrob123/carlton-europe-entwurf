@@ -117,3 +117,6 @@
 /* Abnahme 17.10.2026: am Laptop (1366 × 650) lag «Zum Eingang» der Übersicht nach dem Hinscrollen unter der festen Leiste unten.
    Scrollen zu einem Ziel (Tastatur, Sprungmarken, scrollIntoView) hält jetzt Abstand zu Kopf und Leiste. */
 html:has(body.re){scroll-padding-top:92px;scroll-padding-bottom:124px}
+/* Prüfung 20.11.2026: Unter der schwebenden Leiste unten lief Text als halbe Zeile durch. Ein Streifen in der Farbe der Seite hält den Spalt bis zum Bildrand frei. */
+body::after{content:"";position:fixed;z-index:29;bottom:0;height:52px;left:calc(var(--rand) + clamp(26px,2.8vw,50px));right:0;background:rgb(242,234,216);pointer-events:none}
+@media (max-width:900px){body::after{left:0;height:44px}}

@@ -450,3 +450,6 @@ html[lang=fr] #ansicht > .lade::after{content:'Le Livre est encore en cours de c
 .nw>span{text-box:trim-both cap alphabetic}
 /* Menü-Knopf auf dem Handy: Text steht direkt im Knopf, gemessener Ausgleich (Messlauf text-mitte, 0,8 px zu hoch in Chromium und WebKit) */
 .rand__auf{padding-top:1.6px}
+/* Prüfung 20.11.2026: Unter der schwebenden Leiste unten lief Text als halbe Zeile durch. Ein Streifen im Grund der Seite hält den Spalt bis zum Bildrand frei (unter der Seitenleiste). */
+body.li::after{content:"";position:fixed;z-index:39;left:0;right:0;bottom:0;height:64px;pointer-events:none;
+  background:linear-gradient(rgba(244,236,220,.5),rgba(244,236,220,.5)),url(../../assets/img/tapete.webp) 50% 0/1000px auto fixed,var(--papier)}
