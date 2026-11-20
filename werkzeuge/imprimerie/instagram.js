@@ -1,4 +1,4 @@
-/* L’Imprimerie · Instagram (Robert 12.10.2026): Bildtext und Karussell.
+/* Drucksachen & Feed · Instagram (Robert 12.10.2026): Bildtext und Karussell.
    Bildtext: die KI schreibt die Zeilen unter einem Beitrag oder einer Story, mit Hashtags, im Ton des Hauses, Fakten nur aus dem Wissen
    (api/entwurf.py, Modus «bildtext»), in sechs Sprachen. Bearbeitbar, mit einem Klick kopiert, gespeichert in doc.bildtext.
    Karussell: mehrere Bilder 1080 × 1350 als ein Beitrag im gleichen Stil (Bild anfügen oder von der KI), in der Handy-Vorschau

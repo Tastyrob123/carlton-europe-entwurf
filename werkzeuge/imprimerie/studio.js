@@ -390,7 +390,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     E.id = id; E.deck = 1;
     if (E.typ === 'text') E.h = DS.mess(E).h;
     if (bildKey && ST.M.bildIndex[bildKey]?.datei) { const bb = ST.M.bildIndex[bildKey]; E.w = f.b * (bb.w / bb.h > 3 ? .7 : .45); E.h = E.w * bb.h / bb.w; E.x = (f.b - E.w) / 2; E.y = (f.h - E.h) / 2; }   // Logo, Wortmarke
-    if (an) { E.x = an.x - E.w / 2; E.y = an.y - (E.h || E.w) / 2; }   // abgelegt an einer Stelle (Le Livre)
+    if (an) { E.x = an.x - E.w / 2; E.y = an.y - (E.h || E.w) / 2; }   // abgelegt an einer Stelle (Markenbuch)
     if (an && an.farbe) E.farbe = an.farbe;
     aendern(() => s.el.push(E));
     ST.sel = id; zeichne();
@@ -636,7 +636,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     try {
       const keys = await DS.eigene.hinzu(ST.M, dateien, t => melde(t, 30000));
       if (!keys.length) { melde('Keine Bilddatei gefunden. Bitte JPG, PNG oder HEIC wählen.'); return; }
-      melde((keys.length === 1 ? 'Foto hinzugefügt. Es liegt unter «Eigene Fotos».' : `${keys.length} Fotos hinzugefügt. Sie liegen unter «Eigene Fotos».`) + (keys.fluechtig ? ' Dieser Browser legt Fotos nicht ab (privates Fenster?): es bleibt nur, bis Sie L’Imprimerie schliessen. Für immer: als Arbeitsdatei sichern.' : ''), keys.fluechtig ? 10000 : 4000);
+      melde((keys.length === 1 ? 'Foto hinzugefügt. Es liegt unter «Eigene Fotos».' : `${keys.length} Fotos hinzugefügt. Sie liegen unter «Eigene Fotos».`) + (keys.fluechtig ? ' Dieser Browser legt Fotos nicht ab (privates Fenster?): es bleibt nur, bis Sie Drucksachen & Feed schliessen. Für immer: als Arbeitsdatei sichern.' : ''), keys.fluechtig ? 10000 : 4000);
       ST.fotoGruppe = DS.eigene.GRUPPE; ST.fotoLage = 'alle'; $('#fotoSuche').value = '';
       if (aufsBlatt) {
         const el = ST.sel && elById(ST.sel);
@@ -864,7 +864,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   async function start() {
     const M = await DS.ladeMarke(HAUS);
     ST.M = M;
-    document.title = `L’Imprimerie · ${M.name}`;
+    document.title = `Drucksachen & Feed · ${M.name}`;
     $('#kopfName').textContent = M.name;
     $('#kopfZeichen').innerHTML = DS.zeichenSvg(M, 'currentColor');
     $('#inselZeichen').innerHTML = DS.zeichenSvg(M, 'currentColor');

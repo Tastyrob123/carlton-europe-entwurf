@@ -27,19 +27,19 @@
   /* ---------- Marke ---------- */
   DS.ladeMarke = async function (key) {
     const basis = 'haeuser/' + key + '/';
-    // Robert 18.10.2026 23:54 «L’Imprimerie startet nicht. Die Daten des Hauses kamen nicht an» (belegte Leitung): still bis zu dreimal neu versuchen
+    // Robert 18.10.2026 23:54 «Drucksachen & Feed startet nicht. Die Daten des Hauses kamen nicht an» (belegte Leitung): still bis zu dreimal neu versuchen
     const holen = async (u, n = 3) => { for (let i = 0; ; i++) { try { const r = await fetch(u, i ? { cache: 'reload' } : {}); if (!r.ok) throw new Error('HTTP ' + r.status); return await r.json(); } catch (e) { if (i >= n - 1) throw e; await new Promise(z => setTimeout(z, 1200 * (i + 1))); } } };
     const M = await holen(basis + 'marke.json');
     M.basis = basis;
     M.eigeneMini = new Set(M.bilder.map(b => b.key));
     const L = await DS.ladeLivre();
-    if (L) {   // Le Livre ist die eine Quelle: welche Fotos, Titel, Bereich, Saison, Format, Herkunft, KI
+    if (L) {   // Markenbuch ist die eine Quelle: welche Fotos, Titel, Bereich, Saison, Format, Herkunft, KI
       M.livre = L;
-      /* Le Livre nennt die Grösse des Originals; gedruckt wird die Datei unter /assets/img/<key>-l.webp, deren Mass in marke.json steht.
+      /* Markenbuch nennt die Grösse des Originals; gedruckt wird die Datei unter /assets/img/<key>-l.webp, deren Mass in marke.json steht.
          Mit dem Original rechnete die Druckprüfung zu viele dpi (haus-winter: 186 statt 88 dpi auf A3). */
       const px = Object.fromEntries(M.bilder.map(b => [b.key, b]));
       const carlton = /Carlton/.test(L.haus || '');
-      if (carlton) {   // Le Livre des Carlton: eigene Bereiche, dazu Fotos von Partnern; die Dateien heissen nicht immer <Schlüssel>-l.webp (fl, fs)
+      if (carlton) {   // Markenbuch des Carlton: eigene Bereiche, dazu Fotos von Partnern; die Dateien heissen nicht immer <Schlüssel>-l.webp (fl, fs)
         DS.LIVRE_TEXT.b = { haus: 'Haus und Geschichte', zimmer: 'Zimmer und Suiten', dach: 'Dachterrasse und Aarmühle', halle: 'Halle und Kaminbar', garten: 'Wellness und Garten', essen: 'Essen und Trinken', saele: 'Säle', feiern: 'Feiern', team: 'Team', region: 'Interlaken und Region' };
         DS.LIVRE_TEXT.h.partner = 'Von Partnern';
       }
@@ -65,13 +65,13 @@
   DS.farbe = (M, f) => (M.farben[f] || f || '#000');
   // Robert 18.10.2026: unter der hellen Tapete steht das Beige etwas heller (marke.json tapete.grund_hell), die Hausfarbe selbst bleibt
   DS.grund = (M, f, tap) => (tap === 'hell' && M.tapete && M.tapete.grund_hell && M.tapete.grund_hell[f]) || DS.farbe(M, f);
-  /* Fotos: aus Le Livre (/assets/img/<key>-l.webp, 2000 px) unter derselben Adresse; kleine Vorschauen aus dem eigenen 520-px-Satz, weil Le Livre
-     nur 900 px anbietet (vierfaches Gewicht je Vorschau). Ohne Le Livre alles aus der eigenen Kopie. */
+  /* Fotos: aus «Markenbuch» (/assets/img/<key>-l.webp, 2000 px) unter derselben Adresse; kleine Vorschauen aus dem eigenen 520-px-Satz, weil Markenbuch
+     nur 900 px anbietet (vierfaches Gewicht je Vorschau). Ohne Markenbuch alles aus der eigenen Kopie. */
   DS.bildUrl = (M, key, mini) => M.bildIndex && M.bildIndex[key] && M.bildIndex[key].datei ? (mini ? M.bildIndex[key].miniUrl : M.bildIndex[key].url)
     : M.livre && M.bildIndex && M.bildIndex[key] && M.bildIndex[key].fl && !(mini && M.eigeneMini.has(key)) ? '/assets/img/' + (mini ? M.bildIndex[key].fs : M.bildIndex[key].fl)
     : M.livre && !(mini && M.eigeneMini.has(key)) ? `/assets/img/${key}${mini ? '-s' : '-l'}.webp` : M.basis + (mini ? 'mini/' : 'bilder/') + key + '.webp';
 
-  /* ---------- Le Livre: Markenbuch des Hauses (Fotos, Farben, Dateien) ---------- */
+  /* ---------- Markenbuch: Markenbuch des Hauses (Fotos, Farben, Dateien) ---------- */
   DS.LIVRE_TEXT = {
     b: { zimmer: 'Zimmer', restaurants: 'Restaurants', bar: 'Bar', spa: 'Spa', saal: 'Saal', haus: 'Haus', region: 'Region' },
     s: { jahr: 'Ganzjährig', sommer: 'Sommer', winter: 'Winter' },
@@ -79,12 +79,12 @@
     h: { haus: 'Fotos des Hauses', frei: 'Frei lizenziert', ki: 'Mit KI erzeugt' },
     ki: 'Dieses Bild ist mit KI erzeugt und zeigt kein echtes Gericht oder Getränk des Hauses. Für Werbung nur mit diesem Hinweis oder nach einem echten Foto.',
   };
-  // Seite von Le Livre: lokal auf dem Server des Hauses (:8912), online unter derselben Adresse wie L’Imprimerie
-  // Unter drucksachen-studio.vercel.app steht L’Imprimerie allein, ohne Le Livre daneben: dort keine Abfrage (gab bei jedem Öffnen eine 404-Meldung,
-  // Aussen-Prüfung 14.10.2026), und «Le Livre öffnen» führt zum Markenbuch unter der Adresse des Hauses.
+  // Seite von «Markenbuch»: lokal auf dem Server des Hauses (:8912), online unter derselben Adresse wie Drucksachen & Feed
+  // Unter drucksachen-studio.vercel.app steht Drucksachen & Feed allein, ohne Markenbuch daneben: dort keine Abfrage (gab bei jedem Öffnen eine 404-Meldung,
+  // Aussen-Prüfung 14.10.2026), und «Markenbuch öffnen» führt zum Markenbuch unter der Adresse des Hauses.
   DS.ALLEIN = location.hostname === 'drucksachen-studio.vercel.app';
   DS.livreSeite = () => location.port === '8964' ? 'http://localhost:8912/marke/' : DS.ALLEIN ? 'https://carlton.tastystudios.ch/marke/' : '/marke/';   // lokal: Server der Werkbank
-  /* Logo, Logo quer und Wortmarke aus Le Livre: Bildschirm SVG, Blatt und PDF PNG (bis 3000 px, mit Transparenz) */
+  /* Logo, Logo quer und Wortmarke aus «Markenbuch»: Bildschirm SVG, Blatt und PDF PNG (bis 3000 px, mit Transparenz) */
   DS.livreDateien = M => (M.livre ? M.livre.dateien : []).filter(d => ['logo', 'quer', 'wortmarke'].includes(d.k) && d.var).flatMap(d => {
     const vb = (d.vb || '0 0 4 3').split(' ').map(Number), N = { logo: 'Logo', quer: 'Logo quer', wortmarke: 'Wortmarke' }[d.k];
     return d.var.map(v => { const svg0 = v.dateien.find(x => x.endsWith('.svg')), png = v.dateien.find(x => x.endsWith('.png')) || svg0, svg = svg0 || png;   // manche Fassungen gibt es nur als SVG

@@ -40,7 +40,7 @@
     const M = window.DS && DS.M;
     schicht(`<div class="hk hk--gross" role="dialog" aria-modal="true" aria-label="Willkommen">
       <div class="hk__zeichen">${M ? DS.zeichenSvg(M, 'currentColor') : ''}</div>
-      <h2>Willkommen in L’Imprimerie</h2>
+      <h2>Willkommen in «Drucksachen & Feed»</h2>
       <p class="hk__unter">Flyer, Karten, Aushänge und Gutscheine im Stil des ${M ? M.name : 'Hauses'}, ganz ohne Grafikprogramm.</p>
       <div class="hk__drei">
         <div><span class="hk__bild"><svg viewBox="0 0 48 48"><path d="M10 34h28M10 26h20M10 18h28"/><path d="m33 30 7-7 3 3-7 7-4 1z"/></svg></span><b>Sagen</b><p>In einem Satz beschreiben, was Sie brauchen.</p></div>

@@ -640,7 +640,7 @@
     const M = DS.M, B = M.bilder || [], T = DS.LIVRE_TEXT, L = !!M.livre;
     const gr = ['Alle', ...(L ? Object.values(T.b).filter(g => B.some(b => b.gruppe === g)) : [...new Set(B.map(b => b.gruppe))])];
     $('#fotoZahl').textContent = B.length;
-    $('#fotoSatz').textContent = L ? `${B.length} Fotos aus Le Livre, dem Markenbuch des Hauses: ${B.filter(b => b.herkunft === 'haus').length} vom Haus, ${B.filter(b => b.herkunft === 'frei').length} frei lizenziert, ${B.filter(b => b.ki).length} mit KI erzeugt. Ein Foto wählen, das Studio baut das Medium darum herum.`
+    $('#fotoSatz').textContent = L ? `${B.length} Fotos aus «Markenbuch», dem Markenbuch des Hauses: ${B.filter(b => b.herkunft === 'haus').length} vom Haus, ${B.filter(b => b.herkunft === 'frei').length} frei lizenziert, ${B.filter(b => b.ki).length} mit KI erzeugt. Ein Foto wählen, das Studio baut das Medium darum herum.`
       : `${B.length} Fotos des Hauses. Ein Foto wählen, das Studio baut das Medium darum herum.`;
     const reihe = (art, titel, werte) => `<div class="fo-reihe"><span class="fo-reihe__t">${titel}</span>${[['alle', 'Alle'], ...werte].map(([k, t]) => `<button data-f${art}="${k}" class="${fotoF[art] === k ? 'an' : ''}">${esc(t)}</button>`).join('')}</div>`;
     $('#fotoGruppen').innerHTML = `<div class="fo-reihe">${L ? '<span class="fo-reihe__t">Bereich</span>' : ''}${gr.map(g => `<button data-fgruppe="${esc(g)}" class="${g === fotoGruppe ? 'an' : ''}">${esc(g)}</button>`).join('')}</div>`
@@ -1107,11 +1107,11 @@
     s.addEventListener('pointerleave', () => { if (kippt) loese(kippt); kippt = null; });
     $('#msKopfZeichen').innerHTML = DS.zeichenSvg(DS.M, 'currentColor');
     addEventListener('resize', () => { if (!s.hidden) gleite(); });
-    if (!q.has('demo') && !q.has('hilfe')) { zeige(); if (q.has('foto')) ausLivre(q); }   // jedes Öffnen beginnt auf der Startseite mit der Bibliothek (Robert 12.10.2026); aus Le Livre mit dem Foto
+    if (!q.has('demo') && !q.has('hilfe')) { zeige(); if (q.has('foto')) ausLivre(q); }   // jedes Öffnen beginnt auf der Startseite mit der Bibliothek (Robert 12.10.2026); aus «Markenbuch» mit dem Foto
 
     document.documentElement.classList.remove('start-gleich');
   }
-  /* Aus Le Livre hinüber (?foto=<key>&art=insta|story&x=&y=): fünf Gestaltungen mit diesem Foto und dem Ausschnitt aus Le Livre,
+  /* Aus «Markenbuch» hinüber (?foto=<key>&art=insta|story&x=&y=): fünf Gestaltungen mit diesem Foto und dem Ausschnitt aus «Markenbuch»,
      sofort und ohne KI; «Fünf neue Entwürfe» lässt danach die KI Texte dazu schreiben. */
   function ausLivre(q) {
     const k = q.get('foto'), b = DS.M.bildIndex[k]; if (!b) return false;
@@ -1123,7 +1123,7 @@
       d.seiten.forEach(s => s.el.forEach(e => { if (e.typ === 'bild' && e.bild === k) { e.fx = x; e.fy = y; } }));
       d.variante = titel; d.hinweise = b.ki ? [DS.LIVRE_TEXT.ki] : []; return d;
     });
-    const satz = `Foto aus Le Livre: ${b.alt}`;
+    const satz = `Foto aus «Markenbuch»: ${b.alt}`;
     const nochmal = async () => {
       zu();
       const r = await st().entwerfen({ auftrag: `${fmt === 'story' ? 'Instagram-Story' : 'Instagram-Beitrag'} mit dem Foto «${b.alt}» (Schlüssel ${k}) als Hauptbild`, format: fmt, anzeige: satz, varianten: true });

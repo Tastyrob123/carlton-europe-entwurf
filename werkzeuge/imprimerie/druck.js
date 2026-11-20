@@ -126,7 +126,7 @@
     const { PDFDocument, rgb, cmyk } = PDFLib;
     const pdf = await PDFDocument.create();
     pdf.registerFontkit(fontkit);
-    pdf.setTitle(doc.name); pdf.setAuthor(M.name); pdf.setCreator('L’Imprimerie · Tasty Studios'); pdf.setProducer('L’Imprimerie');
+    pdf.setTitle(doc.name); pdf.setAuthor(M.name); pdf.setCreator('Drucksachen & Feed · Tasty Studios'); pdf.setProducer('Drucksachen & Feed');
     const B = DS.B, R = o.marken ? 10 : 0, f = doc.format;
     const fonts = {}, zeichensatz = {};
     const font = async rolle => {
@@ -216,7 +216,7 @@
       const seite = doc.seiten.length > 1 ? `Seite ${i + 1}: ` : '';
       for (const el of s.el) {
         const h = DS.elHoehe(M, el), kurz = el.typ === 'text' ? `«${el.text.replace(/\s+/g, ' ').slice(0, 34)}${el.text.length > 34 ? '…' : ''}»` : { bild: 'Foto', flaeche: 'Fläche', linie: 'Linie', rahmen: 'Rahmen', zeichen: 'Zeichen' }[el.typ];
-        if (el.typ === 'bild' && M.bildIndex[el.bild]) {   // Kennzeichnung wie in Le Livre
+        if (el.typ === 'bild' && M.bildIndex[el.bild]) {   // Kennzeichnung wie in «Markenbuch»
           const bi = M.bildIndex[el.bild];
           if (bi.ki) out.push({ stufe: 'gelb', id: el.id, seite: i, text: `${seite}Foto mit KI erzeugt («${bi.alt}»): zeigt kein echtes Gericht oder Getränk des Hauses. Für Werbung nur mit Hinweis oder nach einem echten Foto.` });
           else if (bi.herkunft === 'frei') out.push({ stufe: 'gelb', id: el.id, seite: i, text: `${seite}Foto frei lizenziert (${bi.quelle}): Urheber und Lizenz beim Foto oder im Impressum nennen.` });

@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>L’Imprimerie · Carlton-Europe</title>
+<title>Drucksachen & Feed · Carlton-Europe</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1f40'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='16' fill='%23dcc68f' text-anchor='middle'%3ECE%3C/text%3E%3C/svg%3E">
 <script>/* Fehlermelder (Werkzeug-Master R03, vor allem anderen, Prüfung 16.10.2026): Skriptfehler nach localStorage «carlton-imprimerie-fehler»
-   (letzte 20, die Prüfseite pruefung.html zeigt sie). Netz- und Ladefehler nie melden, höchstens 20 je Seite. L’Imprimerie hat keinen Dienst
+   (letzte 20, die Prüfseite pruefung.html zeigt sie). Netz- und Ladefehler nie melden, höchstens 20 je Seite. Drucksachen & Feed hat keinen Dienst
    für Fehler: alles, was sie tut, bleibt im Browser des Hauses. */
 (function () { var n = 0, K = 'carlton-imprimerie-fehler';
   function melde(t) { if (n >= 20) return; n++; t = String(t).slice(0, 300); window.__dsFehler = t;
@@ -16,11 +16,11 @@
   addEventListener('unhandledrejection', function (e) { var r = e.reason, t = String(r && r.message || r); if (/fetch|network|load failed|abort/i.test(t)) return; melde('Promise: ' + t); });
   /* Startfehler-Tür (R04): steht nach 15 s noch nichts, sagt die Seite es mit Grund, statt leer zu bleiben */
   /* Robert 18.10.2026 23:54: bei belegter Leitung nach 15 s erst ein ruhiger Ladezustand, die Tür mit dem Grund erst nach 45 s */
-  setTimeout(function () { if (window.DS && DS.M && window.DSStudio) return; if (!navigator.onLine) return; var l = document.createElement('div'); l.className = 'startfehler startfehler--laedt'; l.innerHTML = '<div><b>L’Imprimerie lädt noch.</b><p>Die Leitung ist gerade langsam, die Daten des Hauses sind unterwegs.</p></div>'; document.body.appendChild(l);
+  setTimeout(function () { if (window.DS && DS.M && window.DSStudio) return; if (!navigator.onLine) return; var l = document.createElement('div'); l.className = 'startfehler startfehler--laedt'; l.innerHTML = '<div><b>Drucksachen & Feed lädt noch.</b><p>Die Leitung ist gerade langsam, die Daten des Hauses sind unterwegs.</p></div>'; document.body.appendChild(l);
     var w = setInterval(function () { if (window.DS && DS.M && window.DSStudio) { clearInterval(w); l.remove(); } }, 400); }, 15000);
   setTimeout(function () { if (window.DS && DS.M && window.DSStudio) return; var alt = document.querySelector('.startfehler--laedt'); if (alt) alt.remove(); var d = document.createElement('div'); d.className = 'startfehler'; d.setAttribute('role', 'alert');
     var g = window.__dsFehler || (navigator.onLine ? 'Die Daten des Hauses kamen nicht an.' : 'Dieser Rechner ist gerade ohne Internet.');
-    d.innerHTML = '<div><b>L’Imprimerie startet nicht.</b><p></p><a href="">Neu laden</a> <a href="pruefung.html">Prüfung öffnen</a></div>'; d.querySelector('p').textContent = g;
+    d.innerHTML = '<div><b>Drucksachen & Feed startet nicht.</b><p></p><a href="">Neu laden</a> <a href="pruefung.html">Prüfung öffnen</a></div>'; d.querySelector('p').textContent = g;
     document.body.appendChild(d); }, 45000);
 })();</script>
 <style>.startfehler{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#06142b;color:#f4ecdc;font:15px/1.5 "Instrument Sans",system-ui,sans-serif}
@@ -34,13 +34,13 @@ addEventListener('DOMContentLoaded',function(){setTimeout(function(){var s=docum
 <link rel="stylesheet" href="ms-bureau.css?v=6">
 <script>/* Hauseigene Stilschicht (Robert 15./16.10.2026: GBR hell mit Bühne und Schweben wie die übrigen Werkzeuge des Hauses). Ein Haus ohne Eintrag bleibt beim Kern. */
 (function(){var HAUS_STIL={carlton:1},h=new URLSearchParams(location.search).get('haus')||'carlton';if(!HAUS_STIL[h])return;var b='haeuser/'+h+'/';
-document.write('<link rel="stylesheet" href="'+b+'hell.css?v=15-pr"><link rel="stylesheet" href="'+b+'feder.css?v=1">'
- +'<script src="'+b+'buehne.js?v=4" defer><\/script>'
+document.write('<link rel="stylesheet" href="'+b+'hell.css?v=14-qp"><link rel="stylesheet" href="'+b+'feder.css?v=1">'
+ +'<script src="'+b+'buehne.js?v=3" defer><\/script>'
  +'<script src="'+b+'feder.js?v=2" defer><\/script>');})();</script>
 </head>
 <body>
 <header class="kopf">
-  <button class="kopf__marke" id="kopfMarke" type="button" aria-label="Zur Übersicht"><span class="kopf__zeichen" id="kopfZeichen"></span><span><b>L’Imprimerie</b><small>Drucksachen · <span id="kopfName">Carlton-Europe</span></small></span></button>
+  <button class="kopf__marke" id="kopfMarke" type="button" aria-label="Zur Übersicht"><span class="kopf__zeichen" id="kopfZeichen"></span><span><b>Drucksachen & Feed</b><small>Drucksachen · <span id="kopfName">Carlton-Europe</span></small></span></button>
   <div class="kopf__mitte"><input class="kopf__name" id="docName" aria-label="Name der Drucksache" spellcheck="false"><span class="kopf__gespeichert" id="gespeichert">Gespeichert</span></div>
   <div class="kopf__werk">
     <button class="rund" id="btnZurueck" data-tip="Rückgängig" aria-label="Rückgängig (⌘Z)"><svg viewBox="0 0 24 24"><path d="M9 7 4 12l5 5M4 12h11a5 5 0 0 1 0 10h-3"/></svg></button>
@@ -48,7 +48,7 @@ document.write('<link rel="stylesheet" href="'+b+'hell.css?v=15-pr"><link rel="s
     <button class="rund" id="btnVerwerfen" data-tip="Verwerfen" aria-label="Entwurf verwerfen"><svg viewBox="0 0 24 24"><path d="M5 7h14M10 7V4.5h4V7M7 7l1 13h8l1-13M10.5 11v5.5M13.5 11v5.5"/></svg></button>
     <span class="kopf__trenn"></span>
     <button class="kn kn--klein kn--ohne neu" id="btnNeu"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span>Übersicht</span></button>
-    <button class="rund" data-livre="1" data-tip="Le Livre" aria-label="Le Livre im Studio öffnen"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg></button>
+    <button class="rund" data-livre="1" data-tip="Markenbuch" aria-label="Markenbuch im Studio öffnen"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg></button>
     <button class="rund hilfe" id="btnHilfe" data-tip="Hilfe" aria-label="Hilfe"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.1-2.4 3.6M12 17.2v.1"/></svg></button>
     <button class="kn kn--klein kn--ohne pruef" id="btnPruefen"><span class="pruef__zahl" id="pruefZahl">0</span><span class="pruef__t">Druckprüfung</span></button>
     <div class="ausgabe">
@@ -137,7 +137,7 @@ document.write('<link rel="stylesheet" href="'+b+'hell.css?v=15-pr"><link rel="s
         <button data-neu="flaeche" title="Fläche"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="12" rx="1.5" fill="currentColor" fill-opacity=".25"/></svg><span>Fläche</span></button>
         <button data-neu="rahmen" title="Rahmen"><svg viewBox="0 0 24 24"><rect x="4.5" y="5.5" width="15" height="13" rx="2"/><rect x="7" y="8" width="10" height="8" rx="1"/></svg><span>Rahmen</span></button>
         <i class="insel__trenn"></i>
-        <button data-livre="1" title="Le Livre: Fotos, Logo, Zeichen, Tapete, Farben"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg><span>Le Livre</span></button>
+        <button data-livre="1" title="Markenbuch: Fotos, Logo, Zeichen, Tapete, Farben"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg><span>Markenbuch</span></button>
       </div>
       <div class="seitenwahl" id="seitenwahl"></div>
     </div>
@@ -159,7 +159,7 @@ document.write('<link rel="stylesheet" href="'+b+'hell.css?v=15-pr"><link rel="s
 <div class="dialog" id="dialog" hidden><div class="dialog__karte" id="dialogKarte"></div></div>
 <div class="start ms" id="start" hidden>
   <aside class="ms-leiste">
-    <div class="ms-marke"><span class="ms-zeichen" id="kapitelZeichen"></span><div><b>Carlton-Europe</b><small>L’Imprimerie</small></div></div>
+    <div class="ms-marke"><span class="ms-zeichen" id="kapitelZeichen"></span><div><b>Carlton-Europe</b><small>Drucksachen & Feed</small></div></div>
     <span class="ms-haar"></span>
     <button class="kn ms-kn-gold glanz-kn" data-akt="neu"><span>Neu erstellen</span><i><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></button>
     <nav class="ms-nav ms-nav--haupt" id="msNav"><span class="ms-gleiter" aria-hidden="true"></span>
@@ -173,19 +173,19 @@ document.write('<link rel="stylesheet" href="'+b+'hell.css?v=15-pr"><link rel="s
       <button data-ansicht="freigegeben"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="m9.5 10 1.8 1.8 3.4-3.6M8.5 15 7 21l5-2.5 5 2.5-1.5-6"/></svg><span>Freigegeben</span><em id="fgZahl">0</em></button>
       <button data-ansicht="neu"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg><span>Arten und Vorlagen</span><em>12</em></button>
       <button data-ansicht="fotos"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 16l5-5 4 4 2.5-2.5L20 17M15.5 8.2a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6"/></svg><span>Fotos des Hauses</span><em id="fotoZahl"></em></button>
-      <button data-ansicht="livre"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg><span>Le Livre</span></button>
+      <button data-ansicht="livre"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg><span>Markenbuch</span></button>
       <button data-ansicht="marke"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.5-.8 1.5-1.6 0-1.3-1-1.6-1-2.6 0-.8.7-1.3 1.5-1.3H16a5 5 0 0 0 5-5c0-4-4-7.5-9-7.5zM7.5 11.5h.01M10 7.5h.01M15 7.5h.01"/></svg><span>Marke des Hauses</span></button>
     </nav>
     <div class="ms-fuss"><button id="startRundgang"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg><span>Kurzer Rundgang</span></button><button id="startHilfe"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.1-2.4 3.6M12 17.2v.1"/></svg><span>Hilfe und Führung</span></button><small>Alles bleibt in diesem Browser gespeichert</small></div>
   </aside>
   <header class="ms-kopf">
     <button class="rund ms-bereiche" id="msBereiche" type="button" aria-label="Bereiche" aria-expanded="false" aria-controls="msNav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
-    <span class="ms-kopf-zeichen" id="msKopfZeichen"></span><span class="ms-kopf-name"><b>L’Imprimerie</b><small>Drucksachen · Carlton-Europe</small></span>
+    <span class="ms-kopf-zeichen" id="msKopfZeichen"></span><span class="ms-kopf-name"><b>Drucksachen & Feed</b><small>Drucksachen · Carlton-Europe</small></span>
     <label class="ms-suche"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input type="search" id="startSuche" placeholder="Suchen …" aria-label="Suchen"><kbd>⌘ K</kbd></label>
     <span class="ms-frei"></span>
     <button class="kn kn--klein kn--ohne start__zu" id="startZu" hidden><svg viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></svg><span>Zurück zur Drucksache</span></button>
     <a class="rund ms-rund ms-pruef" href="pruefung.html" target="_blank" rel="noopener" data-tip="Prüfung" aria-label="Prüfung: ist alles in Ordnung?"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 10 4-1.7 7-5.6 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></a>
-    <button class="rund ms-rund" data-ansicht="livre" data-tip="Le Livre" aria-label="Le Livre"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg></button>
+    <button class="rund ms-rund" data-ansicht="livre" data-tip="Markenbuch" aria-label="Markenbuch"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.6-1 5.2-.8 8 1 2.8-1.8 5.4-2 8-1v13c-2.6-1-5.2-.8-8 1-2.8-1.8-5.4-2-8-1z"/><path d="M12 6.5v13"/></svg></button>
     <button class="kn kn--klein ms-kn-neu" data-akt="neu"><span>Neu</span><i><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></button>
   </header>
   <div class="start__in ms-haupt">
@@ -295,7 +295,7 @@ function zu(){s.classList.remove('leiste-auf');k.setAttribute('aria-expanded','f
 k.addEventListener('click',function(e){e.stopPropagation();var auf=!s.classList.contains('leiste-auf');s.classList.toggle('leiste-auf',auf);k.setAttribute('aria-expanded',String(auf));});
 s.addEventListener('click',function(e){if(!s.classList.contains('leiste-auf'))return;if(e.target.closest('.ms-leiste [data-ansicht],.ms-leiste [data-akt],.ms-leiste .ms-fuss button'))return setTimeout(zu,0);if(!e.target.closest('.ms-leiste'))zu();});
 addEventListener('keydown',function(e){if(e.key==='Escape')zu();});})();</script>
-<script>/* «Zur Werkbank» (R19): nur wenn aus der Werkbank geöffnet. Online liegt L’Imprimerie auf der Adresse des Hauses (werkzeuge/imprimerie/),
+<script>/* «Zur Werkbank» (R19): nur wenn aus der Werkbank geöffnet. Online liegt Drucksachen & Feed auf der Adresse des Hauses (werkzeuge/imprimerie/),
    lokal auf eigenem Server: dann data-fremd, die Werkbank-Adresse kommt aus dem Link. */
 (function(){var s=document.createElement('script');s.src='zur-werkbank.js?v=7';s.defer=true;s.setAttribute('data-neben','.ms-leiste');s.setAttribute('data-luft','40');if(!/\/werkzeuge\/imprimerie\//.test(location.pathname))s.setAttribute('data-fremd','');document.body.appendChild(s);})();</script>
 <script src="/werkzeuge/demo-aus.js" defer></script><script src="../../besuch.js" defer></script>

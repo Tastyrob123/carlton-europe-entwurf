@@ -1,5 +1,5 @@
-/* L’Imprimerie des Carlton-Europe: Bühne über jeder Ansicht und Knopf zurück zu La Maison (Robert 15.10.2026).
-   «Heroes richtig schön, geil, luxuriös, edel», Vorbild Le Bureau des Carlton-Europe: blaue Tafel mit Tapete, Goldrahmen innen,
+/* Drucksachen & Feed des Carlton-Europe: Bühne über jeder Ansicht und Knopf zurück zu «Kontrollpanel» (Robert 15.10.2026).
+   «Heroes richtig schön, geil, luxuriös, edel», Vorbild Website bearbeiten des Carlton-Europe: blaue Tafel mit Tapete, Goldrahmen innen,
    Foto des Hauses rechts mit weichem Übergang, Titel links. Gleiche Sprache wie Grand Beau-Rivage/website/studio/buehne.js.
    «In allen Tools zurück in die Maison kommen» → runder Knopf mit Haus in beiden Kopfzeilen.
    Nur für dieses Haus geladen (index.html, HAUS_STIL). Entfernen = vorheriger Stand. */
@@ -54,7 +54,7 @@
   }
   function knopf(cls) {
     var a = document.createElement('a'); a.className = 'rund ' + cls; a.href = MAISON;
-    a.setAttribute('aria-label', 'Zurück zu La Maison'); a.setAttribute('data-tip', 'La Maison'); a.innerHTML = HAUS;
+    a.setAttribute('aria-label', 'Zurück zu «Kontrollpanel»'); a.setAttribute('data-tip', 'Kontrollpanel'); a.innerHTML = HAUS;
     return a;
   }
   function maison() {

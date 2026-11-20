@@ -1,4 +1,4 @@
-/* L’Imprimerie · Carlton-Europe · Katalog des Hauses. GESCHRIEBEN VON _qa/vorlagen_carlton.py, nicht von Hand ändern.
+/* Drucksachen & Feed · Carlton-Europe · Katalog des Hauses. GESCHRIEBEN VON _qa/vorlagen_carlton.py, nicht von Hand ändern.
    Rund 250 fertig gesetzte Vorlagen nur aus Anlässen dieses Hauses (Hotelinformation A–Z, Website, PDF-Unterlagen), jede öffnet ohne KI und ohne Kosten.
    Jede Uhrzeit, jeder Preis, jede Telefonnummer ist gegen _gast/wissen.txt geprüft. Was das Haus pro Fall einträgt, steht in [eckigen Klammern].
    Veranstaltungen der Region: Seite «Veranstaltungen» des Hauses (Interlaken Tourismus, gelesen am 13. Oktober 2026). */

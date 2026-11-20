@@ -1,9 +1,9 @@
-/* L’Imprimerie · Le Livre im Haus (Robert 12.10.2026: «von L’Imprimerie aus auf Le Livre zugreifen, ich arbeite ja mit meinen Visuals in L’Imprimerie»).
-   1. Startseite: eigener Punkt «Le Livre» (und runde Taste oben) mit Bildarchiv, Logo und Dateien, Farben zum Kopieren.
-   2. Editor: Fach «Le Livre» neben den Werkzeugen. Foto, Logo, Wortmarke, Zeichen, Tapete per Klick einsetzen oder aufs Blatt ziehen;
+/* Drucksachen & Feed · Markenbuch im Haus (Robert 12.10.2026: «von «Drucksachen & Feed» aus auf «Markenbuch» zugreifen, ich arbeite ja mit meinen Visuals in Drucksachen & Feed»).
+   1. Startseite: eigener Punkt «Markenbuch» (und runde Taste oben) mit Bildarchiv, Logo und Dateien, Farben zum Kopieren.
+   2. Editor: Fach «Markenbuch» neben den Werkzeugen. Foto, Logo, Wortmarke, Zeichen, Tapete per Klick einsetzen oder aufs Blatt ziehen;
       Farbe per Klick auf das gewählte Element (sonst auf den Grund der Seite).
-   3. «Mit Le Livre prüfen»: die Seite als Bild an die Markenprüfung von Le Livre (/marke/api/pruefen), Ergebnis neben dem Blatt.
-   Daten: DS.M.livre (satz.js lädt /marke/livre.json). Ohne Le Livre bleibt alles verborgen. */
+   3. «Mit «Markenbuch» prüfen»: die Seite als Bild an die Markenprüfung von «Markenbuch» (/marke/api/pruefen), Ergebnis neben dem Blatt.
+   Daten: DS.M.livre (satz.js lädt /marke/livre.json). Ohne Markenbuch bleibt alles verborgen. */
 (function () {
   const DS = window.DS;
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -25,7 +25,7 @@
   async function kopiere(t) { try { await navigator.clipboard.writeText(t); } catch (e) { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); } }
   const melde = (t, ms) => S() && S().melde(t, ms);
 
-  /* ================= Startseite: Le Livre als eigene Ansicht ================= */
+  /* ================= Startseite: Markenbuch als eigene Ansicht ================= */
   let reiter = 'bilder';
   function ansicht() {
     const box = $('#msLivre'); if (!box || !L()) return;
@@ -33,16 +33,16 @@
       box.dataset.gebaut = 1;
       box.innerHTML = `<div class="ms-titel"><h1>Le Livre</h1><span class="ms-leise">Das Markenbuch des Hauses, hier in L’Imprimerie: Fotos, Logo und Dateien, Farben. Was Sie hier sehen, ist dieselbe Quelle wie in Le Livre.</span></div>
         <div class="ll-kopf"><div class="ms-chips ll-reiter">${[['bilder', 'Bildarchiv'], ['dateien', 'Logo und Dateien'], ['farben', 'Farben']].map(([k, t]) => `<button data-llreiter="${k}">${t}</button>`).join('')}</div>
-          <a class="ms-lnk" href="${DS.livreSeite()}" target="_blank" rel="noopener"><span>Le Livre öffnen</span>${IC.pfeil}</a></div>
+          <a class="ms-lnk" href="${DS.livreSeite()}" target="_blank" rel="noopener"><span>Markenbuch öffnen</span>${IC.pfeil}</a></div>
         <div class="ll-fach" data-llfach="bilder"><div id="llBilderPlatz"></div></div>
         <div class="ll-fach" data-llfach="dateien">${dateienHtml()}</div>
-        <div class="ll-fach" data-llfach="farben"><p class="ms-leise ll-satz">Ein Klick kopiert den Farbwert. In einem Medium legt das Fach «Le Livre» im Editor die Farbe direkt auf das gewählte Element.</p><div class="ll-farben">${L().farben.map((c, i) => `<button class="ll-farbe" data-hex="${c.h}" style="--i:${i}"><i style="background:${c.h}"></i><b>${esc(c.n)}</b><code>${esc(c.h)}</code><small>${esc(c.r || '')}</small><span class="ll-kopiert">Kopiert</span></button>`).join('')}</div></div>`;
+        <div class="ll-fach" data-llfach="farben"><p class="ms-leise ll-satz">Ein Klick kopiert den Farbwert. In einem Medium legt das Fach «Markenbuch» im Editor die Farbe direkt auf das gewählte Element.</p><div class="ll-farben">${L().farben.map((c, i) => `<button class="ll-farbe" data-hex="${c.h}" style="--i:${i}"><i style="background:${c.h}"></i><b>${esc(c.n)}</b><code>${esc(c.h)}</code><small>${esc(c.r || '')}</small><span class="ll-kopiert">Kopiert</span></button>`).join('')}</div></div>`;
       box.addEventListener('click', klickAnsicht);
     }
     zeigeReiter(reiter);
   }
   function dateienHtml() {
-    return `<p class="ms-leise ll-satz">Zum Laden als SVG (für Druckerei und Agentur) oder PNG (für Office und Mail). In einem Medium setzt das Fach «Le Livre» im Editor Logo, Wortmarke und Zeichen direkt aufs Blatt.</p>
+    return `<p class="ms-leise ll-satz">Zum Laden als SVG (für Druckerei und Agentur) oder PNG (für Office und Mail). In einem Medium setzt das Fach «Markenbuch» im Editor Logo, Wortmarke und Zeichen direkt aufs Blatt.</p>
       <div class="ll-dateien">${L().dateien.filter(d => d.var && d.var.length).map(d => d.var.map(v => {
         const svg = v.dateien.find(x => x.endsWith('.svg')), png = v.dateien.find(x => x.endsWith('.png')), webp = v.dateien.find(x => x.endsWith('.webp'));
         const bild = !(svg || png || webp) ? `<span class="ll-d__f ll-d__f--${v.grund}"><em class="ll-d__art">${esc(v.dateien[0].split('.').pop().toUpperCase())}</em></span>` : d.k === 'tapete' ? `<span class="ll-d__f ll-d__f--${v.grund}" style="background-image:url('/marke/dateien/${webp || png}')"></span>` : `<span class="ll-d__f ll-d__f--${v.grund}"><img src="/marke/dateien/${svg || png}" alt="" loading="lazy" decoding="async"></span>`;
@@ -65,7 +65,7 @@
     if (f) { await kopiere(f.dataset.hex); f.classList.add('kopiert'); setTimeout(() => f.classList.remove('kopiert'), 1400); melde(`${f.querySelector('b').textContent} ${f.dataset.hex} kopiert.`); }
   }
 
-  /* ================= Editor: Fach «Le Livre» neben den Werkzeugen ================= */
+  /* ================= Editor: Fach «Markenbuch» neben den Werkzeugen ================= */
   let fach = null, fachReiter = 'fotos', fGruppe = 'alle', fHerkunft = 'alle';
   function fachAuf(an) {
     if (!L()) return;
@@ -76,11 +76,11 @@
     if (an) { requestAnimationFrame(() => fach.classList.add('auf')); zeichneFach(); } else fach.classList.remove('auf');
   }
   function baueFach() {
-    fach = document.createElement('aside'); fach.className = 'lf'; fach.hidden = true; fach.setAttribute('aria-label', 'Le Livre');
-    fach.innerHTML = `<div class="lf__kopf"><span class="lf__z">${DS.zeichenSvg(DS.M, 'currentColor')}</span><div><b>Le Livre</b><small>Klicken setzt ein, Ziehen legt ab</small></div><button class="rund rund--klein" data-lf="zu" aria-label="Fach schliessen">${IC.zu}</button></div>
+    fach = document.createElement('aside'); fach.className = 'lf'; fach.hidden = true; fach.setAttribute('aria-label', 'Markenbuch');
+    fach.innerHTML = `<div class="lf__kopf"><span class="lf__z">${DS.zeichenSvg(DS.M, 'currentColor')}</span><div><b>Markenbuch</b><small>Klicken setzt ein, Ziehen legt ab</small></div><button class="rund rund--klein" data-lf="zu" aria-label="Fach schliessen">${IC.zu}</button></div>
       <div class="segment segment--klein lf__reiter">${[['fotos', 'Fotos'], ['marke', 'Logo & Zeichen'], ['farben', 'Farben']].map(([k, t]) => `<button data-lfreiter="${k}">${t}</button>`).join('')}</div>
       <div class="lf__in" id="lfIn"></div>
-      <div class="lf__fuss"><button class="kn knopf--voll glanz-kn lf__pruef" data-lf="pruefen"><span>Mit Le Livre prüfen</span><i>${IC.pruef}</i></button><small>Die Prüfung nutzt die KI. Vorher fragt das Studio nach.</small></div>`;
+      <div class="lf__fuss"><button class="kn knopf--voll glanz-kn lf__pruef" data-lf="pruefen"><span>Mit «Markenbuch» prüfen</span><i>${IC.pruef}</i></button><small>Die Prüfung nutzt die KI. Vorher fragt das Studio nach.</small></div>`;
     $('.studio').appendChild(fach);   // liegt über der linken Spalte, das Blatt bleibt frei
     fach.addEventListener('click', klickFach);
     fach.addEventListener('input', e => { if (e.target.id === 'lfSuche') { clearTimeout(fach._t); fach._t = setTimeout(zeichneFotos, 140); } });
@@ -166,16 +166,16 @@
     }, true);
   }
 
-  /* ================= Markenprüfung aus L’Imprimerie ================= */
+  /* ================= Markenprüfung aus «Drucksachen & Feed» ================= */
   let platte = null;
   async function pruefen() {
     const st = S(), doc = st.doc();
-    const ja = await st.dialog(`<h2>Mit Le Livre prüfen</h2>
-      <p class="leise">Die Prüfung nutzt die KI (Claude). Das Bild dieser Seite geht an die Markenprüfung von Le Livre: Die Farben misst Le Livre selbst, Bild, Schrift, Zeichen, Abstand und Ton beurteilt die KI nach den Regeln des Markenbuchs. Gespeichert wird nichts. Dauer etwa eine halbe Minute.</p>`,
+    const ja = await st.dialog(`<h2>Mit «Markenbuch» prüfen</h2>
+      <p class="leise">Die Prüfung nutzt die KI (Claude). Das Bild dieser Seite geht an die Markenprüfung von «Markenbuch»: Die Farben misst Markenbuch selbst, Bild, Schrift, Zeichen, Abstand und Ton beurteilt die KI nach den Regeln des Markenbuchs. Gespeichert wird nichts. Dauer etwa eine halbe Minute.</p>`,
       [{ t: 'Abbrechen', v: false }, { t: 'Jetzt prüfen', v: true, haupt: true }]);
     if (!ja) return;
     if (st.textEnde) st.textEnde();
-    const stopp = st.lader('Le Livre prüft', ['Die Seite als Bild rechnen', 'Farben gegen die Palette messen', 'Bild, Schrift und Zeichen beurteilen', 'Abstand und Ton lesen', 'Ergebnis zusammenstellen']);
+    const stopp = st.lader('Markenbuch prüft', ['Die Seite als Bild rechnen', 'Farben gegen die Palette messen', 'Bild, Schrift und Zeichen beurteilen', 'Abstand und Ton lesen', 'Ergebnis zusammenstellen']);
     try {
       const blob = await DS.png(DS.M, doc, st.seiteNr(), 1400);
       const daten = await new Promise((ok, nein) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = nein; r.readAsDataURL(blob); });
@@ -183,7 +183,7 @@
       let j = {}; try { j = await r.json(); } catch (x) { /* leer */ }
       if (!r.ok) throw new Error(String(j.fehler || ('Fehler ' + r.status)).replace(/^[A-ZÄÖÜ]+ · /, ''));
       zeigeErgebnis(j);
-    } catch (x) { st.melde('Die Prüfung hat nicht geklappt: ' + (x.message === 'Failed to fetch' ? 'Le Livre ist nicht erreichbar.' : x.message), 8000); }
+    } catch (x) { st.melde('Die Prüfung hat nicht geklappt: ' + (x.message === 'Failed to fetch' ? 'Markenbuch ist nicht erreichbar.' : x.message), 8000); }
     finally { stopp(); }
   }
   const URTEIL = { passt: 'passt', achten: 'achten', passt_nicht: 'passt nicht' };
@@ -196,7 +196,7 @@
     const sonder = [m.schwarz > .01 ? `Reines Schwarz auf ${pr(m.schwarz)} % der Fläche. Geschrieben wird in Tinte #0C1526.` : '', m.tuerkis > .01 ? `Türkis auf ${pr(m.tuerkis)} % der Fläche.` : '', m.rot > .02 ? `Kaminbar-Rot auf ${pr(m.rot)} % der Fläche, nur sparsam.` : ''].filter(Boolean);
     if (!platte) { platte = document.createElement('aside'); platte.className = 'lp'; $('.studio').appendChild(platte); platte.addEventListener('click', e => { const b = e.target.closest('[data-lp]'); if (!b) return; if (b.dataset.lp === 'zu') platte.hidden = true; if (b.dataset.lp === 'nochmal') pruefen(); }); }
     const zahl = { passt: 0, achten: 0, passt_nicht: 0 }; punkte.forEach(p => zahl[p.urteil] = (zahl[p.urteil] || 0) + 1);
-    platte.innerHTML = `<div class="lp__kopf"><div><p class="mono">Markenprüfung · Le Livre${k.art ? ' · ' + esc(k.art) : ''}</p><h3>Ergebnis</h3></div><button class="rund rund--klein" data-lp="zu" aria-label="Schliessen">${IC.zu}</button></div>
+    platte.innerHTML = `<div class="lp__kopf"><div><p class="mono">Markenprüfung · Markenbuch${k.art ? ' · ' + esc(k.art) : ''}</p><h3>Ergebnis</h3></div><button class="rund rund--klein" data-lp="zu" aria-label="Schliessen">${IC.zu}</button></div>
       ${j.ki_fehler ? `<p class="lp__hinweis">Die KI konnte nicht prüfen (${esc(j.ki_fehler)}). Die Farbmessung steht unten.</p>` : `<p class="lp__gesamt">${esc(k.gesamt || '')}</p>
       <div class="lp__zahlen">${['passt_nicht', 'achten', 'passt'].map(u => `<span class="lp__z lp__z--${u}"><b>${zahl[u] || 0}</b>${URTEIL[u]}</span>`).join('')}</div>
       <ol class="lp__punkte">${punkte.map((p, i) => `<li class="lp__p lp__p--${esc(p.urteil)}" style="--i:${i}"><span class="lp__m"><em>${esc(URTEIL[p.urteil] || p.urteil)}</em><small>${esc(BEREICH[p.bereich] || p.bereich)}</small></span><span><b>${esc(p.titel)}</b>${esc(p.text)}</span></li>`).join('')}</ol>

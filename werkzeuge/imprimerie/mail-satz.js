@@ -1,4 +1,4 @@
-/* L’Imprimerie · Newsletter-Baukasten, Satz der E-Mail (Robert 12.10.2026: «Newsletter und E-Mail-Vorlagen», bisher nur als Bild).
+/* Drucksachen & Feed · Newsletter-Baukasten, Satz der E-Mail (Robert 12.10.2026: «Newsletter und E-Mail-Vorlagen», bisher nur als Bild).
    Erzeugt echte, versendbare HTML-Mails: 600 px, Tabellen, alle Stile inline, damit Gmail, Apple Mail und Outlook sie gleich zeigen.
    Hausschriften laden nur Apple Mail und iOS; Gmail und Outlook nehmen die sicheren Ersatzschriften (Georgia, Helvetica/Arial).
    Zeichen und Wortmarke sind Bilder (_kopf.png, _fuss.png), weil kein Mailprogramm SVG zuverlässig zeigt.
