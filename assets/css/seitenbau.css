@@ -1806,3 +1806,6 @@ html body :is(#hz,#pauschalen) .st__preis{justify-content:center;text-align:cent
 /* 16.10.2026, 18:50: das Hereinschweben der Packages läuft jetzt über seitenbau.js (auch in Safari), die Reihe selbst steht still */
 html:not(#a):not(#b) #pakete .pk9-wrap[data-r],html:not(#a):not(#b) #pakete .pk9-wrap[data-r].da{animation:none!important;translate:none!important}
 #pakete .pk9{will-change:translate}
+
+/* Prüfung 20.11.2026: Am Handy ragte die Beschriftung «Bahnhof Interlaken Ost» über den Rand der Karte; schmal bricht sie jetzt um. */
+@media (max-width:700px){html:not(#q1) .pkw--ort{white-space:normal;width:34%;line-height:1.35}}
