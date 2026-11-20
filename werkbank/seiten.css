@@ -130,3 +130,6 @@
 .ausklang--werkzeug{background:var(--papier);color:var(--tinte)}
 .ausklang--werkzeug p{color:var(--tinte)}
 .ausklang--werkzeug+.ausklang{margin-top:calc(var(--rund)*-1)}
+
+/* Prüfung 20.11.2026 (Leerraum-Regel): Die breite Kachel in einer Reihe mit höheren Nachbarn (Drucksachen, «Parkkarte») hatte unter dem Bild eine leere Fläche; das Bild füllt jetzt die ganze Höhe der Kachel. */
+html:not(#q1) .raster-p .kachel.gross3 .kachel__b{height:auto;align-self:stretch}
